@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 02 課後複習｜名詞系統 + 121–138</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #1B2D5C;
+    --navy-lt:  #2C4480;
+    --amber:    #F59E0B;
+    --amber-lt: #FEF3C7;
+    --green:    #059669;
+    --green-lt: #D1FAE5;
+    --red:      #DC2626;
+    --red-lt:   #FEE2E2;
+    --sky:      #0EA5E9;
+    --sky-lt:   #E0F2FE;
+    --gray-50:  #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --white:    #FFFFFF;
+    --radius:   12px;
+    --shadow:   0 2px 12px rgba(0,0,0,0.08);
+    --shadow-md:0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── TOP NAV ── */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo { font-weight: 700; font-size: 17px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── SECTIONS ── */
+  section { display: none; }
+  section.active { display: block; }
+
+  /* ── HERO CARDS ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .icon {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── 5 SKILLS GRID ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+  .skill-item {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .skill-num {
+    font-size: 28px; font-weight: 700; color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+  }
+  .skill-name { font-size: 14px; font-weight: 600; color: var(--gray-600); margin-top: 4px; }
+  .skill-desc { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
+
+  /* ── STEP FLOW ── */
+  .step-flow { display: flex; gap: 0; flex-wrap: wrap; }
+  .step {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 12px;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--amber);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .step-label { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .step-sub { font-size: 11px; color: var(--gray-400); margin-top: 3px; }
+
+  /* ── SENTENCE PATTERN CARDS ── */
+  .pattern-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .pattern-card {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .pattern-header {
+    background: var(--navy);
+    color: white;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pattern-header .badge {
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .pattern-body { padding: 14px 16px; }
+  .pattern-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--amber);
+    margin-bottom: 10px;
+  }
+  .pattern-example { font-size: 14px; color: var(--gray-600); font-style: italic; }
+  .pattern-example strong { color: var(--navy); font-style: normal; }
+
+  /* ── VERB TABLE ── */
+  .verb-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 680px) { .verb-section { grid-template-columns: 1fr; } }
+  .verb-box { background: var(--gray-50); border-radius: 10px; padding: 20px; border: 1.5px solid var(--gray-200); }
+  .verb-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: white; background: var(--navy); display: inline-block; padding: 4px 12px; border-radius: 6px; }
+  .verb-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .verb-tag {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .verb-tag.has-prep { border-color: var(--amber); }
+
+  /* ── TRAP EXAMPLES ── */
+  .trap-pair { background: var(--gray-50); border-radius: 10px; padding: 16px; margin-bottom: 12px; border: 1.5px solid var(--gray-200); }
+  .trap-wrong { color: var(--red); font-size: 14px; margin-bottom: 6px; }
+  .trap-right { color: var(--green); font-size: 14px; }
+  .trap-wrong::before { content: '❌ '; }
+  .trap-right::before { content: '✅ '; }
+  .trap-reason { font-size: 12px; color: var(--gray-400); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--gray-200); }
+
+  /* ── TOEIC QUESTIONS ── */
+  .q-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .q-num { background: var(--navy); color: white; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 6px; font-family: 'Inter', sans-serif; }
+  .q-type { background: var(--sky-lt); color: var(--sky); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .q-star { background: var(--amber-lt); color: var(--amber); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+
+  .q-sentence {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    border-left: 3px solid var(--navy);
+  }
+  .q-translation { font-size: 13px; color: var(--gray-400); margin-bottom: 16px; padding-left: 4px; }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  @media (max-width: 520px) { .options { grid-template-columns: 1fr; } }
+  .option {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+  .option:hover { border-color: var(--navy); background: var(--gray-50); }
+  .option.correct { background: var(--green-lt); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: var(--red-lt); border-color: var(--red); color: var(--red); }
+  .option-label {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .option.correct .option-label { background: var(--green); color: white; }
+  .option.wrong .option-label { background: var(--red); color: white; }
+
+  .reveal-btn {
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .reveal-btn:hover { background: var(--navy-lt); }
+
+  .explanation { display: none; }
+  .explanation.show { display: block; }
+
+  .answer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-lt);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .explain-block {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--sky);
+  }
+  .explain-block h4 { font-size: 12px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .explain-block p, .explain-block li { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+  .vocab-row { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-top: 8px; }
+  .vocab-word { font-family: 'JetBrains Mono', monospace; color: var(--navy); font-weight: 600; }
+  .vocab-def { color: var(--gray-600); }
+
+  .key-point {
+    background: var(--amber-lt);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--gray-800);
+    margin-top: 10px;
+  }
+  .key-point strong { color: #92400E; }
+
+  /* ── Q GRID ── */
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+
+  /* ── SUMMARY CARDS ── */
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .summary-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1.5px solid var(--gray-200);
+  }
+  .summary-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .summary-card .formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .summary-card ul { list-style: none; }
+  .summary-card ul li { font-size: 13px; color: var(--gray-600); padding: 3px 0; border-bottom: 1px solid var(--gray-100); }
+  .summary-card ul li:last-child { border: none; }
+
+  /* ── PRACTICE SECTION ── */
+  .practice-intro {
+    background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .practice-intro .icon { font-size: 48px; flex-shrink: 0; }
+  .practice-intro h2 { font-size: 20px; font-weight: 700; }
+  .practice-intro p { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 6px; }
+
+  /* ── SCORE TRACKER ── */
+  .score-bar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .score-bar label { font-size: 13px; color: var(--gray-600); font-weight: 500; }
+  .score-val { font-size: 24px; font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .score-bar .bar { flex: 1; min-width: 200px; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+  .score-bar .bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--navy)); border-radius: 4px; transition: width 0.5s; }
+  .reset-btn {
+    background: none;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--gray-600);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── PROGRESS DOTS ── */
+  .progress-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .p-dot {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .p-dot:hover { background: var(--gray-300); }
+  .p-dot.answered { background: var(--green-lt); color: var(--green); border: 1.5px solid var(--green); }
+  .p-dot.wrong { background: var(--red-lt); color: var(--red); border: 1.5px solid var(--red); }
+  .p-dot.current { background: var(--navy); color: white; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+
+  /* ── HIGHLIGHTED ── */
+  .hl-amber { background: var(--amber-lt); color: #92400E; padding: 0 4px; border-radius: 3px; font-weight: 600; }
+  .hl-green { background: var(--green-lt); color: var(--green); padding: 0 4px; border-radius: 3px; font-weight: 600; }
+  .hl-sky { background: var(--sky-lt); color: #0369A1; padding: 0 4px; border-radius: 3px; font-weight: 600; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; height: auto; padding: 12px 0; gap: 10px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .q-grid { grid-template-columns: 1fr; }
+    .pattern-grid { grid-template-columns: 1fr; }
+    .step-flow { flex-direction: column; align-items: flex-start; }
+    .step::after { display: none; }
+    .progress-grid { grid-template-columns: repeat(5, 1fr); }
+    .hero { padding: 28px 22px; }
+    .hero h1 { font-size: 20px; }
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .section-sub { font-size: 14px; color: var(--gray-400); margin-bottom: 28px; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--gray-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+<style>
+.article-block{background:#F8FAFC;border:1.5px solid #CBD5E1;border-radius:12px;padding:20px 22px;margin:0 0 18px;font-size:15px;line-height:2}
+.art-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:10px}
+.art-blank{background:var(--amber-lt);color:#92400E;font-weight:700;padding:1px 8px;border-radius:4px}
+.p6-group{background:var(--gray-50);border-radius:12px;padding:20px;margin-bottom:20px;border:1.5px solid var(--gray-200)}
+.p6-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.p6-label::after{content:"";flex:1;height:1px;background:var(--gray-200)}
+.noun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0}
+.noun-card{background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center}
+.nc-word{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);font-size:15px}
+.nc-zh{font-size:12px;color:var(--gray-400);margin-top:3px}
+.nc-rule{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:8px;display:inline-block}
+.nc-uncountable{background:var(--red-lt);color:var(--red)}
+.nc-countable{background:var(--green-lt);color:var(--green)}
+.qref-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.qref-table th,.qref-table td{border:1px solid var(--gray-200);padding:10px 14px;text-align:left;vertical-align:middle}
+.qref-table th{background:var(--navy);color:white;font-size:12px;font-weight:700}
+.qref-table td:first-child{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);background:var(--gray-50)}
+.trap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
+.trap-item{background:white;border-radius:10px;padding:14px;border:1.5px solid var(--gray-200)}
+.trap-wrong{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--red);background:var(--red-lt);padding:6px 10px;border-radius:6px;margin-bottom:6px}
+.trap-wrong::before{content:"❌ "}
+.trap-right{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);background:var(--green-lt);padding:6px 10px;border-radius:6px}
+.trap-right::before{content:"✅ "}
+.trap-reason{font-size:12px;color:var(--gray-400);margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 02</span> 名詞系統 + 121–138 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('grammar')">名詞核心觀念</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">121–138 練習題</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+<section id="grammar" class="active">
+
+<div class="hero">
+  <div class="hero-badge">Lesson 02 · 名詞系統</div>
+  <h1>搞懂名詞規則，Part 5 正確率直接提升 🎯</h1>
+  <p>TOEIC 考名詞不只考你知不知道中文意思，而是考你：這個名詞可不可數？要不要加 s？前面要不要加 a / an / the？</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">①</span>最重要的判斷問題</h2>
+  <div style="font-size:18px;font-weight:700;color:var(--navy);background:var(--amber-lt);border-radius:10px;padding:18px 22px;border-left:4px solid var(--amber);margin-bottom:16px">
+    這個名詞可不可以「一個、兩個、三個」地數？
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="background:var(--green-lt);border-radius:10px;padding:18px;border:1.5px solid #A7F3D0">
+      <div style="font-weight:700;color:var(--green);margin-bottom:10px">✅ 可數名詞 Countable</div>
+      <div style="font-size:13px;color:#064E3B;line-height:1.9">
+        可加 a / an<br>可加 s 變複數<br>可用 many、few、several<br><br>
+        <code>a student / two students</code><br><code>many employees</code>
+      </div>
+    </div>
+    <div style="background:var(--red-lt);border-radius:10px;padding:18px;border:1.5px solid #FECACA">
+      <div style="font-weight:700;color:var(--red);margin-bottom:10px">🚫 不可數名詞 Uncountable</div>
+      <div style="font-size:13px;color:#991B1B;line-height:1.9">
+        不能加 a / an<br>不能加 s<br>用 much、little、a piece of<br><br>
+        <code>information ✓</code><br><code>informations ✗</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">⚠️</span>TOEIC 高頻不可數名詞（這些絕對不加 s）</h2>
+  <div class="noun-grid">
+    <div class="noun-card"><div class="nc-word">information</div><div class="nc-zh">資訊</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">equipment</div><div class="nc-zh">設備</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">furniture</div><div class="nc-zh">家具</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">advice</div><div class="nc-zh">建議</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">knowledge</div><div class="nc-zh">知識</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">luggage</div><div class="nc-zh">行李</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">traffic</div><div class="nc-zh">交通</div><div class="nc-rule nc-uncountable">不可數</div></div>
+    <div class="noun-card"><div class="nc-word">research</div><div class="nc-zh">研究</div><div class="nc-rule nc-uncountable">不可數</div></div>
+  </div>
+  <div style="background:var(--amber-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#92400E;margin-top:4px">
+    <strong>要表示「一個」時：</strong> a piece of information / a piece of advice / a piece of equipment
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">②</span>量詞：many / much / few / little</h2>
+  <table class="qref-table">
+    <tr><th>後面名詞類型</th><th>多</th><th>少（幾乎沒有）</th><th>有一些</th></tr>
+    <tr><td>可數複數</td><td><strong>many</strong> employees</td><td><strong>few</strong> customers</td><td><strong>a few</strong> reports</td></tr>
+    <tr><td>不可數</td><td><strong>much</strong> information</td><td><strong>little</strong> time</td><td><strong>a little</strong> help</td></tr>
+  </table>
+  <div style="background:var(--sky-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#0369A1;margin-top:8px">
+    <strong>口訣：</strong> many / few → 可數複數　　much / little → 不可數
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">③</span>冠詞：a / an / the / 不加</h2>
+  <table class="qref-table">
+    <tr><th>用法</th><th>情況</th><th>例句</th></tr>
+    <tr><td>a / an</td><td>可數單數，不特定，第一次提到</td><td>I bought <strong>a</strong> book. / She is <strong>an</strong> engineer.</td></tr>
+    <tr><td>the</td><td>特定、雙方都知道哪個</td><td><strong>The</strong> book I bought was great.</td></tr>
+    <tr><td>the</td><td>最高級、序數、世界唯一</td><td><strong>the</strong> best / <strong>the</strong> first step / <strong>the</strong> sun</td></tr>
+    <tr><td>不加</td><td>複數可數泛指 / 不可數泛指</td><td>Employees need training. / Information is power.</td></tr>
+    <tr><td>不加</td><td>專有名詞</td><td>Taiwan / Google / Monday</td></tr>
+  </table>
+  <div style="background:var(--purple-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#4C1D95;margin-top:8px">
+    <strong>不可數名詞 + the：</strong> Information is useful.（泛指，不加）→ The information in this email is useful.（特定，加 the）
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">④</span>名詞字尾快速識別</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-tion / -sion</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">information, decision, communication</div></div>
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-ment</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">development, improvement, management</div></div>
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-ity</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">productivity, ability, quality</div></div>
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-ness</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">business, kindness, awareness</div></div>
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-ance / -ence</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">performance, experience, difference</div></div>
+    <div style="background:var(--gray-50);border-radius:8px;padding:12px;border:1.5px solid var(--gray-200)"><code>-ship</code><div style="font-size:12px;color:var(--gray-600);margin-top:6px">leadership, partnership, friendship</div></div>
+  </div>
+</div>
+
+</section>
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+
+<div class="hero">
+  <div class="hero-badge">陷阱整理 &amp; 快速查閱</div>
+  <h1>考試前複習這頁就夠了 📋</h1>
+  <p>把這堂課最容易考、最容易錯的搭配和規則全部整理在這裡。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🪤</span>名詞超常考陷阱</h2>
+  <div class="trap-grid">
+    <div class="trap-item">
+      <div class="trap-wrong">an information</div>
+      <div class="trap-right">a piece of information</div>
+      <div class="trap-reason">information 不可數，不能加 a</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">many informations</div>
+      <div class="trap-right">much information</div>
+      <div class="trap-reason">不可數名詞 → much，不是 many</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">new equipments</div>
+      <div class="trap-right">new equipment</div>
+      <div class="trap-reason">equipment 不可數，不加 s</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">an advice</div>
+      <div class="trap-right">a piece of advice</div>
+      <div class="trap-reason">advice 不可數，不能加 an</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">a five-days trip</div>
+      <div class="trap-right">a five-day trip</div>
+      <div class="trap-reason">合成名詞前面的名詞用單數</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">the Google</div>
+      <div class="trap-right">Google</div>
+      <div class="trap-reason">公司名稱是專有名詞，不加 the</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">one of my friend</div>
+      <div class="trap-right">one of my friends</div>
+      <div class="trap-reason">one of + 複數名詞</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">Everyone are ready.</div>
+      <div class="trap-right">Everyone is ready.</div>
+      <div class="trap-reason">everyone / everyone / nobody → 單數動詞</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📌</span>121–138 重點片語 &amp; 句型</h2>
+  <table class="qref-table">
+    <tr><th>片語 / 句型</th><th>中文</th><th>例句</th></tr>
+    <tr><td>not only A but also B</td><td>不但A，而且B（形式要平行）</td><td>not only mitigates but also reduces</td></tr>
+    <tr><td>It is worthwhile to V</td><td>做某事是值得的</td><td>It is worthwhile to learn English.</td></tr>
+    <tr><td>a range of + 複數N</td><td>一系列、各式各樣</td><td>a range of software programs</td></tr>
+    <tr><td>keep + O + adj.</td><td>讓…保持某狀態</td><td>keep meetings short</td></tr>
+    <tr><td>move into the mainstream</td><td>進入主流</td><td>Vegetarian food moved into the mainstream.</td></tr>
+    <tr><td>have an impact on</td><td>對…有影響</td><td>Diet has an impact on health.</td></tr>
+    <tr><td>be resistant to + N</td><td>對…有抵抗力</td><td>be resistant to most diseases</td></tr>
+    <tr><td>feed A with B</td><td>用B滋養A</td><td>feed our mind with positive ideas</td></tr>
+    <tr><td>see A as B</td><td>把A看作B</td><td>see their company as a system</td></tr>
+    <tr><td>be necessary to + N</td><td>對…是必要的</td><td>be necessary to the support of others</td></tr>
+    <tr><td>as good as</td><td>和…一樣好</td><td>as good as the advertising</td></tr>
+    <tr><td>in addition to + V-ing</td><td>除了…之外</td><td>In addition to attracting new customers</td></tr>
+    <tr><td>focus on + N / V-ing</td><td>專注於、重視</td><td>focus on customer service</td></tr>
+    <tr><td>N + that + V</td><td>關係代名詞修飾名詞</td><td>devices that yield results</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📊</span>121–138 考點速查</h2>
+  <table class="qref-table">
+    <tr><th>題號</th><th>答案</th><th>考點</th></tr>
+    <tr><td>121</td><td>A reduces</td><td>not only…but also 平行結構</td></tr>
+    <tr><td>122</td><td>C worthwhile</td><td>It is worthwhile to V</td></tr>
+    <tr><td>123</td><td>B range</td><td>a range of（一系列）</td></tr>
+    <tr><td>124</td><td>B globally</td><td>修飾動詞用副詞（-ly）</td></tr>
+    <tr><td>125</td><td>D short</td><td>keep O C（受詞補語）</td></tr>
+    <tr><td>126</td><td>A practice</td><td>diligent 後接名詞</td></tr>
+    <tr><td>127</td><td>C mainstream</td><td>move into the mainstream</td></tr>
+    <tr><td>128</td><td>C cause</td><td>不規律飲食 cause 問題</td></tr>
+    <tr><td>129</td><td>A uncomfortable</td><td>humor 緩解 uncomfortable 氣氛</td></tr>
+    <tr><td>130</td><td>C that</td><td>N + that + V 關係子句</td></tr>
+    <tr><td>131</td><td>C impact</td><td>have an impact on</td></tr>
+    <tr><td>132</td><td>A resistant</td><td>be resistant to（形容詞）</td></tr>
+    <tr><td>133</td><td>A determines</td><td>mental diet（單數）→ determines</td></tr>
+    <tr><td>134</td><td>B feed our mind</td><td>文章主旨：mental diet = 正面想法</td></tr>
+    <tr><td>135</td><td>B managers</td><td>商業語境判斷</td></tr>
+    <tr><td>136</td><td>B necessary</td><td>be necessary to</td></tr>
+    <tr><td>137</td><td>A as</td><td>as good as（同等比較）</td></tr>
+    <tr><td>138</td><td>D In addition to</td><td>also 前要有另一件事</td></tr>
+  </table>
+</div>
+
+</section>
+
+<!-- ===== TAB 3: 練習題 121-138 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>121–138 練習題</h2>
+    <p>Part 5（121–130）+ Part 6（131–138）。點選選項作答，再查看解析。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 18</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+
+<div id="questionsArea"></div>
+
+</section>
+
+</div><!-- /container -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── ARTICLE CONTEXTS ──
+const articles = {
+  p6a: {
+    label: 'Part 6 · 131–134 文章',
+    text: 'Our physical diet has a large <mark>---131---</mark> on our levels of health and energy. If we eat fresh, healthy, high-quality foods of all kinds and avoid the foods that are bad for us, we will have more energy, be generally <mark>---132---</mark> to most diseases, sleep better, and feel healthier and happier. In the same way, our mental diet largely <mark>---133---</mark> our character and personality. When we <mark>---134---</mark>, we develop a more positive and effective personality.',
+    zh: '我們的身體飲食對健康和能量水平有很大的影響。如果我們吃新鮮、健康、高品質的各類食物並避免對我們有害的食物，我們將更有能量，一般對大多數疾病有抵抗力，睡眠更好，感到更健康和快樂。同樣地，我們的心理飲食在很大程度上決定了我們的性格和人格。當我們 ______，我們會發展出更正面、有效的人格。'
+  },
+  p6b: {
+    label: 'Part 6 · 135–138 文章',
+    text: 'Successful <mark>---135---</mark> see their company as a series of interlocking parts. Each division is important on its own, but it is also <mark>---136---</mark> to the support of the others. That is the only way to be sure that the product is as good <mark>---137---</mark> the advertising. "The most important parts of the business world is, however, often invisible." The General Manager of Best-Tech Company says, "<mark>---138---</mark>, we also focus on the need for an efficient service department."',
+    zh: '成功的 ______ 把他們的公司看成一系列互相連結的部分。每個部門本身都很重要，但它對其他部門的支持也是 ______。這是唯一能確保產品和廣告一樣好的方式。「商業世界中最重要的部分，然而，通常是看不見的。」Best-Tech 公司的總經理說：「______，我們也重視對有效率服務部門的需求。」'
+  }
+};
+
+const questions = [
+  {
+    num: 121, type: '平行結構', star: true, part6: null,
+    sentence: "Recycling not only mitigates the impact on the environment but also ______ the wasting of our earth's limited resources.",
+    translation: '回收不只減輕對環境的影響，也 ______ 地球有限資源的浪費。',
+    options: ['reduces', 'reducing', 'reduced', 'being reduced'],
+    answer: 0,
+    logic: '句子裡有 not only A but also B，這個句型要求 A 和 B 的文法形式平行。前面 not only mitigates 是現在式三單動詞，所以 but also 後面也要用同樣形式：reduces。',
+    keyPoint: 'not only A but also B → A 和 B 文法形式要平行',
+    optionNotes: ['reduces：現在式三單動詞，和 mitigates 平行 ✅', 'reducing：V-ing，不平行', 'reduced：過去式，不平行', 'being reduced：被動 V-ing，結構不合'],
+    vocab: [['mitigate', '減輕、緩和'], ['impact', '影響'], ['limited resources', '有限資源']]
+  },
+  {
+    num: 122, type: '固定句型', star: false, part6: null,
+    sentence: 'Mr. Jackson always says that it is ______ to work hard when you are doing something that you truly enjoy.',
+    translation: 'Jackson 先生說，當你做自己真正喜歡的事，努力工作是 ______ 的。',
+    options: ['worthy', 'worthless', 'worthwhile', 'trustworthy'],
+    answer: 2,
+    logic: 'It is ______ to work hard，這裡最自然的固定句型是 It is worthwhile to V，意思是「做某事是值得的」。worthy 通常搭配 of，不接 to V。',
+    keyPoint: 'It is worthwhile to V = 做某事是值得的',
+    optionNotes: ['worthy：值得的，常搭 be worthy of', 'worthless：沒價值的（語意相反）', 'worthwhile：值得做的，接 to V ✅', 'trustworthy：值得信任的（語意不符）'],
+    vocab: [['worthwhile', '值得做的'], ['worthy', '值得的（常搭 of）'], ['trustworthy', '值得信任的']]
+  },
+  {
+    num: 123, type: '名詞搭配', star: false, part6: null,
+    sentence: 'Students in the class are asked to use a ______ of computer software programs to make videos.',
+    translation: '班上學生被要求使用一 ______ 電腦軟體程式來製作影片。',
+    options: ['type', 'range', 'line', 'kind'],
+    answer: 1,
+    logic: '後面是複數 programs，表示很多種不同的軟體，不是單一種類。a range of 表示「一系列、各式各樣」，後接複數名詞，最符合語意。',
+    keyPoint: 'a range of + 複數名詞 = 一系列、各式各樣',
+    optionNotes: ['type：a type of 接單數，表示單一種類', 'range：a range of 接複數，表示多樣 ✅', 'line：a line of products 是產品線', 'kind：a kind of 接單數'],
+    vocab: [['a range of', '一系列、各式各樣'], ['a type of', '一種（單一）'], ['a kind of', '一種（單一）']]
+  },
+  {
+    num: 124, type: '詞性 — 副詞', star: false, part6: null,
+    sentence: 'Mr. Smith mentions that we should think ______, stand outside the box, and see our workmates as friends.',
+    translation: 'Smith 先生說我們應該以 ______ 角度思考、跳出框架，並把同事視為朋友。',
+    options: ['global', 'globally', 'globalization', 'globalize'],
+    answer: 1,
+    logic: '空格前面是動詞 think，空格要修飾動詞，所以需要副詞。globally（-ly 字尾）是副詞，修飾 think。',
+    keyPoint: '修飾動詞用副詞（-ly 字尾）',
+    optionNotes: ['global：形容詞，修飾名詞', 'globally：副詞，修飾動詞 ✅', 'globalization：名詞', 'globalize：動詞'],
+    vocab: [['globally', '以全球角度'], ['think outside the box', '跳出框架'], ['workmate', '同事']]
+  },
+  {
+    num: 125, type: 'S + V + O + C', star: true, part6: null,
+    sentence: 'My boss thinks that meetings for reviews can be kept ______.',
+    translation: '我老闆認為檢討會議可以保持 ______。',
+    options: ['revised', 'enlarged', 'expanded', 'short'],
+    answer: 3,
+    logic: '這題連回上週的 S+V+O+C！keep + O + C（受詞補語）= 讓某物保持某狀態。這裡是 keep meetings short，short 是受詞補語，描述 meetings 的狀態。',
+    keyPoint: 'keep + O + adj. = 讓…保持某狀態（S+V+O+C）',
+    optionNotes: ['revised：被修改的（語意不符）', 'enlarged：被放大的（語意不符）', 'expanded：被擴大的（語意不符）', 'short：簡短的，keep meetings short ✅'],
+    vocab: [['keep O C', '讓…保持某狀態'], ['keep meetings short', '讓會議保持簡短']]
+  },
+  {
+    num: 126, type: '詞性 — 形容詞+名詞', star: false, part6: null,
+    sentence: 'Learning a foreign language well is not easy, and perfection only comes with diligent ______.',
+    translation: '學好外語並不容易，完美只會透過勤奮 ______ 而來。',
+    options: ['practice', 'practiced', 'practicing', 'practitioner'],
+    answer: 0,
+    logic: '空格前面是形容詞 diligent（勤奮的），形容詞後面通常接名詞。practice 作名詞表示「練習」，符合句意。',
+    keyPoint: '形容詞後面接名詞：diligent + practice（名詞）',
+    optionNotes: ['practice：名詞「練習」 ✅', 'practiced：形容詞「熟練的」', 'practicing：V-ing', 'practitioner：名詞「從業者」，語意不符'],
+    vocab: [['diligent', '勤奮的'], ['practice', '練習（名詞）'], ['practitioner', '從業者'], ['perfection', '完美']]
+  },
+  {
+    num: 127, type: '固定搭配', star: false, part6: null,
+    sentence: 'The vegetarian lifestyle has moved into the ______ in many parts of the world.',
+    translation: '素食生活方式在世界很多地方已進入 ______。',
+    options: ['strategy', 'examination', 'mainstream', 'accomplishment'],
+    answer: 2,
+    logic: '固定搭配：move into the mainstream = 進入主流。主詞是 vegetarian lifestyle，語意上進入「主流」最合理。',
+    keyPoint: 'move into the mainstream = 進入主流',
+    optionNotes: ['strategy：策略（語意不符）', 'examination：考試；檢查（語意不符）', 'mainstream：主流，固定搭配 ✅', 'accomplishment：成就（語意不符）'],
+    vocab: [['mainstream', '主流'], ['vegetarian', '素食的'], ['lifestyle', '生活方式'], ['accomplishment', '成就']]
+  },
+  {
+    num: 128, type: '動詞字義', star: false, part6: null,
+    sentence: 'Following irregular eating schedules can compromise the immune system and ______ some health problems.',
+    translation: '不規律的飲食時間會損害免疫系統並 ______ 一些健康問題。',
+    options: ['solve', 'promote', 'cause', 'compress'],
+    answer: 2,
+    logic: '主詞是「不規律的飲食時間」，它會「造成」健康問題，而不是解決或促進。cause = 造成，語意最合理。',
+    keyPoint: '不規律飲食 → cause（造成）health problems',
+    optionNotes: ['solve：解決（語意相反）', 'promote：促進（語意不符）', 'cause：造成 ✅', 'compress：壓縮（語意不符）'],
+    vocab: [['irregular', '不規律的'], ['compromise', '損害、危及'], ['immune system', '免疫系統'], ['cause', '造成']]
+  },
+  {
+    num: 129, type: '形容詞語意', star: false, part6: null,
+    sentence: 'In the office, humors can bring timely relief to an ______ atmosphere.',
+    translation: '在辦公室裡，幽默可以及時緩解 ______ 的氣氛。',
+    options: ['uncomfortable', 'unreasonable', 'unacceptable', 'unaccountable'],
+    answer: 0,
+    logic: 'humor（幽默）可以帶來 relief（緩解）。什麼樣的氣氛需要被緩解？最自然是 uncomfortable（不舒服的、尷尬的）氣氛。',
+    keyPoint: 'humor 緩解 uncomfortable（尷尬的）氣氛',
+    optionNotes: ['uncomfortable：不舒服的 ✅', 'unreasonable：不合理的（通常形容人或要求）', 'unacceptable：無法接受的（通常形容行為）', 'unaccountable：無法解釋的'],
+    vocab: [['timely', '及時的'], ['relief', '緩解、寬慰'], ['atmosphere', '氣氛']]
+  },
+  {
+    num: 130, type: '關係代名詞', star: true, part6: null,
+    sentence: 'The workplace must have the best devices ______ yield free results in the minimum possible time.',
+    translation: '職場必須有最好的設備，______ 能在最短時間內產生成效。',
+    options: ['when', 'therefore', 'that', 'because'],
+    answer: 2,
+    logic: '空格前是名詞 devices，空格後是動詞 yield。需要一個字把 devices 和後面的動詞子句連起來，表示「能產生結果的設備」，所以用關係代名詞 that。',
+    keyPoint: 'N + that + V = 修飾名詞的關係子句',
+    optionNotes: ['when：時間連接詞，不能修飾 devices', 'therefore：因此（副詞），不能連接名詞和動詞', 'that：關係代名詞，修飾 devices ✅', 'because：因為（連接詞），語意不合'],
+    vocab: [['device', '設備、裝置'], ['yield', '產生、帶來'], ['minimum', '最少的']]
+  },
+  {
+    num: 131, type: '固定搭配', star: true, part6: 'p6a',
+    sentence: 'Our physical diet has a large ---131--- on our levels of health and energy.',
+    translation: '我們的身體飲食對健康和能量水平有很大的 ______。',
+    options: ['thought', 'dream', 'impact', 'attitude'],
+    answer: 2,
+    logic: '固定搭配：have an impact on = 對…有影響。前面有 large（很大的），所以是 has a large impact on。',
+    keyPoint: 'have an impact on + N = 對…產生影響',
+    optionNotes: ['thought：想法（語意不符）', 'dream：夢想（語意不符）', 'impact：影響，have an impact on ✅', 'attitude：態度（語意不符）'],
+    vocab: [['have an impact on', '對…有影響'], ['impact', '影響'], ['attitude', '態度'], ['level', '程度、水準']]
+  },
+  {
+    num: 132, type: '詞性 + 固定搭配', star: false, part6: 'p6a',
+    sentence: 'we will have more energy, be generally ---132--- to most diseases...',
+    translation: '我們會更有能量，通常對大多數疾病 ______ ...',
+    options: ['resistant', 'resist', 'resistance', 'resists'],
+    answer: 0,
+    logic: 'be generally ______ to：be 動詞後面需要形容詞或名詞補語。固定搭配是 be resistant to = 對…有抵抗力。resistant 是形容詞，正確。',
+    keyPoint: 'be resistant to + N = 對…有抵抗力（be 後接形容詞）',
+    optionNotes: ['resistant：形容詞，be resistant to ✅', 'resist：動詞（不能放在 be 後面作補語）', 'resistance：名詞', 'resists：動詞三單'],
+    vocab: [['resistant', '有抵抗力的'], ['be resistant to', '對…有抵抗力'], ['disease', '疾病']]
+  },
+  {
+    num: 133, type: '主詞動詞一致', star: true, part6: 'p6a',
+    sentence: 'In the same way, our mental diet largely ---133--- our character and personality.',
+    translation: '同樣地，我們的心理飲食在很大程度上 ______ 我們的性格與人格。',
+    options: ['determines', 'determining', 'determine', 'determination'],
+    answer: 0,
+    logic: '主詞是 our mental diet，核心主詞是 diet（單數）。空格需要動詞，且要和單數主詞一致。現在式單數動詞加 s → determines。',
+    keyPoint: 'mental diet（單數主詞）+ 現在式 → determines（加 s）',
+    optionNotes: ['determines：動詞三單 ✅', 'determining：V-ing（需要 be 動詞）', 'determine：動詞原形（主詞單數需加 s）', 'determination：名詞「決心」（詞性不對）'],
+    vocab: [['determine', '決定、影響'], ['determination', '決心（名詞）'], ['largely', '在很大程度上'], ['mental diet', '心理飲食（吸收的想法）']]
+  },
+  {
+    num: 134, type: '文章主旨', star: false, part6: 'p6a',
+    sentence: 'When we ---134---, we develop a more positive and effective personality.',
+    translation: '當我們 ______，我們會發展出更正面、有效的人格。',
+    options: ['work hard enough', 'feed our mind with positive ideas', 'deal with difficult customers', 'encounter problems'],
+    answer: 1,
+    logic: '文章主軸是 mental diet（心理飲食）和 physical diet 的類比。身體吃好 → 身體好；心理吸收正面想法 → 人格更正面。所以 134 一定要選和「正面想法滋養心智」有關的選項。',
+    keyPoint: '閱讀文章主軸：mental diet = 吸收正面想法 → 人格更正面',
+    optionNotes: ['work hard enough：和 mental diet 無直接關係', 'feed our mind with positive ideas：符合 mental diet 主題 ✅', 'deal with difficult customers：偏職場，不符合文章', 'encounter problems：負面，與 more positive 矛盾'],
+    vocab: [['feed A with B', '用B滋養A'], ['positive', '正面的、積極的'], ['effective', '有效的'], ['mental diet', '心理飲食']]
+  },
+  {
+    num: 135, type: '商業語境', star: false, part6: 'p6b',
+    sentence: 'Successful ---135--- see their company as a series of interlocking parts.',
+    translation: '成功的 ______ 把他們的公司看成一系列互相連結的部分。',
+    options: ['candidates', 'managers', 'subordinates', 'parents'],
+    answer: 1,
+    logic: '誰最可能「把公司看成整體系統」？通常是負責管理整個公司的 managers（管理者）。其他選項（候選人、下屬、父母）都不符合商業語境。',
+    keyPoint: '商業語境：看公司整體的人 = managers',
+    optionNotes: ['candidates：候選人；應徵者（語意不符）', 'managers：經理、管理者 ✅', 'subordinates：下屬（下屬不會「把公司看成整體」）', 'parents：父母（不符合商業文章）'],
+    vocab: [['interlocking parts', '互相連結的部分'], ['a series of', '一系列的'], ['subordinate', '下屬'], ['candidate', '候選人']]
+  },
+  {
+    num: 136, type: '形容詞搭配', star: true, part6: 'p6b',
+    sentence: 'Each division is important on its own, but it is also ---136--- to the support of the others.',
+    translation: '每個部門本身都很重要，但它對其他部門的支持也是 ______。',
+    options: ['impersonal', 'necessary', 'operational', 'effective'],
+    answer: 1,
+    logic: 'be also ______ to the support：be 後接形容詞，且搭配 to。be necessary to = 對…是必要的，語意最合理（部門需要其他部門的支持，是必要的）。',
+    keyPoint: 'be necessary to + N = 對…是必要的',
+    optionNotes: ['impersonal：非個人的（語意不符）', 'necessary：必要的，be necessary to ✅', 'operational：運作中的（不搭 to）', 'effective：有效的（不搭 to the support）'],
+    vocab: [['necessary', '必要的'], ['be necessary to', '對…是必要的'], ['division', '部門'], ['on its own', '單獨地、本身']]
+  },
+  {
+    num: 137, type: '同等比較', star: true, part6: 'p6b',
+    sentence: 'That is the only way to be sure that the product is as good ---137--- the advertising.',
+    translation: '這是唯一能確保產品和廣告 ______ 好的方式。',
+    options: ['as', 'like', 'the same', 'similar to'],
+    answer: 0,
+    logic: '看到 as good ______，直接想到 as + 形容詞 + as 的同等比較句型。as good as = 和…一樣好。',
+    keyPoint: 'as + adj. + as = 和…一樣…（同等比較）',
+    optionNotes: ['as：as good as 同等比較 ✅', 'like：像（不是比較級用法）', 'the same：通常用 the same as（選項本身不完整）', 'similar to：類似於（不能用在 as good 後面）'],
+    vocab: [['as good as', '和…一樣好'], ['advertising', '廣告'], ['similar to', '類似於']]
+  },
+  {
+    num: 138, type: '上下文銜接', star: false, part6: 'p6b',
+    sentence: 'The General Manager says, "---138---, we also focus on the need for an efficient service department."',
+    translation: '總經理說：「______，我們也重視有效率的服務部門。」',
+    options: ['Therefore, it is necessary to take actions', 'In addition to attracting new customers', 'When we are talking to strangers', 'As long as you are competitive enough'],
+    answer: 1,
+    logic: '後面有 we also focus on，also 表示「也」，代表前面有另一件公司重視的事情。In addition to attracting new customers（除了吸引新顧客之外）和 also 搭配最完美。',
+    keyPoint: 'also 前面要有另一件事 → In addition to V-ing',
+    optionNotes: ['Therefore, it is necessary to take actions：和 also 不搭，語意籠統', 'In addition to attracting new customers：除了…之外，和 also 完美搭配 ✅', 'When we are talking to strangers：完全偏離商業主題', 'As long as you are competitive enough：語意不符，和服務部門無關'],
+    vocab: [['in addition to + V-ing', '除了…之外'], ['focus on', '專注於'], ['efficient', '有效率的'], ['service department', '服務部門']]
+  }
+];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+let shownArticles = new Set();
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+  shownArticles = new Set();
+
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+
+    // Show Part 6 article header if first question of that group
+    if (q.part6 && !shownArticles.has(q.part6)) {
+      shownArticles.add(q.part6);
+      const art = articles[q.part6];
+      const artDiv = document.createElement('div');
+      artDiv.className = 'p6-group';
+      artDiv.innerHTML = `
+        <div class="p6-label">${art.label}</div>
+        <div class="article-block">
+          <div class="art-label">📄 文章原文</div>
+          <div>${art.text.replace(/<mark>/g,'<span class="art-blank">').replace(/<\/mark>/g,'</span>')}</div>
+        </div>
+      `;
+      area.appendChild(artDiv);
+    }
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '20px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" onclick="selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>
+        ${opt}
+      </div>
+    `).join('');
+
+    const noteHtml = q.optionNotes.map((n, i) => `
+      <li><strong>${String.fromCharCode(65+i)}.</strong> ${n}</li>
+    `).join('');
+
+    const vocabHtml = q.vocab.map(([w, d]) => `
+      <span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>
+    `).join('');
+
+    const displaySentence = q.part6
+      ? q.sentence.replace(/---\d+---/, '<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>')
+      : q.sentence.replace('______', '<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+        ${q.part6 ? '<span class="q-type" style="background:var(--purple-lt);color:var(--purple)">Part 6</span>' : ''}
+      </div>
+      <div class="q-sentence">${displaySentence}</div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65 + q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>
+    `;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.remove('current');
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
