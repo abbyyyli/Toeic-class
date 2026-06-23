@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 03 課後複習｜代名詞 + 總複習題 1–10</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #1B2D5C;
+    --navy-lt:  #2C4480;
+    --amber:    #F59E0B;
+    --amber-lt: #FEF3C7;
+    --green:    #059669;
+    --green-lt: #D1FAE5;
+    --red:      #DC2626;
+    --red-lt:   #FEE2E2;
+    --sky:      #0EA5E9;
+    --sky-lt:   #E0F2FE;
+    --purple:   #7C3AED;
+    --purple-lt:#EDE9FE;
+    --gray-50:  #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --white:    #FFFFFF;
+    --radius:   12px;
+    --shadow:   0 2px 12px rgba(0,0,0,0.08);
+    --shadow-md:0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── TOP NAV ── */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo { font-weight: 700; font-size: 17px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── SECTIONS ── */
+  section { display: none; }
+  section.active { display: block; }
+
+  /* ── HERO CARDS ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .icon {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── TRAP EXAMPLES ── */
+  .trap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
+  .trap-item{background:var(--gray-50);border-radius:10px;padding:14px;border:1.5px solid var(--gray-200)}
+  .trap-wrong{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--red);background:var(--red-lt);padding:6px 10px;border-radius:6px;margin-bottom:6px}
+  .trap-wrong::before{content:"❌ "}
+  .trap-right{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);background:var(--green-lt);padding:6px 10px;border-radius:6px}
+  .trap-right::before{content:"✅ "}
+  .trap-reason{font-size:12px;color:var(--gray-400);margin-top:8px}
+
+  /* ── TOEIC QUESTIONS ── */
+  .q-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .q-num { background: var(--navy); color: white; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 6px; font-family: 'Inter', sans-serif; }
+  .q-type { background: var(--sky-lt); color: var(--sky); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .q-star { background: var(--amber-lt); color: var(--amber); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+
+  .q-sentence {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    border-left: 3px solid var(--navy);
+  }
+  .q-translation { font-size: 13px; color: var(--gray-400); margin-bottom: 16px; padding-left: 4px; }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  @media (max-width: 520px) { .options { grid-template-columns: 1fr; } }
+  .option {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+  .option:hover { border-color: var(--navy); background: var(--gray-50); }
+  .option.correct { background: var(--green-lt); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: var(--red-lt); border-color: var(--red); color: var(--red); }
+  .option-label {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .option.correct .option-label { background: var(--green); color: white; }
+  .option.wrong .option-label { background: var(--red); color: white; }
+
+  .reveal-btn {
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .reveal-btn:hover { background: var(--navy-lt); }
+
+  .explanation { display: none; }
+  .explanation.show { display: block; }
+
+  .answer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-lt);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .explain-block {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--sky);
+  }
+  .explain-block h4 { font-size: 12px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .explain-block p, .explain-block li { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+  .vocab-row { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-top: 8px; }
+  .vocab-word { font-family: 'JetBrains Mono', monospace; color: var(--navy); font-weight: 600; }
+  .vocab-def { color: var(--gray-600); }
+
+  .key-point {
+    background: var(--amber-lt);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--gray-800);
+    margin-top: 10px;
+  }
+  .key-point strong { color: #92400E; }
+
+  /* ── PRACTICE SECTION ── */
+  .practice-intro {
+    background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .practice-intro .icon { font-size: 48px; flex-shrink: 0; }
+  .practice-intro h2 { font-size: 20px; font-weight: 700; }
+  .practice-intro p { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 6px; }
+
+  /* ── SCORE TRACKER ── */
+  .score-bar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .score-bar label { font-size: 13px; color: var(--gray-600); font-weight: 500; }
+  .score-val { font-size: 24px; font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .score-bar .bar { flex: 1; min-width: 200px; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+  .score-bar .bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--navy)); border-radius: 4px; transition: width 0.5s; }
+  .reset-btn {
+    background: none;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--gray-600);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── PROGRESS DOTS ── */
+  .progress-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .p-dot {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .p-dot:hover { background: #CBD5E1; }
+  .p-dot.answered { background: var(--green-lt); color: var(--green); border: 1.5px solid var(--green); }
+  .p-dot.wrong { background: var(--red-lt); color: var(--red); border: 1.5px solid var(--red); }
+  .p-dot.current { background: var(--navy); color: white; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; height: auto; padding: 12px 0; gap: 10px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 28px 22px; }
+    .hero h1 { font-size: 20px; }
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--gray-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .qref-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  .qref-table th,.qref-table td{border:1px solid var(--gray-200);padding:10px 14px;text-align:left;vertical-align:middle}
+  .qref-table th{background:var(--navy);color:white;font-size:12px;font-weight:700}
+  .qref-table td:first-child{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);background:var(--gray-50)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 03</span> 代名詞 + 總複習題 1–10 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('grammar')">代名詞核心觀念</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題 1–10</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+<section id="grammar" class="active">
+
+<div class="hero">
+  <div class="hero-badge">Lesson 03 · 代名詞 Pronouns</div>
+  <h1>代名詞不是看中文意思，是看空格的工作 🎯</h1>
+  <p>TOEIC 考代名詞，考的是：空格在句子裡是主詞、受詞、所有格，還是反身代名詞？先看位置，再看後面有沒有名詞，最後看主詞和受詞是不是同一人。</p>
+</div>
+
+<!-- ① 主格 vs 受格 -->
+<div class="card">
+  <h2><span class="icon">①</span>主格 vs 受格：先看位置</h2>
+  <div style="font-size:16px;font-weight:700;color:var(--navy);background:var(--amber-lt);border-radius:10px;padding:16px 20px;border-left:4px solid var(--amber);margin-bottom:16px">
+    空格在動詞前面，還是動詞後面？
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
+    <div style="background:var(--green-lt);border-radius:10px;padding:16px;border:1.5px solid #A7F3D0">
+      <div style="font-weight:700;color:var(--green);margin-bottom:8px">✅ 主格 Subject</div>
+      <div style="font-size:13px;color:#064E3B;line-height:2">做動作的人或事物<br>放在動詞前面<br><br><code>I / he / she / it</code><br><code>we / you / they</code></div>
+    </div>
+    <div style="background:var(--red-lt);border-radius:10px;padding:16px;border:1.5px solid #FECACA">
+      <div style="font-weight:700;color:var(--red);margin-bottom:8px">🎯 受格 Object</div>
+      <div style="font-size:13px;color:#991B1B;line-height:2">接受動作的人或事物<br>放在動詞後面、介系詞後面<br><br><code>me / him / her / it</code><br><code>us / you / them</code></div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ accommodate them（動詞後→受格）</div>
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ accommodate they</div>
+  </div>
+  <div style="background:var(--sky-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#0369A1">
+    <strong>超快判斷法：</strong>動詞前面找主格；動詞後面找受格；介系詞後面也要受格。
+  </div>
+</div>
+
+<!-- ② 所有格 vs 獨立所有格 -->
+<div class="card">
+  <h2><span class="icon">②</span>所有格 vs 獨立所有格</h2>
+  <p style="font-size:14px;color:var(--gray-600);margin-bottom:14px">my 和 mine、his 和 his、their 和 theirs，不用背中文意思，只要看<strong>空格後面有沒有名詞</strong>。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:8px 12px;text-align:left">類型</th><th style="padding:8px 12px;text-align:left">後面要不要接名詞</th><th style="padding:8px 12px;text-align:left">例子</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px;font-weight:600">所有格形容詞</td><td style="padding:8px 12px">要</td><td style="padding:8px 12px"><code>my computer / his attorney</code></td></tr>
+    <tr style="background:var(--gray-50)"><td style="padding:8px 12px;font-weight:600">獨立所有格</td><td style="padding:8px 12px">不要</td><td style="padding:8px 12px"><code>This is mine. / The report is hers.</code></td></tr>
+  </table>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ hers report</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ her report</div>
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ This report is her.</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ This report is hers.</div>
+  </div>
+  <div style="background:var(--amber-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#92400E">
+    <strong>快速避免法：</strong>後面有名詞選 her；後面沒名詞選 hers。my / his / their 同理。
+  </div>
+</div>
+
+<!-- ③ 反身代名詞 -->
+<div class="card">
+  <h2><span class="icon">③</span>反身代名詞：主詞和受詞是同一人</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:10px 14px;text-align:left">主詞</th><th style="padding:10px 14px;text-align:left">反身代名詞</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px">I</td><td style="padding:8px 12px;font-family:JetBrains Mono,monospace;color:var(--amber);font-weight:700">myself</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:8px 12px">he / she / it</td><td style="padding:8px 12px;font-family:JetBrains Mono,monospace;color:var(--amber);font-weight:700">himself / herself / itself</td></tr>
+    <tr><td style="padding:8px 12px">we / they</td><td style="padding:8px 12px;font-family:JetBrains Mono,monospace;color:var(--amber);font-weight:700">ourselves / themselves</td></tr>
+  </table>
+  <div style="background:var(--sky-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#0369A1;margin-bottom:12px">
+    <strong>Jason installed the air conditioner himself.</strong>　主詞 Jason = 自己安裝的人 → himself
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ Jason installed it him.</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ Jason installed it himself.</div>
+  </div>
+  <div style="background:var(--amber-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#92400E;margin-top:12px">
+    反身代名詞不能放在名詞前面當所有格：<code>X myself computer</code> → <code>O my computer</code>
+  </div>
+</div>
+
+<!-- ④ each other -->
+<div class="card">
+  <h2><span class="icon">④</span>each other：彼此、互相</h2>
+  <div style="font-size:16px;font-weight:700;color:var(--navy);background:var(--amber-lt);border-radius:10px;padding:16px 20px;border-left:4px solid var(--amber);margin-bottom:16px">
+    複數主詞 + <code style="background:white">each other</code> = 彼此、互相
+  </div>
+  <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green);margin-bottom:8px">✅ The trainees helped each other.（互相幫忙）</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ The trainees helped another.（another 不是彼此的意思）</div>
+</div>
+
+
+<!-- ⑤ 不定代名詞 -->
+<div class="card">
+  <h2><span class="icon">⑤</span>不定代名詞：someone / anyone / everyone / no one</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:8px 12px;text-align:left">字</th><th style="padding:8px 12px;text-align:left">意思</th><th style="padding:8px 12px;text-align:left">常見概念</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>someone</code></td><td style="padding:8px 12px">某人</td><td style="padding:8px 12px">肯定句常見</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:8px 12px"><code>anyone</code></td><td style="padding:8px 12px">任何人</td><td style="padding:8px 12px">問句/否定句常見</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>everyone</code></td><td style="padding:8px 12px">每一個人</td><td style="padding:8px 12px">動詞通常單數</td></tr>
+    <tr><td style="padding:8px 12px"><code>no one</code></td><td style="padding:8px 12px">沒有人</td><td style="padding:8px 12px">已是否定，不加 not</td></tr>
+  </table>
+  <div style="background:var(--amber-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#92400E;margin-bottom:12px">
+    <strong>⚠️ 高頻提醒：</strong>everyone / no one 意思上像很多人，但<strong>文法上當單數</strong>！
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ Everyone are required.</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ Everyone is required.</div>
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ No one were absent.</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ No one was absent.</div>
+  </div>
+</div>
+
+<!-- ⑥ every/each/all/some/any -->
+<div class="card">
+  <h2><span class="icon">⑥</span>every / each / all / some / any</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr style="background:var(--navy);color:white"><th style="padding:8px 12px;text-align:left">字</th><th style="padding:8px 12px;text-align:left">後面接</th><th style="padding:8px 12px;text-align:left">例子</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>every</code></td><td style="padding:8px 12px">單數可數</td><td style="padding:8px 12px"><code>every employee</code></td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:8px 12px"><code>each</code></td><td style="padding:8px 12px">單數可數 / each of+複數</td><td style="padding:8px 12px"><code>each manager</code></td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>all</code></td><td style="padding:8px 12px">複數可數 / 不可數</td><td style="padding:8px 12px"><code>all employees</code></td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:8px 12px"><code>some</code></td><td style="padding:8px 12px">複數可數 / 不可數（肯定句）</td><td style="padding:8px 12px"><code>some customers</code></td></tr>
+    <tr><td style="padding:8px 12px"><code>any</code></td><td style="padding:8px 12px">複數可數 / 不可數（問句/否定）</td><td style="padding:8px 12px"><code>any questions</code></td></tr>
+  </table>
+</div>
+
+<!-- ⑦ another/other/others -->
+<div class="card">
+  <h2><span class="icon">⑦</span>another / other / the other / others</h2>
+  <div style="font-size:16px;font-weight:700;color:var(--navy);background:var(--amber-lt);border-radius:10px;padding:16px 20px;border-left:4px solid var(--amber);margin-bottom:16px">
+    空格後面有名詞嗎？
+  </div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:8px 12px;text-align:left">字</th><th style="padding:8px 12px;text-align:left">意思</th><th style="padding:8px 12px;text-align:left">後面接名詞？</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>another</code></td><td style="padding:8px 12px">另一個</td><td style="padding:8px 12px">接單數可數</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:8px 12px"><code>other</code></td><td style="padding:8px 12px">其他的</td><td style="padding:8px 12px">要接名詞</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:8px 12px"><code>the other</code></td><td style="padding:8px 12px">兩者中的另一個</td><td style="padding:8px 12px">可單獨用</td></tr>
+    <tr><td style="padding:8px 12px"><code>others</code></td><td style="padding:8px 12px">其他人/東西</td><td style="padding:8px 12px">不接名詞</td></tr>
+  </table>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ others employees</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ other employees</div>
+    <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red)">❌ other are waiting.</div>
+    <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ others are waiting.</div>
+  </div>
+  <div style="background:var(--sky-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#0369A1">
+    <strong>快速避免法：</strong>後面有名詞選 other；後面沒有名詞選 others。
+  </div>
+</div>
+
+<!-- ⑧ that/those -->
+<div class="card">
+  <h2><span class="icon">⑧</span>that / those：比較句中代替前面的名詞</h2>
+  <div style="font-size:16px;font-weight:700;color:var(--navy);background:var(--amber-lt);border-radius:10px;padding:16px 20px;border-left:4px solid var(--amber);margin-bottom:16px">
+    單數名詞 → that　／　複數名詞 → those
+  </div>
+  <div style="background:var(--sky-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#0369A1;margin-bottom:12px">
+    The price of this model is lower than <strong>that of</strong> the previous model.<br>
+    Sales this year are higher than <strong>those of</strong> last year.
+  </div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--red);margin-bottom:8px">❌ higher than last July（少了 that，變成比較 temperature 和 July）</div>
+  <div style="background:var(--green-lt);border-radius:6px;padding:8px 12px;font-family:JetBrains Mono,monospace;font-size:13px;color:var(--green)">✅ higher than that of last July</div>
+  <div style="background:var(--amber-lt);border-radius:8px;padding:12px 16px;font-size:13px;color:#92400E;margin-top:12px">
+    <strong>解題口訣：</strong>先問「現在到底在比較哪兩個東西？」temperature vs. temperature → that；sales vs. sales → those。
+  </div>
+</div>
+
+</section>
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+
+<div class="hero">
+  <div class="hero-badge">陷阱整理 &amp; 快速查閱</div>
+  <h1>考試前複習這頁就夠了 📋</h1>
+  <p>把這堂課最容易考、最容易錯的代名詞混淆點全部整理在這裡。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🪤</span>代名詞超常考陷阱</h2>
+  <div class="trap-grid">
+    <div class="trap-item">
+      <div class="trap-wrong">accommodate they</div>
+      <div class="trap-right">accommodate them</div>
+      <div class="trap-reason">動詞後面要受格</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">hers report</div>
+      <div class="trap-right">her report</div>
+      <div class="trap-reason">後面有名詞用所有格形容詞，不是獨立所有格</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">Jason installed it him.</div>
+      <div class="trap-right">Jason installed it himself.</div>
+      <div class="trap-reason">主詞和受詞同一人要用反身代名詞</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">They helped another.</div>
+      <div class="trap-right">They helped each other.</div>
+      <div class="trap-reason">彼此互相要用 each other，不是 another</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">Everyone are invited.</div>
+      <div class="trap-right">Everyone is invited.</div>
+      <div class="trap-reason">everyone / no one 文法上當單數</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">others employees</div>
+      <div class="trap-right">other employees</div>
+      <div class="trap-reason">後面有名詞用 other，不是 others</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">myself computer</div>
+      <div class="trap-right">my computer</div>
+      <div class="trap-reason">反身代名詞不能放名詞前面當所有格</div>
+    </div>
+    <div class="trap-item">
+      <div class="trap-wrong">higher than last year</div>
+      <div class="trap-right">higher than those of last year</div>
+      <div class="trap-reason">比較複數名詞要用 those 代替，避免重複</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📌</span>代名詞總複習題（1–10）重點片語 &amp; 搭配</h2>
+  <table class="qref-table">
+    <tr><th>片語 / 搭配</th><th>中文</th><th>例句</th></tr>
+    <tr><td>accommodate guests</td><td>容納／接待賓客</td><td>The hotel cannot accommodate them.</td></tr>
+    <tr><td>install equipment</td><td>安裝設備</td><td>Jason installed it himself.</td></tr>
+    <tr><td>be responsible for</td><td>對……負責</td><td>be responsible for the damage</td></tr>
+    <tr><td>sign a contract</td><td>簽署合約</td><td>Once the president signs the contract</td></tr>
+    <tr><td>help someone out</td><td>幫某人一把</td><td>helped each other out</td></tr>
+    <tr><td>act as someone's attorney</td><td>擔任某人的律師</td><td>acting as his attorney</td></tr>
+    <tr><td>prepare a report</td><td>準備報告</td><td>the report she prepared</td></tr>
+    <tr><td>return products for a full refund</td><td>退回產品以取得全額退款</td><td>return them within seven days</td></tr>
+    <tr><td>miss an opportunity</td><td>錯過機會</td><td>no one would miss the opportunity</td></tr>
+    <tr><td>compared with</td><td>與……相比</td><td>compared with that of last July</td></tr>
+    <tr><td>that of / those of</td><td>代替前面已出現的單數／複數名詞</td><td>higher than that of last July</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📊</span>代名詞總複習題（1–10）考點速查</h2>
+  <table class="qref-table">
+    <tr><th>題號</th><th>答案</th><th>考點</th></tr>
+    <tr><td>1</td><td>C them</td><td>動詞後受格</td></tr>
+    <tr><td>2</td><td>C himself</td><td>反身代名詞</td></tr>
+    <tr><td>3</td><td>C my</td><td>所有格形容詞</td></tr>
+    <tr><td>4</td><td>B his</td><td>獨立所有格</td></tr>
+    <tr><td>5</td><td>C each other</td><td>互相代名詞</td></tr>
+    <tr><td>6</td><td>B his</td><td>所有格 + 指涉判斷</td></tr>
+    <tr><td>7</td><td>B she</td><td>主格 + 省略 that</td></tr>
+    <tr><td>8</td><td>B them</td><td>複數受格</td></tr>
+    <tr><td>9</td><td>D no one</td><td>不定代名詞語意</td></tr>
+    <tr><td>10</td><td>C that</td><td>比較句指示代名詞</td></tr>
+  </table>
+</div>
+
+</section>
+
+<!-- ===== TAB 3: 練習題 1-10 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>代名詞總複習題 1–10</h2>
+    <p>點選選項作答，再查看解析。Part 6（139–146）下次課再練習。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 10</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+
+<div id="questionsArea"></div>
+
+</section>
+
+</div><!-- /container -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const questions = [
+  {
+    num: 1, type: "受格代名詞", star: true, part6: null,
+    sentence: "Unfortunately, our hotel is too small for all the guests invited on the list; we are afraid that our hotel cannot accommodate ______.",
+    translation: "很不幸地，我們的飯店對於名單上所有受邀賓客來說太小了；我們擔心飯店無法容納 ______。",
+    options: ["they", "their", "them", "themselves"],
+    answer: 2,
+    logic: "accommodate 是動詞，意思是容納、接待。動詞後面需要受詞，所以要用受格代名詞 them。",
+    keyPoint: "動詞 + 受詞 → 用受格代名詞",
+    optionNotes: ["they：主格，只能當主詞", "their：所有格形容詞，後面要接名詞（their rooms）", "them：受格，可放在動詞後面當受詞 ✅", "themselves：反身代名詞，主詞是hotel不是guests，主受詞不同人不能用"],
+    vocab: [["accommodate", "容納；接待；提供住宿"], ["accommodate guests", "容納／接待賓客"], ["guest", "客人；賓客"]]
+  },
+  {
+    num: 2, type: "反身代名詞", star: false, part6: null,
+    sentence: "Jason bought an air conditioner and installed it ______.",
+    translation: "Jason 買了一台冷氣，並且自己把它 ______ 好了。",
+    options: ["them", "him", "himself", "he"],
+    answer: 2,
+    logic: "主詞是 Jason，做安裝動作的人也是 Jason，主詞和動作執行者是同一人，所以要用反身代名詞 himself。若選 him，表示安裝給另一個男生，不符合句意。",
+    keyPoint: "主詞 = 動作執行者 → 用反身代名詞",
+    optionNotes: ["them：複數受格，和單數男性 Jason 不符", "him：受格，表示另一個人，不是 Jason 自己", "himself：反身代名詞，Jason 自己安裝 ✅", "he：主格，不能放在句尾作補充"],
+    vocab: [["air conditioner", "冷氣機"], ["install", "安裝"], ["install it himself", "親自安裝它"]]
+  },
+  {
+    num: 3, type: "所有格形容詞", star: false, part6: null,
+    sentence: "I believe your shop is responsible for the damage to ______ computer.",
+    translation: "我相信你們的店家要對 ______ 電腦損壞負責。",
+    options: ["me", "mine", "my", "myself"],
+    answer: 2,
+    logic: "空格後面直接接名詞 computer，所以要用所有格形容詞 my。mine 是獨立所有格，後面不能再接名詞。",
+    keyPoint: "後面有名詞 → 所有格形容詞（my/his/her/their）",
+    optionNotes: ["me：受格，不能直接修飾名詞", "mine：獨立所有格，後面不能接名詞", "my：所有格形容詞，my computer ✅", "myself：反身代名詞，不能表示所有關係"],
+    vocab: [["be responsible for", "對……負責"], ["damage", "損壞；損失"], ["damage to + 名詞", "對某物造成的損壞"]]
+  },
+  {
+    num: 4, type: "獨立所有格", star: true, part6: null,
+    sentence: "Once the president signs the contract, the company will be ______ to do with as he likes.",
+    translation: "一旦總裁簽署合約，這家公司就可以任由 ______ 處置。",
+    options: ["him", "his", "he", "himself"],
+    answer: 1,
+    logic: "his 後面沒有名詞，這裡 be 動詞後面需要補語，用獨立所有格 his，相當於 his company（這家公司是他的）。",
+    keyPoint: "be + 獨立所有格 = 屬於……、是……的",
+    optionNotes: ["him：受格，不能放在 be 動詞後面表示所有權", "his：獨立所有格，be his = 屬於他的 ✅", "he：主格，不能當補語", "himself：反身代名詞，不表示所有權"],
+    vocab: [["president", "總裁；總經理"], ["contract", "合約"], ["sign a contract", "簽署合約"]]
+  },
+  {
+    num: 5, type: "互相代名詞", star: false, part6: null,
+    sentence: "We are happy to see that the trainees helped ______ out during the orientation.",
+    translation: "我們很高興看到這些受訓者在說明會期間 ______ 幫忙。",
+    options: ["another", "the other", "each other", "other"],
+    answer: 2,
+    logic: "trainees 是複數，這是一群人彼此互相幫忙，所以用 each other。another 是不特定的另一個，the other 是兩者中的另一個，other 後面要接名詞，都不符合。",
+    keyPoint: "複數主詞 + each other = 彼此、互相",
+    optionNotes: ["another：不特定的另一個，不表示互相", "the other：兩者中的另一個，不符合一群人互相幫忙", "each other：彼此互相 ✅", "other：形容詞，後面要接名詞"],
+    vocab: [["trainee", "受訓者；培訓生"], ["orientation", "新生／職前說明會"], ["help someone out", "幫某人一把"]]
+  },
+  {
+    num: 6, type: "所有格 + 指涉判斷", star: false, part6: null,
+    sentence: "Ms. Peterson, acting as ______ attorney, defended Mr. Jones in a very determined fashion.",
+    translation: "Peterson 女士擔任 ______ 律師，以非常堅定的態度為他辯護。",
+    options: ["her", "his", "hers", "he"],
+    answer: 1,
+    logic: "空格後面是 attorney，需要所有格形容詞。Peterson 正在為 Mr. Jones（男性）辯護，所以她是 Jones 的律師，要用 his。",
+    keyPoint: "所有格後面接名詞時，要先判斷「誰的」，不能只看主詞性別",
+    optionNotes: ["her：文法上可接 attorney，但意思變成她自己的律師，不符合語境", "his：Jones 的律師 ✅", "hers：獨立所有格，後面不能接名詞", "he：主格，不能修飾名詞"],
+    vocab: [["attorney", "律師"], ["defend", "為……辯護；保護"], ["act as someone's attorney", "擔任某人的律師"]]
+  },
+  {
+    num: 7, type: "主格 + 省略 that", star: true, part6: null,
+    sentence: "Ms. Lee has agreed to let us use the report ______ prepared.",
+    translation: "Lee 女士已同意讓我們使用 ______ 準備的那份報告。",
+    options: ["her", "she", "hers", "herself"],
+    answer: 1,
+    logic: "完整概念是 the report [that] she prepared，that 被省略了，但 prepared 前面仍然需要主詞，所以用主格 she。",
+    keyPoint: "N + [that] + S + V，關係代名詞省略後，主詞仍要用主格",
+    optionNotes: ["her：受格或所有格形容詞，不能當 prepared 的主詞", "she：prepared 的主詞 ✅", "hers：獨立所有格，不能當主詞", "herself：反身代名詞，不能當普通主詞"],
+    vocab: [["agree to do something", "同意做某事"], ["prepare a report", "準備報告"], ["let someone use something", "讓某人使用某物"]]
+  },
+  {
+    num: 8, type: "複數受格代名詞", star: false, part6: null,
+    sentence: "If the products do not meet with your satisfaction, you can return ______ within seven days for a full refund.",
+    translation: "如果這些產品無法令您滿意，您可以在七天內退回 ______，以獲得全額退款。",
+    options: ["it", "them", "him", "yourselves"],
+    answer: 1,
+    logic: "products 是複數名詞，return 後面需要受詞，所以要用複數受格 them。it 是單數，不能代替複數的 products。",
+    keyPoint: "複數名詞 → 複數受格代名詞 them",
+    optionNotes: ["it：單數受格，無法代替複數 products", "them：複數受格，代替 products ✅", "him：男性單數受格，不可代替產品", "yourselves：反身代名詞，意思是你們自己，不符合句意"],
+    vocab: [["meet someone's satisfaction", "符合某人的滿意程度"], ["refund", "退款；退費"], ["return products for a full refund", "退回產品以取得全額退款"]]
+  },
+  {
+    num: 9, type: "不定代名詞語意", star: false, part6: null,
+    sentence: "It is anticipated that ______ in the division would miss the superb opportunity to attend the computer skill seminar.",
+    translation: "預期該部門裡 ______ 會錯過參加這場電腦技能研討會的大好機會。",
+    options: ["each one", "anyone", "someone", "no one"],
+    answer: 3,
+    logic: "superb opportunity 是很棒的機會，預期「沒有人」會錯過這麼好的機會最合理。no one 本身已是否定意思，不需要再加 not。",
+    keyPoint: "no one = 沒有人，已是否定，不再加 not",
+    optionNotes: ["each one：每一個人，若說每個人都會錯過好機會，語意不合理", "anyone：任何人，不符合這裡要表達的否定意思", "someone：某人，變成「某人會錯過」，不符合原句預期", "no one：沒有人，符合「沒有人會錯過」的語意 ✅"],
+    vocab: [["anticipate", "預期；預料"], ["superb", "極佳的；非常優秀的"], ["miss an opportunity", "錯過機會"]]
+  },
+  {
+    num: 10, type: "指示代名詞比較句", star: true, part6: null,
+    sentence: "The average temperature this July is higher, compared with ______ of last July.",
+    translation: "今年七月的平均氣溫，和去年七月的平均氣溫相比 ______。",
+    options: ["it", "them", "that", "those"],
+    answer: 2,
+    logic: "比較的兩個東西是 temperature 和 temperature（不是 July 和 July）。temperature 是單數名詞，所以用 that 代替它。",
+    keyPoint: "比較句：單數名詞用 that，複數名詞用 those",
+    optionNotes: ["it：可代替單數事物，但在正式比較句中不適合用來和另一個同類名詞比較", "them：複數受格，不能代替單數 temperature", "that：代替單數名詞 temperature ✅", "those：只能代替複數名詞"],
+    vocab: [["average temperature", "平均氣溫"], ["compared with", "與……相比"], ["that of + 名詞", "代替前面提過的單數名詞"]]
+  }
+];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '20px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" onclick="selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>
+        ${opt}
+      </div>
+    `).join('');
+
+    const noteHtml = q.optionNotes.map((n, i) => `
+      <li><strong>${String.fromCharCode(65+i)}.</strong> ${n}</li>
+    `).join('');
+
+    const vocabHtml = q.vocab.map(([w, d]) => `
+      <span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>
+    `).join('');
+
+    const displaySentence = q.sentence.replace('______', '<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+      </div>
+      <div class="q-sentence">${displaySentence}</div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65 + q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>
+    `;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.remove('current');
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
