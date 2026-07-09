@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 04 課後複習｜Part 6/7 閱讀策略 131–164</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:#1B2D5C;--navy-lt:#2C4480;--amber:#F59E0B;--amber-lt:#FEF3C7;
+    --green:#059669;--green-lt:#D1FAE5;--red:#DC2626;--red-lt:#FEE2E2;
+    --sky:#0EA5E9;--sky-lt:#E0F2FE;--purple:#7C3AED;--purple-lt:#EDE9FE;
+    --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;
+    --gray-600:#475569;--gray-800:#1E293B;--white:#FFFFFF;--radius:12px;
+    --shadow:0 2px 12px rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans TC','Inter',sans-serif; background: var(--gray-100); color: var(--gray-800); line-height: 1.7; font-size: 15px; }
+  header { background: var(--navy); color: white; padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-weight: 700; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; }
+  nav { display: flex; gap: 4px; }
+  nav a { color: rgba(255,255,255,0.7); text-decoration: none; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  section { display: none; }
+  section.active { display: block; }
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); color: white; border-radius: var(--radius); padding: 40px 36px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .hero::after { content:''; position: absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%; background: rgba(255,255,255,0.05); }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge { display: inline-block; background: var(--amber); color: var(--navy); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .card h2 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .icon { width:30px; height:30px; background: var(--navy); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .trap-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin:14px 0; }
+  .trap-item { background:var(--gray-50); border-radius:10px; padding:14px; border:1.5px solid var(--gray-200); }
+  .qref-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  .qref-table th,.qref-table td { border:1px solid var(--gray-200); padding:10px 14px; text-align:left; vertical-align:middle; }
+  .qref-table th { background:var(--navy); color:white; font-size:12px; font-weight:700; }
+  .qref-table td:first-child { font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--navy); background:var(--gray-50); white-space:nowrap; }
+  .q-meta { display:flex; gap:10px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+  .q-num { background:var(--navy); color:white; font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; font-family:'Inter',sans-serif; }
+  .q-type { background:var(--sky-lt); color:var(--sky); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-star { background:var(--amber-lt); color:var(--amber); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-p6 { background:var(--purple-lt); color:var(--purple); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-sentence { font-size:16px; font-weight:500; color:var(--gray-800); background:var(--gray-50); border-radius:8px; padding:16px 18px; margin-bottom:8px; line-height:1.8; border-left:3px solid var(--navy); }
+  .q-translation { font-size:13px; color:var(--gray-400); margin-bottom:16px; padding-left:4px; }
+  .options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+  @media(max-width:520px) { .options{ grid-template-columns:1fr; } }
+  .option { background:white; border:1.5px solid var(--gray-200); border-radius:8px; padding:10px 14px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; user-select:none; }
+  .option:hover { border-color:var(--navy); background:var(--gray-50); }
+  .option.correct { background:var(--green-lt); border-color:var(--green); color:var(--green); }
+  .option.wrong { background:var(--red-lt); border-color:var(--red); color:var(--red); }
+  .option-label { width:24px; height:24px; border-radius:50%; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; transition:all 0.2s; font-family:'Inter',sans-serif; }
+  .option.correct .option-label { background:var(--green); color:white; }
+  .option.wrong .option-label { background:var(--red); color:white; }
+  .reveal-btn { background:var(--navy); color:white; border:none; border-radius:8px; padding:8px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; margin-bottom:12px; }
+  .reveal-btn:hover { background:var(--navy-lt); }
+  .explanation { display:none; }
+  .explanation.show { display:block; }
+  .answer-badge { display:inline-flex; align-items:center; gap:6px; background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); border-radius:8px; padding:6px 14px; font-weight:700; font-size:14px; margin-bottom:14px; }
+  .explain-block { background:var(--gray-50); border-radius:8px; padding:16px; margin-bottom:12px; border-left:3px solid var(--sky); }
+  .explain-block h4 { font-size:12px; font-weight:700; color:var(--sky); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .explain-block p,.explain-block li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+  .vocab-row { display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:13px; margin-top:8px; }
+  .vocab-word { font-family:'JetBrains Mono',monospace; color:var(--navy); font-weight:600; }
+  .vocab-def { color:var(--gray-600); }
+  .key-point { background:var(--amber-lt); border-left:3px solid var(--amber); border-radius:6px; padding:10px 14px; font-size:13px; color:var(--gray-800); margin-top:10px; }
+  .key-point strong { color:#92400E; }
+  .practice-intro { background:linear-gradient(135deg,#0F172A 0%,#1E3A5F 100%); color:white; border-radius:var(--radius); padding:28px; margin-bottom:24px; display:flex; align-items:center; gap:20px; }
+  .practice-intro .icon { font-size:48px; flex-shrink:0; }
+  .practice-intro h2 { font-size:20px; font-weight:700; }
+  .practice-intro p { color:rgba(255,255,255,0.7); font-size:14px; margin-top:6px; }
+  .score-bar { background:white; border-radius:var(--radius); padding:16px 24px; margin-bottom:24px; box-shadow:var(--shadow); display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .score-bar label { font-size:13px; color:var(--gray-600); font-weight:500; }
+  .score-val { font-size:24px; font-weight:700; color:var(--navy); font-family:'Inter',sans-serif; }
+  .score-bar .bar { flex:1; min-width:200px; height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
+  .score-bar .bar-fill { height:100%; background:linear-gradient(90deg,var(--sky),var(--navy)); border-radius:4px; transition:width 0.5s; }
+  .reset-btn { background:none; border:1.5px solid var(--gray-200); border-radius:8px; padding:6px 14px; font-size:12px; color:var(--gray-600); cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--navy); color:var(--navy); }
+  .progress-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(38px,1fr)); gap:5px; background:white; border-radius:var(--radius); padding:16px 20px; margin-bottom:24px; box-shadow:var(--shadow); }
+  .p-dot { aspect-ratio:1; border-radius:6px; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; font-family:'Inter',sans-serif; color:var(--gray-400); cursor:pointer; transition:all 0.2s; }
+  .p-dot:hover { background:#CBD5E1; }
+  .p-dot.answered { background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); }
+  .p-dot.wrong { background:var(--red-lt); color:var(--red); border:1.5px solid var(--red); }
+  .section-header { background:var(--navy); color:white; border-radius:10px; padding:14px 20px; margin:28px 0 16px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  .section-header .s-badge { background:var(--amber); color:var(--navy); font-size:11px; padding:2px 8px; border-radius:12px; font-weight:700; }
+  .art-box { background:var(--sky-lt); border:1.5px solid #BAE6FD; border-radius:10px; padding:16px 20px; margin-bottom:16px; font-size:14px; line-height:1.8; color:var(--gray-800); }
+  .art-box-header { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--sky); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .art-box p { margin-bottom:8px; }
+  .art-box p:last-child { margin-bottom:0; }
+  .art-zh { font-size:12px; color:var(--gray-400); margin-top:10px; padding-top:8px; border-top:1px solid #BAE6FD; line-height:1.7; }
+  .art-ins { background:rgba(124,58,237,.15); color:var(--purple); font-weight:800; padding:1px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:12px; }
+  code { font-family:'JetBrains Mono',monospace; background:var(--gray-100); padding:1px 6px; border-radius:4px; font-size:13px; }
+  @media(max-width:700px) { .header-inner{ flex-direction:column; height:auto; padding:12px 0; gap:10px; } nav{ flex-wrap:wrap; justify-content:center; } .hero{ padding:28px 22px; } .hero h1{ font-size:20px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 04</span> Part 6/7 閱讀策略 131–164 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('strategy')">閱讀策略核心</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題 131–164</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== TAB 1: 閱讀策略 ===== -->
+<section id="strategy" class="active">
+
+<div class="hero">
+  <div class="hero-badge">Lesson 04 · Part 6 &amp; Part 7 閱讀策略</div>
+  <h1>不要靠感覺，要靠策略 🎯</h1>
+  <p>Part 6 和 Part 7 的關鍵不是英文好不好，而是有沒有系統性地找對地方。先讀懂文章，再解題；先找證據，再選答案。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">6</span>Part 6 解題四步驟</h2>
+  <div style="display:grid;gap:10px;margin-bottom:16px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--navy);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--navy);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 1</span>
+      <div><strong>看文章類型</strong><br><span style="font-size:13px;color:var(--gray-600)">Dear Lily → Email（書信）；In new product development → 商業文章；Property Details → 出租廣告</span></div>
+    </div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--amber);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--amber);color:var(--navy);border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 2</span>
+      <div><strong>先把整段大意讀一遍，不要急著填空</strong><br><span style="font-size:13px;color:var(--gray-600)">先抓：這是什麼文章、誰寫的、目的是什麼、有哪些重要數字</span></div>
+    </div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--sky);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--sky);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 3</span>
+      <div><strong>看空格前後：詞性、搭配、邏輯</strong><br><span style="font-size:13px;color:var(--gray-600)">空格後有 on → have an impact on；空格前有 as good → as...as；有 also → 前面是另一件事</span></div>
+    </div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--green);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--green);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 4</span>
+      <div><strong>填進去後再讀一次</strong><br><span style="font-size:13px;color:var(--gray-600)">問自己：這句話整體自然嗎？前後文接得上嗎？</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">7</span>Part 7 解題三步驟</h2>
+  <div style="display:grid;gap:10px;margin-bottom:16px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--navy);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--navy);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 1</span>
+      <div><strong>先看標題與格式</strong><br><span style="font-size:13px;color:var(--gray-600)">Property Details → 出租廣告；Graphics Designer → 徵才廣告；Dear Lily → 書信；Home sales → 新聞報導</span></div>
+    </div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--amber);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--amber);color:var(--navy);border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 2</span>
+      <div><strong>先抓四個資訊：Who、What、When、Why</strong><br><span style="font-size:13px;color:var(--gray-600)">誰寫的？發生什麼事？什麼時候？原因或目的？重要數字？</span></div>
+    </div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--sky);display:flex;gap:14px;align-items:flex-start">
+      <span style="background:var(--sky);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 3</span>
+      <div><strong>題目問什麼，再回文章找答案</strong><br><span style="font-size:13px;color:var(--gray-600)">每一題都要在文章找到文字證據。不能靠印象、不能自己推測超出文章的東西。</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🎯</span>五種 Part 7 題型速攻法</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr style="background:var(--navy);color:white"><th style="padding:10px 14px;text-align:left">題型</th><th style="padding:10px 14px;text-align:left">解法</th><th style="padding:10px 14px;text-align:left">本課例題</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--sky)">目的題 Purpose</td><td style="padding:10px 14px">先看整篇在做什麼（For Rent? Wanted? 介紹?）</td><td style="padding:10px 14px">Q147, Q154, Q159</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px;font-weight:700;color:var(--red)">NOT 題</td><td style="padding:10px 14px">逐項回文章核對，找找不到證據的那個</td><td style="padding:10px 14px">Q155, Q158, Q161</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--amber)">單字同義 Vocabulary</td><td style="padding:10px 14px">回原句看語境，帶入選項哪個最自然</td><td style="padding:10px 14px">Q148, Q156, Q160</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px;font-weight:700;color:var(--green)">推論題 Inference</td><td style="padding:10px 14px">只能根據文章推，不能加自己的想像</td><td style="padding:10px 14px">Q152, Q153, Q157</td></tr>
+    <tr><td style="padding:10px 14px;font-weight:700;color:var(--purple)">句子插入 Insertion</td><td style="padding:10px 14px">先判斷句子功能，再找前後邏輯最合理的位置</td><td style="padding:10px 14px">Q164</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">💡</span>Part 6 高頻固定搭配（本課重點）</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:10px 14px;text-align:left">搭配</th><th style="padding:10px 14px;text-align:left">中文</th><th style="padding:10px 14px;text-align:left">考題</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px"><code>have an impact on</code></td><td style="padding:10px 14px">對……有影響</td><td style="padding:10px 14px">Q131</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px"><code>be resistant to</code></td><td style="padding:10px 14px">對……有抵抗力</td><td style="padding:10px 14px">Q132</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px"><code>as good as</code></td><td style="padding:10px 14px">和……一樣好（同等比較）</td><td style="padding:10px 14px">Q137</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px"><code>in addition to</code></td><td style="padding:10px 14px">除了……之外（接 also）</td><td style="padding:10px 14px">Q138</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px"><code>have another look at</code></td><td style="padding:10px 14px">再看一次</td><td style="padding:10px 14px">Q140</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px"><code>more than</code></td><td style="padding:10px 14px">不只是；超過</td><td style="padding:10px 14px">Q143</td></tr>
+    <tr><td style="padding:10px 14px"><code>figure out how to V</code></td><td style="padding:10px 14px">想出如何做某事</td><td style="padding:10px 14px">Q146</td></tr>
+  </table>
+</div>
+
+</section>
+
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+
+<div class="hero">
+  <div class="hero-badge">陷阱整理 &amp; 快速查閱</div>
+  <h1>考試前複習這頁就夠了 📋</h1>
+  <p>Part 6/7 最常見的六種陷阱類型，加上本課所有重點搭配與解答速查。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🪤</span>Part 6/7 最常考六種陷阱</h2>
+  <div class="trap-grid"><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">目的題（Purpose）</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">看文章整體功能，不要只看細節</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>For Rent / Wanted / Subscription / Introduction → 先問：整篇在做什麼？</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>文章說 For Rent 就是出租廣告，不要因為看到 office 就想到招聘。</div>
+</div><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">NOT 題（NOT / EXCEPT）</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">逐項核對，找找不到的那個</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>把每個選項回文章找證據。有的核掉，找不到的就是答案。</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>文章說 Saturday → 某選項說「持續一週」→ 文章沒有 → 答案。</div>
+</div><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">單字同義（Vocabulary in Context）</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">看原句語境，不要只背字典意思</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>graceful designs ≈ beautiful（優雅的設計），不是 graceful 所有意思都適合。</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>把選項帶回原句，哪個最自然就選哪個。</div>
+</div><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">句子插入（Sentence Insertion）</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">判斷句子功能，找前後文最吻合的位置</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>So why wait? = 催促行動 → 放在截止日後、行動呼籲前。</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>不是看某個單字，而是看整句的邏輯功能。</div>
+</div><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">數字混淆</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">文章多個數字，要知道每個數字指什麼</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>151–153 文章：13%（銷售下降）/ 8%（公寓下降）/ 1%（房價上升）</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>題目問 home price 就找 1%，不要誤選銷售量的 13%。</div>
+</div><div class="trap-item">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">固定搭配陷阱</div>
+  <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">have an impact on / be resistant to / more than / figure out how to</div>
+  <div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>Part 6 高頻搭配：not A but B / in addition to / as...as / more than</div>
+  <div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>看空格前後的固定結構，不能只看中文意思。</div>
+</div></div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📌</span>本課重點片語與搭配（131–164）</h2>
+  <table class="qref-table">
+    <tr><th>片語 / 搭配</th><th>中文</th></tr>
+    <tr><td>have an impact/effect/influence on</td><td>對……有影響</td></tr><tr><td>be resistant to</td><td>對……有抵抗力</td></tr><tr><td>more than</td><td>不只是；超過</td></tr><tr><td>emphasize the importance of</td><td>強調……的重要性</td></tr><tr><td>figure out how to V</td><td>想出如何做某事</td></tr><tr><td>have another look at</td><td>再看一次</td></tr><tr><td>In addition to</td><td>除了……之外</td></tr><tr><td>as...as</td><td>和……一樣（同等比較）</td></tr><tr><td>for rent</td><td>出租</td></tr><tr><td>have an impact on vs have an effect on</td><td>同義，常交替出現於 TOEIC</td></tr><tr><td>eco-friendly</td><td>環境友善的</td></tr><tr><td>raise awareness of</td><td>提升對……的意識</td></tr><tr><td>grant / subsidy</td><td>補助金（grant = subsidy）</td></tr><tr><td>monthly vs weekly</td><td>每月 vs 每週（頻率考點）</td></tr><tr><td>50% saving / 50% off</td><td>五折優惠</td></tr><tr><td>entire = whole</td><td>整個的（同義詞）</td></tr><tr><td>graceful = beautiful</td><td>優雅的 ≈ 美麗的</td></tr><tr><td>recruit / hire</td><td>招募 = 招聘（現在分詞表正在進行）</td></tr><tr><td>NOT 題做法</td><td>逐項核對，找文章中找不到的選項</td></tr><tr><td>句子插入做法</td><td>先判斷句子功能，再找前後邏輯最合理的位置</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📊</span>131–164 題 考點速查</h2>
+  <table class="qref-table">
+    <tr><th>題號</th><th>答案</th><th>考點</th></tr>
+    <tr><td>131</td><td>C impact</td><td>固定搭配 have an impact on</td></tr><tr><td>132</td><td>A resistant</td><td>詞性+搭配 be resistant to</td></tr><tr><td>133</td><td>A determines</td><td>主詞動詞一致，diet 是單數</td></tr><tr><td>134</td><td>B feed our mind...</td><td>主旨判斷，mental diet 主題</td></tr><tr><td>135</td><td>B managers</td><td>語境判斷，管理整體系統</td></tr><tr><td>136</td><td>B necessary</td><td>固定搭配 be necessary to</td></tr><tr><td>137</td><td>A as</td><td>同等比較 as...as 結構</td></tr><tr><td>138</td><td>D In addition to...</td><td>上下文銜接，後有 also</td></tr><tr><td>139</td><td>C several</td><td>複數可數名詞用 several</td></tr><tr><td>140</td><td>A another</td><td>固定搭配 have another look at</td></tr><tr><td>141</td><td>C version</td><td>名詞搭配 a version of</td></tr><tr><td>142</td><td>D the project has to...</td><td>上下文邏輯，解釋時間緊原因</td></tr><tr><td>143</td><td>C than</td><td>固定搭配 more than = 不只是</td></tr><tr><td>144</td><td>C competitive world markets</td><td>語境判斷，商業競爭環境</td></tr><tr><td>145</td><td>A importance</td><td>固定搭配 the importance of</td></tr><tr><td>146</td><td>B figure out</td><td>動詞片語 figure out how to</td></tr><tr><td>147</td><td>B To release office-leasing</td><td>目的題，For Rent 出租廣告</td></tr><tr><td>148</td><td>C whole</td><td>單字同義，entire = whole</td></tr><tr><td>149</td><td>A What to include in report</td><td>主旨題，討論報告內容</td></tr><tr><td>150</td><td>C To suggest another topic</td><td>說話目的，建議加入主題</td></tr><tr><td>151</td><td>B dropped by 13%</td><td>標題細節，down 13%</td></tr><tr><td>152</td><td>C People predicted it anyway</td><td>引述推論，forecasted to slow down</td></tr><tr><td>153</td><td>C edged higher</td><td>推論，prices increased 1%</td></tr><tr><td>154</td><td>A raise awareness</td><td>目的題，green living 環保主旨</td></tr><tr><td>155</td><td>B last for whole week</td><td>NOT 題，文章只說 Saturday</td></tr><tr><td>156</td><td>A subsidy</td><td>單字同義，grant = subsidy</td></tr><tr><td>157</td><td>C It is now hiring</td><td>推論，is recruiting = 正在徵人</td></tr><tr><td>158</td><td>D designing computer programs</td><td>NOT 題，graphic ≠ computer programs</td></tr><tr><td>159</td><td>C promote unique selling points</td><td>目的題，列設施 = 宣傳</td></tr><tr><td>160</td><td>D beautiful</td><td>單字同義，graceful = beautiful</td></tr><tr><td>161</td><td>A Movie theaters</td><td>NOT 題，電影院文章沒有</td></tr><tr><td>162</td><td>B Per month</td><td>細節題，monthly magazine</td></tr><tr><td>163</td><td>B 50% off discount</td><td>好處細節，50% saving</td></tr><tr><td>164</td><td>D [4]</td><td>句子插入，催促句在截止日後</td></tr>
+  </table>
+</div>
+
+</section>
+
+<!-- ===== TAB 3: 練習題 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>Part 6 + Part 7 閱讀練習題 131–164</h2>
+    <p>閱讀文章後作答，點選選項後自動顯示答案與解析。Part 7 題目前附有原文供複習。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 34</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+<div id="questionsArea"></div>
+
+</section>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const ARTICLES = {"131-134": {"html": "Our physical diet has a large <b>[131]</b> on our levels of health and energy. If we eat fresh, healthy, high-quality foods of all kinds and avoid the foods that are bad for us, we will have more energy, be generally <b>[132]</b> to most diseases, sleep better, and feel healthier and happier. In the same way, our mental diet largely <b>[133]</b> our character and personality. When we <b>[134]</b>, we develop a more positive and effective personality.", "zh": "身體飲食影響健康與能量；心理飲食影響性格與人格。"}, "135-138": {"html": "Successful <b>[135]</b> see their company as a series of interlocking parts. Each division is important on its own, but it is also <b>[136]</b> to the support of the others. That is the only way to be sure that the product is as good <b>[137]</b> the advertising. The General Manager of Best-Tech Company says, \"<b>[138]</b>, we also focus on the need for an efficient service department.\"", "zh": "成功的管理者把公司看成互相連結的整體；Best-Tech 總經理說除了吸引顧客，也重視服務部門。"}, "139-142": {"html": "Dear Lily,<br><br>I am sorry to tell you that it seems there are <b>[139]</b> problems in the project report you sent me yesterday. Could you have <b>[140]</b> look at the data from the survey? We need to have a correct <b>[141]</b> of the report next Wednesday. This is urgent. We don't have much time as <b>[142]</b>. Please do call me if you need any further information.<br><br>Best wishes,<br>John", "zh": "John 寫信給 Lily，請她重新檢查有問題的專案報告，時間緊急。"}, "143-146": {"html": "In new product development, it takes more <b>[143]</b> the accepted basics of high quality, low cost, and differentiation to succeed in today's <b>[144]</b>. The new rules also emphasize the <b>[145]</b> of speed and flexibility as these are key components in delivering new products to market. Therefore, nowadays companies are trying to <b>[146]</b> how to move faster than their competitors.", "zh": "新產品開發不只靠品質和低成本，速度與彈性也是關鍵。"}, "147-148": {"html": "<p><b>Property Details</b></p><p>3723 Cedar Lane, Teaneck, NJ 45837</p><p>For Rent: 2000 sq. ft. office building, 2 miles north of Teaneck. Can be divided into two businesses (USD$700/month for one office, USD$800/month for larger office with kitchen) or will rent the entire building for $1500/month. Large parking lot. Call (123) 2848-3828 to schedule a visit.</p><p>Updated: 01-05</p>", "zh": "辦公大樓出租廣告，可分租或整棟租用，有大型停車場。"}, "149-150": {"html": "<p><b>Anna:</b> Hey, Leo. We are supposed to write a marketing report, right? But I'm not sure what we should do.</p><p><b>Leo:</b> Yes, and what we should do is to choose a product or service and compare two companies that produce it.</p><p><b>Anna:</b> All right, I see. Then I plan to do instant coffee. There are so many brands on the market now.</p><p><b>Leo:</b> Good idea. Maybe you can also mention something like herbal tea? People think it's healthier, right?</p><p><b>Anna:</b> Exactly. I'll cover that part as well. Thank you for your help.</p><p><b>Leo:</b> Sure, no problem at all. If you need further assistance, just send me a message.</p>", "zh": "Anna 和 Leo 透過 Messenger 討論行銷報告的內容與主題。"}, "151-153": {"html": "<p><b>Home sales down 13% in July</b></p><p>Local home sales in July fell to the lowest level since 2016, even as average prices closed in on an all-time high, according to statistics released Monday.</p><p>Members of the Springfield Real Estate Board sold 922 homes last month, a decrease of 13% from the 1,059 homes that changed hands a year earlier. \"The market was forecasted to slow down in 2017 as a result of recent mortgage changes, and indeed it has,\" said Kim Timberland, the manager of the Springfield Real Estate Board.</p><p>Condominium sales did not decrease as sharply as the broader market, falling 8%. Average prices increased 1% year over year.</p>", "zh": "七月房屋銷售量下降 13%，但平均房價小幅上升 1%。"}, "154-156": {"html": "<p><b>University Town Green Festival</b></p><p>Saturday, July 15th, 10:00 a.m. — Jasper Hall, University Town</p><p>The east region's largest and most trusted green living event is bringing the University Town green community together at the Green Festival for the third time. Join us for leaders in the environmental community, an organic pavilion, a Green Kids' Zone and a unique marketplace of more than 300 eco-friendly businesses.</p><p>Local nonprofits are invited to enter Community Green Grants contest for the chance to win a $1,000 grant or a $500 runner-up prize.</p>", "zh": "University Town 環保生活節，東區最大環保活動，有市集、比賽和社區領袖參與。"}, "157-158": {"html": "<p><b>Graphics Designer — Goleta City, GA</b></p><p>Max Services is recruiting an entry-level Graphics Designer for a reputable company in Goleta City. Candidates must have a one-year minimum experience working with graphics and creating specific designs. Candidates should have experience working with graphic software as well as Microsoft Office programs. Position is 1st shift. There are never any fees to applicants or employees.</p><p>To apply for this position, please visit www.max-services.net. Please include an updated resume with your application.</p>", "zh": "Max Services 徵求初階平面設計師，需有一年經驗和軟體操作能力。"}, "159-161": {"html": "<p><b>Grand Hotel</b></p><p>Grand Hotel is located at the border of New Jersey and New York. The hotel targets customers for business and leisure purposes. Grand Hotel offers luxury rooms, hospitable services, and completely furnished business facilities. Grand Hotel owns 150 comfortable guest rooms with simple and graceful designs.</p><p><b>Business Center</b> — opens 24 hours, fully equipped with business facilities.<br><b>Fitness Center</b> — free fitness equipment to release stress.<br><b>Wireless Internet Access</b> — available in the public area.<br><b>Laundry Service</b> — washing and ironing, returned the same day.<br>Cab Service ／ Airplane Ticket Reservation ／ Airport Transfer Service ／ And more!</p>", "zh": "Grand Hotel 介紹多項設施與服務，包含商務中心、健身中心、無線網路和洗衣服務。"}, "162-164": {"html": "<p><b>The Art of Business Management — 12 Month Subscription</b></p><p>The Art of Business Management is the leading business management magazine examining the trends shaping Singapore business. <span class='art-ins'>[1]</span> Keep up to date on the world of business with a subscription which includes a monthly magazine delivered to your door. <span class='art-ins'>[2]</span></p><p>For a limited time, an exclusive 50% saving on a 12-month subscription. Your subscription includes:<br>✓ Magazine delivered each month <span class='art-ins'>[3]</span><br>✓ Daily news on our website<br>✓ Weekly newsletters</p><p>You can take up this offer before November 15. <span class='art-ins'>[4]</span> Subscribe today.</p>", "zh": "商業管理雜誌 12 個月訂閱廣告，11/15 前訂閱享 50% 折扣。"}};
+
+const questions = [{"num": 131, "type": "固定搭配", "star": true, "part6": true, "group": "131-134", "sentence": "Our physical diet has a large <b>______</b> on our levels of health and energy.", "translation": "我們的身體飲食對健康和能量水平有很大的 ______ 。", "options": ["thought", "dream", "impact", "attitude"], "answer": 2, "logic": "have an impact on = 對……有影響，是 TOEIC 高頻固定搭配。四個選項只有 impact 能和 have a ___ on 搭配。", "keyPoint": "have an impact / effect / influence on + 名詞 = 對……有影響", "optionNotes": ["thought：不搭配 have a thought on", "dream：語意不合", "impact：have an impact on = 對…有影響 ✅", "attitude：態度，不搭配 on"], "vocab": [["have an impact on", "對……有影響"], ["physical diet", "身體飲食"], ["levels of health", "健康水平"]]}, {"num": 132, "type": "詞性+固定搭配", "star": false, "part6": true, "group": "131-134", "sentence": "...we will be generally <b>______</b> to most diseases...", "translation": "…我們通常對大多數疾病 ______ …", "options": ["resistant", "resist", "resistance", "resists"], "answer": 0, "logic": "be 動詞後面要接形容詞，resistant 是形容詞。固定搭配：be resistant to = 對……有抵抗力。", "keyPoint": "be + 形容詞；be resistant to + 名詞 = 對……有抵抗力", "optionNotes": ["resistant：形容詞，be resistant to diseases ✅", "resist：動詞，不能放在 be 後面", "resistance：名詞，語法不合", "resists：動詞第三人稱單數，不能放在 be 後面"], "vocab": [["resistant", "有抵抗力的"], ["be resistant to", "對……有抵抗力"], ["disease", "疾病"]]}, {"num": 133, "type": "主詞動詞一致", "star": true, "part6": true, "group": "131-134", "sentence": "...our mental diet largely <b>______</b> our character and personality.", "translation": "…我們的心理飲食很大程度上 ______ 我們的性格與人格。", "options": ["determines", "determining", "determine", "determination"], "answer": 0, "logic": "核心主詞是 diet，是第三人稱單數，動詞加 -s → determines。determination 是名詞詞性不對；determining 是現在分詞，不能單獨當謂語動詞。", "keyPoint": "先找主詞：diet（單數）→ 動詞加 -s → determines", "optionNotes": ["determines：第三人稱單數現在式 ✅", "determining：現在分詞，不能單獨當謂語", "determine：缺少 -s，主詞是 diet 是第三人稱單數", "determination：名詞，詞性不符"], "vocab": [["determine", "決定；決定性地影響"], ["mental diet", "心理飲食"], ["character", "性格"], ["personality", "人格"]]}, {"num": 134, "type": "主旨判斷", "star": false, "part6": true, "group": "131-134", "sentence": "When we <b>______</b>, we develop a more positive and effective personality.", "translation": "當我們 ______ 時，我們會發展出更正面、有效的人格。", "options": ["work hard enough", "feed our mind with positive ideas", "deal with difficult customers", "encounter problems"], "answer": 1, "logic": "文章主軸是 mental diet（心理飲食），前文說心理飲食影響人格。用「正面想法滋養心智」最符合主題。", "keyPoint": "上下文判斷：答案要和文章主軸一致，不要選跑題的選項", "optionNotes": ["work hard enough：努力工作，偏離心理飲食主題", "feed our mind with positive ideas：用正面想法滋養心智，呼應 mental diet ✅", "deal with difficult customers：處理客戶，完全偏題", "encounter problems：遇到問題，和原意相反"], "vocab": [["feed one's mind", "滋養心智"], ["positive ideas", "正面想法"], ["effective personality", "有效的人格"]]}, {"num": 135, "type": "語境判斷", "star": false, "part6": true, "group": "135-138", "sentence": "Successful <b>______</b> see their company as a series of interlocking parts.", "translation": "成功的 ______ 會把他們的公司看成一系列互相連結的部分。", "options": ["candidates", "managers", "subordinates", "parents"], "answer": 1, "logic": "誰最可能把公司整體看成互相連結的系統？managers（管理者）最合理，因為後面整段都在談管理和整體系統思維。", "keyPoint": "語境判斷：先讀整段主旨，再選最合理的名詞", "optionNotes": ["candidates：候選人，和管理公司無關", "managers：管理者，最符合「把公司看成系統」的角色 ✅", "subordinates：下屬，通常不是決策者", "parents：父母，語意不合"], "vocab": [["manager", "管理者"], ["interlocking", "互相連結的"], ["as a series of", "作為一系列……"]]}, {"num": 136, "type": "固定搭配", "star": true, "part6": true, "group": "135-138", "sentence": "Each division is important on its own, but it is also <b>______</b> to the support of the others.", "translation": "每個部門本身都很重要，但它對其他部門的支持也 ______ 。", "options": ["impersonal", "necessary", "operational", "effective"], "answer": 1, "logic": "be necessary to = 對……是必要的，固定搭配。前面說部門各自重要，轉折後強調互相支持的必要性。", "keyPoint": "be necessary to + 名詞 = 對……是必要的（高頻 TOEIC 搭配）", "optionNotes": ["impersonal：非個人的，語意不合", "necessary：be necessary to = 必要的 ✅", "operational：運作中的，語意不合", "effective：有效的，不搭配 be ___ to the support"], "vocab": [["be necessary to", "對……是必要的"], ["division", "部門"], ["on its own", "獨自；靠自己"]]}, {"num": 137, "type": "同等比較句型", "star": true, "part6": true, "group": "135-138", "sentence": "...the product is as good <b>______</b> the advertising.", "translation": "…產品和廣告一樣好。", "options": ["as", "like", "the same", "similar to"], "answer": 0, "logic": "as + 形容詞 + as = 和……一樣。as good ___ the advertising 是 as...as 結構，前面已有 as，後面填 as。", "keyPoint": "as + adj. + as = 同等比較（兩個 as 不可少）", "optionNotes": ["as：第二個 as，完成 as...as 結構 ✅", "like：雖可比較，但此句已用第一個 as，只能接第二個 as", "the same：the same as 才能比較，語法順序不對", "similar to：語意相近但和 as good 結構不搭"], "vocab": [["as...as", "和……一樣"], ["advertising", "廣告"], ["be sure that", "確保……"]]}, {"num": 138, "type": "上下文銜接", "star": false, "part6": true, "group": "135-138", "sentence": "\"<b>______</b>, we also focus on the need for an efficient service department.\"", "translation": "「______ ，我們也重視有效率的服務部門。」", "options": ["Therefore, it is necessary to take actions", "As long as you are competitive enough", "When we are talking to strangers", "In addition to attracting new customers"], "answer": 3, "logic": "後面有 also（也），所以前面一定在說「另外一件事」。In addition to attracting new customers（除了吸引新顧客之外）→ 完美接後面的 also focus。", "keyPoint": "看到 also，前面要接「另一件事」→ In addition to / Besides / Apart from", "optionNotes": ["Therefore：因果關係，但主句沒有因果", "As long as：條件，不搭", "When we are talking to strangers：偏題", "In addition to attracting new customers：正確，除了 A 之外還 B ✅"], "vocab": [["in addition to", "除了……之外"], ["attract new customers", "吸引新顧客"], ["efficient", "有效率的"]]}, {"num": 139, "type": "數量詞", "star": false, "part6": true, "group": "139-142", "sentence": "...it seems there are <b>______</b> problems in the project report you sent me yesterday.", "translation": "…你昨天寄給我的專案報告裡似乎有 ______ 問題。", "options": ["any", "another", "several", "little"], "answer": 2, "logic": "problems 是複數可數名詞。several = 幾個，修飾複數可數名詞。any 用於否定或問句；another 接單數；little 修飾不可數名詞。", "keyPoint": "複數可數名詞 → several / some / many / a few，不用 little", "optionNotes": ["any：否定句/問句用，此處是肯定句，另外 any 不如 several 精確", "another：後面接單數名詞", "several：幾個，修飾複數可數名詞 ✅", "little：修飾不可數名詞（如 little time）"], "vocab": [["several", "幾個"], ["project report", "專案報告"], ["send", "寄送"]]}, {"num": 140, "type": "固定搭配", "star": true, "part6": true, "group": "139-142", "sentence": "Could you have <b>______</b> look at the data from the survey?", "translation": "你可以再 ______ 看一次這份調查資料嗎？", "options": ["another", "the other", "others", "other"], "answer": 0, "logic": "have another look at = 再看一次、重新檢查，是固定搭配。look 是單數名詞，搭配 another（不特定的另一次）。", "keyPoint": "have another look at = 再看一次（固定搭配，look 是名詞）", "optionNotes": ["another：have another look at 固定搭配 ✅", "the other：兩者中的另一個，這裡不是二選一", "others：複數，不能修飾單數 look", "other：後面需要接名詞，不用接 look（look 已經是名詞了但 other look 不自然）"], "vocab": [["have another look at", "再看一次；重新檢查"], ["survey data", "調查資料"], ["urgent", "緊急的"]]}, {"num": 141, "type": "名詞搭配", "star": false, "part6": true, "group": "139-142", "sentence": "We need to have a correct <b>______</b> of the report next Wednesday.", "translation": "我們下週三需要有一份正確 ______ 的報告。", "options": ["answer", "plan", "version", "test"], "answer": 2, "logic": "a version of the report = 報告的一個版本（正確修改後的版本）。語境是 Lily 要修改有問題的報告，需要「一份正確版本」。", "keyPoint": "version of + 名詞 = ……的版本", "optionNotes": ["answer：答案，不搭配 of the report", "plan：計畫，語意不合", "version：版本，a correct version of the report = 正確版本的報告 ✅", "test：測試，語意不合"], "vocab": [["version", "版本"], ["correct", "正確的"], ["project report", "專案報告"]]}, {"num": 142, "type": "上下文邏輯", "star": false, "part6": true, "group": "139-142", "sentence": "We don't have much time as <b>______</b>.", "translation": "我們沒有很多時間，因為 ______ 。", "options": ["the project is not that important", "the project is extremely ambitious", "the project has been assigned to Mr. Chen", "the project has to be completed within a week"], "answer": 3, "logic": "as = because（在此表示原因）。最直接說明「為什麼時間不多」的原因是：專案必須在一週內完成。", "keyPoint": "as 在此表示原因（= because），後面填「最合理的原因」", "optionNotes": ["the project is not that important：說專案不重要，反而矛盾", "the project is extremely ambitious：說專案很有雄心，但不能解釋為何時間緊", "the project has been assigned to Mr. Chen：誰負責不影響時間", "the project has to be completed within a week：一週截止 = 時間緊 ✅"], "vocab": [["complete within a week", "一週內完成"], ["urgent", "緊急的"], ["as", "因為（連接詞）"]]}, {"num": 143, "type": "固定搭配", "star": true, "part6": true, "group": "143-146", "sentence": "...it takes more <b>______</b> the accepted basics of high quality, low cost, and differentiation to succeed.", "translation": "…成功所需要的不只 ______ 高品質、低成本和差異化這些基本原則。", "options": ["then", "to", "than", "from"], "answer": 2, "logic": "more than = 不只是、超過（固定搭配）。it takes more than X to succeed = 成功所需的不只是 X。than 不能替換成 then（then 是時間副詞）。", "keyPoint": "more than = 不只是；more…than 比較結構", "optionNotes": ["then：時間副詞，語法不符（than 和 then 容易混淆）", "to：不搭配 more", "than：more than = 不只是 ✅", "from：語意不合"], "vocab": [["more than", "不只是；超過"], ["accepted basics", "普遍接受的基本原則"], ["differentiation", "差異化"]]}, {"num": 144, "type": "語境判斷", "star": false, "part6": true, "group": "143-146", "sentence": "To succeed in today's <b>______</b>.", "translation": "要在今日的 ______ 中成功。", "options": ["natural environments", "famous graduate schools", "competitive world markets", "easy atmosphere"], "answer": 2, "logic": "整段談新產品開發、成本、競爭對手、比競爭者更快 → 在 competitive world markets（競爭激烈的全球市場）中成功最合理。", "keyPoint": "語境判斷：整段都在談商業競爭，所以填最符合的名詞片語", "optionNotes": ["natural environments：自然環境，偏題", "famous graduate schools：著名大學，偏題", "competitive world markets：競爭激烈的全球市場 ✅", "easy atmosphere：輕鬆的氛圍，反意"], "vocab": [["competitive", "競爭激烈的"], ["world markets", "全球市場"], ["product development", "產品開發"]]}, {"num": 145, "type": "固定搭配", "star": false, "part6": true, "group": "143-146", "sentence": "The new rules also emphasize the <b>______</b> of speed and flexibility.", "translation": "這些新規則也強調速度和彈性的 ______ 。", "options": ["importance", "appearance", "development", "achievement"], "answer": 0, "logic": "emphasize the importance of = 強調……的重要性，固定搭配。the ___ of speed 空格後接 of，最搭配 importance。", "keyPoint": "emphasize the importance of = 強調……的重要性（TOEIC 高頻搭配）", "optionNotes": ["importance：the importance of = 重要性 ✅", "appearance：外觀，不搭配", "development：發展，語意不合", "achievement：成就，語意不合"], "vocab": [["emphasize", "強調"], ["importance", "重要性"], ["flexibility", "彈性；靈活性"]]}, {"num": 146, "type": "動詞片語", "star": false, "part6": true, "group": "143-146", "sentence": "...companies are trying to <b>______</b> how to move faster than their competitors.", "translation": "…公司正試著 ______ 如何比競爭對手更快行動的方法。", "options": ["apply for", "figure out", "devote to", "speed up"], "answer": 1, "logic": "figure out how to V = 想出如何做某事，後面接 how to 結構。其他選項不能接 how to + 動詞。", "keyPoint": "figure out how to V = 想出如何做某事（後面接 how to）", "optionNotes": ["apply for：申請，不接 how to", "figure out how to：想出如何……✅", "devote to：投入（後面接名詞/動名詞，不接 how to）", "speed up：加快，語意不合且不接 how to"], "vocab": [["figure out", "想出；理解"], ["move faster", "行動更快"], ["competitor", "競爭對手"]]}, {"num": 147, "type": "目的題", "star": false, "part6": false, "group": "147-148", "sentence": "What is the purpose of this advertisement?", "translation": "這則廣告的目的為何？", "options": ["To promote a newly developed product", "To release office-leasing information", "To recruit new security guards", "To explain how the property can be used"], "answer": 1, "logic": "文章開頭寫 For Rent，內容提供辦公室大小、地點、租金、聯絡方式 → 典型出租廣告。目的是發布辦公室出租資訊。", "keyPoint": "目的題：先看整篇在做什麼（For Rent / Wanted / Subscription…），不要只看細節", "optionNotes": ["To promote a newly developed product：推廣產品，文章在說租房不是賣產品", "To release office-leasing information：發布辦公室出租資訊 ✅", "To recruit new security guards：招聘保全，文章沒有", "To explain how the property can be used：文章提到分租或整租但這不是主要目的"], "vocab": [["for rent", "出租"], ["property", "房產；不動產"], ["schedule a visit", "預約參觀"]]}, {"num": 148, "type": "單字同義", "star": false, "part6": false, "group": "147-148", "sentence": "The word \"entire\" in line 3 is closest in meaning to", "translation": "第三行的 entire 最接近哪一個意思？", "options": ["immediate", "worth", "whole", "tired"], "answer": 2, "logic": "rent the entire building = 整棟建築出租。entire = whole（整個的；全部的）。", "keyPoint": "entire = whole（整個的），常見同義詞考點", "optionNotes": ["immediate：立即的，無關", "worth：值得，無關", "whole：整個的，= entire ✅", "tired：疲憊的，無關"], "vocab": [["entire", "整個的；全部的"], ["whole", "整個的"], ["rent", "出租"]]}, {"num": 149, "type": "主旨題", "star": false, "part6": false, "group": "149-150", "sentence": "What are Anna and Leo discussing via Messenger?", "translation": "Anna 和 Leo 正透過 Messenger 討論什麼？", "options": ["What to include in their marketing report", "The sales of their instant coffee", "A new product they are going to launch", "Market expansion in Japan"], "answer": 0, "logic": "整段對話圍繞「行銷報告要選什麼產品、比較哪兩家公司」，Leo 也給了建議加入花草茶。整體是在討論報告內容。", "keyPoint": "主旨題：看整段對話的核心，不要只抓某一個細節", "optionNotes": ["What to include in their marketing report：討論報告包含什麼 ✅", "The sales of their instant coffee：銷售數據，不是對話主題", "A new product they are going to launch：推出新產品，文章沒有", "Market expansion in Japan：日本市場擴張，文章沒有"], "vocab": [["marketing report", "行銷報告"], ["instant coffee", "即溶咖啡"], ["herbal tea", "花草茶"]]}, {"num": 150, "type": "說話目的", "star": false, "part6": false, "group": "149-150", "sentence": "Why does Leo mention, \"Maybe you can also mention something like herbal tea\"?", "translation": "Leo 為什麼提到「也許你也可以提到像花草茶之類的東西」？", "options": ["To invite Anna to drink something together", "To make sure if Anna has some tea", "To suggest that Anna include another related topic", "To remind Anna to prepare tea for a meeting"], "answer": 2, "logic": "Leo 是在給 Anna 報告的建議，建議她加入相關主題（花草茶），是 suggestion，不是邀請喝茶或提醒準備茶。", "keyPoint": "說話目的題：看說話的語境和功能，不要字面翻譯", "optionNotes": ["To invite Anna to drink something together：字面誤讀，不是邀請喝茶", "To make sure if Anna has some tea：無關", "To suggest that Anna include another related topic：建議 Anna 加入相關主題 ✅", "To remind Anna to prepare tea for a meeting：無中生有"], "vocab": [["suggest", "建議"], ["mention", "提及；提到"], ["herbal tea", "花草茶"], ["related topic", "相關主題"]]}, {"num": 151, "type": "標題細節", "star": false, "part6": false, "group": "151-153", "sentence": "What has happened to the home sales in July?", "translation": "七月的房屋銷售發生了什麼變化？", "options": ["It decreased by 30%.", "It dropped by 13%.", "It increased by 13%.", "It surged to its record high."], "answer": 1, "logic": "文章標題直接寫：Home sales down 13% in July。13% 是下降（down/dropped），不是上升。", "keyPoint": "數字題：直接回文章找原始數字，不要混淆 13%（銷售下降）和 1%（房價上升）", "optionNotes": ["It decreased by 30%：數字錯誤", "It dropped by 13%：down 13% = dropped by 13% ✅", "It increased by 13%：數字對但方向相反", "It surged to its record high：反義，銷售是下降不是上升"], "vocab": [["drop by", "下降了（百分比）"], ["surge", "急劇上升"], ["home sales", "房屋銷售量"]]}, {"num": 152, "type": "引述推論", "star": true, "part6": false, "group": "151-153", "sentence": "According to the article, what has Kim Timberland suggested?", "translation": "根據文章，Kim Timberland 表示了什麼？", "options": ["The drop-off was totally unexpected.", "People did not expect that the market would slow down at all.", "People predicted the situation would happen anyway.", "The drop-off shocked many analysts."], "answer": 2, "logic": "Kim Timberland 說：\"The market was forecasted to slow down...and indeed it has.\"「市場放緩早就被預測，而且確實發生了。」這表示人們早就預測到這種情況。", "keyPoint": "雙重否定陷阱：not entirely unexpected = 不完全出乎意料 = 早就被預期到", "optionNotes": ["The drop-off was totally unexpected：正好相反，他說是被預測到的", "People did not expect it at all：完全沒預期，和原文相反", "People predicted the situation would happen anyway：早就被預測 ✅", "The drop-off shocked many analysts：文章沒有提到分析師震驚"], "vocab": [["forecast", "預測"], ["slow down", "放緩"], ["indeed", "確實"]]}, {"num": 153, "type": "推論題", "star": false, "part6": false, "group": "151-153", "sentence": "According to the article, what can be inferred about the average home price?", "translation": "根據文章，可以推論平均房價如何？", "options": ["It was seriously affected.", "It increased over 10%.", "It edged higher a little as well.", "It fell by 8%."], "answer": 2, "logic": "文章最後說：Average prices increased 1% year over year。1% 是小幅上升，edged higher（小幅走高）最準確。不要選「fell by 8%」（那是 condominium sales 的數字）。", "keyPoint": "細節題數字陷阱：13%（銷售下降）/ 8%（公寓銷售下降）/ 1%（房價上升），三個數字考點不同", "optionNotes": ["It was seriously affected：房價沒有「嚴重」影響", "It increased over 10%：只上升 1%，不是 10%", "It edged higher a little as well：小幅上升 1% ✅", "It fell by 8%：這是公寓銷售下降的數字，不是房價"], "vocab": [["average price", "平均房價"], ["edge higher", "小幅走高"], ["year over year", "年同比；與去年相比"]]}, {"num": 154, "type": "目的題", "star": false, "part6": false, "group": "154-156", "sentence": "What is the purpose of the event?", "translation": "這個活動的目的為何？", "options": ["To raise awareness of green environment", "To inform students of new training courses", "To attract new customers to purchase products", "To announce a new policy to the public"], "answer": 0, "logic": "文章反覆出現 green living、eco-friendly、green community，整篇都在推廣環保生活意識，主旨是 raise awareness of green environment。", "keyPoint": "目的題：找整篇的核心主旨，關鍵字重複出現就是答案方向", "optionNotes": ["To raise awareness of green environment：提升環保意識 ✅", "To inform students of new training courses：沒有訓練課程", "To attract new customers to purchase products：不是商業活動", "To announce a new policy to the public：沒有政策公告"], "vocab": [["raise awareness", "提升意識"], ["eco-friendly", "環境友善的"], ["green living", "環保生活"]]}, {"num": 155, "type": "NOT 題", "star": true, "part6": false, "group": "154-156", "sentence": "What is NOT mentioned as one of this event's features?", "translation": "以下哪一項沒有被提到是這個活動的特色？", "options": ["It is the biggest event in the east region.", "The event will last for the whole week.", "Leaders in the community will also participate.", "A contest will take place in the event."], "answer": 1, "logic": "NOT 題逐項核對：A=largest event in east region ✓（文章有）；B=持續一週 ✗（文章只說 Saturday）；C=community leaders ✓；D=contest ✓。", "keyPoint": "NOT 題：逐項回文章核對。時間只寫 Saturday，沒有說持續一週", "optionNotes": ["It is the biggest event in the east region：'largest and most trusted' 文章有提到", "The event will last for the whole week：文章只說 Saturday，沒有一週 ✅（這是沒提到的）", "Leaders in the community will also participate：'leaders in the environmental community' 有提到", "A contest will take place in the event：'Local nonprofits are invited to enter...contest' 有提到"], "vocab": [["last", "持續（動詞）"], ["contest", "競賽；比賽"], ["nonprofit", "非營利組織"]]}, {"num": 156, "type": "單字同義", "star": false, "part6": false, "group": "154-156", "sentence": "The word \"grant\" in the last line is closest in meaning to", "translation": "最後一行的 grant 最接近哪一個意思？", "options": ["subsidy", "brand", "profit", "innovation"], "answer": 0, "logic": "win a $1,000 grant，對象是 nonprofit（非營利組織）。grant = 補助金、助款，最接近 subsidy（補助）。", "keyPoint": "grant = 補助金（政府/機構給非營利組織的錢）= subsidy", "optionNotes": ["subsidy：補助金 ✅", "brand：品牌，無關", "profit：利潤，非營利組織不以盈利為目標", "innovation：創新，無關"], "vocab": [["grant", "補助金；助款"], ["subsidy", "補助；補貼"], ["nonprofit", "非營利組織"]]}, {"num": 157, "type": "推論題", "star": false, "part6": false, "group": "157-158", "sentence": "According to the article, what can be inferred about the Max Services company?", "translation": "根據文章，可以推論 Max Services 公司如何？", "options": ["Its website is currently under construction.", "It is a rather old company.", "It is now hiring.", "It is located in Asia."], "answer": 2, "logic": "文章說：Max Services is recruiting... = 正在徵人。is recruiting = 現在進行式 = 目前正在 hiring（招聘）。", "keyPoint": "推論題：is recruiting 現在進行式 = 現在正在做，可推論為 is currently hiring", "optionNotes": ["Its website is currently under construction：文章說 visit www.max-services.net，網站有在運作", "It is a rather old company：文章沒有公司年齡資訊", "It is now hiring：is recruiting = 正在徵人 ✅", "It is located in Asia：Goleta City, GA 是美國喬治亞州"], "vocab": [["recruit", "招募；徵才"], ["entry-level", "初階的"], ["reputable", "聲譽良好的"]]}, {"num": 158, "type": "NOT 題", "star": false, "part6": false, "group": "157-158", "sentence": "Which of the following is NOT a requirement of the job?", "translation": "以下哪一項不是這份工作的要求？", "options": ["Applicants should possess at least one year of experience.", "Applicants should be familiar with graphical software applications.", "Applicants need to know how to use MS Office programs.", "Applicants must have experience designing computer programs."], "answer": 3, "logic": "逐項核對文章：A=一年經驗 ✓；B=graphic software ✓；C=Microsoft Office ✓；D=設計電腦程式 ✗（文章說 graphic software，不是 computer programs）。", "keyPoint": "NOT 題陷阱：graphic software（平面設計軟體）≠ computer programs（電腦程式）", "optionNotes": ["Applicants should possess at least one year of experience：一年最低經驗 ✓ 有", "Applicants should be familiar with graphical software：graphic software 有提到", "Applicants need to know how to use MS Office：Microsoft Office programs 有提到", "Applicants must have experience designing computer programs：電腦程式設計 ✗ 文章沒有 ✅"], "vocab": [["requirement", "要求；條件"], ["graphic software", "平面設計軟體"], ["MS Office", "Microsoft Office"]]}, {"num": 159, "type": "目的題", "star": false, "part6": false, "group": "159-161", "sentence": "What's the purpose of this introduction?", "translation": "這篇介紹的目的為何？", "options": ["To encourage foreign investments", "To fill a vacancy for a hotel manager", "To promote unique selling points of a hotel", "To explain how to release stress"], "answer": 2, "logic": "文章列出商務中心、健身中心、無線網路、洗衣服務等多項設施，整篇是在宣傳飯店的特色和優點 → 推廣飯店的獨特賣點（unique selling points）。", "keyPoint": "目的題：整篇都在列服務項目 = 推廣/宣傳文章", "optionNotes": ["To encourage foreign investments：吸引外資，文章沒有", "To fill a vacancy for a hotel manager：徵才廣告，文章沒有", "To promote unique selling points of a hotel：推廣飯店賣點 ✅", "To explain how to release stress：雖提到 release stress，但這只是健身中心的功能"], "vocab": [["unique selling point", "獨特賣點"], ["luxury rooms", "豪華客房"], ["hospitable", "好客的；殷勤的"]]}, {"num": 160, "type": "單字同義", "star": false, "part6": false, "group": "159-161", "sentence": "The word \"graceful\" in line 6 is closest in meaning to", "translation": "第六行的 graceful 最接近哪一個意思？", "options": ["pitiful", "thorough", "detailed", "beautiful"], "answer": 3, "logic": "simple and graceful designs = 簡潔優雅的設計。graceful = 優雅的、美觀的，最接近 beautiful（美麗的）。", "keyPoint": "graceful = 優雅的 → beautiful / elegant（TOEIC 同義詞）", "optionNotes": ["pitiful：可憐的，反義", "thorough：徹底的，無關", "detailed：詳細的，無關", "beautiful：美麗的 ≈ graceful ✅"], "vocab": [["graceful", "優雅的；美觀的"], ["beautiful", "美麗的"], ["design", "設計"]]}, {"num": 161, "type": "NOT 題", "star": false, "part6": false, "group": "159-161", "sentence": "What is NOT mentioned as a service in the hotel?", "translation": "以下哪一項沒有被提到是飯店服務？", "options": ["Movie theaters", "Workout facilities", "Business amenities", "Taxi to and from the airport"], "answer": 0, "logic": "逐項核對：電影院 ✗；健身設施 ✓（Fitness Center）；商務設施 ✓（Business Center）；機場接送 ✓（Airport Transfer Service）。", "keyPoint": "NOT 題：逐項核對清單，飯店服務列出健身/商務/洗衣/接送，沒有電影院", "optionNotes": ["Movie theaters：電影院，文章完全沒有提到 ✅（沒提到）", "Workout facilities：健身設施 ✓（Fitness Center）", "Business amenities：商務設施 ✓（Business Center）", "Taxi to and from the airport：機場接送 ✓（Airport Transfer Service）"], "vocab": [["amenities", "設施；便利設施"], ["workout facilities", "健身設施"], ["airport transfer", "機場接送"]]}, {"num": 162, "type": "細節題", "star": false, "part6": false, "group": "162-164", "sentence": "How often does the magazine come out?", "translation": "這本雜誌多久出刊一次？", "options": ["Per week", "Per month", "Every other month", "Twice a month"], "answer": 1, "logic": "文章說：a monthly magazine delivered to your door。monthly = 每月。不要誤選 weekly（電子報是 weekly newsletters，不是雜誌）。", "keyPoint": "數字/頻率題陷阱：monthly magazine（每月）≠ weekly newsletters（每週電子報）", "optionNotes": ["Per week：每週，文章說 weekly newsletters，不是雜誌", "Per month：每月，monthly magazine ✅", "Every other month：每兩個月一次，不符合", "Twice a month：每月兩次，不符合"], "vocab": [["monthly", "每月的"], ["weekly", "每週的"], ["newsletter", "電子報；通訊"]]}, {"num": 163, "type": "好處細節", "star": false, "part6": false, "group": "162-164", "sentence": "What benefit can subscribers enjoy if they subscribe to the magazine by 11/15?", "translation": "如果讀者在11月15日前訂閱，可以享有什麼好處？", "options": ["Subscribers can get two extra issues.", "Subscribers will receive a 50% off discount.", "Subscribers can get a watch as a gift.", "Subscribers will receive free daily newsletters."], "answer": 1, "logic": "文章說：an exclusive 50% saving on a 12-month subscription，期限是 before November 15 → 截止日前訂閱享五折。", "keyPoint": "50% saving = 50% off = 五折優惠", "optionNotes": ["Subscribers can get two extra issues：贈送兩期，文章沒有", "Subscribers will receive a 50% off discount：50% saving = 50% off ✅", "Subscribers can get a watch as a gift：贈送手錶，文章沒有", "Subscribers will receive free daily newsletters：電子報每日免費，但這不是新增好處"], "vocab": [["exclusive", "專屬的；限定的"], ["saving", "折扣；節省"], ["subscribe", "訂閱"]]}, {"num": 164, "type": "句子插入", "star": true, "part6": false, "group": "162-164", "sentence": "\"So why wait?\" — In which position does this sentence best belong?", "translation": "「那還等什麼呢？」這句話最適合放在哪一個位置？", "options": ["[1]", "[2]", "[3]", "[4]"], "answer": 3, "logic": "So why wait? 是催促行動的語氣，適合放在截止日（before November 15）後面、Subscribe today 前面，也就是 [4]。[1][2][3] 都還在介紹活動特色，太早出現這個催促句不合邏輯。", "keyPoint": "句子插入題：先判斷句子功能（催促/說明/對比…），再找最合理的前後文", "optionNotes": ["[1]：在文章開頭，還沒介紹特色就催促，太早", "[2]：還在說訂閱包含什麼，太早", "[3]：剛列完包含的內容，但截止日還沒說，太早", "[4]：緊接在截止日後、Subscribe today 前，催促「還等什麼？」✅"], "vocab": [["sentence insertion", "句子插入題"], ["So why wait?", "那還等什麼呢？（催促行動）"], ["subscribe today", "今天就訂閱"]]}];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+const GROUP_ORDER = ['131-134','135-138','139-142','143-146','147-148','149-150','151-153','154-156','157-158','159-161','162-164'];
+const GROUP_LABELS = {
+  '131-134':'Part 6 · 131–134 飲食與健康', '135-138':'Part 6 · 135–138 成功管理者',
+  '139-142':'Part 6 · 139–142 Dear Lily 書信', '143-146':'Part 6 · 143–146 新產品開發',
+  '147-148':'Part 7 · 147–148 辦公室出租廣告', '149-150':'Part 7 · 149–150 Messenger 對話',
+  '151-153':'Part 7 · 151–153 房屋銷售新聞', '154-156':'Part 7 · 154–156 Green Festival',
+  '157-158':'Part 7 · 157–158 平面設計師徵才', '159-161':'Part 7 · 159–161 Grand Hotel 介紹',
+  '162-164':'Part 7 · 162–164 雜誌訂閱（句子插入）'
+};
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  // Build progress dots
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+  });
+
+  // Build question groups
+  let prevGroup = null;
+  questions.forEach((q, idx) => {
+    if (q.group !== prevGroup) {
+      // Section header
+      const hdr = document.createElement('div');
+      hdr.className = 'section-header';
+      const isP7 = !q.part6;
+      hdr.innerHTML = `<span class="s-badge">${isP7 ? 'Part 7' : 'Part 6'}</span>${GROUP_LABELS[q.group] || q.group}`;
+      area.appendChild(hdr);
+
+      // Article box
+      const artData = ARTICLES[q.group];
+      if (artData) {
+        const artDiv = document.createElement('div');
+        artDiv.className = 'art-box';
+        artDiv.innerHTML = `<div class="art-box-header">📄 閱讀文章 ${q.group}</div>${artData.html}<div class="art-zh">中文大意：${artData.zh}</div>`;
+        area.appendChild(artDiv);
+      }
+      prevGroup = q.group;
+    }
+
+    // Question card
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '16px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" onclick="selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>${opt}
+      </div>`).join('');
+
+    const noteHtml = q.optionNotes.map((n,i) => `<li><strong>${String.fromCharCode(65+i)}.</strong> ${n}</li>`).join('');
+
+    const vocabHtml = q.vocab.map(([w,d]) => `<span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>`).join('');
+
+    const dispSen = q.sentence.replace('______','<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+        ${q.part6 ? '<span class="q-p6">Part 6</span>' : ''}
+      </div>
+      <div class="q-sentence">${dispSen}</div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65+q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>`;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
