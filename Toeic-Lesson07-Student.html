@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 07 課後複習｜形容詞與比較結構</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #1B2D5C;
+    --navy-lt:  #2C4480;
+    --amber:    #F59E0B;
+    --amber-lt: #FEF3C7;
+    --green:    #059669;
+    --green-lt: #D1FAE5;
+    --red:      #DC2626;
+    --red-lt:   #FEE2E2;
+    --sky:      #0EA5E9;
+    --sky-lt:   #E0F2FE;
+    --purple:   #7C3AED;
+    --purple-lt:#EDE9FE;
+    --gray-50:  #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --white:    #FFFFFF;
+    --radius:   12px;
+    --shadow:   0 2px 12px rgba(0,0,0,0.08);
+    --shadow-md:0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── TOP NAV ── */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo { font-weight: 700; font-size: 17px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── SECTIONS ── */
+  section { display: none; }
+  section.active { display: block; }
+
+  /* ── HERO CARDS ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .icon {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── TRAP EXAMPLES ── */
+  .trap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
+  .trap-item{background:var(--gray-50);border-radius:10px;padding:14px;border:1.5px solid var(--gray-200)}
+  .trap-wrong{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--red);background:var(--red-lt);padding:6px 10px;border-radius:6px;margin-bottom:6px}
+  .trap-wrong::before{content:"❌ "}
+  .trap-right{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);background:var(--green-lt);padding:6px 10px;border-radius:6px}
+  .trap-right::before{content:"✅ "}
+  .trap-reason{font-size:12px;color:var(--gray-400);margin-top:8px}
+
+  /* ── TOEIC QUESTIONS ── */
+  .q-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .q-num { background: var(--navy); color: white; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 6px; font-family: 'Inter', sans-serif; }
+  .q-type { background: var(--sky-lt); color: var(--sky); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .q-star { background: var(--amber-lt); color: var(--amber); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+
+  .q-sentence {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    border-left: 3px solid var(--navy);
+  }
+  .q-translation { font-size: 13px; color: var(--gray-400); margin-bottom: 16px; padding-left: 4px; }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  @media (max-width: 520px) { .options { grid-template-columns: 1fr; } }
+  .option {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius:999px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+  .option:hover { border-color: var(--navy); background: var(--gray-50); }
+  .option.correct { background: var(--green-lt); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: var(--red-lt); border-color: var(--red); color: var(--red); }
+  .option-label {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .option.correct .option-label { background: var(--green); color: white; }
+  .option.wrong .option-label { background: var(--red); color: white; }
+
+  .reveal-btn {
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .reveal-btn:hover { background: var(--navy-lt); }
+
+  .explanation { display: none; }
+  .explanation.show { display: block; }
+
+  .answer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-lt);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .explain-block {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--sky);
+  }
+  .explain-block h4 { font-size: 12px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .explain-block p, .explain-block li { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+  .vocab-row { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-top: 8px; }
+  .vocab-word { font-family: 'JetBrains Mono', monospace; color: var(--navy); font-weight: 600; }
+  .vocab-def { color: var(--gray-600); }
+
+  .key-point {
+    background: var(--amber-lt);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--gray-800);
+    margin-top: 10px;
+  }
+  .key-point strong { color: #92400E; }
+
+  /* ── PRACTICE SECTION ── */
+  .practice-intro {
+    background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .practice-intro .icon { font-size: 48px; flex-shrink: 0; }
+  .practice-intro h2 { font-size: 20px; font-weight: 700; }
+  .practice-intro p { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 6px; }
+
+  /* ── SCORE TRACKER ── */
+  .score-bar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .score-bar label { font-size: 13px; color: var(--gray-600); font-weight: 500; }
+  .score-val { font-size: 24px; font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .score-bar .bar { flex: 1; min-width: 200px; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+  .score-bar .bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--navy)); border-radius: 4px; transition: width 0.5s; }
+  .reset-btn {
+    background: none;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--gray-600);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── PROGRESS DOTS ── */
+  .progress-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .p-dot {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .p-dot:hover { background: #CBD5E1; }
+  .p-dot.answered { background: var(--green-lt); color: var(--green); border: 1.5px solid var(--green); }
+  .p-dot.wrong { background: var(--red-lt); color: var(--red); border: 1.5px solid var(--red); }
+  .p-dot.current { background: var(--navy); color: white; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; height: auto; padding: 12px 0; gap: 10px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 28px 22px; }
+    .hero h1 { font-size: 20px; }
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--gray-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .qref-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  .qref-table th,.qref-table td{border:1px solid var(--gray-200);padding:10px 14px;text-align:left;vertical-align:middle}
+  .qref-table th{background:var(--navy);color:white;font-size:12px;font-weight:700}
+  .qref-table td:first-child{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);background:var(--gray-50)}
+
+.tts-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:6px;color:var(--gray-400);transition:all .15s;flex-shrink:0}
+.tts-btn:hover,.tts-btn.active{background:var(--sky-lt);color:var(--sky)}
+.art-box-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.art-read-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--gray-200);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.art-read-btn:hover,.art-read-btn.active{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+
+.gcard-sub{font-size:13px;color:var(--gray-400);margin:-8px 0 14px}
+.g-question{font-size:15px;font-weight:700;background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;color:#92400E}
+.g-table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:13.5px}
+.g-table th,.g-table td{padding:8px 12px;text-align:left;border:1px solid var(--gray-200);vertical-align:top}
+.g-table th{background:var(--navy);color:#fff;font-size:12px;font-weight:700}
+.g-table .snum{font-family:'JetBrains Mono',monospace;font-weight:800;color:#fff;background:var(--amber);text-align:center;width:36px}
+.g-highlight{background:var(--amber-lt);border:1px solid #FCD34D;border-radius:8px;padding:10px 14px;font-size:13px;color:var(--gray-800);margin-bottom:8px}
+.g-highlight s,.g-table s{color:var(--red)}
+.ask-wrap{margin-top:14px;display:grid;gap:6px}
+.ask-detail{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:0}
+.ask-detail summary{cursor:pointer;padding:10px 14px;font-size:13.5px;font-weight:600;color:var(--navy);list-style:none}
+.ask-detail summary::-webkit-details-marker{display:none}
+.ask-detail summary:hover{background:var(--gray-100)}
+.ask-detail[open] summary{border-bottom:1px solid var(--gray-200)}
+.ask-ans{padding:10px 14px;font-size:13.5px;color:var(--green);background:var(--green-lt);border-radius:0 0 8px 8px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 07</span> 形容詞與比較結構 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('grammar')">比較結構核心</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+<section id="grammar" class="active">
+<div class="hero"><div class="hero-badge">Lesson 07 · Chapter 5 形容詞與比較結構</div><h1>建立比較句的判斷系統 🧭</h1><p>重點不是背 big/bigger/biggest，而是看到空格能判斷：這裡要形容詞、副詞、比較級、最高級，還是固定片語。看到 than 想比較級、看到 as…as 中間放原級、看到 prior 後面接 to。</p></div>
+<div class='card'><h2><span class='icon'>1</span>形容詞的四個位置</h2><div class='gcard-sub'>先判斷空格在句子裡做什麼</div><div class='g-question'>看到空格要放形容詞還是副詞？先看它的位置。</div><table class='g-table'><tr><th style='width:120px'>位置</th><th>結構</th><th>例</th></tr><tr><td class='snum'>1</td><td>名詞前 Adj+N</td><td>a <b>reliable</b> employee</td></tr><tr><td class='snum'>2</td><td>be 動詞後</td><td>The employee is <b>reliable</b>.</td></tr><tr><td class='snum'>3</td><td>連綴動詞後 seem/look/remain</td><td>The plan sounds <b>practical</b>.</td></tr><tr><td class='snum'>4</td><td>受詞補語</td><td>found the report <b>useful</b></td></tr></table><div class='g-highlight'>常見錯誤：The manager is <s>carefully</s> → careful；needs an <s>efficiently</s> system → efficient。be / seem 後面用形容詞，不是副詞。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ 空格在名詞前面、或在 be / seem / remain 後面，通常要什麼詞性？</summary><div class='ask-ans'>形容詞（不是副詞）</div></details><details class='ask-detail'><summary>❓ The assistant seems capable. capable 修飾誰？</summary><div class='ask-ans'>修飾主詞 assistant，是主詞補語</div></details></div></div>
+<div class='card'><h2><span class='icon'>2</span>原級 / 比較級 / 最高級</h2><div class='gcard-sub'>三層概念與判斷線索</div><div class='g-question'>怎麼判斷要用哪一層？看句子有沒有比較線索。</div><table class='g-table'><tr><th style='width:110px'>形式</th><th>用途</th><th>判斷線索</th></tr><tr><td class='snum'>原</td><td>單純描述</td><td>無 than / 範圍 / as…as</td></tr><tr><td class='snum'>比</td><td>兩者比較</td><td>常見 <b>than</b></td></tr><tr><td class='snum'>最</td><td>範圍內最</td><td><b>the</b> + 最高級 + in/of/among</td></tr></table><div class='g-highlight'>有 than → 比較級；有 in the city / of the three / among all → 最高級。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ 看到 than 第一個反應是什麼？</summary><div class='ask-ans'>往前找比較級，並確認在比哪兩個東西</div></details><details class='ask-detail'><summary>❓ This is ___ solution of the three. → 用哪一層？</summary><div class='ask-ans'>最高級 the most practical（of the three 是範圍）</div></details></div></div>
+<div class='card'><h2><span class='icon'>3</span>字形變化：-er/-est vs more/most</h2><div class='gcard-sub'>短加字尾、長用 more/most</div><table class='g-table'><tr><th>類型</th><th>比較級</th><th>最高級</th></tr><tr><td>短（fast, large, easy, big）</td><td>faster / larger / easier / bigger</td><td>fastest / largest / easiest / biggest</td></tr><tr><td>長（important, efficient, reliable）</td><td>more important…</td><td>the most important…</td></tr></table><div class='g-highlight'>兩種比較級不可混用：<s>more easier</s> → easier；<s>more expensiver</s> → more expensive。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ important 的比較級怎麼說？</summary><div class='ask-ans'>more important（長形容詞不加 -er）</div></details><details class='ask-detail'><summary>❓ more easier 錯在哪？</summary><div class='ask-ans'>easier 已是比較級，前面不能再加 more</div></details></div></div>
+<div class='card'><h2><span class='icon'>4</span>不規則變化 + far / late 辨析</h2><div class='gcard-sub'>TOEIC 必背</div><table class='g-table'><tr><th>原級</th><th>比較級</th><th>最高級</th></tr><tr><td>good / well</td><td>better</td><td>best</td></tr><tr><td>bad</td><td>worse</td><td>worst</td></tr><tr><td>many / much</td><td>more</td><td>most</td></tr><tr><td>little</td><td>less</td><td>least</td></tr><tr><td>far</td><td>farther（距離）/ further（進一步）</td><td>farthest / furthest</td></tr></table><div class='g-highlight'>TOEIC 最常考：<b>further information / further assistance / further discussion</b>（抽象「進一步」，不是 farther）。better 已是比較級 → 不說 more better。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ We have ___ time than expected. (little/less/least)</summary><div class='ask-ans'>less（有 than 是比較級，little→less）</div></details><details class='ask-detail'><summary>❓ 「進一步的資訊」用 farther 還是 further？</summary><div class='ask-ans'>further information</div></details></div></div>
+<div class='card'><h2><span class='icon'>5</span>比較級 + than</h2><div class='gcard-sub'>含程度副詞</div><div class='g-question'>A + be/V + 比較級 + than + B</div><table class='g-table'><tr><th style='width:150px'>程度副詞</th><th>用法</th></tr><tr><td>much / far / even / slightly / significantly</td><td>放<b>比較級</b>前，表差距大小</td></tr><tr><td>very</td><td>只修飾<b>原級</b>（very good）</td></tr></table><div class='g-highlight'>陷阱：<s>very better</s> → much/far better；<s>very more expensive</s> → far more expensive。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ much larger 和 slightly higher 差別？</summary><div class='ask-ans'>差距大小：much 大很多、slightly 稍微高</div></details><details class='ask-detail'><summary>❓ very better 對嗎？</summary><div class='ask-ans'>錯，比較級前用 much / far，不用 very</div></details></div></div>
+<div class='card'><h2><span class='icon'>6</span>最高級：the + 最高級 + 範圍</h2><div class='gcard-sub'>one of the most + 複數</div><div class='g-question'>the + 最高級 + N + in / of / among + 範圍</div><table class='g-table'><tr><th>結構</th><th>例</th></tr><tr><td>the + 最高級</td><td>the most reliable supplier in the company</td></tr><tr><td>one of the 最高級 + <b>複數</b></td><td>one of the most efficient <b>managers</b></td></tr></table><div class='g-highlight'>找「範圍」判斷最高級：in the company / of the three / among all applicants / on the list。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ one of the most efficient ___ ：manager 還是 managers？</summary><div class='ask-ans'>managers（one of the 後接複數）</div></details><details class='ask-detail'><summary>❓ 看到 of the three 用哪一層？</summary><div class='ask-ans'>最高級</div></details></div></div>
+<div class='card'><h2><span class='icon'>7</span>as … as 同等比較</h2><div class='gcard-sub'>中間放原級</div><div class='g-question'>as + 形容詞/副詞<b>原級</b> + as ＝ 和……一樣……</div><table class='g-table'><tr><th>狀態</th><th>The room is as <b>large</b> as that one.</th></tr><tr><td>動作</td><td>She responds as <b>quickly</b> as her supervisor.</td></tr></table><div class='g-highlight'>陷阱：<s>as more durable as</s> → as durable as；<s>as larger as</s> → as large as。not as…as ＝ 不如（＝ more … than 反寫）。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ as ___ as 中間放原級還是比較級？</summary><div class='ask-ans'>原級</div></details><details class='ask-detail'><summary>❓ not as durable as ＝ ？</summary><div class='ask-ans'>不如……耐用</div></details></div></div>
+<div class='card'><h2><span class='icon'>8</span>倍數比較</h2><div class='gcard-sub'>twice / three times as … as</div><div class='g-question'>倍數 + as + 原級 + as</div><table class='g-table'><tr><th>可數</th><th>as <b>many</b> orders as</th></tr><tr><td>不可數</td><td>as <b>much</b> time as</td></tr></table><div class='g-highlight'>中間仍是原級：<s>twice as larger as</s> → twice as large as。常見：twice / three times / half / double。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ twice as large as 中間為何不是 larger？</summary><div class='ask-ans'>倍數比較中間放原級</div></details><details class='ask-detail'><summary>❓ as ___ orders as：many 還是 much？</summary><div class='ask-ans'>many（orders 可數）</div></details></div></div>
+<div class='card'><h2><span class='icon'>9</span>特殊比較片語</h2><div class='gcard-sub'>fewer/less · no…than · prior to</div><table class='g-table'><tr><th>片語</th><th>意思</th></tr><tr><td>fewer + 可數 / less + 不可數</td><td>能數→fewer，不能數→less</td></tr><tr><td>no later than</td><td>不晚於（最晚在…前）</td></tr><tr><td>no more than / no fewer than</td><td>不超過 / 至少</td></tr><tr><td><b>prior / senior / superior / inferior</b> + to</td><td>接 to，<b>不接 than</b></td></tr></table><div class='g-highlight'>TOEIC 最常考 <b>prior to</b>（在……之前）：<s>prior than</s> / <s>more prior to</s> 都錯。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ fewer 還是 less time？</summary><div class='ask-ans'>less（time 不可數）</div></details><details class='ask-detail'><summary>❓ prior 後面接 to 還是 than？</summary><div class='ask-ans'>to（prior to）</div></details></div></div>
+<div class='card'><h2><span class='icon'>🔟</span>絕對形容詞</h2><div class='gcard-sub'>本身已是最終狀態，不加 more/most</div><table class='g-table'><tr><th>字</th><th>錯</th><th>對</th></tr><tr><td>unique</td><td>more unique</td><td>truly unique</td></tr><tr><td>perfect</td><td>most perfect</td><td>nearly perfect</td></tr><tr><td>complete</td><td>more complete</td><td>almost complete</td></tr></table><div class='g-highlight'>要修飾程度用 nearly / virtually / absolutely / truly / completely，不用 more / most。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ more unique 對嗎？</summary><div class='ask-ans'>錯，unique 是絕對形容詞，用 truly unique</div></details></div></div>
+<div class='card'><h2><span class='icon'>1️⃣1️⃣</span>比較對象一致</h2><div class='gcard-sub'>that of / those of</div><div class='g-question'>單數 → that of ｜ 複數 → those of</div><div class='g-highlight'>不能拿 price 跟 company 比。<s>higher than that company</s> → higher than <b>that of</b> the other company。<s>better than the old plan</s> → better than <b>those of</b> the old plan（benefits 複數）。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ delivery time is shorter than ___：the competitors / that of our competitors？</summary><div class='ask-ans'>that of our competitors（time 單數）</div></details><details class='ask-detail'><summary>❓ benefits 比較後面用 that of 還是 those of？</summary><div class='ask-ans'>those of（複數）</div></details></div></div>
+<div class='card'><h2><span class='icon'>1️⃣2️⃣</span>more than 的兩種意思</h2><div class='gcard-sub'>數字 vs 禮貌表達</div><table class='g-table'><tr><th>用法</th><th>意思</th></tr><tr><td>more than + 數字</td><td>超過（more than 500 employees）</td></tr><tr><td>more than + happy/willing</td><td>非常樂意（more than happy to help）</td></tr></table><div class='g-highlight'>商業書信常見 <b>more than happy to</b> / <b>more than willing to</b> ＝ 非常樂意，不是比較。</div><div class='ask-wrap'><details class='ask-detail'><summary>❓ more than happy 是在比較嗎？</summary><div class='ask-ans'>不是，是「非常樂意」的固定禮貌說法</div></details></div></div>
+</section>
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+<div class="hero"><div class="hero-badge">陷阱整理 &amp; 快速查閱</div><h1>考前複習這頁就夠了 📋</h1><p>比較結構最常見的六個錯誤，加上一張比較句型速查表。</p></div>
+<div class="card"><h2><span class="icon">🪤</span>比較結構六大常見錯誤</h2><div class="trap-grid"><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>more easier / very better</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>雙重比較級</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>easier 已是比較級不加 more；very 不修飾比較級（用 much/far）</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong>The plan is <s>more easier</s> → easier；<s>very better</s> → much better</div></div><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>as more … as</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>as…as 放原級</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>as…as 中間一定放原級，不放比較級</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong><s>as more durable as</s> → as durable as</div></div><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>one of the most + 單數</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>單複數</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>one of the + 最高級後面接複數名詞</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong><s>one of the most popular product</s> → products</div></div><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>prior than</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>固定搭配</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>prior/senior/superior/inferior 後面接 to，不接 than</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong><s>prior than Friday</s> → prior to Friday</div></div><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>less + 可數名詞</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>fewer/less</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>可數用 fewer，不可數用 less</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong><s>less employees</s> → fewer employees</div></div><div class='trap-item'><div style='font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px'>than that / those</div><div style='font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic'>比較對象一致</div><div style='background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px'><strong>規則：</strong>單數 that of、複數 those of，且要和前面名詞一致</div><div style='background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B'><strong>改正：</strong>benefits（複數）→ <s>that of</s> → those of</div></div></div></div>
+<div class="card"><h2><span class="icon">📊</span>比較句型速查表</h2><table class="g-table"><tr><th style="width:190px">結構</th><th>用途</th><th>例句</th></tr><tr><td>原級</td><td>單純描述，無比較</td><td>The office is large.</td></tr><tr><td>比較級 + than</td><td>兩者比較</td><td>larger / more efficient than</td></tr><tr><td>the 最高級 + 範圍</td><td>範圍內最</td><td>the most reliable in the company</td></tr><tr><td>as + 原級 + as</td><td>和……一樣</td><td>as clear as the original</td></tr><tr><td>倍數 + as + 原級 + as</td><td>幾倍</td><td>twice as many orders as</td></tr><tr><td>much/far + 比較級</td><td>差距大小</td><td>much faster（非 very）</td></tr><tr><td>fewer / less</td><td>可數 / 不可數</td><td>fewer workers / less time</td></tr><tr><td>prior/senior/superior + to</td><td>不接 than</td><td>prior to the deadline</td></tr><tr><td>that of / those of</td><td>比較對象一致</td><td>higher than those of last year</td></tr></table></div>
+</section>
+
+<!-- ===== TAB 3: 練習題 1-10 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>形容詞與比較結構練習</h2>
+    <p>點選選項作答即時對答案，下方另附上課的 Practice A（找線索）與 Practice B（改錯）。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 14</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+
+<div id="questionsArea"></div>
+<div class="section-header" style="margin-top:34px"><span class="s-badge">補充</span>上課練習 A ｜ 先找比較線索</div>
+<div class="card"><p style="font-size:13px;color:var(--gray-600);margin-bottom:12px">不要只說答案。先指出句中的線索，再說應該使用哪個結構。　點開看答案與線索。</p><details class='ask-detail'><summary>1. The delivery service is ______ than it was last year.</summary><div class='ask-ans'>faster　句中有 than，表示兩者比較，所以使用比較級 faster。</div></details><details class='ask-detail'><summary>2. Ms. Wang is one of the most experienced ______ in the department.</summary><div class='ask-ans'>managers　one of the most + 形容詞 + 複數名詞，所以使用複數 managers。</div></details><details class='ask-detail'><summary>3. The updated software is as ______ as the previous version.</summary><div class='ask-ans'>reliable　as + 形容詞原級 + as，所以使用原級 reliable，不能用 more reliable。</div></details><details class='ask-detail'><summary>4. The automated system requires ______ employees and ______ time.</summary><div class='ask-ans'>fewer employees / less time　employees 是可數名詞，用 fewer；time 是不可數名詞，用 less。</div></details><details class='ask-detail'><summary>5. The cost of this service is lower than ______ of the premium plan.</summary><div class='ask-ans'>that　比較的是單數名詞 cost，所以用 that 代替，避免重複。</div></details><details class='ask-detail'><summary>6. Please complete the registration prior ______ attending the workshop.</summary><div class='ask-ans'>to　固定搭配是 prior to + 名詞／V-ing，不能用 prior than。</div></details></div>
+<div class="section-header"><span class="s-badge">補充</span>上課練習 B ｜ 比較結構改錯</div>
+<div class="card"><p style="font-size:13px;color:var(--gray-600);margin-bottom:12px">每題先說錯在哪裡，再說完整的正確句子。　點開看正確句子與說明。</p><details class='ask-detail'><summary>1. The revised schedule is more easier to understand.</summary><div class='ask-ans'><b>✔ The revised schedule is easier to understand.</b><br>easier 本身已經是比較級，不能再加 more。</div></details><details class='ask-detail'><summary>2. This is one of the most popular product in our store.</summary><div class='ask-ans'><b>✔ This is one of the most popular products in our store.</b><br>one of the 後面要接複數名詞 products。</div></details><details class='ask-detail'><summary>3. The virtual meeting was as more productive as the face-to-face meeting.</summary><div class='ask-ans'><b>✔ The virtual meeting was as productive as the face-to-face meeting.</b><br>as ... as 中間放形容詞原級，不放比較級。</div></details><details class='ask-detail'><summary>4. Please submit all expense reports prior than Friday.</summary><div class='ask-ans'><b>✔ Please submit all expense reports prior to Friday.</b><br>固定搭配是 prior to，不是 prior than。</div></details><details class='ask-detail'><summary>5. The new branch needs less employees than the main office.</summary><div class='ask-ans'><b>✔ The new branch needs fewer employees than the main office.</b><br>employees 是可數複數名詞，所以用 fewer。</div></details><details class='ask-detail'><summary>6. The benefits of this plan are better than that of the previous plan.</summary><div class='ask-ans'><b>✔ The benefits of this plan are better than those of the previous plan.</b><br>比較的是複數名詞 benefits，所以用 those，不用 that。</div></details></div>
+
+</section>
+
+</div><!-- /container -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const questions = [{"num": 1, "type": "比較級 + than", "star": true, "sentence": "The new assembly line is ______ than the previous one, producing 200 more units per hour.", "translation": "新的生產線比舊的 ______ ，每小時多生產 200 個單位。", "options": ["efficient", "more efficient", "most efficient", "efficiently"], "answer": 1, "logic": "句中有 than，表示兩者比較，要用比較級。efficient 是較長的形容詞，比較級用 more efficient，不加 -er。", "keyPoint": "看到 than → 比較級；長形容詞用 more + 形容詞", "optionNotes": ["efficient：原級，不能和 than 搭配", "more efficient：長形容詞的比較級 ✅", "most efficient：最高級，要搭配 the 和範圍", "efficiently：副詞，這裡需要形容詞比較級"], "vocab": [["efficient", "有效率的"], ["assembly line", "生產線"], ["per hour", "每小時"]]}, {"num": 2, "type": "最高級 + 範圍", "star": false, "sentence": "Of all the candidates we interviewed, Ms. Lin is ______ qualified for the position.", "translation": "在所有面試過的應徵者中，Lin 小姐是 ______ 適任這個職位的。", "options": ["more", "the most", "as", "very"], "answer": 1, "logic": "Of all the candidates 是一個範圍（所有應徵者之中），範圍內說「最」要用最高級 the most。", "keyPoint": "the + 最高級 + in / of / among + 範圍", "optionNotes": ["more：比較級，用於兩者比較，這裡是範圍", "the most：範圍內最……，最高級 ✅", "as：as...as 結構要成對，語法不合", "very：修飾原級，無法表達「最」"], "vocab": [["qualified", "適任的；有資格的"], ["candidate", "應徵者；候選人"], ["of all", "在所有……之中"]]}, {"num": 3, "type": "one of the most + 複數", "star": true, "sentence": "The Grandview is one of the most luxurious ______ in the downtown area.", "translation": "Grandview 是市中心 ______ 最豪華的飯店之一。", "options": ["hotel", "hotels", "hotel's", "hoteling"], "answer": 1, "logic": "one of the + 最高級 + 名詞，這個名詞一定要用複數，因為是「眾多之一」。所以用 hotels。", "keyPoint": "one of the + 最高級 + 複數名詞", "optionNotes": ["hotel：單數，不符合 one of the 結構", "hotels：複數名詞 ✅", "hotel's：所有格，語法不合", "hoteling：非正確名詞形式"], "vocab": [["luxurious", "豪華的"], ["one of the...", "……之一"], ["downtown area", "市中心區域"]]}, {"num": 4, "type": "as … as 同等比較", "star": false, "sentence": "The updated manual is as ______ as the original, but much shorter.", "translation": "更新後的手冊和原版一樣 ______ ，但短很多。", "options": ["clear", "clearer", "clearest", "clearly"], "answer": 0, "logic": "as ... as 中間一定放形容詞或副詞的原級，不放比較級。這裡形容 manual，用形容詞原級 clear。", "keyPoint": "as + 形容詞/副詞原級 + as", "optionNotes": ["clear：原級，as clear as ✅", "clearer：比較級不能放 as...as 中間", "clearest：最高級不能放 as...as 中間", "clearly：副詞，這裡要形容 manual 用形容詞"], "vocab": [["as...as", "和……一樣"], ["updated", "更新後的"], ["manual", "手冊"]]}, {"num": 5, "type": "not as … as", "star": false, "sentence": "The budget model is not as ______ as the premium version.", "translation": "平價款不如高階版那麼 ______ 。", "options": ["durable", "more durable", "durablest", "durably"], "answer": 0, "logic": "not as ... as = 不如……那麼……，中間仍放原級形容詞 durable。", "keyPoint": "not as + 原級 + as = 不如……（＝ less ... than）", "optionNotes": ["durable：原級，not as durable as ✅", "more durable：比較級不放 as...as 中間", "durablest：非正確拼法", "durably：副詞，這裡需要形容詞"], "vocab": [["durable", "耐用的"], ["budget model", "平價款"], ["premium version", "高階版"]]}, {"num": 6, "type": "倍數比較", "star": true, "sentence": "This year the company received ______ many applications as last year.", "translation": "今年公司收到的申請件數是去年的 ______ 。", "options": ["twice as", "twice more", "two times more", "as twice"], "answer": 0, "logic": "倍數比較的公式是「倍數 + as + many/much + 名詞 + as」。twice as many applications as = 兩倍的申請件數。", "keyPoint": "倍數 + as many/much + N + as（中間是原級）", "optionNotes": ["twice as：twice as many...as ✅", "twice more：不是正確的倍數比較結構", "two times more：口語化且語法不精確", "as twice：語序錯誤"], "vocab": [["twice as many...as", "兩倍多的……"], ["application", "申請（件）"], ["receive", "收到"]]}, {"num": 7, "type": "fewer / less", "star": true, "sentence": "By automating the process, the factory now needs ______ workers than before.", "translation": "透過流程自動化，工廠現在需要 ______ 工人。", "options": ["less", "fewer", "least", "little"], "answer": 1, "logic": "workers 是可數複數名詞，比較「數量較少」要用 fewer，不用 less。", "keyPoint": "fewer + 可數複數；less + 不可數", "optionNotes": ["less：修飾不可數名詞，workers 可數", "fewer：修飾可數複數名詞 ✅", "least：最高級，語意不合", "little：修飾不可數名詞"], "vocab": [["fewer", "較少的（可數）"], ["automate", "自動化"], ["process", "流程"]]}, {"num": 8, "type": "fewer / less", "star": false, "sentence": "The digital form takes ______ time to complete than the paper one.", "translation": "電子表單比紙本花 ______ 時間填寫。", "options": ["fewer", "less", "fewest", "many"], "answer": 1, "logic": "time 是不可數名詞，比較「較少量」要用 less。", "keyPoint": "less + 不可數名詞（time / money / information）", "optionNotes": ["fewer：修飾可數名詞，time 不可數", "less：修飾不可數名詞 ✅", "fewest：最高級，語意不合", "many：修飾可數名詞"], "vocab": [["less", "較少的（不可數）"], ["digital form", "電子表單"], ["complete", "完成；填寫"]]}, {"num": 9, "type": "prior to", "star": true, "sentence": "All visitors must register ______ entering the research facility.", "translation": "所有訪客必須在進入研究設施 ______ 完成登記。", "options": ["prior than", "prior to", "more prior to", "priorly"], "answer": 1, "logic": "prior 本身已含比較意涵，後面固定接 to，不接 than，也不加 more。prior to = 在……之前。", "keyPoint": "prior / senior / superior / inferior + to（不接 than）", "optionNotes": ["prior than：prior 不接 than", "prior to：固定搭配 = 在……之前 ✅", "more prior to：prior 不加 more", "priorly：非正確用法"], "vocab": [["prior to", "在……之前"], ["register", "登記；報到"], ["facility", "設施"]]}, {"num": 10, "type": "比較對象一致", "star": false, "sentence": "The sales figures of this quarter are higher than ______ of the last quarter.", "translation": "本季的銷售數字比上一季的 ______ 高。", "options": ["that", "those", "it", "them"], "answer": 1, "logic": "比較的對象是 sales figures（複數），為避免重複，用 those of 代替。單數用 that of，複數用 those of。", "keyPoint": "單數 → that of；複數 → those of", "optionNotes": ["that：代替單數名詞，figures 是複數", "those：代替複數名詞 figures ✅", "it：不能用於此比較結構", "them：受格，語法不合"], "vocab": [["those of", "那些……的（複數）"], ["sales figures", "銷售數字"], ["quarter", "季（度）"]]}, {"num": 11, "type": "絕對形容詞", "star": false, "sentence": "The design team created a ______ unique logo for the new brand.", "translation": "設計團隊為新品牌創作了一個 ______ 獨特的標誌。", "options": ["more", "most", "truly", "very more"], "answer": 2, "logic": "unique（獨一無二）是絕對形容詞，本身已是最終狀態，不能加 more / most。要強調程度用 truly / absolutely。", "keyPoint": "絕對形容詞（unique/perfect/complete）用 truly/absolutely，不用 more/most", "optionNotes": ["more：unique 是絕對形容詞不加 more", "most：同理不加 most", "truly：truly unique = 真正獨特 ✅", "very more：語法錯誤"], "vocab": [["unique", "獨一無二的"], ["truly", "真正地"], ["logo", "標誌"]]}, {"num": 12, "type": "程度副詞 + 比較級", "star": true, "sentence": "The express service is ______ faster than standard shipping.", "translation": "快遞服務比標準運送 ______ 快。", "options": ["very", "much", "more", "most"], "answer": 1, "logic": "比較級前面表示差距大小要用 much / far / even，不用 very。very 只修飾原級。", "keyPoint": "比較級前用 much / far / even，不用 very", "optionNotes": ["very：只修飾原級（very fast），不修飾比較級", "much：much faster = 快很多 ✅", "more：faster 已是比較級，不再加 more", "most：最高級，語意不合"], "vocab": [["much + 比較級", "……得多"], ["express service", "快遞服務"], ["standard shipping", "標準運送"]]}, {"num": 13, "type": "more than（固定表達）", "star": false, "sentence": "Our team is more than ______ to assist you with the setup.", "translation": "我們團隊非常 ______ 協助您完成安裝。", "options": ["happy", "happier", "happiest", "happily"], "answer": 0, "logic": "more than happy / willing to V 是固定禮貌表達，意思是「非常樂意」，不是比較，中間放原級形容詞。", "keyPoint": "more than happy / willing to V = 非常樂意（固定表達）", "optionNotes": ["happy：more than happy to = 非常樂意 ✅", "happier：這不是比較，不用比較級", "happiest：最高級語意不合", "happily：這裡需要形容詞"], "vocab": [["more than happy to", "非常樂意……"], ["assist", "協助"], ["setup", "安裝；設定"]]}, {"num": 14, "type": "further / farther", "star": false, "sentence": "Please contact our office for ______ information about the program.", "translation": "若需要關於本方案的 ______ 資訊，請聯絡我們辦公室。", "options": ["farther", "further", "far", "furthest"], "answer": 1, "logic": "further 表示抽象的「進一步」，farther 表示實際距離。further information / assistance 是 TOEIC 高頻搭配。", "keyPoint": "further information / assistance（抽象進一步）；farther 才是距離", "optionNotes": ["farther：指實際距離，不用於 information", "further：進一步的（抽象）✅", "far：原級，語意不完整", "furthest：最高級，語意不合"], "vocab": [["further information", "進一步的資訊"], ["farther", "更遠（距離）"], ["contact", "聯絡"]]}];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+
+
+/* ── TOEIC hybrid audio controller: online English TTS first, browser voice fallback ── */
+const TOEIC_AUDIO = {
+  token: 0,
+  source: null,
+  chunks: [],
+  index: 0,
+  paused: false,
+  mode: '',
+  useOnline: true,
+  audio: new Audio(),
+  utterance: null,
+  timer: null,
+  allowPause: false
+};
+
+function _ttsDecode(rawText) {
+  const box = document.createElement('div');
+  box.innerHTML = String(rawText || '');
+  return (box.textContent || box.innerText || '')
+    .replace(/_{2,}/g, ' blank ')
+    .replace(/\[[0-9]+\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function _ttsChunks(text, maxLen = 180) {
+  const parts = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+  const out = [];
+  for (const partRaw of parts) {
+    const part = partRaw.trim();
+    if (!part) continue;
+    if (part.length <= maxLen) {
+      out.push(part);
+      continue;
+    }
+    const words = part.split(/\s+/);
+    let line = '';
+    for (const word of words) {
+      const next = line ? line + ' ' + word : word;
+      if (next.length > maxLen && line) {
+        out.push(line);
+        line = word;
+      } else {
+        line = next;
+      }
+    }
+    if (line) out.push(line);
+  }
+  return out.length ? out : [text];
+}
+
+function _ttsResetButton(btn) {
+  if (!btn || !btn.classList) return;
+  btn.classList.remove('active');
+  if (btn.dataset && btn.dataset.orig !== undefined) {
+    btn.textContent = btn.dataset.orig;
+    delete btn.dataset.orig;
+  }
+}
+
+function _ttsSetButton(mode) {
+  const btn = TOEIC_AUDIO.source;
+  if (!btn || !btn.classList) return;
+  if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent;
+  btn.classList.add('active');
+
+  if (btn.classList.contains('art-read-btn')) {
+    btn.textContent = mode === 'paused' ? '▶ 繼續' : '⏸ 暫停';
+  } else if (btn.classList.contains('tts-btn')) {
+    btn.textContent = mode === 'paused' ? '▶' : '⏹';
+  }
+}
+
+function _ttsStop() {
+  TOEIC_AUDIO.token += 1;
+  if (TOEIC_AUDIO.timer) {
+    clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+  }
+  try {
+    TOEIC_AUDIO.audio.pause();
+    TOEIC_AUDIO.audio.removeAttribute('src');
+    TOEIC_AUDIO.audio.load();
+  } catch (_) {}
+  if (window.speechSynthesis) {
+    try { speechSynthesis.cancel(); } catch (_) {}
+  }
+  _ttsResetButton(TOEIC_AUDIO.source);
+  document.querySelectorAll('.tts-btn.active,.art-read-btn.active').forEach(_ttsResetButton);
+  TOEIC_AUDIO.source = null;
+  TOEIC_AUDIO.chunks = [];
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.utterance = null;
+  TOEIC_AUDIO.allowPause = false;
+}
+
+function _ttsFinish(token) {
+  if (token !== TOEIC_AUDIO.token) return;
+  _ttsResetButton(TOEIC_AUDIO.source);
+  TOEIC_AUDIO.source = null;
+  TOEIC_AUDIO.chunks = [];
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.utterance = null;
+  TOEIC_AUDIO.allowPause = false;
+}
+
+function _ttsNext(token) {
+  if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+  TOEIC_AUDIO.index += 1;
+  _ttsPlayCurrent(token);
+}
+
+function _ttsBrowserChunk(text, token) {
+  if (!window.speechSynthesis) {
+    _ttsFinish(token);
+    return;
+  }
+
+  TOEIC_AUDIO.mode = 'speech';
+  const u = new SpeechSynthesisUtterance(text);
+  TOEIC_AUDIO.utterance = u;
+  u.lang = 'en-US';
+  u.rate = 0.85;
+  u.pitch = 1;
+
+  u.onend = () => {
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+  u.onerror = () => {
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+
+  try {
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  } catch (_) {
+    _ttsNext(token);
+    return;
+  }
+
+  // Prevent a browser speech queue from remaining stuck indefinitely.
+  TOEIC_AUDIO.timer = setTimeout(() => {
+    if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+    try { speechSynthesis.cancel(); } catch (_) {}
+    _ttsNext(token);
+  }, Math.max(12000, Math.min(32000, text.length * 150)));
+}
+
+function _ttsOnlineChunk(text, token) {
+  TOEIC_AUDIO.mode = 'audio';
+  const audio = TOEIC_AUDIO.audio;
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + encodeURIComponent(text);
+  let settled = false;
+
+  const fallback = () => {
+    if (settled || token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+    settled = true;
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    try {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    } catch (_) {}
+    TOEIC_AUDIO.useOnline = false;
+    _ttsBrowserChunk(text, token);
+  };
+
+  audio.onended = () => {
+    if (settled || token !== TOEIC_AUDIO.token) return;
+    settled = true;
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+  audio.onerror = fallback;
+  audio.src = url;
+  audio.preload = 'auto';
+
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(fallback);
+  }
+
+  TOEIC_AUDIO.timer = setTimeout(fallback, 5000);
+}
+
+function _ttsPlayCurrent(token) {
+  if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+  if (TOEIC_AUDIO.index >= TOEIC_AUDIO.chunks.length) {
+    _ttsFinish(token);
+    return;
+  }
+  const text = TOEIC_AUDIO.chunks[TOEIC_AUDIO.index];
+  if (TOEIC_AUDIO.useOnline) _ttsOnlineChunk(text, token);
+  else _ttsBrowserChunk(text, token);
+}
+
+function _ttsTogglePause() {
+  if (!TOEIC_AUDIO.source || !TOEIC_AUDIO.allowPause) {
+    _ttsStop();
+    return;
+  }
+
+  if (!TOEIC_AUDIO.paused) {
+    TOEIC_AUDIO.paused = true;
+    if (TOEIC_AUDIO.timer) {
+      clearTimeout(TOEIC_AUDIO.timer);
+      TOEIC_AUDIO.timer = null;
+    }
+    if (TOEIC_AUDIO.mode === 'audio') {
+      try { TOEIC_AUDIO.audio.pause(); } catch (_) {}
+    } else if (TOEIC_AUDIO.mode === 'speech' && window.speechSynthesis) {
+      try { speechSynthesis.cancel(); } catch (_) {}
+    }
+    _ttsSetButton('paused');
+    return;
+  }
+
+  TOEIC_AUDIO.paused = false;
+  _ttsSetButton('playing');
+  const token = TOEIC_AUDIO.token;
+
+  if (TOEIC_AUDIO.mode === 'audio' && TOEIC_AUDIO.audio.src) {
+    const p = TOEIC_AUDIO.audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => {
+        TOEIC_AUDIO.useOnline = false;
+        _ttsBrowserChunk(TOEIC_AUDIO.chunks[TOEIC_AUDIO.index], token);
+      });
+    }
+  } else {
+    // Browser TTS cannot resume reliably; restart only the current short chunk.
+    _ttsBrowserChunk(TOEIC_AUDIO.chunks[TOEIC_AUDIO.index], token);
+  }
+}
+
+function _ttsPlay(rawText, sourceBtn, allowPause = false) {
+  const clean = _ttsDecode(rawText);
+  if (!clean) return;
+
+  const sameSource = sourceBtn && TOEIC_AUDIO.source === sourceBtn;
+  if (sameSource) {
+    if (allowPause) _ttsTogglePause();
+    else _ttsStop();
+    return;
+  }
+
+  _ttsStop();
+  TOEIC_AUDIO.token += 1;
+  const token = TOEIC_AUDIO.token;
+  TOEIC_AUDIO.source = sourceBtn || null;
+  TOEIC_AUDIO.chunks = _ttsChunks(clean);
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.useOnline = true;
+  TOEIC_AUDIO.allowPause = !!allowPause;
+
+  _ttsSetButton('playing');
+  _ttsPlayCurrent(token);
+}
+
+function ttsBtnClick(btn, text) {
+  _ttsPlay(text, btn, false);
+}
+
+function ttsSpeak(btn, text) {
+  _ttsPlay(text, btn, true);
+}
+
+window.addEventListener('pagehide', _ttsStop);
+window.addEventListener('beforeunload', _ttsStop);
+/* ── end hybrid audio controller ── */
+
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '20px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" data-tts="${opt.replace(/"/g,'&quot;').replace(/'/g,'&apos;')}" onclick="_ttsPlay(this.dataset.tts,this,false);selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>
+        ${opt}
+      </div>
+    `).join('');
+
+    const noteHtml = q.optionNotes.map((n, i) => `
+      <li><strong>${String.fromCharCode(65+i)}.</strong> ${n}</li>
+    `).join('');
+
+    const vocabHtml = q.vocab.map(([w, d]) => `
+      <span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>
+    `).join('');
+
+    const displaySentence = q.sentence.replace('______', '<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+      </div>
+      <div class="q-sentence" style="display:flex;align-items:flex-start;gap:8px"><span style="flex:1">${displaySentence}</span><button class="tts-btn" data-idx="${idx}" onclick="ttsBtnClick(this, questions[+this.dataset.idx].sentence)">🔊</button></div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65 + q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>
+    `;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.remove('current');
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  _ttsStop();
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>

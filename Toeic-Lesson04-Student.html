@@ -51,7 +51,7 @@
   .q-translation { font-size:13px; color:var(--gray-400); margin-bottom:16px; padding-left:4px; }
   .options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
   @media(max-width:520px) { .options{ grid-template-columns:1fr; } }
-  .option { background:white; border:1.5px solid var(--gray-200); border-radius:8px; padding:10px 14px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; user-select:none; }
+  .option { background:white; border:1.5px solid var(--gray-200); border-radius:999px; padding:10px 14px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; user-select:none; }
   .option:hover { border-color:var(--navy); background:var(--gray-50); }
   .option.correct { background:var(--green-lt); border-color:var(--green); color:var(--green); }
   .option.wrong { background:var(--red-lt); border-color:var(--red); color:var(--red); }
@@ -97,6 +97,19 @@
   .art-ins { background:rgba(124,58,237,.15); color:var(--purple); font-weight:800; padding:1px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:12px; }
   code { font-family:'JetBrains Mono',monospace; background:var(--gray-100); padding:1px 6px; border-radius:4px; font-size:13px; }
   @media(max-width:700px) { .header-inner{ flex-direction:column; height:auto; padding:12px 0; gap:10px; } nav{ flex-wrap:wrap; justify-content:center; } .hero{ padding:28px 22px; } .hero h1{ font-size:20px; } }
+
+.tts-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:6px;color:var(--gray-400);transition:all .15s;flex-shrink:0;line-height:1}
+.tts-btn:hover{background:var(--sky-lt);color:var(--sky)}
+.tts-btn.active{background:var(--sky-lt);color:var(--sky)}
+.art-box-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.art-read-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--gray-200);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.art-read-btn:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+.art-read-btn.active{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+
+/* Hybrid audio feedback */
+.option.audio-active{box-shadow:0 0 0 2px rgba(14,165,233,.28);border-color:rgba(14,165,233,.45)}
+.tts-btn.audio-loading,.art-read-btn.audio-loading{opacity:.72}
+
 </style>
 </head>
 <body>
@@ -301,6 +314,341 @@ const GROUP_LABELS = {
   '162-164':'Part 7 · 162–164 雜誌訂閱（句子插入）'
 };
 
+
+/* ── Hybrid audio controller: online MP3 first, simple browser TTS fallback ── */
+(function () {
+  const synth = window.speechSynthesis || null;
+  const media = new Audio();
+  media.preload = 'auto';
+
+  let requestId = 0;
+  let speechRunId = 0;
+  let currentButton = null;
+  let currentUtterance = null;
+  let queue = [];
+  let queueIndex = 0;
+  let state = 'idle'; // idle | loading | playing | paused
+  let backend = null; // audio | speech
+  let nextTimer = null;
+  let loadTimer = null;
+
+  function decodeAndClean(rawText) {
+    const box = document.createElement('div');
+    box.innerHTML = String(rawText == null ? '' : rawText);
+    return (box.textContent || box.innerText || '')
+      .replace(/\[\s*\d+\s*\]/g, ' blank ')
+      .replace(/_{2,}/g, ' blank ')
+      .replace(/[✓✔]/g, ' correct ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function splitIntoChunks(text, maxLen) {
+    maxLen = maxLen || 165;
+    if (!text) return [];
+    const units = text.match(/[^.!?;:]+[.!?;:]?|[^.!?;:]+$/g) || [text];
+    const result = [];
+    let current = '';
+    const flush = () => {
+      const value = current.trim();
+      if (value) result.push(value);
+      current = '';
+    };
+    units.forEach(unit => {
+      const sentence = unit.trim();
+      if (!sentence) return;
+      if (sentence.length <= maxLen) {
+        if (!current) current = sentence;
+        else if ((current + ' ' + sentence).length <= maxLen) current += ' ' + sentence;
+        else { flush(); current = sentence; }
+        return;
+      }
+      flush();
+      sentence.split(/\s+/).forEach(word => {
+        if (!current) current = word;
+        else if ((current + ' ' + word).length <= maxLen) current += ' ' + word;
+        else { flush(); current = word; }
+      });
+      flush();
+    });
+    flush();
+    return result;
+  }
+
+  function isArticleButton(el) {
+    return !!el && el.tagName === 'BUTTON' && el.classList.contains('art-read-btn');
+  }
+
+  function isSmallSpeakButton(el) {
+    return !!el && el.tagName === 'BUTTON' && el.classList.contains('tts-btn');
+  }
+
+  function restoreButton(el) {
+    if (!el) return;
+    el.classList.remove('active', 'audio-active', 'audio-loading', 'audio-paused');
+    el.removeAttribute('aria-pressed');
+    if (el.dataset.audioOrig !== undefined) {
+      el.textContent = el.dataset.audioOrig;
+      delete el.dataset.audioOrig;
+    }
+  }
+
+  function setButtonState(nextState) {
+    const el = currentButton;
+    if (!el) return;
+    el.classList.add('audio-active');
+    el.classList.toggle('audio-loading', nextState === 'loading');
+    el.classList.toggle('audio-paused', nextState === 'paused');
+    el.classList.toggle('active', nextState !== 'idle');
+    el.setAttribute('aria-pressed', nextState === 'playing' ? 'true' : 'false');
+
+    if (isArticleButton(el) || isSmallSpeakButton(el)) {
+      if (el.dataset.audioOrig === undefined) el.dataset.audioOrig = el.textContent;
+      if (isArticleButton(el)) {
+        el.textContent = nextState === 'loading' ? '⌛ 載入中' : nextState === 'paused' ? '▶ 繼續' : '⏸ 暫停';
+      } else {
+        el.textContent = nextState === 'loading' ? '⌛' : nextState === 'paused' ? '▶' : '⏸';
+      }
+    }
+  }
+
+  function clearTimers() {
+    if (nextTimer) { clearTimeout(nextTimer); nextTimer = null; }
+    if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+  }
+
+  function detachMedia() {
+    media.onended = null;
+    media.onerror = null;
+    media.onplaying = null;
+    media.onpause = null;
+    try { media.pause(); } catch (_) {}
+    try {
+      media.removeAttribute('src');
+      media.load();
+    } catch (_) {}
+  }
+
+  function cancelBrowserSpeech() {
+    speechRunId += 1;
+    currentUtterance = null;
+    if (!synth) return;
+    try { synth.cancel(); } catch (_) {}
+  }
+
+  function stop() {
+    requestId += 1;
+    clearTimers();
+    detachMedia();
+    cancelBrowserSpeech();
+    restoreButton(currentButton);
+    currentButton = null;
+    queue = [];
+    queueIndex = 0;
+    state = 'idle';
+    backend = null;
+  }
+
+  function finish(id) {
+    if (id !== requestId) return;
+    clearTimers();
+    detachMedia();
+    cancelBrowserSpeech();
+    restoreButton(currentButton);
+    currentButton = null;
+    queue = [];
+    queueIndex = 0;
+    state = 'idle';
+    backend = null;
+  }
+
+  function advance(id) {
+    if (id !== requestId) return;
+    queueIndex += 1;
+    if (queueIndex >= queue.length) {
+      finish(id);
+      return;
+    }
+    nextTimer = setTimeout(function () {
+      nextTimer = null;
+      if (id === requestId) playChunk(id);
+    }, 90);
+  }
+
+  function browserSpeak(id) {
+    if (id !== requestId) return;
+    if (!synth || typeof window.SpeechSynthesisUtterance === 'undefined') {
+      finish(id);
+      return;
+    }
+
+    backend = 'speech';
+    state = 'loading';
+    setButtonState('loading');
+    const run = ++speechRunId;
+    const utterance = new SpeechSynthesisUtterance(queue[queueIndex]);
+    currentUtterance = utterance;
+    utterance.lang = 'en-US';
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    // Intentionally do not force a named voice. The browser chooses its stable default.
+    utterance.onstart = function () {
+      if (id !== requestId || run !== speechRunId) return;
+      state = 'playing';
+      setButtonState('playing');
+    };
+    utterance.onend = function () {
+      if (id !== requestId || run !== speechRunId) return;
+      currentUtterance = null;
+      advance(id);
+    };
+    utterance.onerror = function (event) {
+      if (id !== requestId || run !== speechRunId) return;
+      const code = event && event.error ? event.error : 'unknown';
+      if (code === 'canceled' || code === 'interrupted') return;
+      console.warn('Browser TTS error:', code);
+      finish(id);
+    };
+    try {
+      // Same direct cancel → speak pattern used by the stable Thai notes.
+      synth.cancel();
+      synth.speak(utterance);
+      state = 'playing';
+      setButtonState('playing');
+    } catch (error) {
+      console.warn('Browser TTS failed:', error);
+      finish(id);
+    }
+  }
+
+  function onlineUrl(text) {
+    return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + encodeURIComponent(text);
+  }
+
+  function onlineSpeak(id) {
+    if (id !== requestId) return;
+    backend = 'audio';
+    state = 'loading';
+    setButtonState('loading');
+
+    let fellBack = false;
+    const fallback = function () {
+      if (fellBack || id !== requestId) return;
+      fellBack = true;
+      if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+      detachMedia();
+      browserSpeak(id);
+    };
+
+    media.onplaying = function () {
+      if (id !== requestId || fellBack) return;
+      if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+      state = 'playing';
+      setButtonState('playing');
+    };
+    media.onended = function () {
+      if (id !== requestId || fellBack) return;
+      advance(id);
+    };
+    media.onerror = fallback;
+
+    try {
+      media.src = onlineUrl(queue[queueIndex]);
+      media.currentTime = 0;
+      // Calling play() inside the original click task is more reliable than waiting for canplaythrough.
+      const playPromise = media.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(fallback);
+      loadTimer = setTimeout(fallback, 5000);
+    } catch (error) {
+      fallback();
+    }
+  }
+
+  function playChunk(id) {
+    if (id !== requestId) return;
+    if (queueIndex >= queue.length) {
+      finish(id);
+      return;
+    }
+    onlineSpeak(id);
+  }
+
+  function toggleSameSource() {
+    if (state === 'loading') {
+      stop();
+      return true;
+    }
+    if (backend === 'audio') {
+      if (state === 'playing') {
+        try { media.pause(); } catch (_) {}
+        state = 'paused';
+        setButtonState('paused');
+        return true;
+      }
+      if (state === 'paused') {
+        const promise = media.play();
+        if (promise && typeof promise.then === 'function') {
+          promise.then(function () {
+            state = 'playing';
+            setButtonState('playing');
+          }).catch(function () {
+            browserSpeak(requestId);
+          });
+        }
+        return true;
+      }
+    }
+    if (backend === 'speech') {
+      if (state === 'playing') {
+        // Native pause/resume is unreliable. Cancel and remember the current chunk instead.
+        cancelBrowserSpeech();
+        state = 'paused';
+        setButtonState('paused');
+        return true;
+      }
+      if (state === 'paused') {
+        browserSpeak(requestId); // Restarts only the current short chunk.
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function play(rawText, sourceButton) {
+    const clean = decodeAndClean(rawText);
+    if (!clean) {
+      stop();
+      return false;
+    }
+
+    if (sourceButton && sourceButton === currentButton && toggleSameSource()) return false;
+
+    stop();
+    const id = ++requestId;
+    currentButton = sourceButton || null;
+    queue = splitIntoChunks(clean, 165);
+    queueIndex = 0;
+    state = 'loading';
+    setButtonState('loading');
+    // Start immediately from the click handler; do not defer with setTimeout.
+    playChunk(id);
+    return false;
+  }
+
+  window.addEventListener('pagehide', stop);
+  window.addEventListener('beforeunload', stop);
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop();
+  });
+
+  window.TOEICAudio = { play: play, stop: stop, getState: function () { return state; } };
+  window._ttsStop = stop;
+  window._ttsPlay = function (text, btn) { return play(text, btn || null); };
+  window.ttsBtnClick = function (btn, text) { return play(text, btn); };
+  window.ttsSpeak = function (btn, text) { return play(text, btn); };
+})();
+/* ── end hybrid audio controller ── */
+
 function initQuestions() {
   const area = document.getElementById('questionsArea');
   const pg = document.getElementById('progressGrid');
@@ -333,7 +681,7 @@ function initQuestions() {
       if (artData) {
         const artDiv = document.createElement('div');
         artDiv.className = 'art-box';
-        artDiv.innerHTML = `<div class="art-box-header">📄 閱讀文章 ${q.group}</div>${artData.html}<div class="art-zh">中文大意：${artData.zh}</div>`;
+        artDiv.innerHTML = `<div class="art-box-header"><span>📄 閱讀文章 ${q.group}</span><button type="button" class="art-read-btn" aria-label="朗讀文章；再次點擊可暫停或繼續" onclick="ttsSpeak(this,ARTICLES['${q.group}'].html)" title="朗讀文章">🔊 朗讀</button></div>${artData.html}<div class="art-zh">中文大意：${artData.zh}</div>`;
         area.appendChild(artDiv);
       }
       prevGroup = q.group;
@@ -346,7 +694,7 @@ function initQuestions() {
     card.style.marginBottom = '16px';
 
     const optHtml = q.options.map((opt, i) => `
-      <div class="option" id="opt-${idx}-${i}" onclick="selectOption(${idx}, ${i})">
+      <div class="option" id="opt-${idx}-${i}" data-tts="${opt.replace(/"/g,'&quot;').replace(/'/g,'&apos;')}" onclick="_ttsPlay(this.dataset.tts,this);selectOption(${idx}, ${i})">
         <span class="option-label">${String.fromCharCode(65+i)}</span>${opt}
       </div>`).join('');
 
@@ -363,7 +711,7 @@ function initQuestions() {
         ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
         ${q.part6 ? '<span class="q-p6">Part 6</span>' : ''}
       </div>
-      <div class="q-sentence">${dispSen}</div>
+      <div class="q-sentence" style="display:flex;align-items:flex-start;gap:8px"><span style="flex:1">${dispSen}</span><button type="button" class="tts-btn" title="朗讀；再次點擊可暫停或繼續" aria-label="朗讀題目" data-idx="${idx}" onclick="ttsBtnClick(this,questions[+this.dataset.idx].sentence)">🔊</button></div>
       <div class="q-translation">${q.translation}</div>
       <div class="options" id="opts-${idx}">${optHtml}</div>
       <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>

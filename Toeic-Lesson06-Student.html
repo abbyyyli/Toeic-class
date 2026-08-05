@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 06 課後複習｜Part 7 閱讀 165–200</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:#1B2D5C;--navy-lt:#2C4480;--amber:#F59E0B;--amber-lt:#FEF3C7;
+    --green:#059669;--green-lt:#D1FAE5;--red:#DC2626;--red-lt:#FEE2E2;
+    --sky:#0EA5E9;--sky-lt:#E0F2FE;--purple:#7C3AED;--purple-lt:#EDE9FE;
+    --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;
+    --gray-600:#475569;--gray-800:#1E293B;--white:#FFFFFF;--radius:12px;
+    --shadow:0 2px 12px rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans TC','Inter',sans-serif; background: var(--gray-100); color: var(--gray-800); line-height: 1.7; font-size: 15px; }
+  header { background: var(--navy); color: white; padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-weight: 700; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; }
+  nav { display: flex; gap: 4px; }
+  nav a { color: rgba(255,255,255,0.7); text-decoration: none; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  section { display: none; }
+  section.active { display: block; }
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); color: white; border-radius: var(--radius); padding: 40px 36px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .hero::after { content:''; position: absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%; background: rgba(255,255,255,0.05); }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge { display: inline-block; background: var(--amber); color: var(--navy); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .card h2 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .icon { width:30px; height:30px; background: var(--navy); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .trap-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin:14px 0; }
+  .trap-item { background:var(--gray-50); border-radius:10px; padding:14px; border:1.5px solid var(--gray-200); }
+  .qref-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  .qref-table th,.qref-table td { border:1px solid var(--gray-200); padding:10px 14px; text-align:left; vertical-align:middle; }
+  .qref-table th { background:var(--navy); color:white; font-size:12px; font-weight:700; }
+  .qref-table td:first-child { font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--navy); background:var(--gray-50); white-space:nowrap; }
+  .q-meta { display:flex; gap:10px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+  .q-num { background:var(--navy); color:white; font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; font-family:'Inter',sans-serif; }
+  .q-type { background:var(--sky-lt); color:var(--sky); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-star { background:var(--amber-lt); color:var(--amber); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-p6 { background:var(--purple-lt); color:var(--purple); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-sentence { font-size:16px; font-weight:500; color:var(--gray-800); background:var(--gray-50); border-radius:8px; padding:16px 18px; margin-bottom:8px; line-height:1.8; border-left:3px solid var(--navy); }
+  .q-translation { font-size:13px; color:var(--gray-400); margin-bottom:16px; padding-left:4px; }
+  .options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+  @media(max-width:520px) { .options{ grid-template-columns:1fr; } }
+  .option { background:white; border:1.5px solid var(--gray-200); border-radius:999px; padding:10px 14px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; user-select:none; }
+  .option:hover { border-color:var(--navy); background:var(--gray-50); }
+  .option.correct { background:var(--green-lt); border-color:var(--green); color:var(--green); }
+  .option.wrong { background:var(--red-lt); border-color:var(--red); color:var(--red); }
+  .option-label { width:24px; height:24px; border-radius:50%; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; transition:all 0.2s; font-family:'Inter',sans-serif; }
+  .option.correct .option-label { background:var(--green); color:white; }
+  .option.wrong .option-label { background:var(--red); color:white; }
+  .reveal-btn { background:var(--navy); color:white; border:none; border-radius:8px; padding:8px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; margin-bottom:12px; }
+  .reveal-btn:hover { background:var(--navy-lt); }
+  .explanation { display:none; }
+  .explanation.show { display:block; }
+  .answer-badge { display:inline-flex; align-items:center; gap:6px; background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); border-radius:8px; padding:6px 14px; font-weight:700; font-size:14px; margin-bottom:14px; }
+  .explain-block { background:var(--gray-50); border-radius:8px; padding:16px; margin-bottom:12px; border-left:3px solid var(--sky); }
+  .explain-block h4 { font-size:12px; font-weight:700; color:var(--sky); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .explain-block p,.explain-block li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+  .vocab-row { display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:13px; margin-top:8px; }
+  .vocab-word { font-family:'JetBrains Mono',monospace; color:var(--navy); font-weight:600; }
+  .vocab-def { color:var(--gray-600); }
+  .key-point { background:var(--amber-lt); border-left:3px solid var(--amber); border-radius:6px; padding:10px 14px; font-size:13px; color:var(--gray-800); margin-top:10px; }
+  .key-point strong { color:#92400E; }
+  .practice-intro { background:linear-gradient(135deg,#0F172A 0%,#1E3A5F 100%); color:white; border-radius:var(--radius); padding:28px; margin-bottom:24px; display:flex; align-items:center; gap:20px; }
+  .practice-intro .icon { font-size:48px; flex-shrink:0; }
+  .practice-intro h2 { font-size:20px; font-weight:700; }
+  .practice-intro p { color:rgba(255,255,255,0.7); font-size:14px; margin-top:6px; }
+  .score-bar { background:white; border-radius:var(--radius); padding:16px 24px; margin-bottom:24px; box-shadow:var(--shadow); display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .score-bar label { font-size:13px; color:var(--gray-600); font-weight:500; }
+  .score-val { font-size:24px; font-weight:700; color:var(--navy); font-family:'Inter',sans-serif; }
+  .score-bar .bar { flex:1; min-width:200px; height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
+  .score-bar .bar-fill { height:100%; background:linear-gradient(90deg,var(--sky),var(--navy)); border-radius:4px; transition:width 0.5s; }
+  .reset-btn { background:none; border:1.5px solid var(--gray-200); border-radius:8px; padding:6px 14px; font-size:12px; color:var(--gray-600); cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--navy); color:var(--navy); }
+  .progress-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(38px,1fr)); gap:5px; background:white; border-radius:var(--radius); padding:16px 20px; margin-bottom:24px; box-shadow:var(--shadow); }
+  .p-dot { aspect-ratio:1; border-radius:6px; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; font-family:'Inter',sans-serif; color:var(--gray-400); cursor:pointer; transition:all 0.2s; }
+  .p-dot:hover { background:#CBD5E1; }
+  .p-dot.answered { background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); }
+  .p-dot.wrong { background:var(--red-lt); color:var(--red); border:1.5px solid var(--red); }
+  .section-header { background:var(--navy); color:white; border-radius:10px; padding:14px 20px; margin:28px 0 16px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  .section-header .s-badge { background:var(--amber); color:var(--navy); font-size:11px; padding:2px 8px; border-radius:12px; font-weight:700; }
+  .art-box { background:var(--sky-lt); border:1.5px solid #BAE6FD; border-radius:10px; padding:16px 20px; margin-bottom:16px; font-size:14px; line-height:1.8; color:var(--gray-800); }
+  .art-box-header { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--sky); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .art-box p { margin-bottom:8px; }
+  .art-box p:last-child { margin-bottom:0; }
+  .art-zh { font-size:12px; color:var(--gray-400); margin-top:10px; padding-top:8px; border-top:1px solid #BAE6FD; line-height:1.7; }
+  .art-ins { background:rgba(124,58,237,.15); color:var(--purple); font-weight:800; padding:1px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:12px; }
+  code { font-family:'JetBrains Mono',monospace; background:var(--gray-100); padding:1px 6px; border-radius:4px; font-size:13px; }
+  @media(max-width:700px) { .header-inner{ flex-direction:column; height:auto; padding:12px 0; gap:10px; } nav{ flex-wrap:wrap; justify-content:center; } .hero{ padding:28px 22px; } .hero h1{ font-size:20px; } }
+
+.tts-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:6px;color:var(--gray-400);transition:all .15s;flex-shrink:0;line-height:1}
+.tts-btn:hover{background:var(--sky-lt);color:var(--sky)}
+.tts-btn.active{background:var(--sky-lt);color:var(--sky)}
+.art-box-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.art-read-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--gray-200);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.art-read-btn:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+.art-read-btn.active{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 06</span> Part 7 閱讀 165–200 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('strategy')">閱讀策略</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題 165–200</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== TAB 1: 閱讀策略 ===== -->
+<section id="strategy" class="active">
+<div class="hero">
+  <div class="hero-badge">Lesson 06 · Part 7 閱讀 165–200</div>
+  <h1>先讀懂文件，再回去找證據 🔍</h1>
+  <p>本課全部是 Part 7（8 組文章、36 題），新增最難的<strong>雙篇與三篇交叉比對</strong>。關鍵不是英文多好，而是有沒有先搞清楚每份文件在講什麼，再回原文找文字證據。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">7</span>Part 7 解題三步驟</h2>
+  <div style="display:grid;gap:10px;margin-bottom:4px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--navy);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--navy);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 1</span><div><strong>看標題與文件類型</strong><br><span style="font-size:13px;color:var(--gray-600)">推廣信 / 徵才廣告 / 邀請函 / 履歷 / 投訴表 / 節目表——先判斷這是什麼文件</span></div></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--amber);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--amber);color:var(--navy);border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 2</span><div><strong>快速抓 Who / What / When / Where / 關鍵數字</strong><br><span style="font-size:13px;color:var(--gray-600)">誰寫給誰、什麼事、時間地點、價格與數量——這些就是答案來源</span></div></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--sky);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--sky);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 3</span><div><strong>題目問什麼，回文章找文字證據</strong><br><span style="font-size:13px;color:var(--gray-600)">每一題都要在文章找到證據，不靠印象、不推測超出文章的內容</span></div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📑</span>雙篇 / 三篇交叉比對策略（本課新增重點）</h2>
+  <div style="display:grid;gap:10px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--navy)"><strong>1. 先分清楚每份文件的類型</strong><br><span style="font-size:13px;color:var(--gray-600)">邀請信、規格表、履歷、投訴表……先各自看標題</span></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--amber)"><strong>2. 每份各抓 Who / What / When 與關鍵數字</strong></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--sky)"><strong>3. 看題目，判斷答案在哪一份文件</strong><br><span style="font-size:13px;color:var(--gray-600)">單一文件不夠時，就是跨文件題</span></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--green)"><strong>4. 回原文找直接文字證據，不靠印象猜</strong></div>
+  </div>
+  <div class="key-point" style="margin-top:12px"><strong>跨文件陷阱：</strong>第一份文件要求 A，第二份文件確認做了 B——要把兩份對起來看，答案常藏在「文件之間的關係」。</div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📚</span>本課八組文章導覽</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:14px">
+    <tr style="background:var(--navy);color:white"><th style="padding:9px 14px;text-align:left">題號</th><th style="padding:9px 14px;text-align:left">文章主題</th></tr>
+    <tr style='border-bottom:1px solid var(--gray-200);'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>165-167</td><td style='padding:9px 14px'>推廣信</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>168-171</td><td style='padding:9px 14px'>徵才廣告</td></tr><tr style='border-bottom:1px solid var(--gray-200);'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>172-175</td><td style='padding:9px 14px'>活動邀請</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>176-180</td><td style='padding:9px 14px'>商展邀請 + 攤位規格（雙篇）</td></tr><tr style='border-bottom:1px solid var(--gray-200);'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>181-185</td><td style='padding:9px 14px'>MBA 說明會邀請 + 回覆（雙篇）</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>186-190</td><td style='padding:9px 14px'>面試邀請 + 回覆 + 履歷（三篇）</td></tr><tr style='border-bottom:1px solid var(--gray-200);'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>191-195</td><td style='padding:9px 14px'>停車場資訊 + 投訴 + 客服回覆（三篇）</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>196-200</td><td style='padding:9px 14px'>廣播節目表 + 節目介紹 + 聽眾回饋（三篇）</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🎯</span>五種 Part 7 題型速攻法</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr style="background:var(--navy);color:white"><th style="padding:10px 14px;text-align:left">題型</th><th style="padding:10px 14px;text-align:left">解法</th><th style="padding:10px 14px;text-align:left">本課例題</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--sky)">目的 / 主旨題</td><td style="padding:10px 14px">先看整篇在做什麼，不要只看細節</td><td style="padding:10px 14px">Q168、Q173、Q181、Q184、Q186、Q199</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px;font-weight:700;color:var(--red)">NOT 題</td><td style="padding:10px 14px">逐項回文章核對，找找不到證據的那個</td><td style="padding:10px 14px">Q166、Q170、Q179、Q183、Q185、Q190、Q192</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--amber)">單字同義</td><td style="padding:10px 14px">回原句看語境，帶入選項哪個最自然</td><td style="padding:10px 14px">Q167、Q172、Q182</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px;font-weight:700;color:var(--green)">推論 / 判斷題</td><td style="padding:10px 14px">只能根據文章推，不能加自己的想像</td><td style="padding:10px 14px">Q171、Q189、Q190</td></tr>
+    <tr><td style="padding:10px 14px;font-weight:700;color:var(--purple)">句子插入</td><td style="padding:10px 14px">先判斷句子功能，再找前後邏輯最合理的位置</td><td style="padding:10px 14px">Q175</td></tr>
+  </table>
+</div>
+</section>
+
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+<div class="hero">
+  <div class="hero-badge">陷阱整理 &amp; 快速查閱</div>
+  <h1>考試前複習這頁就夠了 📋</h1>
+  <p>Part 7 最常見的陷阱類型，加上本課 36 題的答案速查與重點片語。</p>
+</div>
+
+<div class="card">
+  <h2><span class="icon">🪤</span>Part 7 最常考五種陷阱</h2>
+  <div class="trap-grid">
+  <div class="trap-item"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">目的題</div><div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">看文章整體功能，不要只看細節</div><div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>Wanted / For Rent / Invitation / Introduction → 先問整篇在做什麼</div><div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>看到某個細節就選，忽略整篇目的</div></div>
+  <div class="trap-item"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">NOT 題</div><div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">逐項核對，找找不到的那個</div><div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>每個選項回文章找證據，有的核掉，找不到的就是答案</div><div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>用印象選，沒有逐項比對原文</div></div>
+  <div class="trap-item"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">單字同義</div><div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">看原句語境，不要只背字典意思</div><div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>把選項帶回原句，哪個最自然就選哪個</div><div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>選了字典第一個意思，但語境不合</div></div>
+  <div class="trap-item"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">跨文件比對（雙篇/三篇）</div><div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">答案藏在兩份文件的關係裡</div><div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>先判斷題目要哪份文件，再把兩份對起來看</div><div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>只讀一份文件就作答，漏掉另一份的條件</div></div>
+  <div class="trap-item"><div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px">句子插入</div><div style="font-size:12px;color:var(--gray-600);margin-bottom:8px;font-style:italic">判斷句子功能，找前後文最吻合的位置</div><div style="background:var(--sky-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#0369A1;margin-bottom:6px"><strong>解法：</strong>先看這句在做什麼（補充/催促/舉例），再找邏輯位置</div><div style="background:var(--red-lt);border-radius:6px;padding:8px 10px;font-size:12px;color:#991B1B"><strong>常見錯誤：</strong>只看某個單字，而不是整句的邏輯功能</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📊</span>165–200 題 答案速查</h2>
+  <table class="qref-table"><tr><th>題號</th><th>答案</th><th>題型</th></tr><tr><td>165</td><td>B A sales letter</td><td>文章類型</td></tr><tr><td>166</td><td>D It is going to celebra</td><td>NOT 題</td></tr><tr><td>167</td><td>B foreboding</td><td>單字同義</td></tr><tr><td>168</td><td>A To recruit customer se</td><td>目的題</td></tr><tr><td>169</td><td>A It requires applicants</td><td>細節題</td></tr><tr><td>170</td><td>B Teaching basic Japanes</td><td>NOT 職責</td></tr><tr><td>171</td><td>D The company is 15 year</td><td>事實判斷</td></tr><tr><td>172</td><td>C significant</td><td>單字同義</td></tr><tr><td>173</td><td>D To exchange ideas with</td><td>主旨題</td></tr><tr><td>174</td><td>B One hour</td><td>時間計算</td></tr><tr><td>175</td><td>C [3]</td><td>句子插入</td></tr><tr><td>176</td><td>C U.S.A.</td><td>地點細節</td></tr><tr><td>177</td><td>B More than 3,000</td><td>數字細節</td></tr><tr><td>178</td><td>C Develop new sales cont</td><td>設攤好處</td></tr><tr><td>179</td><td>C A free web-design soft</td><td>NOT 攤位</td></tr><tr><td>180</td><td>A 2 days</td><td>時間計算</td></tr><tr><td>181</td><td>A To let prospective stu</td><td>目的題</td></tr><tr><td>182</td><td>C stress</td><td>單字同義</td></tr><tr><td>183</td><td>C Tips on how to score b</td><td>NOT 議題</td></tr><tr><td>184</td><td>A To ask May Adams for a</td><td>寫信目的</td></tr><tr><td>185</td><td>D The attendance rate of</td><td>NOT 詢問</td></tr><tr><td>186</td><td>C To invite a candidate </td><td>寫信目的</td></tr><tr><td>187</td><td>A Product manager</td><td>職位查詢</td></tr><tr><td>188</td><td>B Call Wendy Garfield</td><td>條件細節</td></tr><tr><td>189</td><td>B A reference letter fro</td><td>跨文件判斷</td></tr><tr><td>190</td><td>D If she gets the new jo</td><td>NOT 事實</td></tr><tr><td>191</td><td>C A parking lot near the</td><td>公司識別</td></tr><tr><td>192</td><td>C It offers gifts to cus</td><td>NOT 好處</td></tr><tr><td>193</td><td>B To file a complaint of</td><td>聯絡原因</td></tr><tr><td>194</td><td>C Parking lot signs shou</td><td>主要抱怨</td></tr><tr><td>195</td><td>C Return $10 to Linda Jo</td><td>後續行動</td></tr><tr><td>196</td><td>A She is the host of an </td><td>跨文件細節</td></tr><tr><td>197</td><td>C Sunday morning</td><td>節目配對</td></tr><tr><td>198</td><td>D Music</td><td>節目內容</td></tr><tr><td>199</td><td>B To show her appreciati</td><td>訊息目的</td></tr><tr><td>200</td><td>D Health Channel</td><td>三篇配對</td></tr></table>
+</div>
+
+<div class="card">
+  <h2><span class="icon">📌</span>本課重點片語與生詞</h2>
+  <table class="qref-table"><tr><th>片語 / 生詞</th><th>中文</th></tr><tr><td>sales letter</td><td>銷售信；推廣信</td></tr><tr><td>innovative</td><td>創新的</td></tr><tr><td>cut costs</td><td>降低成本</td></tr><tr><td>solution</td><td>解決方案</td></tr><tr><td>anniversary</td><td>周年紀念</td></tr><tr><td>assist</td><td>協助</td></tr><tr><td>budgeting</td><td>預算規劃</td></tr><tr><td>NOT 題做法</td><td>逐項回文章畫證據</td></tr><tr><td>predictive</td><td>有預測性的</td></tr><tr><td>predict</td><td>預測</td></tr><tr><td>foreboding</td><td>預感；不祥之兆</td></tr><tr><td>predictive analysis</td><td>預測分析</td></tr><tr><td>recruit</td><td>招募</td></tr><tr><td>wanted</td><td>徵求；有招募需求</td></tr><tr><td>openings</td><td>職缺</td></tr><tr><td>call center</td><td>客服中心</td></tr><tr><td>bilingual</td><td>雙語的</td></tr><tr><td>relocate</td><td>搬遷</td></tr><tr><td>written and spoken</td><td>書寫和口語</td></tr><tr><td>trouble-shoot</td><td>排除故障</td></tr><tr><td>resolve issues</td><td>解決問題</td></tr><tr><td>via the telephone</td><td>透過電話</td></tr><tr><td>Japanese-speaking</td><td>說日語的</td></tr><tr><td>3rd shift</td><td>第三班（夜班）</td></tr><tr><td>for the past 15 years</td><td>過去 15 年</td></tr><tr><td>steadily</td><td>穩定地</td></tr></table>
+</div>
+</section>
+
+<!-- ===== TAB 3: 練習題 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>Part 6 + Part 7 閱讀練習題 165–200</h2>
+    <p>閱讀文章後作答，點選選項後自動顯示答案與解析。每組題目前附有原文與中文大意，可朗讀。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 36</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+<div id="questionsArea"></div>
+
+</section>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const ARTICLES = {"165-167": {"html": "<p><b>New-IT Solutions</b></p><p><strong>Dear Customer:</strong></p><p>Do you want to cut costs but still be innovative? Cutting back on an already low IT budget is difficult and risky. Where do you make cuts that won't severely affect the business or leave you in an insurmountable hole as the economy starts to improve?</p><p>Learn how our solutions <b>Budget Control (BC)</b> and <b>Project Management (PM)</b> are helping the state of New York save money while focusing on the future. Their Director of Enterprise Governance stated: \"The New-IT solution provides a governance layer of process discipline, best practices, and predictive analysis to reduce risk and improve project success.\"</p><p>Learn more: www.bc.com/blog &nbsp;|&nbsp; Mitch Weinzimmer, mitch-w@new-it.com, 123-456-7890</p>", "zh": "這是一封商業推廣信。New-IT 公司向希望降低 IT 成本又不犧牲創新的企業，推廣兩項服務：預算控制（Budget Control）和專案管理（Project Management）。信中以紐約州政府為成功案例，其企業治理主任表示，New-IT 的方案提供流程規範、最佳實務與預測分析，以降低風險並提升專案成功率。"}, "168-171": {"html": "<p><b>CNC: Bilingual Customer Service Representative</b></p><p><strong>BILINGUAL CUSTOMER SERVICE REPRESENTATIVES WANTED!</strong></p><p>CNC (Computer Network Company) — an international organization well established as a full-service network consulting company, has grown steadily in the computer network industry for the past <b>15 years</b>.</p><p>Currently, we have openings in Clean City, NJ at our call center. You will trouble-shoot and resolve testing application issues via the telephone. Typical calls are from <b>Japanese-speaking</b> people looking to learn about a network integration system. Training will be provided.</p><p>Requirements: <b>Bilingual in JAPANESE & ENGLISH (written and spoken)</b></p><p>This opportunity is <b>3rd shift: 7 p.m.–5 a.m. Monday–Friday</b>. Full time or part time available.</p>", "zh": "這是一則徵才廣告。CNC 正在紐澤西州 Clean City 的客服中心徵求雙語客服代表。工作內容是透過電話協助日語使用者解決網路整合系統問題，將提供在職訓練。應徵者須同時具備日語與英語的書寫及口語能力。工作為夜班（週一至週五晚上 7 點至隔天早上 5 點），可全職或兼職。公司在電腦網路業已穩定發展 15 年。"}, "172-175": {"html": "<p><b>Mayor's Breakfast Series</b></p><p>The Mayor's Breakfast Series is an important forum for issues vital to Garden City's prosperity and quality of life. Focusing on economic development, transportation, and the environment, it appeals to business leaders looking to network and stay informed. <span class=\"art-ins\">[1]</span></p><p>The breakfast is held at Garden-City City Hall, including a buffet breakfast followed by a presentation. Mayor Phil Dave updates attendees on recent city hall issues and initiatives. <span class=\"art-ins\">[2]</span></p><p><b>Upcoming: May 19th</b> | Speaker: <b>Anny Lord, CEO, CTI Telecommunications</b> | Location: No. 354 East Avenue</p><p>Agenda: Registration 7:15 am | Buffet 7:30–8:30 am | Presentation 8:30–9:30 am | Ticket: USD$40</p><p><span class=\"art-ins\">[3]</span> The deadline to register is the Friday prior to the event. No tickets will be issued at registration upon arrival. Cancellations must be made in writing at least 48 business hours prior. <span class=\"art-ins\">[4]</span> Please call May Sharp at 123-3739-3737 ext. 111.</p>", "zh": "市長早餐系列是一個重要論壇，討論對 Garden City 繁榮與生活品質至關重要的議題，吸引企業領導人建立人脈、掌握最新資訊。下次活動於 5 月 19 日舉行，特邀 CTI Telecommunications 執行長 Anny Lord 演講，地點在 Garden City 市政廳。議程：報到 7:15 → 自助早餐 7:30–8:30 → 演講 8:30–9:30，票價 40 美元。報名截止為活動前的週五，現場不提供取票，取消須提前 48 工作小時以書面辦理。"}, "176-180": {"html": "<div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件一：商展邀請函</div><p><b>2020 ITC Annual Meeting — Invitation to Exhibit</b></p><p><b>Dear Mayor:</b></p><p>On behalf of the Executive Council of the ITC (IT Community), you are cordially invited to exhibit at the <b>2020 ITC Annual Meeting in Chicago, IL</b>. More than <b>3,000 IT managers</b> will be participating.</p><p>The commercial event on <b>September 21–23</b> will provide your company with the opportunity to: showcase products/services to IT managers; develop new sales contacts in the IT industry; build relationships with current and potential customers.</p><p>ITC provides in the exhibit hall: Complimentary breakfasts and lunches | Internet café | \"Case of the Day\"</p><p>Sincerely, <b>Jenny Miller, PR Manager, ITC</b></p><hr style=\"border:none;border-top:1px solid #BAE6FD;margin:12px 0\"><div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件二：攤位規格表</div><p><b>2020 Annual Meeting — Exhibit Information</b></p><p>International Convention Center | Commercial Exhibit Hall | <b>September 21–23, 2020</b></p><p><b>Standard Booth (US$2,500) Includes:</b></p><ul style=\"padding-left:20px;line-height:2\"><li>A 10' x 10' booth space</li><li>Back wall drape, sidewall dividers, company name sign</li><li>A 50-word company description in the meeting program book</li><li>Listing on the ARRS website + link to company website</li><li>Two (2) one-day guest passes (upon request)</li><li>24-hour security</li></ul><p><b>Exhibitor Installation:</b> Sunday Sept 19, 8am–4:30pm | Monday Sept 20, 8am–4:30pm</p><p><b>Exhibit Dismantle:</b> Friday Sept 24, 1pm–6pm</p>", "zh": "這是 ITC 寄給市長的商展邀請函，邀請其參加 2020 年 9 月 21 至 23 日於美國伊利諾州芝加哥舉辦的 ITC 年度會議並設攤展示。預計將有超過 3,000 位 IT 主管參與。設攤可向 IT 主管展示服務、建立新的銷售人脈，並接觸負責採購的潛在客戶（半數與會者參與採購決策）。展覽廳提供免費早午餐、網路咖啡廳等服務。 這是展覽資訊說明文件。標準攤位費用美金 2,500 元，包含 10' × 10' 攤位空間、50 字公司簡介（刊於節目手冊）、ARRS 網站公司列表及網站連結、兩張一日參觀通行證，以及 24 小時保全。布展時間為 9 月 19 日（週日）及 20 日（週一），各上午 8 點至下午 4:30。撤展時間為 9 月 24 日（週五）下午 1 點至 6 點。"}, "181-185": {"html": "<div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件一：FSU MBA 說明會邀請</div><p><b>FSU Online MBA Webinar Invitation</b></p><p>Dear Mr. Madison,</p><p>Mark your calendar for our upcoming Online MBA Webinar! Spend your lunch break with our Dean and webinar panel learning the ins and outs of our award-winning program.</p><p>The <b>Biz Master</b> recognizes FSU's MBA program as <b>first in the world</b> for preparing students for social and environmental stewardship.</p><p>The session will cover: highlights from our Dean on why this graduate degree is unique | tips and admissions information | interactive Q&A session.</p><p><b>Friday, October 7th at 12 noon</b> | Reply to: info@fsu.edu</p><p>Sincerely, May Adams, Recruiting Specialist | 1-800-3274-3203</p><hr style=\"border:none;border-top:1px solid #BAE6FD;margin:12px 0\"><div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件二：Mark Madison 的回覆</div><p><b>Re: Online MBA Webinar (Mark Madison)</b></p><p>Dear Ms. Adams,</p><p>I was attracted to your webinar information in the email. Specifically, I would like to know some further information:</p><ol style=\"padding-left:20px;line-height:2.2\"><li>How long will the webinar last? <em>(duration)</em></li><li>In order to participate in the webinar, what kinds of computer equipment do you recommend? <em>(hardware)</em></li><li>Could you please send me the agenda of the webinar? So I know what MBA topics will be covered. <em>(topic list)</em></li></ol><p>I would be most appreciative if you could find the time to answer my questions. <b>I expect that I shall register soon.</b></p><p>Sincerely yours, Mark Madison</p>", "zh": "這是 FSU 大學寄給 Mr. Madison 的線上 MBA 說明會邀請信，時間為 10 月 7 日（週五）中午 12 點。《Biz Master》評選 FSU MBA 在培養社會與環境管理人才方面居全球第一。課程內容包括院長分享學位特色、申請技巧與招生資訊，以及互動式問答環節。 這是 Mark Madison 的回覆信。他對說明會感興趣，想進一步了解三件事：一、說明會將持續多長時間；二、需要哪些電腦設備；三、能否提供說明會議程，以了解將涵蓋哪些 MBA 主題。最後表示他預計很快便會完成報名。"}, "186-190": {"html": "<div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件一：面試邀請信</div><p><b>Interview Invitation — George Sherman → Doris Andrews</b></p><p>Dear Ms. Andrews, As you know, our company is looking for talented individuals. We are pleased to inform you that we are considering you for the position of <b>Product Manager</b>. Please come to our office on <b>March 25, 2020 at 10 a.m.</b> for testing and a preliminary interview.</p><p>Look for <b>Ms. Grace Richardson</b> (specialist in my department). Please bring your <b>resume and a portfolio</b> of your past work.</p><p>If you cannot make it, please call my secretary, <b>Ms. Wendy Garfield</b>, at 123-348-5487 to reschedule.</p><p>Respectfully yours, George Sherman, Director of HR Department</p><hr style=\"border:none;border-top:1px solid #BAE6FD;margin:12px 0\"><div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件二+三：回覆信 & 履歷</div><p><b>Doris Andrews: Reply + Resume</b></p><p><b>[回覆信 — Doris → George]</b></p><p>I confirm our meeting on Monday, March 25, 2020 at 10 a.m. Your secretary Wendy Garfield called me and asked me to confirm by letter. I was also informed to send a copy of my most recent <b>letter of reference</b>, which I have attached.</p><p>Contact: (236) 4638-4274</p><hr style=\"border:none;border-top:1px solid rgba(255,255,255,.1);margin:12px 0\"><p><b>[履歷 — Doris Andrews]</b></p><p>Job Target: <b>Product Manager</b> | Capabilities: manage revenue, communicate with all business levels, manage under pressure</p><p>Achievements: 110% of annual objectives 2018 & 2019 | Managed 90 new customers | <b>Outstanding sales awards</b></p><p>Experience: 2016–Now Pacific Advertising Co. (CA) | 2013–16 Account Executive, IL | 2010–13 Dept. Manager, NY</p><p>Education: B.S. Business (Sales & Marketing), New York State College</p>", "zh": "這是人資部門主管 George Sherman 寄給 Doris Andrews 的面試邀請信。公司正考慮讓她擔任產品經理一職，邀請她於 2020 年 3 月 25 日早上 10 點前來辦公室進行測驗和初步面試，到場後請找 Grace Richardson 女士，並需攜帶履歷及作品集。若無法出席，請致電秘書 Wendy Garfield（123-348-5487）另行安排。 【回覆信】Doris Andrews 確認將於 3 月 25 日早上 10 點出席，並隨信附上最新推薦信（letter of reference）。【履歷】求職目標為產品經理。2018、2019 年達成年度目標 110%，管理 90 位新客戶，榮獲優秀業績獎項。目前任職於加州 Springfield；2010 至 2013 年曾在紐約州工作。學歷為商學學士（銷售與行銷）。"}, "191-195": {"html": "<div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件一+二：停車場資訊 & 投訴</div><p><b>Super-Safe Parking + Complaint</b></p><p><b>[文件一：Super-Safe Airport Parking — 服務介紹]</b></p><p>When parking at <b>Detroit International Airport</b>, Super-Safe Parking has many advantages. Benefits: Guaranteed reservations | Self-parking | Short-term or long-term | Open 7 days | <b>FREE shuttle to/from airport</b> | 24-hour security | Complimentary luggage assistance | Friendly staff</p><hr style=\"border:none;border-top:1px solid rgba(255,255,255,.1);margin:12px 0\"><p><b>[文件二：Linda Johnson 投訴表]</b></p><p>My husband and I were upset about not being told we had to pick our car up by <b>11 p.m.</b> We went at 11:30 p.m. and were charged an <b>additional $10</b>. The parking attendant said your sign indicates 11 p.m., but we never saw any signs like that. While $10 isn't much, it left us with a bad taste in our mouths about your service.</p><hr style=\"border:none;border-top:1px solid #BAE6FD;margin:12px 0\"><div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件三：客服回覆信</div><p><b>Super-Safe: Reply from John Lucas</b></p><p>Dear Ms. Linda Johnson,</p><p>Thank you for your feedback to notify us of the difficulties you and your husband have been experiencing with our service.</p><p>I have discussed with the Manager at the parking lot and we have decided to make a <b>complete refund of the extra fee</b> you've paid. We'd like to use this opportunity to tell you we are sorry for the inconvenience you've experienced.</p><p>It is also obvious from this incident that our parking attendants require <b>adequate training</b> for servicing customers.</p><p>For any other questions, please feel free to contact me directly at 438-583-5838.</p><p>Best regards, <b>John Lucas, Customer Service Manager</b></p>", "zh": "【服務介紹】Super-Safe 是底特律國際機場附近的停車場，提供保證訂位、自助停車、短期或長期停車、每週七天開放、免費機場接駁、24 小時保全及免費行李協助服務。【回饋表】Linda Johnson 表示，她和丈夫因未被告知需在晚上 11 點前取車，在 11:30 取車時被額外收取 10 美元。停車場人員指稱有告示牌，但她從未見過，因此對服務留下不好的印象。 這是客服部門主管 John Lucas 的回覆信。他感謝 Linda Johnson 的回饋，並表示已與停車場經理商討，決定全額退還額外收取的費用。他為所帶來的不便致歉，並承認停車場服務人員在客戶服務方面需要更完善的培訓，歡迎如有其他問題直接致電聯繫。"}, "196-200": {"html": "<div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件一+二：廣播節目表 & 節目介紹</div><p><b>Good Radio: Schedule + Program Descriptions</b></p><p><b>[文件一：節目時間表]</b></p><table><tr><th>Time</th><th>Mon</th><th>Wed</th><th>Fri</th><th>Sat</th><th>Sun</th></tr><tr><td>8am</td><td></td><td>Jerry Smith</td><td></td><td></td><td><b>Larry Good</b></td></tr><tr><td>2pm</td><td></td><td><b>Tiffany Cole</b></td><td></td><td>Steven Ford</td><td>Jerry Smith</td></tr><tr><td>6pm</td><td><b>Linda Smith</b></td><td></td><td><b>Linda Smith</b></td><td></td><td></td></tr><tr><td>8pm</td><td></td><td>Eva McCarthy</td><td></td><td></td><td></td></tr></table><p><b>[文件二：節目介紹]</b><br><b>News News</b> (Tiffany Cole): 跨越國界的重要故事<br><b>Our World</b> (Eva McCarthy): <b>music, interviews, and stories</b><br><b>Health Channel</b> (Linda Smith): cope with <b>stress</b>, stay healthy physically &amp; mentally<br><b>Best Performance</b> (Larry Good): achieve greater results, <b>fulfill their goals</b></p><hr style=\"border:none;border-top:1px solid #BAE6FD;margin:12px 0\"><div style='font-size:11px;font-weight:800;letter-spacing:.5px;color:var(--sky);margin:6px 0 4px'>📑 文件三：聽眾回饋</div><p><b>Audience Feedback — Laura Hart</b></p><p>I've stressed out for many years, working long hours, nonstop, even feeling guilty whenever I have to call in sick. I just went on and on, only to finally collapse.</p><p>After listening to your program, I have realized the importance of treating myself in a healthier way and start to take time off, use my annual leave, and rest when I'm at home. I've learned from the host that \"Work is important, but <b>my health is everything</b>.\"</p><p>I now just put my life and my health first. I enjoy listening to your program very much, and all I want is <b>thank you!</b></p><p style=\"text-align:right;color:rgba(255,255,255,.5);margin-top:8px\">— Laura Hart</p>", "zh": "【節目時間表】Tiffany Cole 於週三下午 2 點主持；Larry Good 於週日早上 8 點主持；Linda Smith 於週一及週五下午 6 點主持；Eva McCarthy 於週三晚上 8 點及週一晚上 10 點主持。【節目介紹】News News（Tiffany Cole）：跨國界的重要故事；Our World（Eva McCarthy）：音樂、訪談與世界故事；Health Channel（Linda Smith）：應對壓力、維持身心健康；Best Performance（Larry Good）：達成目標、實現個人成就。 這是聽眾 Laura Hart 的回饋訊息。她多年來承受極大的工作壓力，甚至請病假時都感到愧疚，最終精疲力竭地倒下。收聽節目後，她開始請假、使用年假並好好休息，並從主持人那裡學到「工作固然重要，但健康才是一切」。她表示非常喜歡收聽這個節目，並向節目致上感謝。"}};
+
+const questions = [{"num": 165, "type": "文章類型", "star": false, "part6": false, "group": "165-167", "sentence": "What type of letter is this?", "translation": "這是一封什麼類型的信？", "options": ["A request letter", "A sales letter", "A reference letter", "A resignation letter"], "answer": 1, "logic": "推廣服務、吸引潛在客戶 → sales letter（B）", "keyPoint": "cut costs + introduce solutions + Learn more = 推廣信 → sales letter", "optionNotes": ["✅ 答案 B：A sales letter", "A request letter（請求信）：向對方請求某件事", "C reference letter（推薦信）：介紹某人能力", "D resignation letter（辭職信）：文章沒有 resign / leave 等字"], "vocab": [["sales letter", "銷售信；推廣信"], ["innovative", "創新的"], ["cut costs", "降低成本"], ["solution", "解決方案"]]}, {"num": 166, "type": "NOT 題", "star": true, "part6": false, "group": "165-167", "sentence": "What is NOT mentioned about the New-IT company?", "translation": "以下哪一項沒有在文章中提到？", "options": ["It assists clients with budgeting.", "It provides project management solutions.", "New York state government is a successful case.", "It is going to celebrate its 12th anniversary."], "answer": 3, "logic": "D：12th anniversary — 文章完全沒有周年或成立年份資訊。A 有 Budget Control；B 有 Project Management；C 有 state of New York。答案 D。", "keyPoint": "A=Budget Control ✓ / B=Project Management ✓ / C=state of New York ✓ / D=12th anniversary 完全沒提到", "optionNotes": ["✅ 答案 D：It is going to celebrate its 12th anniversary.", "三個干擾選項都在文章中明確出現。只有 D 的 12th anniversary 完全找不到任何線索，不要被 New-IT 這個名字誤導以為有「12」"], "vocab": [["anniversary", "周年紀念"], ["assist", "協助"], ["budgeting", "預算規劃"], ["NOT 題做法", "逐項回文章畫證據"]]}, {"num": 167, "type": "單字同義", "star": false, "part6": false, "group": "165-167", "sentence": "The word \"predictive\" is closest in meaning to", "translation": "predictive 最接近哪一個意思？", "options": ["complicated", "foreboding", "complete", "practical"], "answer": 1, "logic": "B foreboding（預感；不祥的預兆）是唯一有「預知未來狀況」概念的選項。答案 B。", "keyPoint": "predictive ← predict（預測）→ foreboding（有預感的；預兆性的）最接近「預測未來」的概念", "optionNotes": ["✅ 答案 B：foreboding", "A complicated（複雜的）", "C complete（完整的）", "D practical（實用的）——三者與「預測」無關。foreboding 本義是不祥預感，但本題考的是「predict 家族字」，選最接近的"], "vocab": [["predictive", "有預測性的"], ["predict", "預測"], ["foreboding", "預感；不祥之兆"], ["predictive analysis", "預測分析"]]}, {"num": 168, "type": "目的題", "star": false, "part6": false, "group": "168-171", "sentence": "Why is this advertisement posted?", "translation": "這則廣告為什麼刊登？", "options": ["To recruit customer service representatives", "To present the results of a customer survey", "To announce a marketing meeting", "To promote a newly launched product"], "answer": 0, "logic": "整篇是職缺公告 → 招募客服代表（A）。", "keyPoint": "BILINGUAL CUSTOMER SERVICE REPRESENTATIVES WANTED → 招募客服代表", "optionNotes": ["✅ 答案 A：To recruit customer service representatives", "B survey results：沒有調查數據", "C marketing meeting：沒有會議資訊", "D new product：不是在賣產品"], "vocab": [["recruit", "招募"], ["wanted", "徵求；有招募需求"], ["openings", "職缺"], ["call center", "客服中心"]]}, {"num": 169, "type": "細節題", "star": false, "part6": false, "group": "168-171", "sentence": "What can be said about the position?", "translation": "關於這個職位，下列哪一項正確？", "options": ["It requires applicants to be able to speak two languages.", "It requires applicants to relocate to Japan for two years.", "It requires applicants to sign a one-year contract.", "It requires applicants to work from 8 a.m. to 5 p.m."], "answer": 0, "logic": "需要使用兩種語言（日文＋英文）→ A。", "keyPoint": "Bilingual in JAPANESE & ENGLISH (written and spoken) = 需要使用兩種語言", "optionNotes": ["✅ 答案 A：It requires applicants to be able to speak two languages.", "B 搬去日本：工作地點是 New Jersey，不是日本", "C 一年合約：文章沒有合約年限", "D 早上 8-5：原文是 7pm–5am（夜班），不是白天"], "vocab": [["bilingual", "雙語的"], ["relocate", "搬遷"], ["written and spoken", "書寫和口語"], ["trouble-shoot", "排除故障"]]}, {"num": 170, "type": "NOT 職責", "star": true, "part6": false, "group": "168-171", "sentence": "What is NOT part of the service representative's duties?", "translation": "以下哪一項不是客服代表的工作內容？", "options": ["Resolving customers' problems via the phone", "Teaching basic Japanese grammar rules", "Working from 7 p.m. to 5 a.m.", "Assisting Japanese-speaking customers"], "answer": 1, "logic": "B Teaching Japanese grammar rules — 文章完全沒有「教日文」。日文只是服務語言，不是教學內容。答案 B。", "keyPoint": "文章沒有「教日文」的職責。日文是服務語言，不是教學內容", "optionNotes": ["✅ 答案 B：Teaching basic Japanese grammar rules", "容易誤選：看到 Japanese 就以為要教日文。但工作是 customer service 與 technical support，日文只是服務工具"], "vocab": [["resolve issues", "解決問題"], ["via the telephone", "透過電話"], ["Japanese-speaking", "說日語的"], ["3rd shift", "第三班（夜班）"]]}, {"num": 171, "type": "事實判斷", "star": false, "part6": false, "group": "168-171", "sentence": "What is true about the CNC Company?", "translation": "關於 CNC 公司，下列哪一項正確？", "options": ["The company specializes in drug-testing.", "The company will be relocated to New Jersey.", "The company is recruiting only Japanese employees.", "The company is 15 years old."], "answer": 3, "logic": "公司在業界穩定發展 15 年 → The company is 15 years old（D）。", "keyPoint": "has grown steadily in the industry for the past 15 years → 公司 15 年", "optionNotes": ["✅ 答案 D：The company is 15 years old.", "A drug-testing：文章是網路顧問公司", "B 搬遷：文章只說職缺地點在 NJ", "C 只招日本員工：要求會日文 ≠ 只招日本人"], "vocab": [["for the past 15 years", "過去 15 年"], ["steadily", "穩定地"], ["industry", "產業"], ["bilingual ≠ Japanese-only", "雙語能力 ≠ 只招日本籍員工"]]}, {"num": 172, "type": "單字同義", "star": false, "part6": false, "group": "172-175", "sentence": "The word \"vital\" in paragraph 1 is closest in meaning to", "translation": "第一段的 vital 最接近哪一個意思？", "options": ["different", "prominent", "significant", "professional"], "answer": 2, "logic": "C significant（重要的；有重大意義的）最接近 vital 的語義。答案 C。", "keyPoint": "vital = 至關重要的 → significant（重要的；重大的）", "optionNotes": ["✅ 答案 C：significant", "A different（不同的）", "B prominent（知名的", "突出的）", "D professional（專業的）——都與「重要性」無直接關係"], "vocab": [["vital", "至關重要的；不可或缺的"], ["significant", "重要的；重大的"], ["prominent", "知名的；突出的"], ["prosperity", "繁榮"]]}, {"num": 173, "type": "主旨題", "star": false, "part6": false, "group": "172-175", "sentence": "What is the main purpose of this meeting?", "translation": "這場會議的主要目的為何？", "options": ["To prepare for a product launch event", "To analyze a financial report", "To discuss a business proposal with managers", "To exchange ideas with the Mayor"], "answer": 3, "logic": "市長主持的城市議題論壇 → 與市長交流想法（D）。", "keyPoint": "Mayor's Breakfast = 市長主持的城市議題論壇 → 與市長交流想法", "optionNotes": ["✅ 答案 D：To exchange ideas with the Mayor", "A product launch：文章沒有產品發表", "B financial report：沒有財報分析", "C business proposal：商業人士是參與者，但活動主題遠超過一個商業提案"], "vocab": [["forum", "論壇"], ["attendee", "參加者"], ["initiative", "倡議；新政策"], ["stay informed", "掌握最新資訊"]]}, {"num": 174, "type": "時間計算", "star": false, "part6": false, "group": "172-175", "sentence": "How long will the breakfast last?", "translation": "早餐將持續多久？", "options": ["Thirty minutes", "One hour", "One and a half hours", "Fifteen minutes"], "answer": 1, "logic": "7:30 到 8:30 = 一小時（B）。", "keyPoint": "Buffet Breakfast: 7:30–8:30 = 一小時（不是整場活動 7:15–9:30）", "optionNotes": ["✅ 答案 B：One hour", "不要把整場活動 7:15–9:30 算進去，題目只問 breakfast 段。C 一小時半不對", "30 分鐘不對"], "vocab": [["agenda", "議程"], ["registration", "報名；登記"], ["buffet", "自助式餐點"], ["presentation", "演講；簡報"]]}, {"num": 175, "type": "句子插入", "star": true, "part6": false, "group": "172-175", "sentence": "In which position does \"Pre-registration is required.\" best belong?", "translation": "\"需要事先報名\" 最適合放在哪一個位置？", "options": ["[1]", "[2]", "[3]", "[4]"], "answer": 2, "logic": "[3] 後面緊接：The deadline to register is the Friday prior to the event. / Please note that no tickets will be issued at the registration desk upon arrival. 這些都是報名規定，Pre-registration 放 [3] 最完整。答案 C。", "keyPoint": "[3] 後面接 deadline to register 和 no tickets at registration desk → 報名規則段落開頭", "optionNotes": ["✅ 答案 C：[3]", "[1] 在城市議題介紹後", "[2] 在市長更新內容後", "[4] 在聯絡資訊前。這三個位置都不是「報名規定段落」的開頭。句子插入題先判斷句子功能，再找前後文最相關的位置"], "vocab": [["pre-registration", "事先報名"], ["deadline", "截止日期"], ["upon arrival", "到場時"], ["prior to", "在……之前"]]}, {"num": 176, "type": "地點細節", "star": false, "part6": false, "group": "176-180", "sentence": "Where will the trade show be held?", "translation": "這場商展將在哪裡舉行？", "options": ["Italy", "Japan", "U.S.A.", "Brazil"], "answer": 2, "logic": "IL = Illinois（伊利諾州），美國 → C。", "keyPoint": "Chicago, IL = Chicago, Illinois = 美國", "optionNotes": ["✅ 答案 C：U.S.A.", "A Italy / B Japan / D Brazil：文章完全沒有提到這三個國家。Chicago, IL 是美國城市"], "vocab": [["trade show", "商展"], ["Chicago, IL", "芝加哥，伊利諾州，美國"], ["U.S.A.", "美利堅合眾國"]]}, {"num": 177, "type": "數字細節", "star": false, "part6": false, "group": "176-180", "sentence": "Approximately how many attendees are expected?", "translation": "大約有多少參加者預計參加？", "options": ["Close to 1,000", "More than 3,000", "Around 2,500", "Less than 2,200"], "answer": 1, "logic": "超過 3,000 人 → B。數字題直接回文章找原句。", "keyPoint": "More than 3,000 IT managers will be participating（原文直接寫）", "optionNotes": ["✅ 答案 B：More than 3,000", "干擾：Around 2,500 和 Less than 2,200 都不對", "文章說 More than 3,000，選項 B 原文直接抄"], "vocab": [["approximately", "大約"], ["attendee", "參加者"], ["be expected to", "預計將……"], ["participating", "參與的"]]}, {"num": 178, "type": "設攤好處", "star": false, "part6": false, "group": "176-180", "sentence": "What benefit can exhibitors enjoy?", "translation": "參展商設攤可以享有什麼好處？", "options": ["Increase customer satisfaction", "Establish a relationship with ITC", "Develop new sales contacts with potential customers", "Promote new products to business partners"], "answer": 2, "logic": "C develop new sales contacts with potential customers — 直接對應文件一的 develop new sales contacts 和 potential customers。", "keyPoint": "develop new sales contacts in the IT industry + potential customers → C", "optionNotes": ["✅ 答案 C：Develop new sales contacts with potential customers", "A customer satisfaction：文章沒有提到", "B relationship with ITC：重點不是跟 ITC 建立關係", "D business partners：文章說的是 IT managers，不特定是 business partners"], "vocab": [["exhibitor", "參展商"], ["sales contacts", "銷售聯繫；人脈"], ["potential customer", "潛在顧客"], ["showcase", "展示"]]}, {"num": 179, "type": "NOT 攤位", "star": true, "part6": false, "group": "176-180", "sentence": "What item is NOT included in a standard booth?", "translation": "標準攤位不包含哪一項？", "options": ["A 10'×10' booth space", "A company introduction in the event program", "A free web-design software package", "Two free passes to the exhibition"], "answer": 2, "logic": "C free web-design software — 文件二有：攤位空間、公司簡介、兩張通行證，沒有任何軟體贈品。答案 C。", "keyPoint": "website listing ≠ web-design software。清單沒有軟體贈品", "optionNotes": ["✅ 答案 C：A free web-design software package", "容易混淆：文件二有 a listing on the ARRS website（網站列表），不代表送你設計網站的軟體"], "vocab": [["web-design software", "網頁設計軟體"], ["guest pass", "參觀通行證"], ["company description", "公司簡介"], ["24-hour security", "24 小時保全"]]}, {"num": 180, "type": "時間計算", "star": false, "part6": false, "group": "176-180", "sentence": "How much time do exhibitors have to install their booths?", "translation": "參展商有多少時間布置攤位？", "options": ["2 days", "3 days", "1 day", "4 days"], "answer": 0, "logic": "Sunday, September 19 和 Monday, September 20 → 共兩天 → A。", "keyPoint": "Exhibitor Installation: Sunday 9/19 + Monday 9/20 = 兩天（不是展覽日 9/21–23）", "optionNotes": ["✅ 答案 A：2 days", "不要看展覽期間 9/21–23（那是展覽日，不是布展日）。撤展是 9/24，也不是布展。只看 Exhibitor Installation 這個標題下的日期"], "vocab": [["installation", "布展；安裝"], ["dismantle", "撤展"], ["exhibitor", "參展商"], ["布展 vs 撤展", "Setup ≠ Take down"]]}, {"num": 181, "type": "目的題", "star": false, "part6": false, "group": "181-185", "sentence": "What is the purpose of this FSU online webinar?", "translation": "這場 FSU 說明會的目的為何？", "options": ["To let prospective students learn more about their MBA programs", "To ask students to register for classes as soon as possible", "To invite students to attend a luncheon", "To inform existing students of a new MBA course"], "answer": 0, "logic": "讓潛在學生了解 MBA 課程 → A prospective students（潛在學生）。", "keyPoint": "說明學位特色 + 申請資訊 + Q&A → 讓潛在學生了解 MBA", "optionNotes": ["✅ 答案 A：To let prospective students learn more about their MBA programs", "B 要求立刻報名：信中有邀請 webinar，不是要求立即報名課程", "C luncheon 午餐會：Spend your lunch break 不是午餐會", "D existing students：對象是 prospective students，不是現有學生"], "vocab": [["prospective student", "潛在學生；準學生"], ["webinar", "網路說明會"], ["admissions", "招生；入學申請"], ["emphasize", "強調"]]}, {"num": 182, "type": "單字同義", "star": false, "part6": false, "group": "181-185", "sentence": "The word \"emphasize\" is closest in meaning to", "translation": "emphasize 最接近哪一個意思？", "options": ["encourage", "implement", "stress", "found"], "answer": 2, "logic": "C stress（強調）= emphasize。答案 C。", "keyPoint": "emphasize = stress（強調）兩者都是動詞，意思相同", "optionNotes": ["✅ 答案 C：stress", "A encourage（鼓勵）", "B implement（實施）", "D found（建立", "創立）——都不是「強調」。stress 和 emphasize 都可作動詞表示「強調」"], "vocab": [["emphasize", "強調"], ["stress", "強調（動詞）；壓力（名詞）"], ["implement", "實施"], ["innovator", "創新者"]]}, {"num": 183, "type": "NOT 議題", "star": true, "part6": false, "group": "181-185", "sentence": "What topic will NOT be discussed at the webinar?", "translation": "以下哪個主題不會在說明會討論？", "options": ["Highlights on why FSU's degree is special", "Information on how to apply", "Tips on how to score better on TOEFL exam", "Answers to questions that students have"], "answer": 2, "logic": "C TOEFL exam tips — 文章完全沒有 TOEFL、英文考試或考試技巧。答案 C。", "keyPoint": "說明會有：學位特色/申請資訊/Q&A。TOEFL 考試技巧完全沒有提到", "optionNotes": ["✅ 答案 C：Tips on how to score better on TOEFL exam", "admissions information 是申請資訊，不是考試技巧。說明會關注的是 MBA program 本身，不是如何考到入學資格"], "vocab": [["admissions information", "招生資訊；申請說明"], ["TOEFL", "托福考試"], ["Q&A session", "問答環節"], ["highlights", "精華；重點"]]}, {"num": 184, "type": "寫信目的", "star": false, "part6": false, "group": "181-185", "sentence": "Why does Mark Madison write the letter?", "translation": "Mark Madison 為什麼寫這封信？", "options": ["To ask May Adams for additional information", "To apologize to May Adams for his no-show", "To inform May Adams of a new event", "To request a copy of his transcript"], "answer": 0, "logic": "詢問更多資訊 → A。這是雙篇跨文件題，答案在文件二（Mark 的回信）。", "keyPoint": "I would like to know some further information → 詢問更多資訊", "optionNotes": ["✅ 答案 A：To ask May Adams for additional information", "B no-show（缺席）：說明會還沒舉行，他沒有缺席", "C 告知新活動：他是被邀請的那方", "D transcript（成績單）：他要的是 agenda，不是成績單"], "vocab": [["additional information", "補充資訊；進一步資訊"], ["no-show", "缺席未出現"], ["transcript", "成績單"], ["duration", "持續時間"]]}, {"num": 185, "type": "NOT 詢問", "star": true, "part6": false, "group": "181-185", "sentence": "What information does Mark NOT seek in his letter?", "translation": "Mark 在信中沒有詢問哪一項資訊？", "options": ["The duration of the webinar", "The hardware requirement", "The topic list of this event", "The attendance rate of this activity"], "answer": 3, "logic": "D attendance rate（參加率）— Mark 沒有問。答案 D。", "keyPoint": "Mark 詢問：①時長 ②設備 ③議程。參加率（attendance rate）完全沒問", "optionNotes": ["✅ 答案 D：The attendance rate of this activity", "三個問題對應：A duration（持續多久）✓", "B hardware（電腦設備）✓", "C topic list（agenda）✓", "只有 D 完全沒問到"], "vocab": [["attendance rate", "參加率"], ["hardware requirement", "硬體設備要求"], ["agenda", "議程"], ["duration", "時長"]]}, {"num": 186, "type": "寫信目的", "star": false, "part6": false, "group": "186-190", "sentence": "Why does George Sherman write the letter?", "translation": "George Sherman 為什麼寫這封信？", "options": ["To seek suggestions about a project", "To ensure staff know the opening of a new branch office", "To invite a candidate to an interview", "To announce the opening of the company"], "answer": 2, "logic": "邀請候選人面試 → C。", "keyPoint": "we would like you to come for testing and a preliminary interview → 邀請面試", "optionNotes": ["✅ 答案 C：To invite a candidate to an interview", "A project suggestions：沒有專案討論", "B branch office：沒有分公司開幕", "D company opening：也沒有這個主題"], "vocab": [["preliminary interview", "初步面試"], ["candidate", "候選人；應徵者"], ["portfolio", "作品集"], ["HR department", "人資部門"]]}, {"num": 187, "type": "職位查詢", "star": false, "part6": false, "group": "186-190", "sentence": "What position is Doris Andrews seeking?", "translation": "Doris 正在申請哪一個職位？", "options": ["Product manager", "HR specialist", "Marketing manager", "Technical support engineer"], "answer": 0, "logic": "Product Manager → A。三份文件一致。", "keyPoint": "三份文件一致：product manager（文件一+文件二+履歷 Job Target）", "optionNotes": ["✅ 答案 A：Product manager", "TOEIC 三篇題中，越重複出現的資訊越可能是答案。這裡三份文件都指向同一職位，答案非常明確"], "vocab": [["product manager", "產品經理"], ["HR specialist", "人資專員"], ["job target", "求職目標"], ["application", "應徵；申請"]]}, {"num": 188, "type": "條件細節", "star": false, "part6": false, "group": "186-190", "sentence": "What should Doris do if she can't make it on March 25?", "translation": "如果 Doris 無法出席，應該怎麼做？", "options": ["Call Ms. Grace Richardson", "Call Wendy Garfield", "Call George Sherman", "Call a sales manager"], "answer": 1, "logic": "聯絡 Wendy Garfield → B。", "keyPoint": "If you cannot make it → call my secretary, Ms. Wendy Garfield", "optionNotes": ["✅ 答案 B：Call Wendy Garfield", "A Grace Richardson 是到場時要找的人，不是改期聯絡人", "C George Sherman 是 HR Director，原文要求打電話給他的秘書", "D sales manager：文章沒有這個人"], "vocab": [["cannot make it", "無法出席"], ["reschedule", "改期"], ["secretary", "秘書"], ["preliminary interview", "初步面試"]]}, {"num": 189, "type": "跨文件判斷", "star": true, "part6": false, "group": "186-190", "sentence": "What document is also sent with Doris's letter?", "translation": "Doris 的信中附上了什麼文件？", "options": ["A business plan", "A reference letter from her previous boss", "Her business card", "Her curriculum vitae"], "answer": 1, "logic": "Doris 說：I have attached my most recent letter of reference（推薦信）→ B。注意：她信中附的是推薦信，不是履歷！", "keyPoint": "文件一要她帶 resume；文件二 Doris 說她 attach 的是 letter of reference（推薦信）— 兩者不同！", "optionNotes": ["✅ 答案 B：A reference letter from her previous boss", "D curriculum vitae（CV/履歷）：George 要她面試時帶履歷，但 Doris 在這封回信中 attach 的是 letter of reference，不是履歷。bring ≠ attach 是這題的關鍵區別"], "vocab": [["letter of reference", "推薦信"], ["curriculum vitae", "履歷（CV）"], ["attach", "附上"], ["bring vs attach", "面試攜帶 vs 信中附上"]]}, {"num": 190, "type": "NOT 事實", "star": true, "part6": false, "group": "186-190", "sentence": "What is NOT true about Doris Andrews?", "translation": "以下哪一項不正確？", "options": ["She has known Mr. Sherman for a long time.", "She has several years of work experience.", "She won some sales awards in the past.", "If she gets the new job, she will move to New York."], "answer": 3, "logic": "D：文章完全沒有說新工作在紐約，也沒有說她要搬家。履歷中 NY 是她 2010–2013 的工作地點，現在在 California。答案 D。", "keyPoint": "履歷中 NY 是 2010–2013 的舊工作地點。文章沒有說新工作在 NY 或她會搬家", "optionNotes": ["✅ 答案 D：If she gets the new job, she will move to New York.", "B several years：履歷從 2010 至今，顯然有多年經驗", "C sales awards：履歷直接寫 Received outstanding sales awards", "A 雖然無法完全確認，但 D 的錯誤最明確"], "vocab": [["curriculum vitae", "履歷"], ["sales award", "銷售獎項"], ["relocate", "搬遷"], ["past experience ≠ future plan", "過去地點 ≠ 未來計畫"]]}, {"num": 191, "type": "公司識別", "star": false, "part6": false, "group": "191-195", "sentence": "What is Super-Safe?", "translation": "Super-Safe 是什麼？", "options": ["A local government department", "A car dealer in New Jersey", "A parking lot near the airport in Detroit", "A resource conservation group"], "answer": 2, "logic": "Detroit 機場附近的停車場 → C。", "keyPoint": "Super-Safe Airport Parking + Detroit International Airport → Detroit 機場附近停車場", "optionNotes": ["✅ 答案 C：A parking lot near the airport in Detroit", "B car dealer in New Jersey：Linda 住在 New Jersey，但服務地點是 Detroit，公司也不是汽車經銷商", "D conservation group：文章完全沒有環保資源保育主題"], "vocab": [["parking lot", "停車場"], ["airport", "機場"], ["shuttle service", "接駁服務"], ["Detroit", "底特律，美國密西根州"]]}, {"num": 192, "type": "NOT 好處", "star": false, "part6": false, "group": "191-195", "sentence": "What is NOT mentioned as a benefit of Super-Safe?", "translation": "以下哪一項沒有被提到是 Super-Safe 的優點？", "options": ["It's open seven days a week.", "It provides shuttle service at no cost.", "It offers gifts to customers from other states.", "Customers can choose to park their cars there short-term."], "answer": 2, "logic": "C gifts to customers from other states — 文章有 complimentary luggage assistance（免費行李協助），不是給外州客戶的禮物。答案 C。", "keyPoint": "complimentary luggage assistance（免費行李協助）≠ gifts to out-of-state customers", "optionNotes": ["✅ 答案 C：It offers gifts to customers from other states.", "complimentary 在這裡是「免費的」，不是「贈禮的」。文章沒有提到任何針對外州客戶的特別贈品"], "vocab": [["complimentary", "免費的；贈送的"], ["luggage assistance", "行李協助"], ["shuttle service", "接駁服務"], ["short-term parking", "短期停車"]]}, {"num": 193, "type": "聯絡原因", "star": false, "part6": false, "group": "191-195", "sentence": "Why did Linda Johnson contact Super-Safe?", "translation": "Linda Johnson 為什麼聯絡 Super-Safe？", "options": ["To thank them for placing an order", "To file a complaint of bad parking experience", "To discuss partnership opportunities", "To request a donation for her company"], "answer": 1, "logic": "投訴不良服務體驗 → B（file a complaint）。", "keyPoint": "upset + charged additional $10 + never saw signs + bad taste = 投訴不良服務", "optionNotes": ["✅ 答案 B：To file a complaint of bad parking experience", "A 感謝：她用的是 upset 和 bad taste，不是感謝", "C 商業合作：沒有", "D 捐款：沒有"], "vocab": [["file a complaint", "提出投訴"], ["bad taste in one's mouth", "留下不好的印象"], ["charged", "被收費"], ["feedback form", "回饋表"]]}, {"num": 194, "type": "主要抱怨", "star": true, "part6": false, "group": "191-195", "sentence": "What is Linda Johnson's main concern?", "translation": "Linda Johnson 最主要的抱怨是什麼？", "options": ["Her car was stolen.", "The parking lot is too far away from the airport.", "Parking lot signs should clearly indicate pick-up hours.", "More parking lot attendants should be hired."], "answer": 2, "logic": "核心問題：取車截止時間沒有清楚告知 → C（標示應清楚說明取車時間）。", "keyPoint": "核心問題：not being told about 11pm pickup / never saw any signs → 取車時間標示不清", "optionNotes": ["✅ 答案 C：Parking lot signs should clearly indicate pick-up hours.", "A 車被偷：沒有", "B 停車場太遠：文章沒有距離抱怨（還有免費接駁）", "D 需要更多人員：是公司後來自己說要訓練，Linda 沒有要求增加人手"], "vocab": [["pick-up hour", "取車時間"], ["sign", "標示；告示"], ["clearly indicate", "清楚標示"], ["main concern", "主要顧慮；核心問題"]]}, {"num": 195, "type": "後續行動", "star": true, "part6": false, "group": "191-195", "sentence": "What will John Lucas do next most likely?", "translation": "John Lucas 接下來最可能會做什麼？", "options": ["Meet Linda Johnson in person.", "Offer Linda Johnson a 10% off voucher.", "Return $10 to Linda Johnson.", "Drive Linda Johnson to the airport."], "answer": 2, "logic": "多收 $10 → 全額退款 → 退還 $10 → C。", "keyPoint": "complete refund of the extra fee = 退還 Linda 多付的 $10", "optionNotes": ["✅ 答案 C：Return $10 to Linda Johnson.", "A 親自見面：文章沒有", "B 折扣券：文章沒有折價券", "D 開車送機：文章沒有接送安排。complete refund of the extra fee = 退還額外收取的費用 = $10"], "vocab": [["complete refund", "全額退款"], ["extra fee", "額外費用"], ["inconvenience", "不便"], ["parking attendant", "停車場服務人員"]]}, {"num": 196, "type": "跨文件細節", "star": false, "part6": false, "group": "196-200", "sentence": "What is true about Tiffany Cole?", "translation": "關於 Tiffany Cole，下列哪一項正確？", "options": ["She is the host of an afternoon program in a radio station.", "She is the manager of the radio station.", "She is a health expert.", "She has been working in the radio station for two years."], "answer": 0, "logic": "文件一：Wednesday 2 p.m. = 下午 → 她是電台下午節目主持人（A）。", "keyPoint": "文件二：Tiffany Cole = News News host → 文件一：Wednesday 2pm = 下午節目", "optionNotes": ["✅ 答案 A：She is the host of an afternoon program in a radio station.", "B 她是電台經理：文章沒有說", "C 健康專家：那是 Linda Smith", "D 任職兩年：文章沒有任職年資資訊"], "vocab": [["host", "主持人"], ["afternoon program", "下午節目"], ["Tiffany Cole", "主持 News News"], ["cross-reference", "跨文件比對"]]}, {"num": 197, "type": "節目配對", "star": true, "part6": false, "group": "196-200", "sentence": "If a person wants to learn about achieving goals, when should he turn on the radio?", "translation": "想學習達成目標，應該什麼時候收聽？", "options": ["Tuesday evening", "Wednesday afternoon", "Sunday morning", "Friday evening"], "answer": 2, "logic": "Best Performance（Larry Good）→ 文件一：Sunday 8 a.m. = 星期日早上（C）。", "keyPoint": "①achieve goals → Best Performance → Larry Good ②文件一：Larry Good = Sunday 8am = Sunday morning", "optionNotes": ["✅ 答案 C：Sunday morning", "A Tuesday evening：Larry 不在週二", "B Wednesday afternoon：那是 Tiffany Cole（News News）", "D Friday evening：那是 Linda Smith（Health Channel）"], "vocab": [["achieve goals", "達成目標"], ["fulfill goals", "實現目標"], ["Larry Good", "Best Performance 主持人"], ["Sunday morning", "星期日早上"]]}, {"num": 198, "type": "節目內容", "star": false, "part6": false, "group": "196-200", "sentence": "What can be heard in the \"Our World\" program?", "translation": "在 Our World 節目可以聽到什麼？", "options": ["Technology developments", "Business strategies", "Local News", "Music"], "answer": 3, "logic": "Music 直接在描述中出現 → D。", "keyPoint": "Our World description: a lively blend of music, interviews, and stories → Music 直接出現", "optionNotes": ["✅ 答案 D：Music", "A technology / B business strategies / C local news：都不在 Our World 的描述中。Our World 是音樂、訪談與故事，不是新聞或商業節目"], "vocab": [["blend of", "混合；融合了"], ["lively", "生動的"], ["Our World", "由 Eva McCarthy 主持"], ["description", "節目介紹；描述"]]}, {"num": 199, "type": "訊息目的", "star": false, "part6": false, "group": "196-200", "sentence": "What's the purpose of Laura Hart's message?", "translation": "Laura Hart 這封訊息的目的為何？", "options": ["To propose a plan", "To show her appreciation", "To file a complaint", "To make some suggestions"], "answer": 1, "logic": "表達感謝 → B（show her appreciation）。", "keyPoint": "「all I want is thank you」→ 表達感謝（show appreciation）", "optionNotes": ["✅ 答案 B：To show her appreciation", "C complaint（抱怨）：Laura 完全沒有抱怨節目，而是說改變了生活", "A 提出計畫：沒有", "D 建議：她沒有提出改善建議"], "vocab": [["show appreciation", "表達感謝"], ["propose", "提出；建議"], ["feedback", "回饋"], ["change for the better", "正向改變"]]}, {"num": 200, "type": "三篇配對", "star": true, "part6": false, "group": "196-200", "sentence": "Which program does Laura Hart listen to most likely?", "translation": "Laura Hart 最可能收聽哪一個節目？", "options": ["Best Performance", "Our World", "News News", "Health Channel"], "answer": 3, "logic": "Health Channel：cope with stress / stay healthy physically and mentally / happier and healthier → D。", "keyPoint": "Laura：stressed out / healthier / take time off / health is everything → Health Channel（cope with stress / stay healthy）", "optionNotes": ["✅ 答案 D：Health Channel", "A Best Performance：談達成目標、領導力——Laura 的問題不是目標不達成，而是壓力過大忽略健康", "B Our World / C News News：都不是健康主題"], "vocab": [["cope with stress", "應對壓力"], ["Health Channel", "由 Linda Smith 主持"], ["feel healthier", "感覺更健康"], ["三篇主題配對", "文件三關鍵字 vs. 文件二節目描述"]]}];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+const GROUP_ORDER = ["165-167", "168-171", "172-175", "176-180", "181-185", "186-190", "191-195", "196-200"];
+const GROUP_LABELS = {"165-167": "Part 7 · 165-167 推廣信（New-IT）", "168-171": "Part 7 · 168-171 徵才廣告（雙語客服）", "172-175": "Part 7 · 172-175 活動邀請（市長早餐會）", "176-180": "Part 7 · 176-180 商展邀請 + 攤位規格（雙篇）", "181-185": "Part 7 · 181-185 MBA 說明會邀請 + 回覆（雙篇）", "186-190": "Part 7 · 186-190 面試邀請 + 回覆 + 履歷（三篇）", "191-195": "Part 7 · 191-195 停車場資訊 + 投訴 + 客服回覆（三篇）", "196-200": "Part 7 · 196-200 廣播節目表 + 節目介紹 + 聽眾回饋（三篇）"};
+
+
+
+/* ── TOEIC hybrid audio controller: online English TTS first, browser voice fallback ── */
+const TOEIC_AUDIO = {
+  token: 0,
+  source: null,
+  chunks: [],
+  index: 0,
+  paused: false,
+  mode: '',
+  useOnline: true,
+  audio: new Audio(),
+  utterance: null,
+  timer: null,
+  allowPause: false
+};
+
+function _ttsDecode(rawText) {
+  const box = document.createElement('div');
+  box.innerHTML = String(rawText || '');
+  return (box.textContent || box.innerText || '')
+    .replace(/_{2,}/g, ' blank ')
+    .replace(/\[[0-9]+\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function _ttsChunks(text, maxLen = 180) {
+  const parts = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+  const out = [];
+  for (const partRaw of parts) {
+    const part = partRaw.trim();
+    if (!part) continue;
+    if (part.length <= maxLen) {
+      out.push(part);
+      continue;
+    }
+    const words = part.split(/\s+/);
+    let line = '';
+    for (const word of words) {
+      const next = line ? line + ' ' + word : word;
+      if (next.length > maxLen && line) {
+        out.push(line);
+        line = word;
+      } else {
+        line = next;
+      }
+    }
+    if (line) out.push(line);
+  }
+  return out.length ? out : [text];
+}
+
+function _ttsResetButton(btn) {
+  if (!btn || !btn.classList) return;
+  btn.classList.remove('active');
+  if (btn.dataset && btn.dataset.orig !== undefined) {
+    btn.textContent = btn.dataset.orig;
+    delete btn.dataset.orig;
+  }
+}
+
+function _ttsSetButton(mode) {
+  const btn = TOEIC_AUDIO.source;
+  if (!btn || !btn.classList) return;
+  if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent;
+  btn.classList.add('active');
+
+  if (btn.classList.contains('art-read-btn')) {
+    btn.textContent = mode === 'paused' ? '▶ 繼續' : '⏸ 暫停';
+  } else if (btn.classList.contains('tts-btn')) {
+    btn.textContent = mode === 'paused' ? '▶' : '⏹';
+  }
+}
+
+function _ttsStop() {
+  TOEIC_AUDIO.token += 1;
+  if (TOEIC_AUDIO.timer) {
+    clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+  }
+  try {
+    TOEIC_AUDIO.audio.pause();
+    TOEIC_AUDIO.audio.removeAttribute('src');
+    TOEIC_AUDIO.audio.load();
+  } catch (_) {}
+  if (window.speechSynthesis) {
+    try { speechSynthesis.cancel(); } catch (_) {}
+  }
+  _ttsResetButton(TOEIC_AUDIO.source);
+  document.querySelectorAll('.tts-btn.active,.art-read-btn.active').forEach(_ttsResetButton);
+  TOEIC_AUDIO.source = null;
+  TOEIC_AUDIO.chunks = [];
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.utterance = null;
+  TOEIC_AUDIO.allowPause = false;
+}
+
+function _ttsFinish(token) {
+  if (token !== TOEIC_AUDIO.token) return;
+  _ttsResetButton(TOEIC_AUDIO.source);
+  TOEIC_AUDIO.source = null;
+  TOEIC_AUDIO.chunks = [];
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.utterance = null;
+  TOEIC_AUDIO.allowPause = false;
+}
+
+function _ttsNext(token) {
+  if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+  TOEIC_AUDIO.index += 1;
+  _ttsPlayCurrent(token);
+}
+
+function _ttsBrowserChunk(text, token) {
+  if (!window.speechSynthesis) {
+    _ttsFinish(token);
+    return;
+  }
+
+  TOEIC_AUDIO.mode = 'speech';
+  const u = new SpeechSynthesisUtterance(text);
+  TOEIC_AUDIO.utterance = u;
+  u.lang = 'en-US';
+  u.rate = 0.85;
+  u.pitch = 1;
+
+  u.onend = () => {
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+  u.onerror = () => {
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+
+  try {
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  } catch (_) {
+    _ttsNext(token);
+    return;
+  }
+
+  // Prevent a browser speech queue from remaining stuck indefinitely.
+  TOEIC_AUDIO.timer = setTimeout(() => {
+    if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+    try { speechSynthesis.cancel(); } catch (_) {}
+    _ttsNext(token);
+  }, Math.max(12000, Math.min(32000, text.length * 150)));
+}
+
+function _ttsOnlineChunk(text, token) {
+  TOEIC_AUDIO.mode = 'audio';
+  const audio = TOEIC_AUDIO.audio;
+  const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + encodeURIComponent(text);
+  let settled = false;
+
+  const fallback = () => {
+    if (settled || token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+    settled = true;
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    try {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    } catch (_) {}
+    TOEIC_AUDIO.useOnline = false;
+    _ttsBrowserChunk(text, token);
+  };
+
+  audio.onended = () => {
+    if (settled || token !== TOEIC_AUDIO.token) return;
+    settled = true;
+    if (TOEIC_AUDIO.timer) clearTimeout(TOEIC_AUDIO.timer);
+    TOEIC_AUDIO.timer = null;
+    _ttsNext(token);
+  };
+  audio.onerror = fallback;
+  audio.src = url;
+  audio.preload = 'auto';
+
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(fallback);
+  }
+
+  TOEIC_AUDIO.timer = setTimeout(fallback, 5000);
+}
+
+function _ttsPlayCurrent(token) {
+  if (token !== TOEIC_AUDIO.token || TOEIC_AUDIO.paused) return;
+  if (TOEIC_AUDIO.index >= TOEIC_AUDIO.chunks.length) {
+    _ttsFinish(token);
+    return;
+  }
+  const text = TOEIC_AUDIO.chunks[TOEIC_AUDIO.index];
+  if (TOEIC_AUDIO.useOnline) _ttsOnlineChunk(text, token);
+  else _ttsBrowserChunk(text, token);
+}
+
+function _ttsTogglePause() {
+  if (!TOEIC_AUDIO.source || !TOEIC_AUDIO.allowPause) {
+    _ttsStop();
+    return;
+  }
+
+  if (!TOEIC_AUDIO.paused) {
+    TOEIC_AUDIO.paused = true;
+    if (TOEIC_AUDIO.timer) {
+      clearTimeout(TOEIC_AUDIO.timer);
+      TOEIC_AUDIO.timer = null;
+    }
+    if (TOEIC_AUDIO.mode === 'audio') {
+      try { TOEIC_AUDIO.audio.pause(); } catch (_) {}
+    } else if (TOEIC_AUDIO.mode === 'speech' && window.speechSynthesis) {
+      try { speechSynthesis.cancel(); } catch (_) {}
+    }
+    _ttsSetButton('paused');
+    return;
+  }
+
+  TOEIC_AUDIO.paused = false;
+  _ttsSetButton('playing');
+  const token = TOEIC_AUDIO.token;
+
+  if (TOEIC_AUDIO.mode === 'audio' && TOEIC_AUDIO.audio.src) {
+    const p = TOEIC_AUDIO.audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => {
+        TOEIC_AUDIO.useOnline = false;
+        _ttsBrowserChunk(TOEIC_AUDIO.chunks[TOEIC_AUDIO.index], token);
+      });
+    }
+  } else {
+    // Browser TTS cannot resume reliably; restart only the current short chunk.
+    _ttsBrowserChunk(TOEIC_AUDIO.chunks[TOEIC_AUDIO.index], token);
+  }
+}
+
+function _ttsPlay(rawText, sourceBtn, allowPause = false) {
+  const clean = _ttsDecode(rawText);
+  if (!clean) return;
+
+  const sameSource = sourceBtn && TOEIC_AUDIO.source === sourceBtn;
+  if (sameSource) {
+    if (allowPause) _ttsTogglePause();
+    else _ttsStop();
+    return;
+  }
+
+  _ttsStop();
+  TOEIC_AUDIO.token += 1;
+  const token = TOEIC_AUDIO.token;
+  TOEIC_AUDIO.source = sourceBtn || null;
+  TOEIC_AUDIO.chunks = _ttsChunks(clean);
+  TOEIC_AUDIO.index = 0;
+  TOEIC_AUDIO.paused = false;
+  TOEIC_AUDIO.mode = '';
+  TOEIC_AUDIO.useOnline = true;
+  TOEIC_AUDIO.allowPause = !!allowPause;
+
+  _ttsSetButton('playing');
+  _ttsPlayCurrent(token);
+}
+
+function ttsBtnClick(btn, text) {
+  _ttsPlay(text, btn, false);
+}
+
+function ttsSpeak(btn, text) {
+  _ttsPlay(text, btn, true);
+}
+
+window.addEventListener('pagehide', _ttsStop);
+window.addEventListener('beforeunload', _ttsStop);
+/* ── end hybrid audio controller ── */
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  // Build progress dots
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+  });
+
+  // Build question groups
+  let prevGroup = null;
+  questions.forEach((q, idx) => {
+    if (q.group !== prevGroup) {
+      // Section header
+      const hdr = document.createElement('div');
+      hdr.className = 'section-header';
+      const isP7 = !q.part6;
+      hdr.innerHTML = `<span class="s-badge">${isP7 ? 'Part 7' : 'Part 6'}</span>${GROUP_LABELS[q.group] || q.group}`;
+      area.appendChild(hdr);
+
+      // Article box
+      const artData = ARTICLES[q.group];
+      if (artData) {
+        const artDiv = document.createElement('div');
+        artDiv.className = 'art-box';
+        artDiv.innerHTML = `<div class="art-box-header"><span>📄 閱讀文章 ${q.group}</span><button class="art-read-btn" onclick="ttsSpeak(this,ARTICLES['${q.group}'].html)" title="朗讀文章">🔊 朗讀</button></div>${artData.html}<div class="art-zh">中文大意：${artData.zh}</div>`;
+        area.appendChild(artDiv);
+      }
+      prevGroup = q.group;
+    }
+
+    // Question card
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '16px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" data-tts="${opt.replace(/"/g,'&quot;').replace(/'/g,'&apos;')}" onclick="_ttsPlay(this.dataset.tts,this,false);selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>${opt}
+      </div>`).join('');
+
+    const noteHtml = q.optionNotes.map((n) => `<li style="margin-bottom:3px">${n}</li>`).join('');
+
+    const vocabHtml = q.vocab.map(([w,d]) => `<span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>`).join('');
+
+    const dispSen = q.sentence.replace('______','<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+        ${q.part6 ? '<span class="q-p6">Part 6</span>' : ''}
+      </div>
+      <div class="q-sentence" style="display:flex;align-items:flex-start;gap:8px"><span style="flex:1">${dispSen}</span><button class="tts-btn" title="朗讀" data-idx="${idx}" onclick="ttsBtnClick(this,questions[+this.dataset.idx].sentence)">🔊</button></div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65+q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>`;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  _ttsStop();
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
