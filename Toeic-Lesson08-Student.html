@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 08 課後複習｜Part 5 文法題 101–130</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #1B2D5C;
+    --navy-lt:  #2C4480;
+    --amber:    #F59E0B;
+    --amber-lt: #FEF3C7;
+    --green:    #059669;
+    --green-lt: #D1FAE5;
+    --red:      #DC2626;
+    --red-lt:   #FEE2E2;
+    --sky:      #0EA5E9;
+    --sky-lt:   #E0F2FE;
+    --purple:   #7C3AED;
+    --purple-lt:#EDE9FE;
+    --gray-50:  #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --white:    #FFFFFF;
+    --radius:   12px;
+    --shadow:   0 2px 12px rgba(0,0,0,0.08);
+    --shadow-md:0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── TOP NAV ── */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo { font-weight: 700; font-size: 17px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+
+  nav { display: flex; gap: 4px; }
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── SECTIONS ── */
+  section { display: none; }
+  section.active { display: block; }
+
+  /* ── HERO CARDS ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .icon {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── TRAP EXAMPLES ── */
+  .trap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
+  .trap-item{background:var(--gray-50);border-radius:10px;padding:14px;border:1.5px solid var(--gray-200)}
+  .trap-wrong{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--red);background:var(--red-lt);padding:6px 10px;border-radius:6px;margin-bottom:6px}
+  .trap-wrong::before{content:"❌ "}
+  .trap-right{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);background:var(--green-lt);padding:6px 10px;border-radius:6px}
+  .trap-right::before{content:"✅ "}
+  .trap-reason{font-size:12px;color:var(--gray-400);margin-top:8px}
+
+  /* ── TOEIC QUESTIONS ── */
+  .q-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .q-num { background: var(--navy); color: white; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 6px; font-family: 'Inter', sans-serif; }
+  .q-type { background: var(--sky-lt); color: var(--sky); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+  .q-star { background: var(--amber-lt); color: var(--amber); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; }
+
+  .q-sentence {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    border-left: 3px solid var(--navy);
+  }
+  .q-translation { font-size: 13px; color: var(--gray-400); margin-bottom: 16px; padding-left: 4px; }
+
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  @media (max-width: 520px) { .options { grid-template-columns: 1fr; } }
+  .option {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius:999px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+  .option:hover { border-color: var(--navy); background: var(--gray-50); }
+  .option.correct { background: var(--green-lt); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: var(--red-lt); border-color: var(--red); color: var(--red); }
+  .option-label {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .option.correct .option-label { background: var(--green); color: white; }
+  .option.wrong .option-label { background: var(--red); color: white; }
+
+  .reveal-btn {
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .reveal-btn:hover { background: var(--navy-lt); }
+
+  .explanation { display: none; }
+  .explanation.show { display: block; }
+
+  .answer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-lt);
+    color: var(--green);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .explain-block {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--sky);
+  }
+  .explain-block h4 { font-size: 12px; font-weight: 700; color: var(--sky); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .explain-block p, .explain-block li { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+
+  .vocab-row { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 13px; margin-top: 8px; }
+  .vocab-word { font-family: 'JetBrains Mono', monospace; color: var(--navy); font-weight: 600; }
+  .vocab-def { color: var(--gray-600); }
+
+  .key-point {
+    background: var(--amber-lt);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--gray-800);
+    margin-top: 10px;
+  }
+  .key-point strong { color: #92400E; }
+
+  /* ── PRACTICE SECTION ── */
+  .practice-intro {
+    background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .practice-intro .icon { font-size: 48px; flex-shrink: 0; }
+  .practice-intro h2 { font-size: 20px; font-weight: 700; }
+  .practice-intro p { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 6px; }
+
+  /* ── SCORE TRACKER ── */
+  .score-bar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .score-bar label { font-size: 13px; color: var(--gray-600); font-weight: 500; }
+  .score-val { font-size: 24px; font-weight: 700; color: var(--navy); font-family: 'Inter', sans-serif; }
+  .score-bar .bar { flex: 1; min-width: 200px; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+  .score-bar .bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--navy)); border-radius: 4px; transition: width 0.5s; }
+  .reset-btn {
+    background: none;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--gray-600);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* ── PROGRESS DOTS ── */
+  .progress-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .p-dot {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .p-dot:hover { background: #CBD5E1; }
+  .p-dot.answered { background: var(--green-lt); color: var(--green); border: 1.5px solid var(--green); }
+  .p-dot.wrong { background: var(--red-lt); color: var(--red); border: 1.5px solid var(--red); }
+  .p-dot.current { background: var(--navy); color: white; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header-inner { flex-direction: column; height: auto; padding: 12px 0; gap: 10px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 28px 22px; }
+    .hero h1 { font-size: 20px; }
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--gray-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .qref-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  .qref-table th,.qref-table td{border:1px solid var(--gray-200);padding:10px 14px;text-align:left;vertical-align:middle}
+  .qref-table th{background:var(--navy);color:white;font-size:12px;font-weight:700}
+  .qref-table td:first-child{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--navy);background:var(--gray-50)}
+
+.tts-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:6px;color:var(--gray-400);transition:all .15s;flex-shrink:0}
+.tts-btn:hover,.tts-btn.active{background:var(--sky-lt);color:var(--sky)}
+.art-box-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.art-read-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--gray-200);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.art-read-btn:hover,.art-read-btn.active{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+
+.gcard-sub{font-size:13px;color:var(--gray-400);margin:-8px 0 14px}
+.g-question{font-size:15px;font-weight:700;background:var(--amber-lt);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;color:#92400E}
+.g-table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:13.5px}
+.g-table th,.g-table td{padding:8px 12px;text-align:left;border:1px solid var(--gray-200);vertical-align:top}
+.g-table th{background:var(--navy);color:#fff;font-size:12px;font-weight:700}
+.g-table .snum{font-family:'JetBrains Mono',monospace;font-weight:800;color:#fff;background:var(--amber);text-align:center;width:36px}
+.g-highlight{background:var(--amber-lt);border:1px solid #FCD34D;border-radius:8px;padding:10px 14px;font-size:13px;color:var(--gray-800);margin-bottom:8px}
+.g-highlight s,.g-table s{color:var(--red)}
+.ask-wrap{margin-top:14px;display:grid;gap:6px}
+.ask-detail{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:0}
+.ask-detail summary{cursor:pointer;padding:10px 14px;font-size:13.5px;font-weight:600;color:var(--navy);list-style:none}
+.ask-detail summary::-webkit-details-marker{display:none}
+.ask-detail summary:hover{background:var(--gray-100)}
+.ask-detail[open] summary{border-bottom:1px solid var(--gray-200)}
+.ask-ans{padding:10px 14px;font-size:13.5px;color:var(--green);background:var(--green-lt);border-radius:0 0 8px 8px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 08</span> Part 5 文法題 101–130 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('grammar')">解題策略</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+<section id="grammar" class="active">
+<div class="hero"><div class="hero-badge">Lesson 08 · Part 5 文法題 101–130</div><h1>先判斷結構，再確認語意 🧩</h1><p>這 30 題考點混合：時態、主詞動詞一致、詞性、固定搭配、代名詞、連接詞、比較結構。每一題都用同一套流程：看空格前後 → 判斷詞性/結構 → 檢查搭配 → 最後用語意確認。</p></div>
+<div class="card"><h2><span class="icon">6</span>Part 5 解題六步驟</h2>
+<table class="g-table"><tr><th style="width:70px">步驟</th><th>問自己</th></tr>
+<tr><td class="snum">1</td><td>主詞是誰？（判斷主詞動詞一致）</td></tr>
+<tr><td class="snum">2</td><td>動詞在哪？（時態、語態、完整性）</td></tr>
+<tr><td class="snum">3</td><td>空格前後是什麼詞性？</td></tr>
+<tr><td class="snum">4</td><td>有沒有比較線索？（than / as…as / 範圍）</td></tr>
+<tr><td class="snum">5</td><td>有沒有固定搭配？（when it comes to / prior to / not only…but also）</td></tr>
+<tr><td class="snum">6</td><td>語意對嗎？（最後用意思確認）</td></tr></table>
+<div class="g-highlight">先結構、再搭配、最後語意——不要一看到選項就急著翻譯。</div></div>
+<div class="card"><h2><span class="icon">📊</span>101–130 考點分布</h2>
+<table class="g-table"><tr><th style="width:170px">考點</th><th>題號</th></tr><tr><td>時態</td><td>101</td></tr><tr><td>主詞動詞一致</td><td>102、124</td></tr><tr><td>固定片語</td><td>103</td></tr><tr><td>名詞語意</td><td>104</td></tr><tr><td>副詞位置</td><td>105</td></tr><tr><td>連接詞</td><td>106</td></tr><tr><td>動詞字義</td><td>107</td></tr><tr><td>同等比較</td><td>108</td></tr><tr><td>現在完成式</td><td>109</td></tr><tr><td>介系詞搭配</td><td>110、115</td></tr><tr><td>代名詞指涉</td><td>111</td></tr><tr><td>相似字辨析</td><td>112</td></tr><tr><td>動詞搭配</td><td>113、130</td></tr><tr><td>原因連接詞</td><td>114</td></tr><tr><td>詞性判斷</td><td>116、117、118、125</td></tr><tr><td>名詞搭配</td><td>119</td></tr><tr><td>商業信件動詞</td><td>120</td></tr><tr><td>形容詞語意</td><td>121、126</td></tr><tr><td>固定配對</td><td>122</td></tr><tr><td>被動語態</td><td>123</td></tr><tr><td>平行結構</td><td>127</td></tr><tr><td>介系詞 + V-ing</td><td>128</td></tr><tr><td>形容詞辨析</td><td>129</td></tr></table></div>
+</section>
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+<div class="hero"><div class="hero-badge">陷阱整理 &amp; 快速查閱</div><h1>考前複習這頁就夠了 📋</h1><p>101–130 全部答案與考點速查，加上本課重點片語與生詞。</p></div>
+<div class="card"><h2><span class="icon">📊</span>101–130 答案 &amp; 考點速查</h2><table class="qref-table"><tr><th>題號</th><th>答案</th><th>考點</th></tr><tr><td>101</td><td>B had to</td><td>時態</td></tr><tr><td>102</td><td>A holds</td><td>主詞動詞一致</td></tr><tr><td>103</td><td>C when</td><td>固定片語</td></tr><tr><td>104</td><td>C information</td><td>名詞語意</td></tr><tr><td>105</td><td>C often</td><td>副詞位置</td></tr><tr><td>106</td><td>C and</td><td>連接詞</td></tr><tr><td>107</td><td>B combat</td><td>動詞字義</td></tr><tr><td>108</td><td>D as informal as</td><td>同等比較</td></tr><tr><td>109</td><td>C has changed</td><td>現在完成式</td></tr><tr><td>110</td><td>B about</td><td>介系詞搭配</td></tr><tr><td>111</td><td>D it</td><td>代名詞指涉</td></tr><tr><td>112</td><td>A except</td><td>相似字辨析</td></tr><tr><td>113</td><td>B schedule</td><td>動詞搭配</td></tr><tr><td>114</td><td>A as</td><td>原因連接詞</td></tr><tr><td>115</td><td>C from</td><td>介系詞搭配</td></tr><tr><td>116</td><td>A pleasure</td><td>詞性判斷</td></tr><tr><td>117</td><td>B effective</td><td>詞性判斷</td></tr><tr><td>118</td><td>A application</td><td>詞性判斷</td></tr><tr><td>119</td><td>C improvement</td><td>名詞搭配</td></tr><tr><td>120</td><td>A confirm</td><td>商業信件動詞</td></tr><tr><td>121</td><td>C important</td><td>形容詞語意</td></tr><tr><td>122</td><td>B but</td><td>固定配對</td></tr><tr><td>123</td><td>B considered</td><td>被動語態</td></tr><tr><td>124</td><td>B are</td><td>主詞動詞一致</td></tr><tr><td>125</td><td>C assistance</td><td>詞性判斷</td></tr><tr><td>126</td><td>A unprecedented</td><td>形容詞語意</td></tr><tr><td>127</td><td>B inquire</td><td>平行結構</td></tr><tr><td>128</td><td>A agreeing</td><td>介系詞 + V-ing</td></tr><tr><td>129</td><td>C satisfying</td><td>形容詞辨析</td></tr><tr><td>130</td><td>A received</td><td>動詞搭配</td></tr></table></div>
+<div class="card"><h2><span class="icon">📌</span>本課重點片語與生詞</h2><table class="qref-table"><tr><th>片語 / 生詞</th><th>中文</th></tr><tr><td>had to + V</td><td>不得不（過去式）</td></tr><tr><td>have to + V</td><td>不得不（現在式）</td></tr><tr><td>be leaving for</td><td>正要前往</td></tr><tr><td>last-minute</td><td>臨時的；最後一刻的</td></tr><tr><td>make a cancellation</td><td>取消</td></tr><tr><td>whether...or not</td><td>無論是否……</td></tr><tr><td>official title</td><td>正式頭銜</td></tr><tr><td>be called upon to V</td><td>被要求做……</td></tr><tr><td>hold a title</td><td>擁有某個頭銜</td></tr><tr><td>when it comes to + N</td><td>談到……；就……而言</td></tr><tr><td>it comes to</td><td>固定片語，不要逐字翻</td></tr><tr><td>automobile</td><td>汽車</td></tr><tr><td>bigger is better</td><td>越大越好</td></tr><tr><td>information on/about + N</td><td>關於……的資訊</td></tr><tr><td>textile</td><td>紡織品</td></tr><tr><td>price list</td><td>價格表</td></tr><tr><td>send us information</td><td>寄給我們資訊</td></tr><tr><td>often</td><td>常常（頻率副詞，放動詞前）</td></tr><tr><td>spam message</td><td>垃圾郵件</td></tr><tr><td>public email address</td><td>公開電子郵件地址</td></tr><tr><td>seldom</td><td>偶爾（頻率低）</td></tr><tr><td>祈使句 + and + V</td><td>請做 A，然後也做 B</td></tr><tr><td>take advantage of</td><td>利用；好好把握</td></tr><tr><td>limited offer</td><td>限時優惠</td></tr><tr><td>new members</td><td>新會員</td></tr><tr><td>combat + 問題</td><td>打擊；對抗（可接 spam/crime/disease）</td></tr><tr><td>spam filter</td><td>垃圾郵件過濾器</td></tr><tr><td>used to + V</td><td>用來做……的</td></tr><tr><td>common technology</td><td>常見技術</td></tr><tr><td>as + adj. + as</td><td>和……一樣……（as...as 中間原級）</td></tr></table></div>
+</section>
+
+<!-- ===== TAB 3: 練習題 1-10 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>Part 5 文法題 101–130 練習</h2>
+    <p>點選選項作答，即時顯示答案與解析。共 30 題（101–130）。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 30</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+
+<div id="questionsArea"></div>
+</section>
+
+</div><!-- /container -->
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+const questions = [{"num": 101, "type": "時態", "star": true, "part6": false, "sentence": "Mr. Marco was leaving for Chicago but <u>______</u> make a last-minute cancellation.", "translation": "Marco 先生原本正要前往芝加哥，但是他不得不臨時取消。", "options": ["has to", "had to", "have to", "having to"], "answer": 1, "logic": "had to + V = 不得不（過去式）。was leaving 和 had to 時態一致（過去式）。", "keyPoint": "had to + V = 不得不（過去式）", "optionNotes": ["✅ 答案 B：had to", "A has to：現在式第三人稱，時態不符。C have to：現在式，時態不符。D having to：V-ing 不能單獨作謂語動詞"], "vocab": [["had to + V", "不得不（過去式）"], ["have to + V", "不得不（現在式）"], ["be leaving for", "正要前往"], ["last-minute", "臨時的；最後一刻的"], ["make a cancellation", "取消"]]}, {"num": 102, "type": "主詞動詞一致", "star": false, "part6": false, "sentence": "Whether a team member <u>______</u> the official title of \"project manager\" or not, he or she is often called upon to lead projects.", "translation": "無論一位團隊成員是否擁有「專案經理」的正式頭銜，他/她有時都被要求領導專案。", "options": ["holds", "held", "holding", "hold"], "answer": 0, "logic": "主詞 a team member 是單數，現在一般事實 → 第三人稱單數 holds。", "keyPoint": "whether...or not = 無論是否……", "optionNotes": ["✅ 答案 A：holds", "B held：過去式，句子說的是一般情況不是過去。C holding：V-ing 不能單獨作謂語。D hold：原形，主詞單數現在式要加 s"], "vocab": [["whether...or not", "無論是否……"], ["official title", "正式頭銜"], ["be called upon to V", "被要求做……"], ["hold a title", "擁有某個頭銜"]]}, {"num": 103, "type": "固定片語", "star": true, "part6": false, "sentence": "Drivers in North America may think that bigger is better <u>______</u> it comes to their automobiles.", "translation": "北美的駕駛可能認為，談到他們的汽車時，越大越好。", "options": ["if", "although", "when", "however"], "answer": 2, "logic": "when it comes to + 名詞/V-ing = 談到……；就……而言。", "keyPoint": "when it comes to + N = 談到……；就……而言", "optionNotes": ["✅ 答案 C：when", "A if：如果，這裡不是條件假設。B although：雖然，語意不合。D however：然而，副詞不能放在這個位置"], "vocab": [["when it comes to + N", "談到……；就……而言"], ["it comes to", "固定片語，不要逐字翻"], ["automobile", "汽車"], ["bigger is better", "越大越好"]]}, {"num": 104, "type": "名詞語意", "star": false, "part6": false, "sentence": "Please send us <u>______</u> on any textile that your company produces and a current price list.", "translation": "請寄給我們貴公司所生產的任何紡織品相關資訊，以及目前的價格表。", "options": ["attachment", "agreement", "information", "document"], "answer": 2, "logic": "information on + 主題 = 關於……的資訊。這是 TOEIC 商業書信的高頻搭配。", "keyPoint": "information on/about + N = 關於……的資訊", "optionNotes": ["✅ 答案 C：information", "A attachment：附件，通常指 email 中的附加檔案，不搭配 on。B agreement：協議，語意不符。D document：文件，也不搭配 on"], "vocab": [["information on/about + N", "關於……的資訊"], ["textile", "紡織品"], ["price list", "價格表"], ["send us information", "寄給我們資訊"]]}, {"num": 105, "type": "副詞位置", "star": false, "part6": false, "sentence": "People with public email addresses <u>______</u> receive hundreds of spam messages every day.", "translation": "使用公開電子郵件地址的人，常常每天收到數百封垃圾郵件。", "options": ["not likely", "impossible", "often", "seldom"], "answer": 2, "logic": "often = 常常，副詞，修飾動詞，表示「常常收到垃圾郵件」，語意最合理。", "keyPoint": "often = 常常（頻率副詞，放動詞前）", "optionNotes": ["✅ 答案 C：often", "A not likely / B impossible：形容詞，不能直接修飾動詞 receive。D seldom：偶爾，語意相反（有公開 email 應是常常收到，不是偶爾）"], "vocab": [["often", "常常（頻率副詞，放動詞前）"], ["spam message", "垃圾郵件"], ["public email address", "公開電子郵件地址"], ["seldom", "偶爾（頻率低）"]]}, {"num": 106, "type": "連接詞", "star": true, "part6": false, "sentence": "Please join now <u>______</u> take advantage of this limited offer to new members.", "translation": "請現在加入，並利用這項提供給新會員的限時優惠。", "options": ["or", "but", "and", "if"], "answer": 2, "logic": "祈使句 + and + V = 請做 A，（這樣）也可以做 B。and 連接兩個並列的行動。", "keyPoint": "祈使句 + and + V = 請做 A，然後也做 B", "optionNotes": ["✅ 答案 C：and", "A or：祈使句 + or + V = 如果你不做 A，就會有不好的結果。B but：但是，語意相反。D if：如果，改變了句子邏輯"], "vocab": [["祈使句 + and + V", "請做 A，然後也做 B"], ["take advantage of", "利用；好好把握"], ["limited offer", "限時優惠"], ["new members", "新會員"]]}, {"num": 107, "type": "動詞字義", "star": false, "part6": false, "sentence": "Spam filters are the common technology used to <u>______</u> spam.", "translation": "垃圾郵件過濾器是用來對抗垃圾郵件的常見技術。", "options": ["destroy", "combat", "damage", "organize"], "answer": 1, "logic": "combat spam = 對抗、打擊垃圾郵件。combat + 問題/犯罪/疾病/spam 是固定搭配。", "keyPoint": "combat + 問題 = 打擊；對抗（可接 spam/crime/disease）", "optionNotes": ["✅ 答案 B：combat", "A destroy：摧毀，垃圾郵件過濾器不是摧毀而是阻擋。C damage：損害，不能說 damage spam。D organize：整理，不合語意"], "vocab": [["combat + 問題", "打擊；對抗（可接 spam/crime/disease）"], ["spam filter", "垃圾郵件過濾器"], ["used to + V", "用來做……的"], ["common technology", "常見技術"]]}, {"num": 108, "type": "同等比較", "star": true, "part6": false, "sentence": "The content of a blog can be <u>______</u> an email created by a writer for friends and family to view on-line.", "translation": "部落格的內容可以像作者寫給朋友和家人在線上閱讀的電子郵件一樣非正式。", "options": ["such informal as", "informal as like", "like informal", "as informal as"], "answer": 3, "logic": "as + 形容詞原級 + as = 和……一樣……。所以是 as informal as an email。", "keyPoint": "as + adj. + as = 和……一樣……（as...as 中間原級）", "optionNotes": ["✅ 答案 D：as informal as", "A such informal as：such 通常接名詞片語，不這樣用。B informal as like：結構錯誤。C like informal：like 後接名詞，不接形容詞"], "vocab": [["as + adj. + as", "和……一樣……（as...as 中間原級）"], ["informal", "非正式的"], ["such + adj. + N", "如此……的（such + 形容詞 + 名詞）"], ["blog content", "部落格內容"]]}, {"num": 109, "type": "現在完成式", "star": true, "part6": false, "sentence": "Reality television <u>______</u> the viewing habits of American television watchers.", "translation": "實境電視已經改變了美國電視觀眾的收視習慣。", "options": ["have change", "had changing", "has changed", "have changing"], "answer": 2, "logic": "Reality television 是單數概念 → has。現在完成式：has + p.p. → has changed。", "keyPoint": "has/have + p.p. = 現在完成式（表示已經發生的影響）", "optionNotes": ["✅ 答案 C：has changed", "A have change：兩個錯誤，主詞單數不用 have，且現在完成式需要 p.p.。B had changing：had + V-ing 不是完成式結構。D have changing：同樣錯誤"], "vocab": [["has/have + p.p.", "現在完成式（表示已經發生的影響）"], ["Reality television", "實境電視（單數概念）"], ["viewing habits", "收視習慣"], ["change → changed", "change 的過去分詞"]]}, {"num": 110, "type": "介系詞搭配", "star": false, "part6": false, "sentence": "I would be happy to discuss any questions you may have <u>______</u> the agreement.", "translation": "我很樂意討論您對這份協議可能有的任何問題。", "options": ["of", "about", "such as", "for"], "answer": 1, "logic": "questions about + 名詞 = 關於……的問題，是高頻固定搭配。", "keyPoint": "questions about + N = 關於……的問題", "optionNotes": ["✅ 答案 B：about", "A of：question of 是正式用法表示「……的問題」，不如 about 自然。C such as：例如，後面通常列舉。D for：question for someone 是「給某人的問題」，agreement 是主題不是對象"], "vocab": [["questions about + N", "關於……的問題"], ["be happy to + V", "很樂意做……"], ["agreement", "協議；合約"], ["discuss", "討論"]]}, {"num": 111, "type": "代名詞指涉", "star": true, "part6": false, "sentence": "Our company would like to adopt a new system this year and use <u>______</u> to change the way the whole organization works.", "translation": "我們公司今年想採用一套新系統，並利用它來改變整個組織的運作方式。", "options": ["this", "those", "them", "it"], "answer": 3, "logic": "a new system 是單數不可數事物 → 用 it 代替。", "keyPoint": "代名詞指涉 = it = 單數事物；they/them = 複數", "optionNotes": ["✅ 答案 D：it", "A this：指示代名詞，通常指剛剛提到的事，但後面 use this to change 不如 use it 自然。B those：複數。C them：複數"], "vocab": [["代名詞指涉", "it = 單數事物；they/them = 複數"], ["adopt a new system", "採用新系統"], ["change the way + 子句", "改變……的方式"], ["organization", "組織"]]}, {"num": 112, "type": "相似字辨析", "star": false, "part6": false, "sentence": "Everyone passed the sales training course <u>______</u> one new employee.", "translation": "除了某位新員工以外，每個人都通過了銷售訓練課程。", "options": ["except", "accept", "expect", "express"], "answer": 0, "logic": "except = 除了……以外（介系詞）。Everyone passed except one new employee。", "keyPoint": "except + N/代名詞 = 除了……以外", "optionNotes": ["✅ 答案 A：except", "B accept：接受（動詞）。C expect：期待（動詞）。D express：表達（動詞）。三者都是動詞，不能放在這個位置"], "vocab": [["except + N/代名詞", "除了……以外"], ["accept", "接受"], ["expect", "期待；預期"], ["express", "表達；快速的"]]}, {"num": 113, "type": "動詞搭配", "star": true, "part6": false, "sentence": "Would it be possible for you to <u>______</u> a meeting and a plant tour for us on Friday of next week?", "translation": "請問您是否可以為我們安排下週五的一場會議和工廠參觀？", "options": ["promote", "schedule", "adjourn", "write"], "answer": 1, "logic": "schedule a meeting = 安排會議。schedule 當動詞用，是 TOEIC 商業情境最高頻的字之一。", "keyPoint": "schedule + 活動/會議 = 安排……", "optionNotes": ["✅ 答案 B：schedule", "A promote：升遷", "推廣，不搭配 meeting。C adjourn：（會議）休會，已有會議時才能說 adjourn。D write：寫，不能說 write a meeting"], "vocab": [["schedule + 活動/會議", "安排……"], ["plant tour", "工廠參觀"], ["Would it be possible to + V", "請問是否可以……"], ["adjourn", "（會議）休會、延期"]]}, {"num": 114, "type": "原因連接詞", "star": true, "part6": false, "sentence": "I have to cancel the meeting that we set up for next Friday <u>______</u> we've got some trouble at our factory.", "translation": "我必須取消我們安排在下週五的會議，因為我們工廠出了點問題。", "options": ["as", "if", "because of", "so"], "answer": 0, "logic": "as + 完整子句 = 因為（= because）。取消會議的原因是工廠有問題。", "keyPoint": "as + S + V = 因為（= because，正式用語）", "optionNotes": ["✅ 答案 A：as", "B if：如果，是條件，但工廠有問題是已發生的事實。C because of + 名詞，後面接完整句要用 because/as/since。D so：表示結果，邏輯反了"], "vocab": [["as + S + V", "因為（= because，正式用語）"], ["because of + 名詞", "因為（接名詞）"], ["cancel a meeting", "取消會議"], ["set up a meeting", "安排會議"]]}, {"num": 115, "type": "介系詞搭配", "star": false, "part6": false, "sentence": "Experienced managers always analyze an issue <u>______</u> different perspectives.", "translation": "有經驗的經理總是從不同角度分析問題。", "options": ["to", "for", "from", "of"], "answer": 2, "logic": "from different perspectives = 從不同觀點。from + perspective 是固定搭配。", "keyPoint": "from different perspectives = 從不同角度", "optionNotes": ["✅ 答案 C：from", "A to：方向，to perspectives 不自然。B for：為了，for perspectives 不合語意。D of：perspective of someone 是某人的觀點，但這裡要表達「從……角度」用 from"], "vocab": [["from different perspectives", "從不同角度"], ["analyze an issue", "分析問題"], ["perspective", "觀點；角度"], ["experienced", "有經驗的"]]}, {"num": 116, "type": "詞性判斷", "star": true, "part6": false, "sentence": "We accept your kind invitation with great <u>______</u>.", "translation": "我們非常愉快地接受您的盛情邀請。", "options": ["pleasure", "please", "pleased", "pleasant"], "answer": 0, "logic": "with great pleasure = 非常樂意地；很榮幸地。pleasure 是名詞，符合 with + great + 名詞的結構。", "keyPoint": "with great pleasure = 非常樂意地；很榮幸地（固定表達）", "optionNotes": ["✅ 答案 A：pleasure", "B please：動詞或禮貌副詞，不能接在 great 後。C pleased：形容詞（be pleased to V），不接在 with great 後。D pleasant：形容詞（令人愉快的），with great pleasant 不正確"], "vocab": [["with great pleasure", "非常樂意地；很榮幸地（固定表達）"], ["pleasure", "愉快；榮幸（名詞）"], ["please", "取悅；請（動詞/副詞）"], ["pleased", "感到高興的（形容詞）"], ["pleasant", "令人愉快的（形容詞）"]]}, {"num": 117, "type": "詞性判斷", "star": true, "part6": false, "sentence": "I would like to do something to get you back on track, so we return to the more <u>______</u> process we had before.", "translation": "我想做點事情讓你回到正軌，這樣我們就能回到之前較有效率的流程。", "options": ["effectiveness", "effective", "effect", "effectively"], "answer": 1, "logic": "process（名詞）前需要形容詞。effective 是形容詞，more effective process = 更有效的流程。", "keyPoint": "effective + N = 有效的……（形容詞）", "optionNotes": ["✅ 答案 B：effective", "A effectiveness：名詞，不能直接修飾名詞。C effect：名詞或動詞，不能修飾名詞。D effectively：副詞，修飾動詞，不能說 effectively process"], "vocab": [["effective + N", "有效的……（形容詞）"], ["effectiveness", "有效性（名詞）"], ["effectively", "有效地（副詞）"], ["effect", "效果；影響（名詞）"], ["get back on track", "回到正軌"]]}, {"num": 118, "type": "詞性判斷", "star": true, "part6": false, "sentence": "After reviewing your <u>______</u>, we are pleased to offer you the sales manager position.", "translation": "在審閱您的申請資料後，我們很高興提供您銷售經理的職位。", "options": ["application", "applied", "applying", "apply"], "answer": 0, "logic": "your 後面接名詞。application 是名詞，review your application = 審閱你的申請，符合求職情境。", "keyPoint": "application = 申請；申請書（名詞）", "optionNotes": ["✅ 答案 A：application", "B applied：過去式或過去分詞（動詞/形容詞）。C applying：V-ing，不能直接接在 your 後。D apply：動詞原形，不能接在 your 後"], "vocab": [["application", "申請；申請書（名詞）"], ["review an application", "審閱申請"], ["be pleased to + V", "很高興……"], ["offer someone a position", "提供某人職位"]]}, {"num": 119, "type": "名詞搭配", "star": false, "part6": false, "sentence": "If we're honest with ourselves, we're often aware of some of the areas in our lives that need <u>______</u>.", "translation": "如果我們誠實面對自己，我們常常會意識到生活中有些方面需要改善。", "options": ["advantage", "encouragement", "improvement", "benefit"], "answer": 2, "logic": "need improvement = 需要改善。need + 名詞（V-ing 也可）是固定搭配。", "keyPoint": "need improvement = 需要改善", "optionNotes": ["✅ 答案 C：improvement", "A advantage：need 不能直接接 advantage。B encouragement：鼓勵，need encouragement 可以，但語意不如 improvement 合。D benefit：好處，不搭配 need + benefit 表示「需要改善」"], "vocab": [["need improvement", "需要改善"], ["be aware of", "意識到；知道"], ["honest with oneself", "對自己誠實"], ["area", "方面；領域"]]}, {"num": 120, "type": "商業信件動詞", "star": true, "part6": false, "sentence": "This letter is to <u>______</u> our recent conversation about the business opportunities in Taiwan.", "translation": "這封信是為了確認我們最近關於台灣商業機會的談話內容。", "options": ["confirm", "notify", "inform", "reserve"], "answer": 0, "logic": "confirm = 確認（之前討論/對話的內容）。This letter is to confirm = 這封信是為了確認……，是商業書信的標準開場。", "keyPoint": "This letter is to confirm... = 這封信是為了確認……（商業信件開場句）", "optionNotes": ["✅ 答案 A：confirm", "B notify：通知（新的資訊），不是確認已有的對話。C inform：告知（新事項），也不是確認已有的對話。D reserve：預訂，語意完全不符"], "vocab": [["This letter is to confirm...", "這封信是為了確認……（商業信件開場句）"], ["confirm + 名詞", "確認……"], ["notify someone of", "通知某人……"], ["reserve", "預訂；保留"]]}, {"num": 121, "type": "形容詞語意", "star": false, "part6": false, "sentence": "Your business and goodwill are <u>______</u> to us.", "translation": "您的業務往來與好意對我們非常重要。", "options": ["flexible", "interesting", "important", "competent"], "answer": 2, "logic": "important to someone = 對某人重要。Your business and goodwill are important to us 是商業信件的標準表達。", "keyPoint": "important to + 人 = 對……重要", "optionNotes": ["✅ 答案 C：important", "A flexible：有彈性的，business 本身不是 flexible。B interesting：有趣的，商業信件不這樣說。D competent：有能力的，通常形容人，不形容 business and goodwill"], "vocab": [["important to + 人", "對……重要"], ["business and goodwill", "業務往來與善意"], ["goodwill", "善意；商譽"], ["flexible", "有彈性的（常接 schedule / policy）"]]}, {"num": 122, "type": "固定配對", "star": true, "part6": false, "sentence": "Jerry not only attends university, <u>______</u> also has a part-time job.", "translation": "Jerry 不僅上大學，還有一份兼職工作。", "options": ["furthermore", "but", "and then", "as well"], "answer": 1, "logic": "not only A but also B。看到 not only，直接找 but also。", "keyPoint": "not only A but also B = 不但……而且……", "optionNotes": ["✅ 答案 B：but", "A furthermore：連接獨立句，不是 not only 的固定搭配。C and then：表示時間順序。D as well：放句尾，不放在 not only 後面補成固定句型"], "vocab": [["not only A but also B", "不但……而且……"], ["part-time job", "兼職工作"], ["full-time", "全職的"], ["attend university", "就讀大學"]]}, {"num": 123, "type": "被動語態", "star": true, "part6": false, "sentence": "I would like to be <u>______</u> for your marketing specialist position.", "translation": "我希望能被考慮錄取貴公司的行銷專員職位。", "options": ["considers", "considered", "consideration", "considering"], "answer": 1, "logic": "would like to be + p.p.（被動）。consider 的過去分詞是 considered。be considered for a position = 被考慮擔任某職位。", "keyPoint": "be considered for + 職位 = 被考慮擔任……", "optionNotes": ["✅ 答案 B：considered", "A considers：現在式，be 後面不能接現在式。C consideration：名詞，be 後面若要被動需要 p.p. 不是名詞。D considering：V-ing，不構成被動語態"], "vocab": [["be considered for + 職位", "被考慮擔任……"], ["would like to be + p.p.", "希望被……"], ["marketing specialist", "行銷專員"], ["position", "職位"]]}, {"num": 124, "type": "主詞動詞一致", "star": false, "part6": false, "sentence": "Your suggestions for next month's sales seminar <u>______</u> much appreciated.", "translation": "非常感謝您對下個月銷售研討會提出的建議。", "options": ["was", "are", "has been", "is"], "answer": 1, "logic": "核心主詞是 suggestions（複數）。介系詞片語 for next month's sales seminar 括起來，不影響主詞。複數主詞用 are。", "keyPoint": "be appreciated = 受到感謝；被重視", "optionNotes": ["✅ 答案 B：are", "A was：過去式單數，suggestions 是複數。C has been：單數現在完成式，複數要用 have been（選項中沒有）。D is：單數現在式，不符合複數主詞"], "vocab": [["be appreciated", "受到感謝；被重視"], ["much appreciated", "非常感謝"], ["suggestions for + 事", "關於……的建議"], ["sales seminar", "銷售研討會"]]}, {"num": 125, "type": "詞性判斷", "star": false, "part6": false, "sentence": "Thank you for your kind <u>______</u> with this matter.", "translation": "感謝您在這件事情上的協助。", "options": ["assist", "assistant", "assistance", "assisted"], "answer": 2, "logic": "your kind + 名詞。assistance = 協助（名詞）。Thank you for your assistance 是商業信件標準感謝句。", "keyPoint": "Thank you for your assistance = 感謝您的協助（商業信件固定句型）", "optionNotes": ["✅ 答案 C：assistance", "A assist：動詞（協助），your kind assist 不成立。B assistant：名詞，但意思是「助理」，不是「協助」。D assisted：過去式/過去分詞（動詞），不能接在 your kind 後面"], "vocab": [["Thank you for your assistance", "感謝您的協助（商業信件固定句型）"], ["assistance", "協助（名詞）"], ["assist", "協助（動詞）"], ["assistant", "助理（名詞）"], ["with this matter", "關於這件事"]]}, {"num": 126, "type": "形容詞語意", "star": true, "part6": false, "sentence": "We are making this <u>______</u> offer to our special members.", "translation": "我們正向特別會員提供這項前所未有的優惠。", "options": ["unprecedented", "undocumented", "unimportant", "unreliable"], "answer": 0, "logic": "unprecedented offer = 前所未有的優惠。給特別會員的優惠一定是正面吸引力，unprecedented（前所未有的）最符合商業促銷語氣。", "keyPoint": "unprecedented = 前所未有的", "optionNotes": ["✅ 答案 A：unprecedented", "B undocumented：未記錄的，和 offer 不搭。C unimportant：不重要的，公司不會說提供不重要的優惠。D unreliable：不可靠的，和 offer 不搭"], "vocab": [["unprecedented", "前所未有的"], ["offer（名詞）", "優惠；提議"], ["special members", "特別會員"], ["undocumented", "未記錄的"], ["unreliable", "不可靠的"]]}, {"num": 127, "type": "平行結構", "star": true, "part6": false, "sentence": "I am writing to introduce myself and <u>______</u> about openings for a technical support engineer.", "translation": "我寫信是為了自我介紹，並詢問技術支援工程師的職缺。", "options": ["inquiring", "inquire", "inquiry", "inquired"], "answer": 1, "logic": "to introduce and inquire（平行，都是原形動詞）。and 前後形式一致，introduce 是原形，所以選 inquire。", "keyPoint": "平行結構（to V and V） = to introduce and inquire（and 前後都用原形）", "optionNotes": ["✅ 答案 B：inquire", "A inquiring：V-ing，和 introduce 不平行。C inquiry：名詞（詢問），and 後面需要動詞，不是名詞。D inquired：過去式，和 introduce（原形）不平行"], "vocab": [["平行結構（to V and V）", "to introduce and inquire（and 前後都用原形）"], ["inquire about", "詢問……"], ["opening", "職缺"], ["technical support engineer", "技術支援工程師"]]}, {"num": 128, "type": "介系詞 + V-ing", "star": true, "part6": false, "sentence": "Thank you so much for <u>______</u> to share your experience with our sales representatives.", "translation": "非常感謝您同意與我們的業務代表分享您的經驗。", "options": ["agreeing", "believing", "delivering", "arranging"], "answer": 0, "logic": "for + V-ing（介系詞後動詞用 V-ing）。agree to share = 同意分享。所以 for agreeing to share = 因為（你）同意分享。", "keyPoint": "for + V-ing = 介系詞後動詞用 V-ing", "optionNotes": ["✅ 答案 A：agreeing", "B believing：believe 不接 to share 表示「相信去分享」。C delivering：deliver to share 不自然。D arranging：arrange to share 語意上是「安排分享」，不如 agree to share 精確（本句是感謝對方願意）"], "vocab": [["for + V-ing", "介系詞後動詞用 V-ing"], ["agree to + V", "同意做……"], ["Thank you for + V-ing", "感謝您……"], ["sales representative", "業務代表"], ["share experience with", "與……分享經驗"]]}, {"num": 129, "type": "形容詞辨析", "star": true, "part6": false, "sentence": "We look forward to a mutually <u>______</u> business relationship.", "translation": "我們期待建立一段雙方都滿意的商業關係。", "options": ["satisfy", "satisfied", "satisfying", "satisfaction"], "answer": 2, "logic": "relationship 是事物，令人滿意 → satisfying（事物讓人感到滿意）。satisfied 描述人（感到滿意的）。", "keyPoint": "satisfying = 令人滿意的（修飾事物）", "optionNotes": ["✅ 答案 C：satisfying", "A satisfy：動詞（使滿意），不能修飾名詞。B satisfied：形容詞，但描述人（customers are satisfied），不描述事物。D satisfaction：名詞（滿意度），不能放在 business relationship 前當形容詞"], "vocab": [["satisfying", "令人滿意的（修飾事物）"], ["satisfied", "感到滿意的（修飾人）"], ["look forward to + N", "期待……"], ["mutually", "相互地；雙方都"], ["business relationship", "商業關係"]]}, {"num": 130, "type": "動詞搭配", "star": false, "part6": false, "sentence": "This is a note to remind you that we haven't <u>______</u> our copy of the partnership agreement.", "translation": "這張便條是要提醒您，我們尚未收到我們那份合作協議。", "options": ["received", "retrieved", "regained", "reacted"], "answer": 0, "logic": "receive a copy = 收到一份副本。haven't received our copy = 尚未收到我們那份副本。", "keyPoint": "haven't + p.p. = 現在完成式否定", "optionNotes": ["✅ 答案 A：received", "B retrieved：取回（自己去找回來），不是別人寄給你。C regained：重新獲得（失去後奪回），語意不合。D reacted：反應，react 後面通常接 to，不直接接 our copy"], "vocab": [["haven't + p.p.", "現在完成式否定"], ["receive a copy of", "收到一份……副本"], ["partnership agreement", "合作協議"], ["remind someone that", "提醒某人……"]]}];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+
+
+/* ── Unified browser-first audio controller (SpeechSynthesis, offline, Chrome-idle hardened) ── */
+(function () {
+  var synth = window.speechSynthesis || null;
+  var runId = 0;
+  var currentBtn = null;
+  var queue = [];
+  var qi = 0;
+  var watchdog = null;    // fires if a chunk never ends
+  var startGuard = null;  // fires if a chunk never starts (Chrome idle-drop)
+
+  function kick() { try { if (synth) synth.resume(); } catch (e) {} }
+  function warmVoices() { try { if (synth) synth.getVoices(); } catch (e) {} }
+  warmVoices();
+  if (synth && typeof synth.onvoiceschanged !== 'undefined') synth.onvoiceschanged = warmVoices;
+
+  // Keep-warm heartbeat: after ~30 min idle Chrome suspends its speech engine and
+  // silently drops the next speak(). A periodic resume() keeps it awake.
+  setInterval(function () {
+    try { if (synth && !synth.speaking && !synth.pending) synth.resume(); } catch (e) {}
+  }, 8000);
+
+  function decodeClean(raw) {
+    var box = document.createElement('div');
+    box.innerHTML = String(raw == null ? '' : raw);
+    var t = box.textContent || box.innerText || '';
+    return t.replace(/\[\s*\d+\s*\]/g, ' blank ')
+            .replace(/_{2,}/g, ' blank ')
+            .replace(/[✓✔]/g, ' correct ')
+            .replace(/\s+/g, ' ')
+            .trim();
+  }
+
+  function chunk(text, maxLen) {
+    maxLen = maxLen || 180;
+    if (!text) return [];
+    var units = text.match(/[^.!?;:]+[.!?;:]?/g) || [text];
+    var out = [], cur = '';
+    units.forEach(function (u) {
+      var s = u.trim();
+      if (!s) return;
+      if (s.length > maxLen) {
+        if (cur) { out.push(cur); cur = ''; }
+        var words = s.split(' '), line = '';
+        words.forEach(function (w) {
+          if ((line + ' ' + w).trim().length > maxLen) { if (line) out.push(line.trim()); line = w; }
+          else line = (line ? line + ' ' : '') + w;
+        });
+        if (line) out.push(line.trim());
+      } else if (!cur) { cur = s; }
+      else if ((cur + ' ' + s).length <= maxLen) { cur += ' ' + s; }
+      else { out.push(cur); cur = s; }
+    });
+    if (cur) out.push(cur);
+    return out;
+  }
+
+  function setLabel(btn, playing) {
+    if (!btn || !btn.classList) return;
+    if (btn.classList.contains('art-read-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹ 停止'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else if (btn.classList.contains('tts-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else {
+      if (playing) btn.classList.add('active'); else btn.classList.remove('active');
+    }
+  }
+
+  function clearTimers() {
+    if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+    if (startGuard) { clearTimeout(startGuard); startGuard = null; }
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.tts-btn.active, .art-read-btn.active, .option.active').forEach(function (b) { setLabel(b, false); });
+  }
+
+  function stop() {
+    runId += 1;
+    clearTimers();
+    if (synth) { try { synth.cancel(); } catch (e) {} }
+    setLabel(currentBtn, false);
+    resetAll();
+    currentBtn = null; queue = []; qi = 0;
+  }
+
+  function speakChunk(id, attempt) {
+    if (id !== runId) return;
+    if (!synth || qi >= queue.length) { setLabel(currentBtn, false); currentBtn = null; return; }
+    attempt = attempt || 0;
+    var text = queue[qi];
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.9; u.pitch = 1;
+    var started = false;
+    u.onstart = function () { started = true; if (startGuard) { clearTimeout(startGuard); startGuard = null; } };
+    u.onend = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    u.onerror = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    try { synth.cancel(); synth.resume(); synth.speak(u); synth.resume(); }
+    catch (e) { clearTimers(); qi += 1; speakChunk(id, 0); return; }
+    clearTimers();
+    // Idle-drop recovery: if playback never actually starts, un-stick and re-issue.
+    startGuard = setTimeout(function () {
+      if (id !== runId) return;
+      if (!started && !synth.speaking && !synth.pending) {
+        if (attempt < 3) { try { synth.cancel(); synth.resume(); } catch (e) {} speakChunk(id, attempt + 1); }
+        else { qi += 1; speakChunk(id, 0); }
+      }
+    }, 450);
+    // Stuck-after-start recovery.
+    watchdog = setTimeout(function () {
+      if (id !== runId) return;
+      try { synth.cancel(); } catch (e) {}
+      qi += 1; speakChunk(id, 0);
+    }, Math.max(8000, Math.min(28000, text.length * 130)));
+  }
+
+  function play(raw, btn) {
+    var clean = decodeClean(raw);
+    if (!clean) { stop(); return false; }
+    if (btn && btn === currentBtn) { stop(); return false; } // same button → toggle off
+    stop();
+    if (!synth) return false;
+    kick();                       // wake a suspended engine before the first speak
+    var id = ++runId;
+    currentBtn = btn || null;
+    setLabel(currentBtn, true);
+    queue = chunk(clean, 180); qi = 0;
+    speakChunk(id, 0);            // start synchronously inside the click gesture
+    return false;
+  }
+
+  window.addEventListener('pagehide', stop);
+  window.addEventListener('beforeunload', stop);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else kick(); });
+
+  // Public API — matches every existing onclick handler across the 7 lessons
+  window._ttsPlay    = function (text, btn, allowPause) { return play(text, btn || null); };
+  window.ttsSpeak    = function (btn, text) { return play(text, btn); };
+  window.ttsBtnClick = function (btn, text) { return play(text, btn); };
+  window._ttsStop    = stop;
+  window.TOEICAudio  = { play: play, stop: stop };
+})();
+/* ── end hybrid audio controller ── */
+
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '20px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" data-tts="${opt.replace(/"/g,'&quot;').replace(/'/g,'&apos;')}" onclick="_ttsPlay(this.dataset.tts,this,false);selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>
+        ${opt}
+      </div>
+    `).join('');
+
+    const noteHtml = q.optionNotes.map((n, i) => `
+      <li><strong>${String.fromCharCode(65+i)}.</strong> ${n}</li>
+    `).join('');
+
+    const vocabHtml = q.vocab.map(([w, d]) => `
+      <span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>
+    `).join('');
+
+    const displaySentence = q.sentence.replace('______', '<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ 重點題</span>' : ''}
+      </div>
+      <div class="q-sentence" style="display:flex;align-items:flex-start;gap:8px"><span style="flex:1">${displaySentence}</span><button class="tts-btn" data-idx="${idx}" onclick="ttsBtnClick(this, questions[+this.dataset.idx].sentence)">🔊</button></div>
+      <div class="q-translation">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65 + q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>
+    `;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.remove('current');
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  _ttsStop();
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
