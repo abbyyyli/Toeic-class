@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Lesson 09 課後複習｜Part 7 閱讀 165–200</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:#1B2D5C;--navy-lt:#2C4480;--amber:#F59E0B;--amber-lt:#FEF3C7;
+    --green:#059669;--green-lt:#D1FAE5;--red:#DC2626;--red-lt:#FEE2E2;
+    --sky:#0EA5E9;--sky-lt:#E0F2FE;--purple:#7C3AED;--purple-lt:#EDE9FE;
+    --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;
+    --gray-600:#475569;--gray-800:#1E293B;--white:#FFFFFF;--radius:12px;
+    --shadow:0 2px 12px rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans TC','Inter',sans-serif; background: var(--gray-100); color: var(--gray-800); line-height: 1.7; font-size: 15px; }
+  header { background: var(--navy); color: white; padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.25); }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-weight: 700; font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: 13px; }
+  nav { display: flex; gap: 4px; }
+  nav a { color: rgba(255,255,255,0.7); text-decoration: none; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
+  nav a:hover, nav a.active { background: rgba(255,255,255,0.15); color: white; }
+  nav a.active { background: var(--amber); color: var(--navy); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  section { display: none; }
+  section.active { display: block; }
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); color: white; border-radius: var(--radius); padding: 40px 36px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .hero::after { content:''; position: absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%; background: rgba(255,255,255,0.05); }
+  .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 560px; }
+  .hero-badge { display: inline-block; background: var(--amber); color: var(--navy); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .card h2 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .icon { width:30px; height:30px; background: var(--navy); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .trap-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin:14px 0; }
+  .trap-item { background:var(--gray-50); border-radius:10px; padding:14px; border:1.5px solid var(--gray-200); }
+  .qref-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  .qref-table th,.qref-table td { border:1px solid var(--gray-200); padding:10px 14px; text-align:left; vertical-align:middle; }
+  .qref-table th { background:var(--navy); color:white; font-size:12px; font-weight:700; }
+  .qref-table td:first-child { font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--navy); background:var(--gray-50); white-space:nowrap; }
+  .q-meta { display:flex; gap:10px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+  .q-num { background:var(--navy); color:white; font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; font-family:'Inter',sans-serif; }
+  .q-type { background:var(--sky-lt); color:var(--sky); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-star { background:var(--amber-lt); color:var(--amber); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-p6 { background:var(--purple-lt); color:var(--purple); font-size:12px; font-weight:600; padding:3px 10px; border-radius:6px; }
+  .q-sentence { font-size:16px; font-weight:500; color:var(--gray-800); background:var(--gray-50); border-radius:8px; padding:16px 18px; margin-bottom:8px; line-height:1.8; border-left:3px solid var(--navy); }
+  .q-translation { font-size:13px; color:var(--gray-400); margin-bottom:16px; padding-left:4px; }
+  .options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+  @media(max-width:520px) { .options{ grid-template-columns:1fr; } }
+  .option { background:white; border:1.5px solid var(--gray-200); border-radius:999px; padding:10px 14px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; user-select:none; }
+  .option:hover { border-color:var(--navy); background:var(--gray-50); }
+  .option.correct { background:var(--green-lt); border-color:var(--green); color:var(--green); }
+  .option.wrong { background:var(--red-lt); border-color:var(--red); color:var(--red); }
+  .option-label { width:24px; height:24px; border-radius:50%; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; transition:all 0.2s; font-family:'Inter',sans-serif; }
+  .option.correct .option-label { background:var(--green); color:white; }
+  .option.wrong .option-label { background:var(--red); color:white; }
+  .reveal-btn { background:var(--navy); color:white; border:none; border-radius:8px; padding:8px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; margin-bottom:12px; }
+  .reveal-btn:hover { background:var(--navy-lt); }
+  .explanation { display:none; }
+  .explanation.show { display:block; }
+  .answer-badge { display:inline-flex; align-items:center; gap:6px; background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); border-radius:8px; padding:6px 14px; font-weight:700; font-size:14px; margin-bottom:14px; }
+  .explain-block { background:var(--gray-50); border-radius:8px; padding:16px; margin-bottom:12px; border-left:3px solid var(--sky); }
+  .explain-block h4 { font-size:12px; font-weight:700; color:var(--sky); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .explain-block p,.explain-block li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+  .vocab-row { display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-size:13px; margin-top:8px; }
+  .vocab-word { font-family:'JetBrains Mono',monospace; color:var(--navy); font-weight:600; }
+  .vocab-def { color:var(--gray-600); }
+  .key-point { background:var(--amber-lt); border-left:3px solid var(--amber); border-radius:6px; padding:10px 14px; font-size:13px; color:var(--gray-800); margin-top:10px; }
+  .key-point strong { color:#92400E; }
+  .practice-intro { background:linear-gradient(135deg,#0F172A 0%,#1E3A5F 100%); color:white; border-radius:var(--radius); padding:28px; margin-bottom:24px; display:flex; align-items:center; gap:20px; }
+  .practice-intro .icon { font-size:48px; flex-shrink:0; }
+  .practice-intro h2 { font-size:20px; font-weight:700; }
+  .practice-intro p { color:rgba(255,255,255,0.7); font-size:14px; margin-top:6px; }
+  .score-bar { background:white; border-radius:var(--radius); padding:16px 24px; margin-bottom:24px; box-shadow:var(--shadow); display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .score-bar label { font-size:13px; color:var(--gray-600); font-weight:500; }
+  .score-val { font-size:24px; font-weight:700; color:var(--navy); font-family:'Inter',sans-serif; }
+  .score-bar .bar { flex:1; min-width:200px; height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
+  .score-bar .bar-fill { height:100%; background:linear-gradient(90deg,var(--sky),var(--navy)); border-radius:4px; transition:width 0.5s; }
+  .reset-btn { background:none; border:1.5px solid var(--gray-200); border-radius:8px; padding:6px 14px; font-size:12px; color:var(--gray-600); cursor:pointer; font-family:'Noto Sans TC',sans-serif; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--navy); color:var(--navy); }
+  .progress-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(38px,1fr)); gap:5px; background:white; border-radius:var(--radius); padding:16px 20px; margin-bottom:24px; box-shadow:var(--shadow); }
+  .p-dot { aspect-ratio:1; border-radius:6px; background:var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; font-family:'Inter',sans-serif; color:var(--gray-400); cursor:pointer; transition:all 0.2s; }
+  .p-dot:hover { background:#CBD5E1; }
+  .p-dot.answered { background:var(--green-lt); color:var(--green); border:1.5px solid var(--green); }
+  .p-dot.wrong { background:var(--red-lt); color:var(--red); border:1.5px solid var(--red); }
+  .section-header { background:var(--navy); color:white; border-radius:10px; padding:14px 20px; margin:28px 0 16px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  .section-header .s-badge { background:var(--amber); color:var(--navy); font-size:11px; padding:2px 8px; border-radius:12px; font-weight:700; }
+  .art-box { background:var(--sky-lt); border:1.5px solid #BAE6FD; border-radius:10px; padding:16px 20px; margin-bottom:16px; font-size:14px; line-height:1.8; color:var(--gray-800); }
+  .art-box-header { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--sky); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .art-box p { margin-bottom:8px; }
+  .art-box p:last-child { margin-bottom:0; }
+  .art-zh { font-size:12px; color:var(--gray-400); margin-top:10px; padding-top:8px; border-top:1px solid #BAE6FD; line-height:1.7; }
+  .art-ins { background:rgba(124,58,237,.15); color:var(--purple); font-weight:800; padding:1px 6px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:12px; }
+  code { font-family:'JetBrains Mono',monospace; background:var(--gray-100); padding:1px 6px; border-radius:4px; font-size:13px; }
+  @media(max-width:700px) { .header-inner{ flex-direction:column; height:auto; padding:12px 0; gap:10px; } nav{ flex-wrap:wrap; justify-content:center; } .hero{ padding:28px 22px; } .hero h1{ font-size:20px; } }
+
+.tts-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:6px;color:var(--gray-400);transition:all .15s;flex-shrink:0;line-height:1}
+.tts-btn:hover{background:var(--sky-lt);color:var(--sky)}
+.tts-btn.active{background:var(--sky-lt);color:var(--sky)}
+.art-box-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.art-read-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1.5px solid var(--gray-200);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.art-read-btn:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+.art-read-btn.active{border-color:var(--sky);color:var(--sky);background:var(--sky-lt)}
+.student-zh{display:none}
+body.show-student-zh .student-zh{display:block}
+.student-zh-toggle{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.78);padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans TC',sans-serif}
+.student-zh-toggle.on{background:var(--sky);border-color:var(--sky);color:white}
+
+.article-document{margin:0 0 18px}
+.article-document:last-child{margin-bottom:4px}
+.article-document-label{background:var(--navy);color:white;border-radius:8px 8px 0 0;padding:8px 14px;font-size:12px;font-weight:700;letter-spacing:.3px}
+.article-document-content{background:white;border:1px solid var(--gray-200);border-top:0;border-radius:0 0 8px 8px;padding:18px 20px;overflow-x:auto;line-height:1.85}
+.article-document:only-child .article-document-label{display:none}
+.article-document:only-child .article-document-content{border-top:1px solid var(--gray-200);border-radius:8px}
+.article-document-content h4{color:var(--navy);font-size:18px;margin-bottom:12px;text-align:center}
+.article-document-content p{margin-bottom:12px}
+.article-document-content p:last-child{margin-bottom:0}
+.article-document-content.doc-letter,.article-document-content.doc-email,.article-document-content.doc-letter-table{font-family:Georgia,'Times New Roman','Noto Sans TC',serif;padding:24px 28px}
+.letter-salutation{margin-bottom:16px!important}
+.letter-signoff{text-align:right;margin-top:20px!important}
+.message-meta,.registration-form,.article-document-content table{width:100%;border-collapse:collapse;margin:0 0 18px;font-family:'Noto Sans TC','Inter',sans-serif;font-size:13px}
+.message-meta th,.message-meta td,.registration-form th,.registration-form td,.article-document-content table th,.article-document-content table td{border:1px solid var(--gray-200);padding:8px 10px;text-align:left;vertical-align:top}
+.message-meta th,.registration-form th,.article-document-content table th{background:var(--gray-100);color:var(--navy);font-weight:700;white-space:nowrap}
+.message-meta th{width:82px}
+.form-intro{font-weight:700;color:var(--navy);margin-bottom:14px}
+.form-comments{border:1px solid var(--gray-200);border-radius:8px;padding:14px 16px;background:var(--gray-50)}
+.form-comments>strong{display:block;color:var(--navy);margin-bottom:8px}
+@media(max-width:650px){.article-document-content{padding:15px}.article-document-content.doc-letter,.article-document-content.doc-email,.article-document-content.doc-letter-table{padding:18px}.registration-form th,.registration-form td{display:block;width:100%}.registration-form th{border-bottom:0}.registration-form td{margin-bottom:6px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo">📘 <span>Lesson 09</span> Part 7 閱讀 165–200 複習</div>
+    <nav>
+      <a class="active" onclick="showSection('strategy')">閱讀策略</a>
+      <a onclick="showSection('traps')">陷阱 &amp; 速查</a>
+      <a onclick="showSection('practice')">練習題 165–200</a>
+      <button class="student-zh-toggle" id="studentZhToggle" onclick="toggleStudentZh()">中文 OFF</button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ===== TAB 1: 閱讀策略 ===== -->
+<section id="strategy" class="active">
+<div class="hero">
+  <div class="hero-badge">Lesson 09 · Part 7 閱讀 165–200</div>
+  <h1>先讀懂文件，再回去找證據 🔍</h1>
+  <p>本課共有 <strong>8 組文章、36 題</strong>。先辨認文件類型與人物關係，再抓時間、價格、條件與關鍵字，最後回原文核對答案。</p>
+</div>
+<div class="card">
+  <h2><span class="icon">7</span>Part 7 解題三步驟</h2>
+  <div style="display:grid;gap:10px;margin-bottom:4px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--navy);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--navy);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 1</span><div><strong>看標題與文件類型</strong><br><span style="font-size:13px;color:var(--gray-600)">先判斷是廣告、公告、電子郵件、表格或多篇文件。</span></div></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--amber);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--amber);color:var(--navy);border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 2</span><div><strong>抓 Who / What / When / Where / 數字</strong><br><span style="font-size:13px;color:var(--gray-600)">圈出人物、目的、日期、地點、費用與條件，建立文件地圖。</span></div></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:14px 18px;border-left:4px solid var(--sky);display:flex;gap:14px;align-items:flex-start"><span style="background:var(--sky);color:white;border-radius:6px;padding:3px 10px;font-weight:800;font-family:Inter,sans-serif;flex-shrink:0">Step 3</span><div><strong>依題幹回原文找證據</strong><br><span style="font-size:13px;color:var(--gray-600)">NOT 題逐項核對；推論題只用文章證據，不加入自己的想像。</span></div></div>
+  </div>
+</div>
+<div class="card">
+  <h2><span class="icon">📑</span>雙篇 / 三篇交叉比對策略</h2>
+  <div style="display:grid;gap:10px">
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--navy)"><strong>1. 每份文件先各自抓主旨</strong></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--amber)"><strong>2. 建立人物、時間、價格與事件的對應</strong></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--sky)"><strong>3. 題目若同時提到兩份文件，就跨文件找共同證據</strong></div>
+    <div style="background:var(--gray-50);border-radius:10px;padding:12px 16px;border-left:4px solid var(--green)"><strong>4. 答案必須能回指原文，不靠印象猜</strong></div>
+  </div>
+</div>
+<div class="card">
+  <h2><span class="icon">📚</span>本課八組文章導覽</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:14px"><tr style="background:var(--navy);color:white"><th style="padding:9px 14px;text-align:left">題號</th><th style="padding:9px 14px;text-align:left">文章主題</th></tr><tr style='border-bottom:1px solid var(--gray-200)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>165-167</td><td style='padding:9px 14px'>餐廳廣告</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>168-171</td><td style='padding:9px 14px'>交通公告</td></tr><tr style='border-bottom:1px solid var(--gray-200)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>172-175</td><td style='padding:9px 14px'>徵才廣告，含句子插入</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>176-180</td><td style='padding:9px 14px'>會員方案宣傳＋詢問信</td></tr><tr style='border-bottom:1px solid var(--gray-200)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>181-185</td><td style='padding:9px 14px'>商務邀約信＋回覆信</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>186-190</td><td style='padding:9px 14px'>招生信＋學生詢問信＋課程介紹回覆</td></tr><tr style='border-bottom:1px solid var(--gray-200)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>191-195</td><td style='padding:9px 14px'>活動邀請＋報名表＋議程回覆</td></tr><tr style='border-bottom:1px solid var(--gray-200);background:var(--gray-50)'><td style='padding:9px 14px;font-weight:700;color:var(--navy);font-family:Inter,monospace'>196-200</td><td style='padding:9px 14px'>課程廣告＋詢問信＋價目表</td></tr></table>
+</div>
+<div class="card">
+  <h2><span class="icon">🎯</span>常見 Part 7 題型速攻法</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr style="background:var(--navy);color:white"><th style="padding:10px 14px;text-align:left">題型</th><th style="padding:10px 14px;text-align:left">解法</th></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--sky)">目的 / 主旨</td><td style="padding:10px 14px">先看文件整體在做什麼，再確認開頭與結尾。</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200);background:var(--gray-50)"><td style="padding:10px 14px;font-weight:700;color:var(--red)">NOT 題</td><td style="padding:10px 14px">A–D 逐項回原文核對，找沒有證據的一項。</td></tr>
+    <tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:10px 14px;font-weight:700;color:var(--amber)">同義字</td><td style="padding:10px 14px">回原句看詞性與語境，再代入選項。</td></tr>
+    <tr><td style="padding:10px 14px;font-weight:700;color:var(--green)">推論 / 跨文件</td><td style="padding:10px 14px">把人物、時間與事件對起來，只做文章允許的推論。</td></tr>
+  </table>
+</div>
+</section>
+
+<!-- ===== TAB 2: 陷阱 & 速查 ===== -->
+<section id="traps">
+<div class="hero"><div class="hero-badge">陷阱整理 &amp; 快速查閱</div><h1>考試前複習這頁就好 ⚡</h1><p>先認題型，再回原文找證據。以下整理 Lesson09 最常出現的 Part 7 陷阱、答案與核心字彙。</p></div>
+<div class="card"><h2><span class="icon">⚠</span>五個常見陷阱</h2><div class="trap-grid">
+<div class="trap-item"><strong>NOT 題漏看否定字</strong><br><span style="font-size:13px;color:var(--gray-600)">先圈 NOT，再逐項核對文章。</span></div>
+<div class="trap-item"><strong>人物與文件配錯</strong><br><span style="font-size:13px;color:var(--gray-600)">多篇題先寫出誰寫給誰、誰做了什麼。</span></div>
+<div class="trap-item"><strong>時間與價格看錯欄</strong><br><span style="font-size:13px;color:var(--gray-600)">表格題同時對齊列與欄，不只看單一數字。</span></div>
+<div class="trap-item"><strong>同義改寫沒認出來</strong><br><span style="font-size:13px;color:var(--gray-600)">答案常換字表達，不會完全照抄原文。</span></div>
+<div class="trap-item"><strong>推論超出文章</strong><br><span style="font-size:13px;color:var(--gray-600)">選項合理不等於正確，必須能指出文字證據。</span></div>
+</div></div>
+<div class="card"><h2><span class="icon">✓</span>答案速查 165–200</h2><table class="qref-table"><tr><th>題號</th><th>答案</th><th>題型</th></tr><tr><td>165</td><td>C — They select high-quality ingredients to use.</td><td>細節題・同義改寫</td></tr><tr><td>166</td><td>B — Sandwiches</td><td>細節定位・besides</td></tr><tr><td>167</td><td>B — A customer can use up to three vouchers at a time.</td><td>NOT題・優惠券限制</td></tr><tr><td>168</td><td>A — To inform people of a construction work</td><td>目的題</td></tr><tr><td>169</td><td>B — Unconcerned</td><td>單字同義題・un- 字首</td></tr><tr><td>170</td><td>D — Take free shuttle buses</td><td>細節題・替代方案</td></tr><tr><td>171</td><td>B — Its service will not be affected.</td><td>細節題・Red Line</td></tr><tr><td>172</td><td>B — Bangalore</td><td>地點定位題</td></tr><tr><td>173</td><td>D — Via blog</td><td>NOT題・支援方式</td></tr><tr><td>174</td><td>D — Work closely with CEO to develop business plans</td><td>NOT題・工作職責</td></tr><tr><td>175</td><td>C — [3]</td><td>句子插入題</td></tr><tr><td>176</td><td>C — To recruit new VIP Club members</td><td>目的題</td></tr><tr><td>177</td><td>A — progression</td><td>單字同義題・字根 improve</td></tr><tr><td>178</td><td>A — Apply for the VIP Club program online</td><td>推論題・跨句整合</td></tr><tr><td>179</td><td>B — A potential customer</td><td>人物推論題</td></tr><tr><td>180</td><td>D — The application deadline</td><td>NOT題・列表比對</td></tr><tr><td>181</td><td>C — The Sales Success seminar will take place.</td><td>細節題・日期定位</td></tr><tr><td>182</td><td>C — Business partners</td><td>人物關係推論</td></tr><tr><td>183</td><td>B — Tuesday</td><td>日期推理題</td></tr><tr><td>184</td><td>B — His schedule is pretty full already.</td><td>推論題・同義改寫</td></tr><tr><td>185</td><td>D — New marketing and business opportunities</td><td>細節題・討論主題</td></tr><tr><td>186</td><td>A — To attract potential students</td><td>目的題・招生信</td></tr><tr><td>187</td><td>C — The degree is easy to obtain.</td><td>NOT題・反義判斷</td></tr><tr><td>188</td><td>B — She is responsible for doing digital marketing.</td><td>推論題・合理推論</td></tr><tr><td>189</td><td>C — Submit her application by June 15th</td><td>細節題・申請截止日</td></tr><tr><td>190</td><td>D — They connect to the market trends well.</td><td>整合題・課程與市場趨勢</td></tr><tr><td>191</td><td>B — Managers</td><td>對象推論</td></tr><tr><td>192</td><td>A — An HR expert</td><td>人物定位</td></tr><tr><td>193</td><td>C — Click on the webinar link to register online</td><td>細節題・報名方式</td></tr><tr><td>194</td><td>D — The event agenda</td><td>細節題・請求內容</td></tr><tr><td>195</td><td>A — Creating a performance management system</td><td>時間表題・完整參與推理</td></tr><tr><td>196</td><td>C — To attract new yoga members</td><td>目的題</td></tr><tr><td>197</td><td>A — A yoga teacher</td><td>人物推論題</td></tr><tr><td>198</td><td>D — She just starts to learn yoga.</td><td>細節題・現在完成式線索</td></tr><tr><td>199</td><td>B — 30 Days</td><td>推論題・表格資訊</td></tr><tr><td>200</td><td>C — $45</td><td>表格計算題</td></tr></table></div>
+<div class="card"><h2><span class="icon">V</span>核心字彙速查</h2><table class="qref-table"><tr><th>字彙 / 片語</th><th>中文</th></tr><tr><td>select</td><td>挑選；選擇</td></tr><tr><td>high-quality</td><td>高品質的</td></tr><tr><td>besides</td><td>除了……之外</td></tr><tr><td>serve</td><td>供應；服務</td></tr><tr><td>at a time</td><td>一次；同時</td></tr><tr><td>certificate</td><td>證明書；憑證（此處指優惠憑證）</td></tr><tr><td>per person per visit</td><td>每人每次到訪</td></tr><tr><td>inform sb of sth</td><td>通知某人某事</td></tr><tr><td>assist</td><td>協助</td></tr><tr><td>be unaffected</td><td>不受影響</td></tr><tr><td>be based in</td><td>總部/職位設於……</td></tr><tr><td>via</td><td>透過；經由</td></tr><tr><td>acquire</td><td>取得；習得</td></tr><tr><td>internal use</td><td>內部使用</td></tr><tr><td>verbal</td><td>口頭的</td></tr><tr><td>written</td><td>書面的</td></tr><tr><td>recruit</td><td>招募</td></tr><tr><td>improvement</td><td>改善；改進</td></tr><tr><td>potential</td><td>潛在的；可能的</td></tr><tr><td>deadline</td><td>截止日期</td></tr><tr><td>take place</td><td>舉行；發生</td></tr><tr><td>partnership</td><td>合作關係；夥伴關係</td></tr><tr><td>日期推理</td><td>跨句整合線索</td></tr><tr><td>schedule is tight</td><td>行程很滿</td></tr><tr><td>building business</td><td>建立／拓展商業合作</td></tr><tr><td>attract</td><td>吸引</td></tr><tr><td>obtain</td><td>取得；獲得</td></tr><tr><td>market trends</td><td>市場趨勢</td></tr><tr><td>workforce</td><td>全體員工</td></tr><tr><td>consulting director</td><td>顧問總監</td></tr><tr><td>register</td><td>報名；註冊</td></tr><tr><td>agenda</td><td>議程</td></tr><tr><td>pose</td><td>姿勢；瑜伽體位</td></tr><tr><td>have never practiced</td><td>從未練習過（現在完成式）</td></tr><tr><td>suitable</td><td>適合的</td></tr></table></div>
+</section>
+
+<!-- ===== TAB 3: 練習題 ===== -->
+<section id="practice">
+
+<div class="practice-intro">
+  <div class="icon">📝</div>
+  <div>
+    <h2>Part 7 閱讀練習題 165–200</h2>
+    <p>閱讀文章後作答，點選選項後自動顯示答案與解析。每組題目前附有原文與中文大意，可朗讀。</p>
+  </div>
+</div>
+
+<div class="score-bar">
+  <div><label>作答進度</label><div class="score-val" id="scoreVal">0 / 36</div></div>
+  <div class="bar"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+  <div><label>答對率</label><div class="score-val" id="accuracyVal">—</div></div>
+  <button class="reset-btn" onclick="resetAll()">🔄 重置</button>
+</div>
+
+<div class="progress-grid" id="progressGrid"></div>
+<div id="questionsArea"></div>
+
+</section>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleStudentZh() {
+  const visible = document.body.classList.toggle('show-student-zh');
+  const button = document.getElementById('studentZhToggle');
+  button.textContent = visible ? '中文 ON' : '中文 OFF';
+  button.classList.toggle('on', visible);
+}
+
+const ARTICLES = {"165-167":{"documents":[{"label":"Restaurant Advertisement","kind":"advertisement","html":"<h4>🍕 Bob's Pizza House</h4>\n<p>Zero Trans Fat? You bet! At Bob's Pizza House we use only the best ingredients such as extra virgin olive oil. Our cheese pizza also has the lowest saturated fat, lowest total fat, or lowest caloric content of any major pizza chain! Bob's Pizza House is family owned and operated, and has been serving the best pizza and sandwiches for over 20 years. We still use our special blend of 100% cheese and sauce is made from fresh tomatoes and imported cheese.</p>\n<p>Pizza (3 Sizes and 15 Toppings), 6 Salads and Much More!</p>\n<p>Address: 4732 Don Drive, New Town, MI 12345 　Hours: Monday–Friday 11 a.m.–10 p.m.; Saturday 10 a.m.–11 p.m.; Sunday 3 p.m.–10 p.m. 　Phone: 737-eat-pizza</p>\n<p><b>20% Off Voucher Restrictions</b><br>✓ FOR PICKUP ORDERS ONLY<br>✓ Mention this voucher when placing your order<br>✓ Vouchers are not redeemable for cash<br>✓ No change issued for the unused portion<br>✓ Limit 1 certificate per person per visit<br>✓ Cannot be combined with any other coupons or specials</p>"}],"zh":"零反式脂肪？沒錯！在 Bob's Pizza House，我們只使用最好的食材，例如特級初榨橄欖油。我們的起司披薩也擁有所有主要披薩連鎖店中最低的飽和脂肪、最低的總脂肪，或最低的熱量！Bob's Pizza House 是家族擁有並經營的餐廳，二十多年來持續供應最棒的披薩與三明治。我們仍然使用自家特調的 100% 起司，醬汁則是用新鮮番茄與進口起司製成。<br><br>披薩（3 種尺寸、15 種配料）、6 種沙拉，還有更多選擇！<br><br>地址：4732 Don Drive, New Town, MI 12345　營業時間：週一至週五上午 11 點至晚上 10 點；週六上午 10 點至晚上 11 點；週日下午 3 點至晚上 10 點　電話：737-eat-pizza<br><br><strong>20% 折扣券使用限制</strong><br>僅限自取訂單使用<br>下單時請告知使用此折扣券<br>折扣券不得兌換現金<br>未使用的差額不予找零<br>每人每次到店限用一張<br>不得與其他優惠券或特價活動合併使用","speechHtml":"<h4>🍕 Bob's Pizza House</h4>\n<p>Zero Trans Fat? You bet! At Bob's Pizza House we use only the best ingredients such as extra virgin olive oil. Our cheese pizza also has the lowest saturated fat, lowest total fat, or lowest caloric content of any major pizza chain! Bob's Pizza House is family owned and operated, and has been serving the best pizza and sandwiches for over 20 years. We still use our special blend of 100% cheese and sauce is made from fresh tomatoes and imported cheese.</p>\n<p>Pizza (3 Sizes and 15 Toppings), 6 Salads and Much More!</p>\n<p>Address: 4732 Don Drive, New Town, MI 12345 　Hours: Monday–Friday 11 a.m.–10 p.m.; Saturday 10 a.m.–11 p.m.; Sunday 3 p.m.–10 p.m. 　Phone: 737-eat-pizza</p>\n<p><b>20% Off Voucher Restrictions</b><br>✓ FOR PICKUP ORDERS ONLY<br>✓ Mention this voucher when placing your order<br>✓ Vouchers are not redeemable for cash<br>✓ No change issued for the unused portion<br>✓ Limit 1 certificate per person per visit<br>✓ Cannot be combined with any other coupons or specials</p>"},"168-171":{"documents":[{"label":"Service Notice","kind":"notice","html":"<h4>🚇 Metro Yellow Line shuts down for 3-day work</h4>\n<p>Construction on the Metro Yellow Line will lead to the shutdown of weekend service for three consecutive days beginning at 10 p.m. Friday. The shutdown will affect stations at Garden Square and Spring Road. To assist passengers affected by the shutdowns, free shuttle buses will be provided during regular Yellow Line hours. The buses will connect the Garden Square, Spring Road, and Greenfield stations to the Green Line. Greenfield station Red Line service will be unaffected. Regular service is scheduled to resume at 4 a.m. Monday.</p>"}],"zh":"<strong>Metro 黃線因三天施工而停駛</strong><br><br>黃線的施工工程將導致週末服務連續停駛三天，自週五晚上 10 點開始。停駛將影響 Garden Square 站與 Spring Road 站。為協助受停駛影響的乘客，官方將在黃線平常營運時段提供免費接駁公車。這些公車會將 Garden Square、Spring Road 與 Greenfield 三站連接到綠線。Greenfield 站的紅線服務將不受影響。正常服務預計於週一凌晨 4 點恢復。","speechHtml":"<h4>🚇 Metro Yellow Line shuts down for 3-day work</h4>\n<p>Construction on the Metro Yellow Line will lead to the shutdown of weekend service for three consecutive days beginning at 10 p.m. Friday. The shutdown will affect stations at Garden Square and Spring Road. To assist passengers affected by the shutdowns, free shuttle buses will be provided during regular Yellow Line hours. The buses will connect the Garden Square, Spring Road, and Greenfield stations to the Green Line. Greenfield station Red Line service will be unaffected. Regular service is scheduled to resume at 4 a.m. Monday.</p>"},"172-175":{"documents":[{"label":"Job Advertisement","kind":"job","html":"<h4>💻 Tech Support Engineer</h4>\n<p>Location: India, Bangalore　Talent Area: Technical Support　Preferred Education: Master's Degree</p>\n<p><b>Position Summary</b><br>The Technical Support Engineer is responsible for responding to and resolving complex customer problems via phone, e-mail and remote access for Strata products. <span class=\"insmark\">[1]</span></p>\n<p><b>Responsibilities</b><br>The primary duties for this position include but are not limited to:</p>\n<p><i>Technology Proficiency</i><br>✓ Provide technical assistance to customers on Strata products via phone, e-mail or remote access.<br>✓ Publish articles in our in-house knowledge base. <span class=\"insmark\">[2]</span><br>✓ Able to learn a wide variety of technologies at a rapid pace.</p>\n<p><i>Teamwork</i><br>✓ Achieve and maintain targeted call statistics, such as number of calls answered, number of cases closed or issues resolved, along with other established goals.<br>✓ Along with the Technical Manager, set realistic personal training and product certification goals.</p>\n<p><b>Qualifications and Requirements</b><br>✓ Minimum of 2-year experience in a Tech Support environment.<br>✓ Solid knowledge of network security concepts, networking technology, and troubleshooting tools.<br>✓ Strong understanding for application remote access technologies. <span class=\"insmark\">[3]</span></p>\n<p>This position will require you to work on night shifts with potential for extended coverage. Click HERE to apply. <span class=\"insmark\">[4]</span></p>"}],"zh":"<strong>技術支援工程師</strong><br>地點：印度班加羅爾　專業領域：技術支援　偏好學歷：碩士學位<br><br><strong>職務摘要</strong><br>技術支援工程師負責透過電話、電子郵件與遠端存取，回應並解決 Strata 產品的複雜顧客問題。<br><br><strong>工作職責</strong><br>本職位的主要職責包含但不限於：<br><br><em>技術能力</em><br>透過電話、電子郵件或遠端存取，為顧客提供 Strata 產品的技術協助。<br>在公司內部知識庫發表文章。<br>能夠快速學習各種不同的技術。<br><br><em>團隊合作</em><br>達成並維持既定的通話統計目標，例如已接聽電話數、已結案案件數或已解決問題數，以及其他既定目標。<br>與技術經理一同設定切合實際的個人訓練與產品認證目標。<br><br><strong>資格與要求</strong><br>至少兩年技術支援相關工作經驗。<br>熟悉網路安全概念、網路技術與故障排除工具。<br>對遠端存取應用技術有深入了解。<br><br>本職位需輪值夜班，且可能需要延長支援時段。點擊此處申請。","speechHtml":"<h4>💻 Tech Support Engineer</h4>\n<p>Location: India, Bangalore　Talent Area: Technical Support　Preferred Education: Master's Degree</p>\n<p><b>Position Summary</b><br>The Technical Support Engineer is responsible for responding to and resolving complex customer problems via phone, e-mail and remote access for Strata products. <span class=\"insmark\">[1]</span></p>\n<p><b>Responsibilities</b><br>The primary duties for this position include but are not limited to:</p>\n<p><i>Technology Proficiency</i><br>✓ Provide technical assistance to customers on Strata products via phone, e-mail or remote access.<br>✓ Publish articles in our in-house knowledge base. <span class=\"insmark\">[2]</span><br>✓ Able to learn a wide variety of technologies at a rapid pace.</p>\n<p><i>Teamwork</i><br>✓ Achieve and maintain targeted call statistics, such as number of calls answered, number of cases closed or issues resolved, along with other established goals.<br>✓ Along with the Technical Manager, set realistic personal training and product certification goals.</p>\n<p><b>Qualifications and Requirements</b><br>✓ Minimum of 2-year experience in a Tech Support environment.<br>✓ Solid knowledge of network security concepts, networking technology, and troubleshooting tools.<br>✓ Strong understanding for application remote access technologies. <span class=\"insmark\">[3]</span></p>\n<p>This position will require you to work on night shifts with potential for extended coverage. Click HERE to apply. <span class=\"insmark\">[4]</span></p>"},"176-180":{"documents":[{"label":"Document 1 | VIP Club Promotion","kind":"advertisement","html":"<p>At Happy Cruise, you're more than just a VIP. Now there's a way to get more just for having fun on board Happy Cruise.</p>\n<p>Happy Cruise is introducing the VIP Club. It's Happy Cruise's way of recognizing our guests who keep coming back by offering you great benefits that are sure to take your next cruise to the next level. If you are a member of our previous Happy Guest recognition program, login to your current Happy-Cruise.com account. We've made some improvements you're sure to love. We've also changed the way you'll get points. Now it's as easy as earning a point for every day you have fun on a Happy Cruise.</p>\n<p>If you've never cruised with Happy Cruise before, you can become a VIP Club member even before you've booked to start taking advantage of great benefits, special offers, and more.</p>\n<p>Ready to get the lowdown on how it all works? Visit our website www.happy-cruise.com to learn more.</p>"},{"label":"Document 2 | Membership Inquiry","kind":"letter","html":"<p class=\"letter-salutation\">Dear Sir,</p>\n<p>Please send me more information on your VIP Club membership program. I would specifically like to know:<br>1. Requirements and other information on VIP Club membership application.<br>2. The application fee for such VIP Club program.<br>3. The benefits for VIP Club members.</p>\n<p>Also, would you send me any brochures you might have, and application forms for the VIP Club please?</p>\n<p>Thank you.<br>Karen Marco</p>"}],"zh":"<strong>第一篇｜VIP Club 宣傳文</strong><br>在 Happy Cruise，您不只是一位貴賓。現在有一種方式，讓您只要在 Happy Cruise 上盡情享樂，就能獲得更多回饋。<br><br>Happy Cruise 隆重推出 VIP Club。這是 Happy Cruise 用來回饋持續回流顧客的方式，提供絕佳福利，讓您的下一趟郵輪之旅更上一層樓。如果您是先前 Happy Guest 回饋方案的會員，請登入您現有的 Happy-Cruise.com 帳號。我們做了一些您一定會喜歡的改進，也改變了累積點數的方式。現在只要在 Happy Cruise 上開心度過的每一天，都能輕鬆獲得一點。<br><br>如果您從未搭乘過 Happy Cruise，您也可以在訂船之前就成為 VIP Club 會員，提前享有絕佳福利、特別優惠等等。<br><br>準備好了解一切如何運作了嗎？請造訪我們的網站 www.happy-cruise.com 以了解更多資訊。<br><br><strong>第二篇｜Karen Marco 的詢問信</strong><br>敬啟者：<br>請寄給我更多關於貴公司 VIP Club 會員方案的資訊。我特別想了解以下幾點：一、VIP Club 會員申請的資格與其他相關資訊。二、此 VIP Club 方案的申請費用。三、VIP Club 會員可享有的福利。<br>另外，也請寄給我任何相關的宣傳手冊，以及 VIP Club 的申請表格，謝謝。<br>感謝您。<br>Karen Marco","speechHtml":"<p>At Happy Cruise, you're more than just a VIP. Now there's a way to get more just for having fun on board Happy Cruise.</p>\n<p>Happy Cruise is introducing the VIP Club. It's Happy Cruise's way of recognizing our guests who keep coming back by offering you great benefits that are sure to take your next cruise to the next level. If you are a member of our previous Happy Guest recognition program, login to your current Happy-Cruise.com account. We've made some improvements you're sure to love. We've also changed the way you'll get points. Now it's as easy as earning a point for every day you have fun on a Happy Cruise.</p>\n<p>If you've never cruised with Happy Cruise before, you can become a VIP Club member even before you've booked to start taking advantage of great benefits, special offers, and more.</p>\n<p>Ready to get the lowdown on how it all works? Visit our website www.happy-cruise.com to learn more.</p> <p class=\"letter-salutation\">Dear Sir,</p>\n<p>Please send me more information on your VIP Club membership program. I would specifically like to know:<br>1. Requirements and other information on VIP Club membership application.<br>2. The application fee for such VIP Club program.<br>3. The benefits for VIP Club members.</p>\n<p>Also, would you send me any brochures you might have, and application forms for the VIP Club please?</p>\n<p>Thank you.<br>Karen Marco</p>"},"181-185":{"documents":[{"label":"Document 1 | Dinner Meeting Invitation","kind":"email","html":"<table class=\"message-meta\"><tr><th>From</th><td>Carol Li</td></tr><tr><th>To</th><td>Ian Berger</td></tr><tr><th>Subject</th><td>Dinner meeting</td></tr></table>\n<p class=\"letter-salutation\">Dear Ian,</p>\n<p>Since you will come to Taipei for the Sales Success seminar on May 7th, it is our pleasure to invite you to a dinner meeting to discuss the status of our partnership. The dinner meeting will take place at 7 p.m. on May 7th after the seminar at the Coral Reef Hotel in Taipei.</p>\n<p>Please confirm if this arrangement is convenient for you. I am looking forward to meeting you here in Taipei.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Carol Li<br>Marketing Manager<br>Best Software Inc.</p>"},{"label":"Document 2 | Schedule Reply","kind":"letter","html":"<p class=\"letter-salutation\">Dear Carol,</p>\n<p>Hope you are doing well.</p>\n<p>Regarding the upcoming Sales Success event (on May 7th) — I'm sorry to say that my schedule is very tight that week. I must leave for Japan immediately after the Sales Success seminar. However, I will be arriving in Taipei on Monday afternoon May 6th. If it is convenient for you, I would like to meet that evening for dinner.</p>\n<p>I hope that we'll have a chance to have a general discussion about marketing opportunities and building business following the event. If Monday evening is not possible, I look forward to meeting you next time I'm in Taiwan.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Regards,<br>Ian Berger<br>Office 123-4737-5837</p>"}],"zh":"<strong>第一封｜Carol Li 寄給 Ian Berger</strong><br>寄件人：Carol Li　收件人：Ian Berger　主旨：晚餐會議<br><br>親愛的 Ian：<br>既然您將於 5 月 7 日來台北參加 Sales Success 研討會，我們很榮幸邀請您參加一場晚餐會議，討論我們雙方合作關係的現況。晚餐會議將於研討會結束後，5 月 7 日晚上 7 點，在台北的 Coral Reef Hotel 舉行。<br>請確認此安排是否方便您出席。期待在台北與您見面。<br>Carol Li 敬上<br>行銷經理<br>Best Software Inc.<br><br><strong>第二封｜Ian Berger 回覆 Carol Li</strong><br>親愛的 Carol：<br>希望您一切安好。<br>關於即將到來的 Sales Success 活動（5 月 7 日）——很抱歉，我那個星期的行程非常緊湊。研討會結束後，我必須立刻啟程前往日本。不過，我會在 5 月 6 日星期一下午抵達台北。如果您方便的話，我想在當天晚上與您共進晚餐。<br>希望屆時我們有機會針對活動之後的行銷機會與業務拓展做個大致的討論。如果週一晚上不方便，那麼期待下次我到台灣時能與您見面。<br>Ian Berger 敬上<br>辦公室電話 123-4737-5837","speechHtml":"<table class=\"message-meta\"><tr><th>From</th><td>Carol Li</td></tr><tr><th>To</th><td>Ian Berger</td></tr><tr><th>Subject</th><td>Dinner meeting</td></tr></table>\n<p class=\"letter-salutation\">Dear Ian,</p>\n<p>Since you will come to Taipei for the Sales Success seminar on May 7th, it is our pleasure to invite you to a dinner meeting to discuss the status of our partnership. The dinner meeting will take place at 7 p.m. on May 7th after the seminar at the Coral Reef Hotel in Taipei.</p>\n<p>Please confirm if this arrangement is convenient for you. I am looking forward to meeting you here in Taipei.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Carol Li<br>Marketing Manager<br>Best Software Inc.</p> <p class=\"letter-salutation\">Dear Carol,</p>\n<p>Hope you are doing well.</p>\n<p>Regarding the upcoming Sales Success event (on May 7th) — I'm sorry to say that my schedule is very tight that week. I must leave for Japan immediately after the Sales Success seminar. However, I will be arriving in Taipei on Monday afternoon May 6th. If it is convenient for you, I would like to meet that evening for dinner.</p>\n<p>I hope that we'll have a chance to have a general discussion about marketing opportunities and building business following the event. If Monday evening is not possible, I look forward to meeting you next time I'm in Taiwan.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Regards,<br>Ian Berger<br>Office 123-4737-5837</p>"},"186-190":{"documents":[{"label":"Document 1 | MBA Program Promotion","kind":"letter","html":"<p class=\"letter-salutation\">Dear Ms. Walt,</p>\n<p>It's time to transform your career with a one-year International MBA from Cale Business School this Fall semester. Application volume will increase before the June 15th deadline and submitting your application now can help provide you with the best possible opportunity for acceptance.</p>\n<p>A one-year MBA is a serious investment in time and money. In addition, it's a condensed program, so it is certainly more challenging than a traditional MBA. Our students return to the workforce more quickly and recoup their investment in just over two years. International MBA graduates see an average increase in pre-MBA salary of 120%.</p>\n<p>Don't wait to transform your career. Contact us for more information.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Swift<br>Consultant</p>"},{"label":"Document 2 | Program Inquiry","kind":"letter","html":"<p class=\"letter-salutation\">Dear Mr. Swift,</p>\n<p>Thank you for the one-year International MBA information. I am writing to request more details of your program for September 2019 session. I believe that this one-year program will be a solid step toward the obtainment of my ambition in business. After graduating from City University, I've worked as a marketing specialist at ABC company which allows me to gain a deeper insight of marketing processes. Therefore, I am especially interested in learning more about some marketing elective courses your school offers. I would appreciate it if you could provide more details about courses related to online marketing.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Linda Walt</p>"},{"label":"Document 3 | Course Information","kind":"letter","html":"<p class=\"letter-salutation\">Dear Ms. Walt,</p>\n<p>At Cale Business School, we offer ample marketing electives in addition to the required courses. Some specific marketing electives include:</p>\n<p><b>Digital Marketing</b> — Successful marketing campaigns tend to combine online and offline elements to better reach the target audience. The digital marketing course examines the full range of digital marketing activities. This course will include social media, podcasts, and how the online and offline worlds can be connected. Students will also explore how the growth of technology will lead to new opportunities.</p>\n<p><b>Marketing Research and Analytics</b> — All good marketing campaigns begin with thorough market research and end with effective analysis. Marketing people always wonder whether marketing campaigns have reached the target market. What lessons can be learned for other campaigns? This course will cover how to undertake marketing research and how to use the information gathered to help improve decision-making for marketing.</p>\n<p><b>Customer Acquisition through Online Marketing</b> — In this course, students will learn directly from real-world online marketing professionals and create a digital marketing strategy. The purpose of this course is to allow students to have a better understanding of how to plan for and launch a website from scratch and learn to use mobile advertising and web analytics to attract more customers.</p>\n<p>Should you need further information, please visit our website at www.int-mba.com/course/marketing or call me at 998-382-4778.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Swift<br>Consultant</p>"}],"zh":"<strong>第一封｜Cale Business School MBA 課程宣傳信</strong><br>親愛的 Walt 女士：<br>現在正是透過 Cale Business School 今年秋季班一年制國際 MBA 課程，轉變您職涯的最佳時機。申請人數將於 6 月 15 日截止日前逐漸增加，現在就提交申請，能為您爭取最好的錄取機會。<br>一年制 MBA 是一項時間與金錢上的重大投資。此外，這是一個密集課程，因此確實比傳統 MBA 更具挑戰性。我們的學生能更快重返職場，並在短短兩年多內回收投資。國際 MBA 畢業生的薪資相較就讀前平均增加 120%。<br>別再等待，現在就開始轉變您的職涯。歡迎聯繫我們以取得更多資訊。<br>Jerry Swift 敬上　顧問<br><br><strong>第二封｜Linda Walt 的回覆</strong><br>親愛的 Swift 先生：<br>感謝您提供一年制國際 MBA 的相關資訊。我寫這封信是想進一步了解貴校 2019 年 9 月班的課程細節。我相信這個一年制課程將是我實現商業抱負的重要一步。自 City University 畢業後，我一直在 ABC 公司擔任行銷專員，這讓我對行銷流程有更深入的認識。因此，我特別想進一步了解貴校提供的行銷選修課程，尤其希望您能提供更多與線上行銷相關課程的詳細資訊。<br>Linda Walt 敬上<br><br><strong>第三封｜Cale Business School 回覆課程介紹</strong><br>親愛的 Walt 女士：<br>在 Cale Business School，除了必修課程之外，我們還提供豐富的行銷選修課程。以下是幾門具體的行銷選修課：<br><br><em>數位行銷</em>——成功的行銷活動通常會結合線上與線下元素，以更有效地觸及目標受眾。本課程將檢視數位行銷活動的完整範疇，內容包含社群媒體、Podcast，以及如何將線上與線下世界串連起來。學生也將探討科技的成長將如何帶來新的機會。<br><em>行銷研究與分析</em>——所有優秀的行銷活動都始於徹底的市場研究，並以有效的分析作結。行銷人員總是想知道：行銷活動是否確實觸及了目標市場？從其他活動中可以學到什麼經驗？本課程將涵蓋如何進行行銷研究，以及如何運用蒐集到的資訊來協助改善行銷決策。<br><em>透過線上行銷開發顧客</em>——在這門課中，學生將直接向真實世界的線上行銷專業人士學習，並擬定一套數位行銷策略。本課程的目的是讓學生更了解如何從零開始規劃並架設網站，並學會運用行動廣告與網站數據分析來吸引更多顧客。<br><br>如需進一步資訊，歡迎造訪我們的網站 www.int-mba.com/course/marketing，或致電 998-382-4778 與我聯繫。<br>Jerry Swift 敬上　顧問","speechHtml":"<p class=\"letter-salutation\">Dear Ms. Walt,</p>\n<p>It's time to transform your career with a one-year International MBA from Cale Business School this Fall semester. Application volume will increase before the June 15th deadline and submitting your application now can help provide you with the best possible opportunity for acceptance.</p>\n<p>A one-year MBA is a serious investment in time and money. In addition, it's a condensed program, so it is certainly more challenging than a traditional MBA. Our students return to the workforce more quickly and recoup their investment in just over two years. International MBA graduates see an average increase in pre-MBA salary of 120%.</p>\n<p>Don't wait to transform your career. Contact us for more information.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Swift<br>Consultant</p> <p class=\"letter-salutation\">Dear Mr. Swift,</p>\n<p>Thank you for the one-year International MBA information. I am writing to request more details of your program for September 2019 session. I believe that this one-year program will be a solid step toward the obtainment of my ambition in business. After graduating from City University, I've worked as a marketing specialist at ABC company which allows me to gain a deeper insight of marketing processes. Therefore, I am especially interested in learning more about some marketing elective courses your school offers. I would appreciate it if you could provide more details about courses related to online marketing.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Linda Walt</p> <p class=\"letter-salutation\">Dear Ms. Walt,</p>\n<p>At Cale Business School, we offer ample marketing electives in addition to the required courses. Some specific marketing electives include:</p>\n<p><b>Digital Marketing</b> — Successful marketing campaigns tend to combine online and offline elements to better reach the target audience. The digital marketing course examines the full range of digital marketing activities. This course will include social media, podcasts, and how the online and offline worlds can be connected. Students will also explore how the growth of technology will lead to new opportunities.</p>\n<p><b>Marketing Research and Analytics</b> — All good marketing campaigns begin with thorough market research and end with effective analysis. Marketing people always wonder whether marketing campaigns have reached the target market. What lessons can be learned for other campaigns? This course will cover how to undertake marketing research and how to use the information gathered to help improve decision-making for marketing.</p>\n<p><b>Customer Acquisition through Online Marketing</b> — In this course, students will learn directly from real-world online marketing professionals and create a digital marketing strategy. The purpose of this course is to allow students to have a better understanding of how to plan for and launch a website from scratch and learn to use mobile advertising and web analytics to attract more customers.</p>\n<p>Should you need further information, please visit our website at www.int-mba.com/course/marketing or call me at 998-382-4778.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Swift<br>Consultant</p>"},"191-195":{"documents":[{"label":"Document 1 | Webinar Invitation","kind":"invitation","html":"<p>Join the Employee Management webinar!</p>\n<p>Organizations face a mission-critical challenge: Overcoming the geographic, linguistic, and structural silos that divide global enterprises. To explore how Employee Management systems can create efficient operations across an organization, join Better HR Consulting George Billfold, Consulting Director, to learn how an integrated system can help to:</p>\n<p>✓ Enable visibility across your entire global workforce<br>✓ Protect your company from the financial consequences of noncompliance<br>✓ Make informed decisions based on your workforce and enterprise data</p>\n<p>Register now for the session at 10 a.m. on August 23rd. Link: www.Better-HR.com/webinar</p>"},{"label":"Document 2 | Registration Form","kind":"form","html":"<div class=\"form-intro\" style=\"font-weight:700;margin-bottom:14px\">Registration is required to attend this event. Please register now.</div>\n<table class=\"registration-form\">\n<tr><th>First Name</th><td>Paul</td><th>Last Name</th><td>Chang</td></tr>\n<tr><th>Company</th><td colspan=\"3\">TTIC Manufacturing</td></tr>\n<tr><th>E-mail</th><td>paul-c@ttic.com</td><th>Phone Number</th><td>(123) 5738-5832</td></tr>\n<tr><th>Employee Size by Range</th><td>500–800</td><th>Job Title</th><td>HR Manager</td></tr>\n<tr><th>Street Address 1</th><td colspan=\"3\">7478 Industry Road</td></tr>\n<tr><th>City</th><td>Hong Kong</td><th>Postal Code</th><td>54839</td></tr>\n<tr><th>Country</th><td colspan=\"3\">China</td></tr>\n</table>\n<div class=\"form-comments\" style=\"border:1px solid rgba(148,163,184,.35);border-radius:8px;padding:14px 16px\"><strong>Comments</strong><p>Hello there,</p><p>I'd like to register for this webinar and wonder if it's all right for you to send me the agenda of this event please. As I'll need to attend another meeting at 11:10, I might not be able to listen to all sessions.</p><p>Thank you.</p></div>"},{"label":"Document 3 | Webinar Agenda","kind":"letter-table","html":"<p class=\"letter-salutation\">Dear Mr. Paul Chang,</p>\n<p>Thank you for the event registration. Please refer to the following webinar agenda that you have requested.</p>\n<table class=\"tbl\" style=\"margin:10px 0\"><tr><th>Time</th><th>Topic</th><th>Speaker</th></tr>\n<tr><td>10:00 a.m.–10:10 a.m.</td><td>Opening</td><td>—</td></tr>\n<tr><td>10:10 a.m.–11:00 a.m.</td><td>Creating a performance management system</td><td>George Billfold, Consulting Director, Better HR Consulting</td></tr>\n<tr><td>11:00 a.m.–11:40 a.m.</td><td>Creating performance improvement strategies</td><td>—</td></tr>\n<tr><td>11:40 a.m.–11:50 a.m.</td><td>Q/A discussion</td><td>—</td></tr>\n</table>\n<p>If you have any other questions or need further information, please feel free to contact me at 492-482-2668 or email Kenny.Hart@online-event.net.</p>\n<p>Kenny Hart<br>Coordinator</p>"}],"zh":"<strong>第一份｜活動邀請</strong><br>歡迎參加「員工管理」線上研討會！<br>企業組織面臨一項攸關成敗的挑戰：克服地理、語言與組織結構上的隔閡，這些隔閡正分裂著全球企業。想了解員工管理系統如何協助整個組織創造更有效率的營運方式，歡迎加入 Better HR Consulting 顧問總監 George Billfold 的講座，了解一套整合系統如何協助您：掌握全球員工的整體動態、保護公司免於因不合規而產生的財務風險、根據員工與企業數據做出更有根據的決策。<br>現在就報名參加 8 月 23 日上午 10 點的場次。連結：www.Better-HR.com/webinar<br><br><strong>第二份｜Paul Chang 的報名表</strong><br>參加本活動須先完成報名，請立即報名。<br>名字：Paul　姓氏：Chang　公司：TTIC Manufacturing　電子郵件：paul-c@ttic.com　員工人數範圍：500–800　電話：(123) 5738-5832　地址一：7478 Industry Road　城市：香港　郵遞區號：54839　國家：中國　職稱：人資經理<br>留言：您好，我想報名參加這場線上研討會，不知是否方便寄給我本次活動的議程呢？由於我 11:10 還需要出席另一場會議，可能無法聽完所有場次。謝謝。<br><br><strong>第三份｜活動議程回覆</strong><br>親愛的 Paul Chang 先生：<br>感謝您報名參加本次活動。以下為您所要求的線上研討會議程。<br>10:00–10:10　開場｜10:10–11:00　建立績效管理系統（講者：George Billfold，顧問總監）｜11:00–11:40　擬定績效改善策略｜11:40–11:50　問答討論<br>如有任何其他問題或需要進一步資訊，歡迎致電 492-482-2668，或寄信至 Kenny.Hart@online-event.net 與我聯繫。<br>Kenny Hart　活動協調人","speechHtml":"<p>Join the Employee Management webinar!</p>\n<p>Organizations face a mission-critical challenge: Overcoming the geographic, linguistic, and structural silos that divide global enterprises. To explore how Employee Management systems can create efficient operations across an organization, join Better HR Consulting George Billfold, Consulting Director, to learn how an integrated system can help to:</p>\n<p>✓ Enable visibility across your entire global workforce<br>✓ Protect your company from the financial consequences of noncompliance<br>✓ Make informed decisions based on your workforce and enterprise data</p>\n<p>Register now for the session at 10 a.m. on August 23rd. Link: www.Better-HR.com/webinar</p> <div class=\"form-intro\" style=\"font-weight:700;margin-bottom:14px\">Registration is required to attend this event. Please register now.</div>\n<table class=\"registration-form\">\n<tr><th>First Name</th><td>Paul</td><th>Last Name</th><td>Chang</td></tr>\n<tr><th>Company</th><td colspan=\"3\">TTIC Manufacturing</td></tr>\n<tr><th>E-mail</th><td>paul-c@ttic.com</td><th>Phone Number</th><td>(123) 5738-5832</td></tr>\n<tr><th>Employee Size by Range</th><td>500–800</td><th>Job Title</th><td>HR Manager</td></tr>\n<tr><th>Street Address 1</th><td colspan=\"3\">7478 Industry Road</td></tr>\n<tr><th>City</th><td>Hong Kong</td><th>Postal Code</th><td>54839</td></tr>\n<tr><th>Country</th><td colspan=\"3\">China</td></tr>\n</table>\n<div class=\"form-comments\" style=\"border:1px solid rgba(148,163,184,.35);border-radius:8px;padding:14px 16px\"><strong>Comments</strong><p>Hello there,</p><p>I'd like to register for this webinar and wonder if it's all right for you to send me the agenda of this event please. As I'll need to attend another meeting at 11:10, I might not be able to listen to all sessions.</p><p>Thank you.</p></div> <p class=\"letter-salutation\">Dear Mr. Paul Chang,</p>\n<p>Thank you for the event registration. Please refer to the following webinar agenda that you have requested.</p>\n<table class=\"tbl\" style=\"margin:10px 0\"><tr><th>Time</th><th>Topic</th><th>Speaker</th></tr>\n<tr><td>10:00 a.m.–10:10 a.m.</td><td>Opening</td><td>—</td></tr>\n<tr><td>10:10 a.m.–11:00 a.m.</td><td>Creating a performance management system</td><td>George Billfold, Consulting Director, Better HR Consulting</td></tr>\n<tr><td>11:00 a.m.–11:40 a.m.</td><td>Creating performance improvement strategies</td><td>—</td></tr>\n<tr><td>11:40 a.m.–11:50 a.m.</td><td>Q/A discussion</td><td>—</td></tr>\n</table>\n<p>If you have any other questions or need further information, please feel free to contact me at 492-482-2668 or email Kenny.Hart@online-event.net.</p>\n<p>Kenny Hart<br>Coordinator</p>"},"196-200":{"documents":[{"label":"Document 1 | Yoga Class Advertisement","kind":"advertisement","html":"<p>Here at Kenny's Yoga House, we have a range of different yoga classes for all levels. Whether you've never experienced yoga before, or you're a seasoned veteran — we will have a class to suit you. If you require further information about any of the classes, please do not hesitate to get in touch by e-mailing us at info@kenny-yoga.com or call us on 123-456-7890.</p>\n<p><b>Special course for beginners</b><br>This 3-week beginner course with Kenny is the perfect opportunity to find out more about yoga. During the course Kenny will introduce you to the basic poses with an emphasis on understanding how your body works, what limits you and how to progress safely. Kenny encourages you to go beyond what a pose looks like to look within to notice what it feels like for you. He will also introduce you to meditation and breathing practice in week 2. Whether you are looking to ease general aches and pains, wanting to be more flexible, or dealing with stress and anxiety, then this course is just right for you!</p>"},{"label":"Document 2 | Class Registration Inquiry","kind":"letter","html":"<p class=\"letter-salutation\">Dear Sir/Madam,</p>\n<p>I'm writing to register for the 3-week beginner class. As I've never practiced yoga before, I would very much like to try and see what benefits yoga practice could bring. In addition, I would be grateful if you could provide me with the membership types in your yoga house. I would also like some information concerning the cost of your courses please.</p>\n<p>I am looking forward to your reply. Thank you very much.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Faithfully,<br>Jenny Jones</p>"},{"label":"Document 3 | Membership Fees","kind":"letter-table","html":"<p class=\"letter-salutation\">Dear Ms. Jones,</p>\n<p>This is to confirm your registration for the 3-week yoga course. More details will be sent to you within a week. In addition, please refer to the following membership types and fees that you have requested.</p>\n<table class=\"tbl\" style=\"margin:10px 0\"><tr><th>Class</th><th>Price (USD)</th><th>Comments</th></tr>\n<tr><td>Drop In – Day</td><td>$12</td><td>—</td></tr>\n<tr><td>Drop In – Night</td><td>$15</td><td>—</td></tr>\n<tr><td>Drop In – Lunch time</td><td>$10</td><td>—</td></tr>\n<tr><td>30 Days</td><td>$50</td><td>Introductory offer for new clients, experience 30 days of yoga.</td></tr>\n<tr><td>10 Class Card</td><td>$100</td><td>—</td></tr>\n<tr><td>5 Class Card</td><td>$50</td><td>—</td></tr>\n<tr><td>Platinum Membership</td><td>$50/month</td><td>Unlimited Classes at anytime; with free workshop per month</td></tr>\n<tr><td>Gold Membership</td><td>$45/month</td><td>Unlimited Daytime class all up to 4 p.m. including weekends</td></tr>\n<tr><td>Ashtanga Only Membership</td><td>$35/month</td><td>All Ashtanga classes</td></tr>\n<tr><td>Private Session</td><td>$35/hour</td><td>Plus $10 per additional person</td></tr>\n</table>\n<p>Should you need further information, please feel free to inform me.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Cole<br>Kenny's Yoga House</p>"}],"zh":"<strong>第一份｜Kenny's Yoga House 廣告</strong><br>在 Kenny's Yoga House，我們提供各種適合不同程度學員的瑜伽課程。無論您從未接觸過瑜伽，還是已經是經驗豐富的老手——我們都有適合您的課程。若您想進一步了解任何課程的資訊，歡迎隨時透過電子郵件 info@kenny-yoga.com 或撥打電話 123-456-7890 與我們聯繫。<br><br><em>初學者專屬課程</em><br>這堂為期三週、由 Kenny 親自授課的初學者課程，是深入認識瑜伽的絕佳機會。課程中 Kenny 將帶您認識基本體位法，並著重於理解身體如何運作、身體的限制在哪裡，以及如何安全地循序漸進。Kenny 鼓勵學員不要只在意體位法「看起來」的樣子，而是要向內覺察自己「感受到」什麼。他也會在第二週帶入冥想與呼吸練習。無論您是想舒緩一般的痠痛、希望變得更柔軟，還是想處理壓力與焦慮，這堂課都非常適合您！<br><br><strong>第二份｜Jenny Jones 的詢問信</strong><br>敬啟者：<br>我寫這封信是想報名三週初學者課程。由於我從未練過瑜伽，我非常想嘗試看看瑜伽練習能帶來什麼樣的好處。此外，也懇請您提供貴瑜伽教室的會員種類資訊。另外也想請教課程的費用相關資訊。<br>期待您的回覆，非常感謝。<br>Jenny Jones 敬上<br><br><strong>第三份｜Kenny's Yoga House 回覆與價目表</strong><br>親愛的 Jones 女士：<br>特此確認您已完成三週瑜伽課程的報名。詳細資訊將於一週內另行寄送給您。此外，以下為您所要求的會員種類與費用（詳見講義價目表）。<br>如需任何進一步資訊，歡迎隨時通知我。<br>Jerry Cole 敬上　Kenny's Yoga House","speechHtml":"<p>Here at Kenny's Yoga House, we have a range of different yoga classes for all levels. Whether you've never experienced yoga before, or you're a seasoned veteran — we will have a class to suit you. If you require further information about any of the classes, please do not hesitate to get in touch by e-mailing us at info@kenny-yoga.com or call us on 123-456-7890.</p>\n<p><b>Special course for beginners</b><br>This 3-week beginner course with Kenny is the perfect opportunity to find out more about yoga. During the course Kenny will introduce you to the basic poses with an emphasis on understanding how your body works, what limits you and how to progress safely. Kenny encourages you to go beyond what a pose looks like to look within to notice what it feels like for you. He will also introduce you to meditation and breathing practice in week 2. Whether you are looking to ease general aches and pains, wanting to be more flexible, or dealing with stress and anxiety, then this course is just right for you!</p> <p class=\"letter-salutation\">Dear Sir/Madam,</p>\n<p>I'm writing to register for the 3-week beginner class. As I've never practiced yoga before, I would very much like to try and see what benefits yoga practice could bring. In addition, I would be grateful if you could provide me with the membership types in your yoga house. I would also like some information concerning the cost of your courses please.</p>\n<p>I am looking forward to your reply. Thank you very much.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Faithfully,<br>Jenny Jones</p> <p class=\"letter-salutation\">Dear Ms. Jones,</p>\n<p>This is to confirm your registration for the 3-week yoga course. More details will be sent to you within a week. In addition, please refer to the following membership types and fees that you have requested.</p>\n<table class=\"tbl\" style=\"margin:10px 0\"><tr><th>Class</th><th>Price (USD)</th><th>Comments</th></tr>\n<tr><td>Drop In – Day</td><td>$12</td><td>—</td></tr>\n<tr><td>Drop In – Night</td><td>$15</td><td>—</td></tr>\n<tr><td>Drop In – Lunch time</td><td>$10</td><td>—</td></tr>\n<tr><td>30 Days</td><td>$50</td><td>Introductory offer for new clients, experience 30 days of yoga.</td></tr>\n<tr><td>10 Class Card</td><td>$100</td><td>—</td></tr>\n<tr><td>5 Class Card</td><td>$50</td><td>—</td></tr>\n<tr><td>Platinum Membership</td><td>$50/month</td><td>Unlimited Classes at anytime; with free workshop per month</td></tr>\n<tr><td>Gold Membership</td><td>$45/month</td><td>Unlimited Daytime class all up to 4 p.m. including weekends</td></tr>\n<tr><td>Ashtanga Only Membership</td><td>$35/month</td><td>All Ashtanga classes</td></tr>\n<tr><td>Private Session</td><td>$35/hour</td><td>Plus $10 per additional person</td></tr>\n</table>\n<p>Should you need further information, please feel free to inform me.</p>\n<p class=\"letter-signoff\" style=\"text-align:right;margin-top:18px\">Sincerely,<br>Jerry Cole<br>Kenny's Yoga House</p>"}};
+
+const questions = [{"num":165,"type":"細節題・同義改寫","star":false,"part6":false,"group":"165-167","sentence":"What is special about Bob's Pizza House?","translation":"Bob's Pizza House 有什麼特別之處？","options":["They open 12 hours a day on weekdays.","They are the cheapest restaurant in New Town.","They select high-quality ingredients to use.","They have branches in other states."],"answer":2,"logic":"這題問 What is special，不要自己想「披薩店可能便宜、可能很多分店」，要回文章找作者真正強調的地方。原文說 <code>use only the best ingredients</code>，哪個選項是這句的同義改寫？","keyPoint":"They select high-quality ingredients to use.（C）— select high-quality ingredients = 挑選高品質食材","optionNotes":["✅ 答案 C：They select high-quality ingredients to use.","A：營業時間 Monday–Friday 11 a.m.–10 p.m. 是 11 小時，不是 12 小時，時間題要真的算，不要用猜的。B：文章強調的是 lowest saturated fat / lowest total fat / lowest caloric content（低脂低熱量），不是 lowest price，TOEIC 常用 cheapest 這種選項騙人。D：文章沒有提到 branches 或 other states。"],"vocab":[["select","挑選；選擇"],["high-quality","高品質的"]]},{"num":166,"type":"細節定位・besides","star":false,"part6":false,"group":"165-167","sentence":"What is also served in this restaurant besides pizza?","translation":"這家餐廳除了披薩以外，還提供什麼？","options":["Ice cream","Sandwiches","Beer","French fries"],"answer":1,"logic":"題目關鍵字 besides = 除了……之外，還有……。回文章找 pizza 附近還有什麼食物：<code>has been serving the best pizza and sandwiches for over 20 years</code>。","keyPoint":"Sandwiches（B）— pizza and sandwiches 直接對應","optionNotes":["✅ 答案 B：Sandwiches","A 冰淇淋、C 啤酒、D 薯條，文章都沒有提到。這題很適合訓練定位：題目問 besides pizza，就回文章找 pizza，不要把自己平常去披薩店會看到的東西加進來。"],"vocab":[["besides","除了……之外"],["serve","供應；服務"]]},{"num":167,"type":"NOT題・優惠券限制","star":true,"part6":false,"group":"165-167","sentence":"Which is NOT true about using the voucher?","translation":"關於使用這張優惠券，下列哪一項是不正確的？","options":["The voucher is for pick-up orders only.","A customer can use up to three vouchers at a time.","The voucher is not redeemable for cash.","The voucher cannot be combined with other specials."],"answer":1,"logic":"看到 NOT true，一定先停下來——這題不是找文章有提到的，而是找和文章不符合的。回 Voucher Restrictions 逐項核對：關鍵句是 <code>Limit 1 certificate per person per visit</code>，意思是每人每次限用一張。","keyPoint":"A customer can use up to three vouchers at a time.（B）— 原文是限用一張，不是三張，跟原文相反。","optionNotes":["✅ 答案 B：A customer can use up to three vouchers at a time.","A：原文有 FOR PICKUP ORDERS ONLY，正確敘述。C：原文有 not redeemable for cash，正確敘述。D：原文有 Cannot be combined with any other coupons or specials，正確敘述。優惠券題的陷阱通常在小字規則，看到 limit 1 就知道一次只能一張。"],"vocab":[["at a time","一次；同時"],["certificate","證明書；憑證（此處指優惠憑證）"],["per person per visit","每人每次到訪"]]},{"num":168,"type":"目的題","star":false,"part6":false,"group":"168-171","sentence":"What is the purpose of this announcement?","translation":"這則公告的目的為何？","options":["To inform people of a construction work","To announce the opening of a new Metro line","To invite people to the grand opening of a company","To warn people of a hurricane"],"answer":0,"logic":"目的題先看標題和第一句。標題說 <code>Metro Yellow Line shuts down for 3-day work</code>，第一句說 <code>Construction ... will lead to the shutdown</code>。整篇都在通知民眾 Yellow Line 因施工而停駛，以及替代交通方式。","keyPoint":"To inform people of a construction work（A）","optionNotes":["✅ 答案 A：To inform people of a construction work","B：文章是 shutdown，不是 opening，方向相反。C：文章沒有公司、開幕或邀請。D：文章沒有天氣災害。目的題不要被 Metro line 迷惑，它不是介紹新線，而是通知施工造成停駛。"],"vocab":[["inform sb of sth","通知某人某事"]]},{"num":169,"type":"單字同義題・un- 字首","star":true,"part6":false,"group":"168-171","sentence":"The word \"unaffected\" in line 6 is closest in meaning to","translation":"第六行的 unaffected 最接近哪一個意思？","options":["Unfamiliar","Unconcerned","Troubled","Unpopular"],"answer":1,"logic":"原句：<code>Greenfield station Red Line service will be unaffected</code>。unaffected 的標準意思是 not affected＝不受影響的，這裡是說 Greenfield 站的 Red Line 服務不會受到 Yellow Line 施工停駛影響。","keyPoint":"Unconcerned（B）— 四個選項中最接近「沒有被這件事影響」","optionNotes":["✅ 答案 B：Unconcerned","A unfamiliar（不熟悉的）、C troubled（困擾的，幾乎相反）、D unpopular（不受歡迎的）都與「服務是否受影響」無關。","解題提示：這題要教得精準一點：unaffected 最標準的意思不是 unconcerned。unaffected 是「不受影響」；unconcerned 平常最常翻成「不擔心、不關心」。但在這四個選項裡，unconcerned 可以勉強表示「沒有被這件事情牽涉、不受影響」，所以是最佳答案。考試選 B，但不要把 unaffected = unconcerned 當成固定同義字死背。"],"vocab":[]},{"num":170,"type":"細節題・替代方案","star":false,"part6":false,"group":"168-171","sentence":"What else can people do if they want to go to Garden Square?","translation":"如果人們想去 Garden Square，還可以怎麼做？","options":["Take a plane","Take the Red Line instead","Wait until the following week","Take free shuttle buses"],"answer":3,"logic":"Garden Square 是受影響車站之一。原文：<code>To assist passengers affected by the shutdowns, free shuttle buses will be provided during regular Yellow Line hours.</code>","keyPoint":"Take free shuttle buses（D）","optionNotes":["✅ 答案 D：Take free shuttle buses","A 文章沒有飛機資訊。B 文章只說 Greenfield station 的 Red Line 不受影響，但沒有說 Red Line 可以直接帶乘客到 Garden Square，不能過度推論。C 原文說 regular service is scheduled to resume at 4 a.m. Monday，不需要等到下週。交通公告題常問替代方案，看到 affected passengers，就往後找官方提供什麼幫助。"],"vocab":[["assist","協助"]]},{"num":171,"type":"細節題・Red Line","star":false,"part6":false,"group":"168-171","sentence":"What is true about the Metro Red Line?","translation":"關於 Metro Red Line，下列哪一項正確？","options":["It is pretty close to the Garden Square.","Its service will not be affected.","It will also be closed the following week.","It is the longest line of all Metro services."],"answer":1,"logic":"原文只有一句提到 Red Line：<code>Greenfield station Red Line service will be unaffected.</code> will be unaffected＝將不受影響。","keyPoint":"Its service will not be affected.（B）","optionNotes":["✅ 答案 B：Its service will not be affected.","A 文章沒有說距離。C 原文說不受影響，和這個選項相反。D 文章沒有比較長度。這題定位很直接：題目問 Red Line，文章只出現一次 Red Line，所以那一句就是答案來源。"],"vocab":[["be unaffected","不受影響"]]},{"num":172,"type":"地點定位題","star":false,"part6":false,"group":"172-175","sentence":"Which city does this position based in?","translation":"這份工作位於哪一個城市？","options":["Madrid","Bangalore","Taipei","San Diego"],"answer":1,"logic":"文章最上方寫 <code>Location: India, Bangalore</code>。地點題通常不用讀全文，先找 Location 就好。","keyPoint":"Bangalore（B）","optionNotes":["✅ 答案 B：Bangalore","A Madrid、C Taipei、D San Diego，文章都沒有提到。"],"vocab":[["be based in","總部/職位設於……"]]},{"num":173,"type":"NOT題・支援方式","star":false,"part6":false,"group":"172-175","sentence":"Which of the following is NOT mentioned as a way to provide support to customers?","translation":"下列哪一項沒有被提到是提供顧客支援的方式？","options":["Via phone","Via e-mail","Via remote access","Via blog"],"answer":3,"logic":"題目問 way to provide support to customers，回文章找支援客戶的方式：<code>via phone, e-mail and remote access</code>。","keyPoint":"Via blog（D）— 文章沒有提到 blog","optionNotes":["✅ 答案 D：Via blog","A、B、C 原文都有。這題很容易被 Publish articles in our in-house knowledge base 騙——文章說的是公司內部知識庫，不是 blog。題目問 provide support to customers，所以只能看 phone、e-mail、remote access。"],"vocab":[["via","透過；經由"]]},{"num":174,"type":"NOT題・工作職責","star":true,"part6":false,"group":"172-175","sentence":"What is NOT mentioned as a responsibility of this position?","translation":"下列哪一項沒有被提到是這份工作的職責？","options":["Write articles for internal use","Assist customers with their technical problems","Acquire new technology knowledge quickly","Work closely with CEO to develop business plans"],"answer":3,"logic":"回 Responsibilities 區塊逐項核對：Provide technical assistance to customers（協助顧客技術問題）、Publish articles in our in-house knowledge base（撰寫內部文章）、learn a wide variety of technologies at a rapid pace（快速學習新技術）。有沒有提到 CEO 或 business plans？","keyPoint":"Work closely with CEO to develop business plans（D）— 文章提到的是 Technical Manager，不是 CEO；而且是設定 training and certification goals，不是 business plans。","optionNotes":["✅ 答案 D：Work closely with CEO to develop business plans","A、B、C 都能在原文找到對應句。NOT 題不要看到類似就選：CEO 和 Technical Manager 是完全不同的人，business plans 和 training goals 也不是同一件事。"],"vocab":[["acquire","取得；習得"],["internal use","內部使用"]]},{"num":175,"type":"句子插入題","star":true,"part6":false,"group":"172-175","sentence":"In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?<br>\"Should have excellent verbal and written communication skills.\"","translation":"「應具備優秀的口語與書面溝通能力。」最適合放在哪一個位置？","options":["[1]","[2]","[3]","[4]"],"answer":2,"logic":"這句在描述應徵者的資格或能力要求，所以最適合放在 Qualifications and Requirements 區塊。[3] 前後都是資格條件：Minimum of 2-year experience、Solid knowledge of network security concepts、Strong understanding for application remote access technologies。","keyPoint":"[3]（C）","optionNotes":["✅ 答案 C：[3]","[1] 還在 Position Summary，是在總述工作內容，不是列資格條件。[2] 在 Technology Proficiency，前後是職責與技能執行內容，放溝通能力不是最自然。[4] 已經是結尾申請動作（Click HERE to apply），太晚。句子插入題最重要的是功能：這句是資格要求，不是工作摘要，也不是申請方式，所以要放在 Qualifications and Requirements。"],"vocab":[["verbal","口頭的"],["written","書面的"]]},{"num":176,"type":"目的題","star":false,"part6":false,"group":"176-180","sentence":"What's the purpose of the first article?","translation":"第一篇文章的目的為何？","options":["To promote a new product line","To collect opinions from existing customers","To recruit new VIP Club members","To encourage people to travel around the world"],"answer":2,"logic":"第一篇文章一直重複：introducing the VIP Club、become a VIP Club member、benefits、special offers、Visit our website to learn more。目的題要看重複出現的核心字。","keyPoint":"To recruit new VIP Club members（C）","optionNotes":["✅ 答案 C：To recruit new VIP Club members","A VIP Club 是會員制度，不是 product line。B 文章沒有 survey、feedback、opinion。D 雖然公司是 cruise，但文章重點不是旅遊世界，而是會員方案。這篇反覆出現 VIP Club、member、benefits，所以答案一定跟會員招募有關。"],"vocab":[["recruit","招募"]]},{"num":177,"type":"單字同義題・字根 improve","star":false,"part6":false,"group":"176-180","sentence":"In the first article, the word \"improvement\" in paragraph 2 line 4, is closest in meaning to","translation":"第一篇第二段第四行的 improvement 最接近哪一個意思？","options":["progression","aggression","unity","communication"],"answer":0,"logic":"improvement 來自 improve（改善；進步）。四個選項裡哪一個最接近「改善、進展」？","keyPoint":"progression（A）— 進展；進步，最接近 improvement","optionNotes":["✅ 答案 A：progression","B aggression（攻擊性；侵略）字尾長得像，但意思完全不同。C unity（團結）、D communication（溝通）都和 improvement 無關。單字題可以用字根：improvement 裡面有 improve，就是變好；progression 裡面有 progress，也是往前進，所以 A 最接近。"],"vocab":[["improvement","改善；改進"]]},{"num":178,"type":"推論題・跨句整合","star":true,"part6":false,"group":"176-180","sentence":"What should non-members do if they would like to enjoy some specials?","translation":"非會員如果想享有特別優惠，應該做什麼？","options":["Apply for the VIP Club program online","Arrange a meeting with a sales rep","Call the customer service department","Visit Happy Cruise in person"],"answer":0,"logic":"題目問 non-members，還不是會員的人。原文：<code>If you've never cruised with Happy Cruise before, you can become a VIP Club member even before you've booked...</code>，後面又說 <code>Visit our website www.happy-cruise.com to learn more.</code>","keyPoint":"Apply for the VIP Club program online（A）","optionNotes":["✅ 答案 A：Apply for the VIP Club program online","B 文章沒有 sales representative。C 文章沒有提供客服電話，也沒有說要打電話。D 文章提供網站，不是要求親自到場。這題的關鍵是 non-members：非會員想享有優惠，就要 become a VIP Club member，文章最後導向網站，所以選 A。","解題提示：這題要講得保守一點：原文沒有逐字說 Apply online，但它說你可以 become a VIP Club member，又叫你 Visit our website to learn more。選項裡只有 A 最接近這個動作，所以這題是合理推論，不是原文照抄。"],"vocab":[]},{"num":179,"type":"人物推論題","star":false,"part6":false,"group":"176-180","sentence":"Who is most likely Karen Marco?","translation":"Karen Marco 最可能是誰？","options":["A job candidate","A potential customer","A travel guide","An event organizer"],"answer":1,"logic":"Karen 寫信詢問 VIP Club membership program、membership application、application fee、benefits、brochures、application forms，表示她對會員方案有興趣，但尚未加入。","keyPoint":"A potential customer（B）— 潛在顧客","optionNotes":["✅ 答案 B：A potential customer","A 她沒有投履歷，也沒有問職缺。C 文章沒有導遊身分。D 文章沒有活動籌辦內容。人物推論題不是亂猜身份，而是看這個人在做什麼：Karen 問申請條件、費用、福利，表示她可能要加入，所以是 potential customer。"],"vocab":[["potential","潛在的；可能的"]]},{"num":180,"type":"NOT題・列表比對","star":false,"part6":false,"group":"176-180","sentence":"According to the letter, what is Karen Marco NOT requesting?","translation":"根據這封信，Karen Marco 沒有要求哪一項資訊？","options":["Membership requirements","Application fees","VIP Club benefits","The application deadline"],"answer":3,"logic":"Karen 明確列出三項：1. Requirements、2. Application fee、3. Benefits。她也另外要求 brochures 和 application forms，但沒有問截止日。","keyPoint":"The application deadline（D）— 原文沒有提到","optionNotes":["✅ 答案 D：The application deadline","A、B、C 原文第 1、2、3 點都有。NOT 題最穩的方法就是把原文的編號 1、2、3 對應選項：A、B、C 都有，只有 D 沒有。"],"vocab":[["deadline","截止日期"]]},{"num":181,"type":"細節題・日期定位","star":false,"part6":false,"group":"181-185","sentence":"According to the first letter, what will happen on May 7th?","translation":"根據第一封信，5 月 7 日會發生什麼事？","options":["A partnership meeting will be held in Best Software Inc.","Carol will fly to Japan for a conference.","The Sales Success seminar will take place.","Carol and Ian will have lunch together."],"answer":2,"logic":"第一封信說：<code>Since you will come to Taipei for the Sales Success seminar on May 7th...</code>","keyPoint":"The Sales Success seminar will take place.（C）","optionNotes":["✅ 答案 C：The Sales Success seminar will take place.","A 晚餐會議地點是 Coral Reef Hotel，不是在 Best Software Inc.。B 是 Ian 研討會後要去日本，不是 Carol。D 原文是 dinner meeting，不是 lunch。日期題要把人物和活動分清楚：May 7 是 Sales Success seminar，不是 Carol 去日本，也不是午餐。"],"vocab":[["take place","舉行；發生"]]},{"num":182,"type":"人物關係推論","star":false,"part6":false,"group":"181-185","sentence":"What is most likely the relationship between Carol and Ian?","translation":"Carol 和 Ian 最可能是什麼關係？","options":["Close friends","Colleagues","Business partners","Relatives"],"answer":2,"logic":"第一封信說：<code>to discuss the status of our partnership</code>。partnership = 合作關係。","keyPoint":"Business partners（C）","optionNotes":["✅ 答案 C：Business partners","A 信件內容正式，討論 partnership，不像私人朋友。B 他們可能有合作，但不是同一家公司內部同事，文章最明確的線索是 partnership。D 文章沒有家庭關係。人物關係題要找最明確的關係詞：這裡直接出現 partnership，所以答案是 business partners。"],"vocab":[["partnership","合作關係；夥伴關係"]]},{"num":183,"type":"日期推理題","star":false,"part6":false,"group":"181-185","sentence":"What day will the Sales Success seminar be held?","translation":"Sales Success 研討會將在星期幾舉行？","options":["Monday","Tuesday","Wednesday","Friday"],"answer":1,"logic":"文章沒有直接寫 Tuesday，但第二封信說：<code>I will be arriving in Taipei on Monday afternoon May 6th.</code> 所以 May 6 = Monday，May 7 = Tuesday。","keyPoint":"Tuesday（B）","optionNotes":["✅ 答案 B：Tuesday","這題不是直接定位，而是日期推理。看到 May 6 是 Monday，就往後推一天，May 7 是 Tuesday。"],"vocab":[["日期推理","跨句整合線索"]]},{"num":184,"type":"推論題・同義改寫","star":true,"part6":false,"group":"181-185","sentence":"From the second article, what can be inferred about Ian Berger?","translation":"根據第二封信，可以推論 Ian Berger 如何？","options":["He has been living in Taipei for quite a long time.","His schedule is pretty full already.","He wants to have dinner with Carol on May 7th.","He will come to Taipei from Japan."],"answer":1,"logic":"Ian 說：<code>my schedule is very tight that week</code>。schedule is very tight = 行程很滿。","keyPoint":"His schedule is pretty full already.（B）— pretty full 是同義改寫","optionNotes":["✅ 答案 B：His schedule is pretty full already.","A 原文說他會 arrive in Taipei，表示他是抵達，不是長住。C 他 5 月 7 日研討會後要立刻去日本，所以他希望改約 May 6 晚上，不是 May 7。D 原文是他研討會後 leave for Japan，也就是從台北去日本，不是從日本來台北。推論題不是自己想像，而是抓原文：my schedule is very tight 就等於 schedule is pretty full。"],"vocab":[["schedule is tight","行程很滿"]]},{"num":185,"type":"細節題・討論主題","star":false,"part6":false,"group":"181-185","sentence":"What does Ian want to talk to Carol about?","translation":"Ian 想和 Carol 討論什麼？","options":["Demand generation campaigns","Visiting schedules in Japan","Best Software Inc.'s business hours","New marketing and business opportunities"],"answer":3,"logic":"Ian 在第二封信最後說：<code>a general discussion about marketing opportunities and building business</code>。","keyPoint":"New marketing and business opportunities（D）","optionNotes":["✅ 答案 D：New marketing and business opportunities","A 文章沒有這個具體行銷術語。B Japan 是 Ian 的下一站，不是討論主題。C 文章沒有提到營業時間。這題抓最後一段的名詞就好：marketing opportunities and building business，選項 D 是最接近的改寫。"],"vocab":[["building business","建立／拓展商業合作"]]},{"num":186,"type":"目的題・招生信","star":false,"part6":false,"group":"186-190","sentence":"What is the purpose of the first letter?","translation":"第一封信的目的為何？","options":["To attract potential students","To recruit new professors","To announce a company policy","To launch new products"],"answer":0,"logic":"第一封信提到 International MBA、application、deadline、acceptance、salary increase、transform your career，這些都是招生宣傳信的訊號。","keyPoint":"To attract potential students（A）","optionNotes":["✅ 答案 A：To attract potential students","B 沒有 professor、teaching position 或 faculty opening。C 這是學校招生信，不是公司政策公告。D MBA program 不是商品上市。看到 MBA、application、deadline、acceptance，就要想到招生信，目的不是賣產品，而是吸引潛在學生。"],"vocab":[["attract","吸引"]]},{"num":187,"type":"NOT題・反義判斷","star":true,"part6":false,"group":"186-190","sentence":"What is NOT true about the program offered by the Cale Business School?","translation":"關於 Cale Business School 提供的課程，下列哪一項不正確？","options":["It's a one-year condensed program.","It's for students with work experience.","The degree is easy to obtain.","Graduates usually get higher paychecks."],"answer":2,"logic":"原文說：<code>it's a condensed program, so it is certainly more challenging than a traditional MBA</code>——密集課程，而且比傳統 MBA 更有挑戰性。","keyPoint":"The degree is easy to obtain.（C）— 與原文 more challenging 直接相反","optionNotes":["✅ 答案 C：The degree is easy to obtain.","A 原文有 one-year International MBA condensed program，正確敘述。B 原文沒有明說「必須有工作經驗」，但提到 students return to the workforce more quickly，Linda 本人也有工作經驗，所以這句不是最明顯錯誤。D 原文說 graduates see an average increase in pre-MBA salary of 120%，正確敘述。NOT 題找最明確矛盾：文章說 challenging，選項說 easy，這就是最直接的反義陷阱。"],"vocab":[["obtain","取得；獲得"]]},{"num":188,"type":"推論題・合理推論","star":true,"part6":false,"group":"186-190","sentence":"What can be inferred from these letters about Linda Walt's job duty in the company?","translation":"從這些信件可以推論 Linda Walt 在公司中的工作職責為何？","options":["She supervises five subordinates.","She is responsible for doing digital marketing.","She wears two hats in the company.","She will help promote the MBA program."],"answer":1,"logic":"Linda 說 <code>I've worked as a marketing specialist at ABC company</code>，又說 <code>I am especially interested in ... courses related to online marketing</code>。第三封信也針對她的需求介紹 Digital Marketing、Online Marketing、mobile advertising、web analytics。","keyPoint":"She is responsible for doing digital marketing.（B）","optionNotes":["✅ 答案 B：She is responsible for doing digital marketing.","A 文章沒有提到 subordinate 或管理人數。C wear two hats = 一人擔任兩種角色，文章沒有這個資訊。D 她是潛在學生，不是學校行銷人員。推論題可以推，但不能亂推：這題推論依據是 marketing specialist 加上 online marketing interest，所以 B 最合理。","解題提示：這題不能講成原文直接寫 She is responsible for digital marketing，原文沒有那句。正確教法是：根據她是 marketing specialist，而且主動詢問 online marketing courses，我們合理推論她工作可能與 digital marketing 有關。"],"vocab":[]},{"num":189,"type":"細節題・申請截止日","star":false,"part6":false,"group":"186-190","sentence":"What does Linda Walt need to do if she wants to apply for the program?","translation":"如果 Linda Walt 想申請這個課程，她需要做什麼？","options":["Visit City University in person","Prepare some reference letters","Submit her application by June 15th","Call Jerry for an interview"],"answer":2,"logic":"第一封信說：<code>Application volume will increase before the June 15th deadline</code>，以及 <code>submitting your application now can help...</code>","keyPoint":"Submit her application by June 15th（C）","optionNotes":["✅ 答案 C：Submit her application by June 15th","A City University 是 Linda 畢業的學校，不是申請 Cale Business School 的步驟。B 文章沒有提到 reference letters。D 文章只說 contact us for more information，沒有說要打電話面試。申請題找 application 和 deadline：這題 June 15th deadline 很明確，所以答案是 C。"],"vocab":[["deadline","截止日期"]]},{"num":190,"type":"整合題・課程與市場趨勢","star":false,"part6":false,"group":"186-190","sentence":"What is true about the school's elective courses?","translation":"關於這間學校的選修課，下列哪一項正確？","options":["Only female students can register.","They are about traditional marketing methods.","They are not popular at all.","They connect to the market trends well."],"answer":3,"logic":"第三封信介紹的選修課包括 Digital Marketing、Marketing Research and Analytics、Customer Acquisition through Online Marketing，內容提到 social media、podcasts、market research、web analytics、mobile advertising、digital marketing strategy，這些都和現代市場趨勢相關。","keyPoint":"They connect to the market trends well.（D）","optionNotes":["✅ 答案 D：They connect to the market trends well.","A 文章沒有性別限制。B 文章強調 digital marketing、online marketing、social media、web analytics，不是只講傳統行銷。C 文章沒有提到受不受歡迎。這題要看課程內容：只要看到 social media、online marketing、web analytics、mobile advertising，就知道這些課程跟現代市場趨勢有關。"],"vocab":[["market trends","市場趨勢"]]},{"num":191,"type":"對象推論","star":false,"part6":false,"group":"191-195","sentence":"Who are invited to join the seminar?","translation":"誰被邀請參加這場研討會？","options":["Sales representatives","Managers","Engineers","Investors"],"answer":1,"logic":"這場 webinar 主題是 Employee Management systems，內容包括 global workforce、efficient operations、enterprise data、informed decisions；報名者 Paul 的職稱是 HR Manager。","keyPoint":"Managers（B）","optionNotes":["✅ 答案 B：Managers","A 文章不是銷售技巧或客戶開發主題。C 文章不是技術工程研討會。D 文章沒有投資內容。這題不是只靠一個字，而是看整體主題：Employee Management、workforce、enterprise data 都是管理者和 HR 會關心的東西。"],"vocab":[["workforce","全體員工"]]},{"num":192,"type":"人物定位","star":false,"part6":false,"group":"191-195","sentence":"Who is George Billfold?","translation":"George Billfold 是誰？","options":["An HR expert","An event coordinator","A pundit","A university professor"],"answer":0,"logic":"原文說：<code>Better HR Consulting George Billfold, Consulting Director</code>，他是 Better HR Consulting 的 Consulting Director，主講 Employee Management 系統。","keyPoint":"An HR expert（A）","optionNotes":["✅ 答案 A：An HR expert","B Coordinator 是 Kenny Hart，不是 George。C 文章沒有用這種身份描述他。D 文章沒有 university 或 professor。人物題很容易把名字混在一起：George 是 Consulting Director 和主講人；Kenny 是 Coordinator。"],"vocab":[["consulting director","顧問總監"]]},{"num":193,"type":"細節題・報名方式","star":false,"part6":false,"group":"191-195","sentence":"How does Paul Chang register for the webinar?","translation":"Paul Chang 如何報名這場線上研討會？","options":["Call the speaker directly","Walk into Mr. Billfold's office","Click on the webinar link to register online","Write Kenny an email"],"answer":2,"logic":"第一份文件寫：<code>Register now for the session... Link: www.Better-HR.com/webinar</code>","keyPoint":"Click on the webinar link to register online（C）","optionNotes":["✅ 答案 C：Click on the webinar link to register online","A 文章沒有說打給 George 報名。B 這是 webinar，不是現場報名。D Kenny 是後續聯絡人，不是主要報名方式。題目問 how，就找 Register now 附近，看到 Link，就知道是線上報名。"],"vocab":[["register","報名；註冊"]]},{"num":194,"type":"細節題・請求內容","star":false,"part6":false,"group":"191-195","sentence":"What is Paul Chang requesting?","translation":"Paul Chang 正在要求什麼？","options":["George Billfold's extension","The presentation PPT file","A registration form","The event agenda"],"answer":3,"logic":"Paul 在 Comments 中寫：<code>send me the agenda of this event please</code>","keyPoint":"The event agenda（D）","optionNotes":["✅ 答案 D：The event agenda","A 文章沒有要求分機。B 文章沒有提到 PPT。C Paul 已經在填報名表了，不是要求報名表。請求題要看 I'd like to、wonder if、could you 這些句型後面接什麼，Paul 要的是 agenda。"],"vocab":[["agenda","議程"]]},{"num":195,"type":"時間表題・完整參與推理","star":true,"part6":false,"group":"191-195","sentence":"What session might Paul Chang be able to listen to?","translation":"Paul Chang 可能能夠聽到哪一場？","options":["Creating a performance management system","Q/A discussion","Empowering employees","Creating performance improvement strategies"],"answer":0,"logic":"Paul 說 <code>I'll need to attend another meeting at 11:10</code>。議程：10:00–10:10 Opening；10:10–11:00 Creating a performance management system；11:00–11:40 Creating performance improvement strategies；11:40–11:50 Q/A discussion。他可以完整聽完哪一場？","keyPoint":"Creating a performance management system（A）— 10:10–11:00，11:10 前可完整聽完","optionNotes":["✅ 答案 A：Creating a performance management system","B 11:40–11:50，他已經離開。C 議程沒有這個 session。D 11:00–11:40，他 11:10 要去別的會議，無法完整聽完。時間表題一定要畫出人物限制時間：Paul 的限制是 11:10，所以找 11:10 前能完整結束的 session。","解題提示：有學生可能會問：他 11:00 到 11:10 不是也可以聽一點 Creating performance improvement strategies 嗎？可以，但題目問 might be able to listen to，考試通常要選他最可能完整聽到的場次。11:00–11:40 他不能完整聽完，所以最佳答案是 A。"],"vocab":[]},{"num":196,"type":"目的題","star":false,"part6":false,"group":"196-200","sentence":"What is the purpose of the first article?","translation":"第一篇文章的目的為何？","options":["To promote new products","To sell yoga books","To attract new yoga members","To recruit yoga teachers"],"answer":2,"logic":"第一篇文章介紹 yoga classes for all levels、beginner course、benefits of yoga、contact information，這是在做什麼？","keyPoint":"To attract new yoga members（C）","optionNotes":["✅ 答案 C：To attract new yoga members","A 文章沒有商品。B 文章沒有書籍。D 文章沒有職缺。目的題要看文章功能：它介紹課程、說適合誰、提供聯絡方式，所以是吸引人報名，不是賣書，也不是徵老師。"],"vocab":[["attract","吸引"]]},{"num":197,"type":"人物推論題","star":false,"part6":false,"group":"196-200","sentence":"Who is Kenny most likely?","translation":"Kenny 最可能是誰？","options":["A yoga teacher","A university student","An engineer","An office worker"],"answer":0,"logic":"原文：<code>Kenny will introduce you to the basic poses...</code>、<code>He will also introduce you to meditation and breathing practice...</code>。Kenny 會教基本姿勢、冥想、呼吸練習。","keyPoint":"A yoga teacher（A）","optionNotes":["✅ 答案 A：A yoga teacher","B、C、D 文章都沒有對應身分資訊。人物推論題要看他做什麼：Kenny 會教 pose、meditation、breathing practice，所以他最可能是 yoga teacher。"],"vocab":[["pose","姿勢；瑜伽體位"]]},{"num":198,"type":"細節題・現在完成式線索","star":false,"part6":false,"group":"196-200","sentence":"What is true about Jenny Jones?","translation":"關於 Jenny Jones，下列哪一項正確？","options":["She's Kenny's best friend.","She has been practicing yoga for a long time.","She would like to purchase the 10-class card.","She just starts to learn yoga."],"answer":3,"logic":"Jenny 說：<code>I've never practiced yoga before.</code> have never practiced = 從未練習過，表示她不是練很久的人，而是瑜伽初學者，現在正準備開始學。","keyPoint":"She just starts to learn yoga.（D）","optionNotes":["✅ 答案 D：She just starts to learn yoga.","A 文章沒有私人關係。B 和 I've never practiced yoga before 相反。C 她只詢問會員種類與價格，沒有說要買 10 Class Card。never 是強烈否定：I've never practiced yoga before 表示她完全沒經驗，所以 D 最接近。"],"vocab":[["have never practiced","從未練習過（現在完成式）"]]},{"num":199,"type":"推論題・表格資訊","star":false,"part6":false,"group":"196-200","sentence":"According to the table, what type of class would be most suitable for Jenny?","translation":"根據表格，哪一種課程最適合 Jenny？","options":["Private Session","30 Days","Gold Membership","Ashtanga Only Membership"],"answer":1,"logic":"Jenny 是完全初學者，而且是新客戶。表格中 30 Days 的說明是：<code>Introductory offer for new clients, experience 30 days of yoga.</code> introductory offer = 入門優惠，for new clients = 給新客戶。","keyPoint":"30 Days（B）","optionNotes":["✅ 答案 B：30 Days","A Private Session 也可能適合初學者，但表格沒有說它是給新客戶的入門方案，而且價格較高，不是最佳答案。C Gold Membership 是長期會員方案，適合已經知道自己會固定上課的人，Jenny 是剛開始，不是最佳。D 文章沒有說 Jenny 想學 Ashtanga。most suitable 問的是最適合，不是可不可以：Jenny 是新手，所以要找表格裡 for new clients 的方案。"],"vocab":[["suitable","適合的"]]},{"num":200,"type":"表格計算題","star":true,"part6":false,"group":"196-200","sentence":"If two friends want to take a private lesson together, how much do they have to pay per hour?","translation":"如果兩位朋友想一起上私人課，每小時需要付多少錢？","options":["$40","$15","$45","$35"],"answer":2,"logic":"表格中 Private Session：<code>$35/hour　Plus $10 per additional person</code>。第一位基本價格 $35，第二位是 additional person，加 $10。兩人一起上是多少？","keyPoint":"$35 + $10 = $45（C）","optionNotes":["✅ 答案 C：$45","A $40 不是加 $5。B $15 是 Drop In – Night 的價格，不是 private lesson。D $35 是一個人上私人課的價格，不是兩個人。","解題提示：這題不要把 $35 乘以 2。additional person 是額外多出來的人，不是每個人都重新算 $35。兩個人一起是基本價 $35 加第二個人的 $10，所以總共 $45。費用題最容易錯在計算規則，看到 plus $10 per additional person，要先想：誰是基本價？誰是額外的人？"],"vocab":[]}];
+
+let state = {}, totalAnswered = 0, totalCorrect = 0;
+
+const GROUP_ORDER = ["165-167","168-171","172-175","176-180","181-185","186-190","191-195","196-200"];
+const GROUP_LABELS = {"165-167":"Questions 165–167 · Restaurant Advertisement","168-171":"Questions 168–171 · Service Notice","172-175":"Questions 172–175 · Job Advertisement","176-180":"Questions 176–180 · VIP Club Documents","181-185":"Questions 181–185 · Business Emails","186-190":"Questions 186–190 · MBA Program Documents","191-195":"Questions 191–195 · Webinar Documents","196-200":"Questions 196–200 · Yoga Class Documents"};
+
+
+
+/* ── Unified browser-first audio controller (SpeechSynthesis, offline, Chrome-idle hardened) ── */
+(function () {
+  var synth = window.speechSynthesis || null;
+  var runId = 0;
+  var currentBtn = null;
+  var queue = [];
+  var qi = 0;
+  var watchdog = null;    // fires if a chunk never ends
+  var startGuard = null;  // fires if a chunk never starts (Chrome idle-drop)
+
+  function kick() { try { if (synth) synth.resume(); } catch (e) {} }
+  function warmVoices() { try { if (synth) synth.getVoices(); } catch (e) {} }
+  warmVoices();
+  if (synth && typeof synth.onvoiceschanged !== 'undefined') synth.onvoiceschanged = warmVoices;
+
+  // Keep-warm heartbeat: after ~30 min idle Chrome suspends its speech engine and
+  // silently drops the next speak(). A periodic resume() keeps it awake.
+  setInterval(function () {
+    try { if (synth && !synth.speaking && !synth.pending) synth.resume(); } catch (e) {}
+  }, 8000);
+
+  function decodeClean(raw) {
+    var box = document.createElement('div');
+    box.innerHTML = String(raw == null ? '' : raw);
+    var t = box.textContent || box.innerText || '';
+    return t.replace(/\[\s*\d+\s*\]/g, ' blank ')
+            .replace(/_{2,}/g, ' blank ')
+            .replace(/[✓✔]/g, ' correct ')
+            .replace(/\s+/g, ' ')
+            .trim();
+  }
+
+  function chunk(text, maxLen) {
+    maxLen = maxLen || 180;
+    if (!text) return [];
+    var units = text.match(/[^.!?;:]+[.!?;:]?/g) || [text];
+    var out = [], cur = '';
+    units.forEach(function (u) {
+      var s = u.trim();
+      if (!s) return;
+      if (s.length > maxLen) {
+        if (cur) { out.push(cur); cur = ''; }
+        var words = s.split(' '), line = '';
+        words.forEach(function (w) {
+          if ((line + ' ' + w).trim().length > maxLen) { if (line) out.push(line.trim()); line = w; }
+          else line = (line ? line + ' ' : '') + w;
+        });
+        if (line) out.push(line.trim());
+      } else if (!cur) { cur = s; }
+      else if ((cur + ' ' + s).length <= maxLen) { cur += ' ' + s; }
+      else { out.push(cur); cur = s; }
+    });
+    if (cur) out.push(cur);
+    return out;
+  }
+
+  function setLabel(btn, playing) {
+    if (!btn || !btn.classList) return;
+    if (btn.classList.contains('art-read-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹ 停止'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else if (btn.classList.contains('tts-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else {
+      if (playing) btn.classList.add('active'); else btn.classList.remove('active');
+    }
+  }
+
+  function clearTimers() {
+    if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+    if (startGuard) { clearTimeout(startGuard); startGuard = null; }
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.tts-btn.active, .art-read-btn.active, .option.active').forEach(function (b) { setLabel(b, false); });
+  }
+
+  function stop() {
+    runId += 1;
+    clearTimers();
+    if (synth) { try { synth.cancel(); } catch (e) {} }
+    setLabel(currentBtn, false);
+    resetAll();
+    currentBtn = null; queue = []; qi = 0;
+  }
+
+  function speakChunk(id, attempt) {
+    if (id !== runId) return;
+    if (!synth || qi >= queue.length) { setLabel(currentBtn, false); currentBtn = null; return; }
+    attempt = attempt || 0;
+    var text = queue[qi];
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.9; u.pitch = 1;
+    var started = false;
+    u.onstart = function () { started = true; if (startGuard) { clearTimeout(startGuard); startGuard = null; } };
+    u.onend = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    u.onerror = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    try { synth.cancel(); synth.resume(); synth.speak(u); synth.resume(); }
+    catch (e) { clearTimers(); qi += 1; speakChunk(id, 0); return; }
+    clearTimers();
+    // Idle-drop recovery: if playback never actually starts, un-stick and re-issue.
+    startGuard = setTimeout(function () {
+      if (id !== runId) return;
+      if (!started && !synth.speaking && !synth.pending) {
+        if (attempt < 3) { try { synth.cancel(); synth.resume(); } catch (e) {} speakChunk(id, attempt + 1); }
+        else { qi += 1; speakChunk(id, 0); }
+      }
+    }, 450);
+    // Stuck-after-start recovery.
+    watchdog = setTimeout(function () {
+      if (id !== runId) return;
+      try { synth.cancel(); } catch (e) {}
+      qi += 1; speakChunk(id, 0);
+    }, Math.max(8000, Math.min(28000, text.length * 130)));
+  }
+
+  function play(raw, btn) {
+    var clean = decodeClean(raw);
+    if (!clean) { stop(); return false; }
+    if (btn && btn === currentBtn) { stop(); return false; } // same button → toggle off
+    stop();
+    if (!synth) return false;
+    kick();                       // wake a suspended engine before the first speak
+    var id = ++runId;
+    currentBtn = btn || null;
+    setLabel(currentBtn, true);
+    queue = chunk(clean, 180); qi = 0;
+    speakChunk(id, 0);            // start synchronously inside the click gesture
+    return false;
+  }
+
+  window.addEventListener('pagehide', stop);
+  window.addEventListener('beforeunload', stop);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else kick(); });
+
+  // Public API — matches every existing onclick handler across the 7 lessons
+  window._ttsPlay    = function (text, btn, allowPause) { return play(text, btn || null); };
+  window.ttsSpeak    = function (btn, text) { return play(text, btn); };
+  window.ttsBtnClick = function (btn, text) { return play(text, btn); };
+  window._ttsStop    = stop;
+  window.TOEICAudio  = { play: play, stop: stop };
+})();
+/* ── end hybrid audio controller ── */
+
+function initQuestions() {
+  const area = document.getElementById('questionsArea');
+  const pg = document.getElementById('progressGrid');
+  area.innerHTML = '';
+  pg.innerHTML = '';
+
+  // Build progress dots
+  questions.forEach((q, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'p-dot';
+    dot.textContent = q.num;
+    dot.id = `dot-${idx}`;
+    dot.onclick = () => document.getElementById(`q-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pg.appendChild(dot);
+  });
+
+  // Build question groups
+  let prevGroup = null;
+  questions.forEach((q, idx) => {
+    if (q.group !== prevGroup) {
+      // Section header
+      const hdr = document.createElement('div');
+      hdr.className = 'section-header';
+      const isP7 = !q.part6;
+      hdr.innerHTML = `<span class="s-badge">${isP7 ? 'Part 7' : 'Part 6'}</span>${GROUP_LABELS[q.group] || q.group}`;
+      area.appendChild(hdr);
+
+      // Article box
+      const artData = ARTICLES[q.group];
+      if (artData) {
+        const artDiv = document.createElement('div');
+        artDiv.className = 'art-box';
+        const documentsHtml = artData.documents.map(doc => `<div class="article-document"><div class="article-document-label">${doc.label}</div><div class="article-document-content doc-${doc.kind}">${doc.html}</div></div>`).join('');
+        artDiv.innerHTML = `<div class="art-box-header"><span>📄 Reading Passage ${q.group}</span><button class="art-read-btn" onclick="ttsSpeak(this,ARTICLES['${q.group}'].speechHtml)" title="Read passage">🔊 Read Aloud</button></div>${documentsHtml}<div class="art-zh student-zh">${artData.zh}</div>`;
+        area.appendChild(artDiv);
+      }
+      prevGroup = q.group;
+    }
+
+    // Question card
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = `q-${idx}`;
+    card.style.marginBottom = '16px';
+
+    const optHtml = q.options.map((opt, i) => `
+      <div class="option" id="opt-${idx}-${i}" data-tts="${opt.replace(/"/g,'&quot;').replace(/'/g,'&apos;')}" onclick="_ttsPlay(this.dataset.tts,this,false);selectOption(${idx}, ${i})">
+        <span class="option-label">${String.fromCharCode(65+i)}</span>${opt}
+      </div>`).join('');
+
+    const noteHtml = q.optionNotes.map((n) => `<li style="margin-bottom:3px">${n}</li>`).join('');
+
+    const vocabHtml = q.vocab.map(([w,d]) => `<span class="vocab-word">${w}</span><span class="vocab-def">${d}</span>`).join('');
+
+    const dispSen = q.sentence.replace('______','<span style="background:var(--amber-lt);padding:0 8px;border-radius:4px;font-weight:700;color:#92400E">______</span>');
+
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">${q.num}</span>
+        <span class="q-type student-zh">${q.type}</span>
+        ${q.star ? '<span class="q-star">⭐ Key Question</span>' : ''}
+        ${q.part6 ? '<span class="q-p6">Part 6</span>' : ''}
+      </div>
+      <div class="q-sentence" style="display:flex;align-items:flex-start;gap:8px"><span style="flex:1">${dispSen}</span><button class="tts-btn" title="Listen" data-idx="${idx}" onclick="ttsBtnClick(this,questions[+this.dataset.idx].sentence)">🔊</button></div>
+      <div class="q-translation student-zh">${q.translation}</div>
+      <div class="options" id="opts-${idx}">${optHtml}</div>
+      <button class="reveal-btn" onclick="reveal(${idx})">查看解析</button>
+      <div class="explanation" id="exp-${idx}">
+        <div class="answer-badge">✅ 答案：${String.fromCharCode(65+q.answer)} — ${q.options[q.answer]}</div>
+        <div class="explain-block">
+          <h4>解題邏輯</h4>
+          <p>${q.logic}</p>
+          <div class="key-point" style="margin-top:10px"><strong>重點記憶：</strong> ${q.keyPoint}</div>
+        </div>
+        <div class="explain-block" style="border-color:var(--amber)">
+          <h4>選項說明</h4>
+          <ul style="list-style:none;display:grid;gap:5px">${noteHtml}</ul>
+        </div>
+        <div class="explain-block" style="border-color:var(--green)">
+          <h4>生詞整理</h4>
+          <div class="vocab-row">${vocabHtml}</div>
+        </div>
+      </div>`;
+    area.appendChild(card);
+  });
+}
+
+function selectOption(qIdx, optIdx) {
+  if (state[qIdx] !== undefined) return;
+  const q = questions[qIdx];
+  const correct = q.answer === optIdx;
+  state[qIdx] = { selected: optIdx, correct };
+  for (let i = 0; i < q.options.length; i++) {
+    const el = document.getElementById(`opt-${qIdx}-${i}`);
+    if (i === q.answer) el.classList.add('correct');
+    else if (i === optIdx && !correct) el.classList.add('wrong');
+  }
+  const dot = document.getElementById(`dot-${qIdx}`);
+  dot.classList.add(correct ? 'answered' : 'wrong');
+  totalAnswered++;
+  if (correct) totalCorrect++;
+  updateScore();
+  reveal(qIdx);
+}
+
+function reveal(idx) {
+  document.getElementById(`exp-${idx}`).classList.add('show');
+}
+
+function updateScore() {
+  const total = questions.length;
+  document.getElementById('scoreVal').textContent = `${totalAnswered} / ${total}`;
+  document.getElementById('barFill').style.width = `${(totalAnswered / total) * 100}%`;
+  document.getElementById('accuracyVal').textContent = totalAnswered > 0 ? `${Math.round((totalCorrect / totalAnswered) * 100)}%` : '—';
+}
+
+function resetAll() {
+  _ttsStop();
+  state = {}; totalAnswered = 0; totalCorrect = 0;
+  updateScore(); initQuestions();
+}
+
+initQuestions();
+</script>
+</body>
+</html>
