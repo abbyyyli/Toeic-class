@@ -787,337 +787,148 @@ const questions = [
 let state = {}, totalAnswered = 0, totalCorrect = 0;
 
 
-/* ── Hybrid audio controller: online MP3 first, simple browser TTS fallback ── */
+/* ── Unified browser-first audio controller (SpeechSynthesis, offline, Chrome-idle hardened) ── */
 (function () {
-  const synth = window.speechSynthesis || null;
-  const media = new Audio();
-  media.preload = 'auto';
+  var synth = window.speechSynthesis || null;
+  var runId = 0;
+  var currentBtn = null;
+  var queue = [];
+  var qi = 0;
+  var watchdog = null;    // fires if a chunk never ends
+  var startGuard = null;  // fires if a chunk never starts (Chrome idle-drop)
 
-  let requestId = 0;
-  let speechRunId = 0;
-  let currentButton = null;
-  let currentUtterance = null;
-  let queue = [];
-  let queueIndex = 0;
-  let state = 'idle'; // idle | loading | playing | paused
-  let backend = null; // audio | speech
-  let nextTimer = null;
-  let loadTimer = null;
+  function kick() { try { if (synth) synth.resume(); } catch (e) {} }
+  function warmVoices() { try { if (synth) synth.getVoices(); } catch (e) {} }
+  warmVoices();
+  if (synth && typeof synth.onvoiceschanged !== 'undefined') synth.onvoiceschanged = warmVoices;
 
-  function decodeAndClean(rawText) {
-    const box = document.createElement('div');
-    box.innerHTML = String(rawText == null ? '' : rawText);
-    return (box.textContent || box.innerText || '')
-      .replace(/\[\s*\d+\s*\]/g, ' blank ')
-      .replace(/_{2,}/g, ' blank ')
-      .replace(/[✓✔]/g, ' correct ')
-      .replace(/\s+/g, ' ')
-      .trim();
+  // Keep-warm heartbeat: after ~30 min idle Chrome suspends its speech engine and
+  // silently drops the next speak(). A periodic resume() keeps it awake.
+  setInterval(function () {
+    try { if (synth && !synth.speaking && !synth.pending) synth.resume(); } catch (e) {}
+  }, 8000);
+
+  function decodeClean(raw) {
+    var box = document.createElement('div');
+    box.innerHTML = String(raw == null ? '' : raw);
+    var t = box.textContent || box.innerText || '';
+    return t.replace(/\[\s*\d+\s*\]/g, ' blank ')
+            .replace(/_{2,}/g, ' blank ')
+            .replace(/[✓✔]/g, ' correct ')
+            .replace(/\s+/g, ' ')
+            .trim();
   }
 
-  function splitIntoChunks(text, maxLen) {
-    maxLen = maxLen || 165;
+  function chunk(text, maxLen) {
+    maxLen = maxLen || 180;
     if (!text) return [];
-    const units = text.match(/[^.!?;:]+[.!?;:]?|[^.!?;:]+$/g) || [text];
-    const result = [];
-    let current = '';
-    const flush = () => {
-      const value = current.trim();
-      if (value) result.push(value);
-      current = '';
-    };
-    units.forEach(unit => {
-      const sentence = unit.trim();
-      if (!sentence) return;
-      if (sentence.length <= maxLen) {
-        if (!current) current = sentence;
-        else if ((current + ' ' + sentence).length <= maxLen) current += ' ' + sentence;
-        else { flush(); current = sentence; }
-        return;
-      }
-      flush();
-      sentence.split(/\s+/).forEach(word => {
-        if (!current) current = word;
-        else if ((current + ' ' + word).length <= maxLen) current += ' ' + word;
-        else { flush(); current = word; }
-      });
-      flush();
+    var units = text.match(/[^.!?;:]+[.!?;:]?/g) || [text];
+    var out = [], cur = '';
+    units.forEach(function (u) {
+      var s = u.trim();
+      if (!s) return;
+      if (s.length > maxLen) {
+        if (cur) { out.push(cur); cur = ''; }
+        var words = s.split(' '), line = '';
+        words.forEach(function (w) {
+          if ((line + ' ' + w).trim().length > maxLen) { if (line) out.push(line.trim()); line = w; }
+          else line = (line ? line + ' ' : '') + w;
+        });
+        if (line) out.push(line.trim());
+      } else if (!cur) { cur = s; }
+      else if ((cur + ' ' + s).length <= maxLen) { cur += ' ' + s; }
+      else { out.push(cur); cur = s; }
     });
-    flush();
-    return result;
+    if (cur) out.push(cur);
+    return out;
   }
 
-  function isArticleButton(el) {
-    return !!el && el.tagName === 'BUTTON' && el.classList.contains('art-read-btn');
-  }
-
-  function isSmallSpeakButton(el) {
-    return !!el && el.tagName === 'BUTTON' && el.classList.contains('tts-btn');
-  }
-
-  function restoreButton(el) {
-    if (!el) return;
-    el.classList.remove('active', 'audio-active', 'audio-loading', 'audio-paused');
-    el.removeAttribute('aria-pressed');
-    if (el.dataset.audioOrig !== undefined) {
-      el.textContent = el.dataset.audioOrig;
-      delete el.dataset.audioOrig;
-    }
-  }
-
-  function setButtonState(nextState) {
-    const el = currentButton;
-    if (!el) return;
-    el.classList.add('audio-active');
-    el.classList.toggle('audio-loading', nextState === 'loading');
-    el.classList.toggle('audio-paused', nextState === 'paused');
-    el.classList.toggle('active', nextState !== 'idle');
-    el.setAttribute('aria-pressed', nextState === 'playing' ? 'true' : 'false');
-
-    if (isArticleButton(el) || isSmallSpeakButton(el)) {
-      if (el.dataset.audioOrig === undefined) el.dataset.audioOrig = el.textContent;
-      if (isArticleButton(el)) {
-        el.textContent = nextState === 'loading' ? '⌛ 載入中' : nextState === 'paused' ? '▶ 繼續' : '⏸ 暫停';
-      } else {
-        el.textContent = nextState === 'loading' ? '⌛' : nextState === 'paused' ? '▶' : '⏸';
-      }
+  function setLabel(btn, playing) {
+    if (!btn || !btn.classList) return;
+    if (btn.classList.contains('art-read-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹ 停止'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else if (btn.classList.contains('tts-btn')) {
+      if (playing) { if (btn.dataset.orig === undefined) btn.dataset.orig = btn.textContent; btn.textContent = '⏹'; btn.classList.add('active'); }
+      else { if (btn.dataset.orig !== undefined) { btn.textContent = btn.dataset.orig; delete btn.dataset.orig; } btn.classList.remove('active'); }
+    } else {
+      if (playing) btn.classList.add('active'); else btn.classList.remove('active');
     }
   }
 
   function clearTimers() {
-    if (nextTimer) { clearTimeout(nextTimer); nextTimer = null; }
-    if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+    if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+    if (startGuard) { clearTimeout(startGuard); startGuard = null; }
   }
 
-  function detachMedia() {
-    media.onended = null;
-    media.onerror = null;
-    media.onplaying = null;
-    media.onpause = null;
-    try { media.pause(); } catch (_) {}
-    try {
-      media.removeAttribute('src');
-      media.load();
-    } catch (_) {}
-  }
-
-  function cancelBrowserSpeech() {
-    speechRunId += 1;
-    currentUtterance = null;
-    if (!synth) return;
-    try { synth.cancel(); } catch (_) {}
+  function resetAll() {
+    document.querySelectorAll('.tts-btn.active, .art-read-btn.active, .option.active').forEach(function (b) { setLabel(b, false); });
   }
 
   function stop() {
-    requestId += 1;
+    runId += 1;
     clearTimers();
-    detachMedia();
-    cancelBrowserSpeech();
-    restoreButton(currentButton);
-    currentButton = null;
-    queue = [];
-    queueIndex = 0;
-    state = 'idle';
-    backend = null;
+    if (synth) { try { synth.cancel(); } catch (e) {} }
+    setLabel(currentBtn, false);
+    resetAll();
+    currentBtn = null; queue = []; qi = 0;
   }
 
-  function finish(id) {
-    if (id !== requestId) return;
+  function speakChunk(id, attempt) {
+    if (id !== runId) return;
+    if (!synth || qi >= queue.length) { setLabel(currentBtn, false); currentBtn = null; return; }
+    attempt = attempt || 0;
+    var text = queue[qi];
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.9; u.pitch = 1;
+    var started = false;
+    u.onstart = function () { started = true; if (startGuard) { clearTimeout(startGuard); startGuard = null; } };
+    u.onend = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    u.onerror = function () { if (id !== runId) return; clearTimers(); qi += 1; speakChunk(id, 0); };
+    try { synth.cancel(); synth.resume(); synth.speak(u); synth.resume(); }
+    catch (e) { clearTimers(); qi += 1; speakChunk(id, 0); return; }
     clearTimers();
-    detachMedia();
-    cancelBrowserSpeech();
-    restoreButton(currentButton);
-    currentButton = null;
-    queue = [];
-    queueIndex = 0;
-    state = 'idle';
-    backend = null;
-  }
-
-  function advance(id) {
-    if (id !== requestId) return;
-    queueIndex += 1;
-    if (queueIndex >= queue.length) {
-      finish(id);
-      return;
-    }
-    nextTimer = setTimeout(function () {
-      nextTimer = null;
-      if (id === requestId) playChunk(id);
-    }, 90);
-  }
-
-  function browserSpeak(id) {
-    if (id !== requestId) return;
-    if (!synth || typeof window.SpeechSynthesisUtterance === 'undefined') {
-      finish(id);
-      return;
-    }
-
-    backend = 'speech';
-    state = 'loading';
-    setButtonState('loading');
-    const run = ++speechRunId;
-    const utterance = new SpeechSynthesisUtterance(queue[queueIndex]);
-    currentUtterance = utterance;
-    utterance.lang = 'en-US';
-    utterance.rate = 0.85;
-    utterance.pitch = 1;
-    // Intentionally do not force a named voice. The browser chooses its stable default.
-    utterance.onstart = function () {
-      if (id !== requestId || run !== speechRunId) return;
-      state = 'playing';
-      setButtonState('playing');
-    };
-    utterance.onend = function () {
-      if (id !== requestId || run !== speechRunId) return;
-      currentUtterance = null;
-      advance(id);
-    };
-    utterance.onerror = function (event) {
-      if (id !== requestId || run !== speechRunId) return;
-      const code = event && event.error ? event.error : 'unknown';
-      if (code === 'canceled' || code === 'interrupted') return;
-      console.warn('Browser TTS error:', code);
-      finish(id);
-    };
-    try {
-      // Same direct cancel → speak pattern used by the stable Thai notes.
-      synth.cancel();
-      synth.speak(utterance);
-      state = 'playing';
-      setButtonState('playing');
-    } catch (error) {
-      console.warn('Browser TTS failed:', error);
-      finish(id);
-    }
-  }
-
-  function onlineUrl(text) {
-    return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + encodeURIComponent(text);
-  }
-
-  function onlineSpeak(id) {
-    if (id !== requestId) return;
-    backend = 'audio';
-    state = 'loading';
-    setButtonState('loading');
-
-    let fellBack = false;
-    const fallback = function () {
-      if (fellBack || id !== requestId) return;
-      fellBack = true;
-      if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
-      detachMedia();
-      browserSpeak(id);
-    };
-
-    media.onplaying = function () {
-      if (id !== requestId || fellBack) return;
-      if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
-      state = 'playing';
-      setButtonState('playing');
-    };
-    media.onended = function () {
-      if (id !== requestId || fellBack) return;
-      advance(id);
-    };
-    media.onerror = fallback;
-
-    try {
-      media.src = onlineUrl(queue[queueIndex]);
-      media.currentTime = 0;
-      // Calling play() inside the original click task is more reliable than waiting for canplaythrough.
-      const playPromise = media.play();
-      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(fallback);
-      loadTimer = setTimeout(fallback, 5000);
-    } catch (error) {
-      fallback();
-    }
-  }
-
-  function playChunk(id) {
-    if (id !== requestId) return;
-    if (queueIndex >= queue.length) {
-      finish(id);
-      return;
-    }
-    onlineSpeak(id);
-  }
-
-  function toggleSameSource() {
-    if (state === 'loading') {
-      stop();
-      return true;
-    }
-    if (backend === 'audio') {
-      if (state === 'playing') {
-        try { media.pause(); } catch (_) {}
-        state = 'paused';
-        setButtonState('paused');
-        return true;
+    // Idle-drop recovery: if playback never actually starts, un-stick and re-issue.
+    startGuard = setTimeout(function () {
+      if (id !== runId) return;
+      if (!started && !synth.speaking && !synth.pending) {
+        if (attempt < 3) { try { synth.cancel(); synth.resume(); } catch (e) {} speakChunk(id, attempt + 1); }
+        else { qi += 1; speakChunk(id, 0); }
       }
-      if (state === 'paused') {
-        const promise = media.play();
-        if (promise && typeof promise.then === 'function') {
-          promise.then(function () {
-            state = 'playing';
-            setButtonState('playing');
-          }).catch(function () {
-            browserSpeak(requestId);
-          });
-        }
-        return true;
-      }
-    }
-    if (backend === 'speech') {
-      if (state === 'playing') {
-        // Native pause/resume is unreliable. Cancel and remember the current chunk instead.
-        cancelBrowserSpeech();
-        state = 'paused';
-        setButtonState('paused');
-        return true;
-      }
-      if (state === 'paused') {
-        browserSpeak(requestId); // Restarts only the current short chunk.
-        return true;
-      }
-    }
-    return false;
+    }, 450);
+    // Stuck-after-start recovery.
+    watchdog = setTimeout(function () {
+      if (id !== runId) return;
+      try { synth.cancel(); } catch (e) {}
+      qi += 1; speakChunk(id, 0);
+    }, Math.max(8000, Math.min(28000, text.length * 130)));
   }
 
-  function play(rawText, sourceButton) {
-    const clean = decodeAndClean(rawText);
-    if (!clean) {
-      stop();
-      return false;
-    }
-
-    if (sourceButton && sourceButton === currentButton && toggleSameSource()) return false;
-
+  function play(raw, btn) {
+    var clean = decodeClean(raw);
+    if (!clean) { stop(); return false; }
+    if (btn && btn === currentBtn) { stop(); return false; } // same button → toggle off
     stop();
-    const id = ++requestId;
-    currentButton = sourceButton || null;
-    queue = splitIntoChunks(clean, 165);
-    queueIndex = 0;
-    state = 'loading';
-    setButtonState('loading');
-    // Start immediately from the click handler; do not defer with setTimeout.
-    playChunk(id);
+    if (!synth) return false;
+    kick();                       // wake a suspended engine before the first speak
+    var id = ++runId;
+    currentBtn = btn || null;
+    setLabel(currentBtn, true);
+    queue = chunk(clean, 180); qi = 0;
+    speakChunk(id, 0);            // start synchronously inside the click gesture
     return false;
   }
 
   window.addEventListener('pagehide', stop);
   window.addEventListener('beforeunload', stop);
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) stop();
-  });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else kick(); });
 
-  window.TOEICAudio = { play: play, stop: stop, getState: function () { return state; } };
-  window._ttsStop = stop;
-  window._ttsPlay = function (text, btn) { return play(text, btn || null); };
+  // Public API — matches every existing onclick handler across the 7 lessons
+  window._ttsPlay    = function (text, btn, allowPause) { return play(text, btn || null); };
+  window.ttsSpeak    = function (btn, text) { return play(text, btn); };
   window.ttsBtnClick = function (btn, text) { return play(text, btn); };
-  window.ttsSpeak = function (btn, text) { return play(text, btn); };
+  window._ttsStop    = stop;
+  window.TOEICAudio  = { play: play, stop: stop };
 })();
 /* ── end hybrid audio controller ── */
 
